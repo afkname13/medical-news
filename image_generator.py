@@ -47,6 +47,14 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%);
                 z-index: 2;
             }
+            .color-overlay {
+                position: absolute;
+                top: 0; left: 0; width: 1080px; height: 1350px;
+                background: {overlay_gradient};
+                z-index: 3;
+                mix-blend-mode: overlay;
+                opacity: 0.5;
+            }
             
             /* Logo */
             .logo {
@@ -119,7 +127,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .slide-header.purple { color: #C39BD3; }
             
             .slide-body {
-                font-size: 38px;
+                font-size: 32px;
                 font-weight: 400;
                 color: #FFFFFF;
                 line-height: {body_line_height};
@@ -164,13 +172,13 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 width: max-content;
             }
 
-            .blue-glow {
+            .glow-layer {
                 position: absolute;
                 top: 50%; left: 50%;
                 transform: translate(-50%, -50%);
                 width: 1200px; height: 1200px;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(93, 173, 226, 0.2) 0%, rgba(93, 173, 226, 0) 70%);
+                background: {glow_gradient};
                 z-index: 10; /* Above background, below cards */
                 pointer-events: none;
             }
@@ -182,6 +190,18 @@ def generate_html(slides_data, bg_image_url, base_dir):
     </html>
     """
     
+    # Theme color mapping
+    theme = slides_data.get('theme_color', 'blue').lower()
+    themes = {
+        'blue': {'glow': 'rgba(93, 173, 226, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(41, 128, 185, 0.4) 0%, rgba(41, 128, 185, 0) 100%)'},
+        'purple': {'glow': 'rgba(155, 89, 182, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(142, 68, 173, 0.4) 0%, rgba(142, 68, 173, 0) 100%)'},
+        'green': {'glow': 'rgba(46, 204, 113, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(39, 174, 96, 0.4) 0%, rgba(39, 174, 96, 0) 100%)'},
+        'red': {'glow': 'rgba(231, 76, 60, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(192, 57, 43, 0.4) 0%, rgba(192, 57, 43, 0) 100%)'}
+    }
+    selected_theme = themes.get(theme, themes['blue'])
+    glow_gradient = f"radial-gradient(circle, {selected_theme['glow']} 0%, rgba(0,0,0,0) 70%)"
+    overlay_gradient = selected_theme['overlay']
+
     # Calculate title font size based on length
     title = slides_data.get('cover', 'MEDICAL BREAKTHROUGH')
     t_len = len(title)
@@ -192,7 +212,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     else:
         t_size = 80
         
-    line_height = "56px"
+    line_height = "48px"
     
     # Pre-check if logo.jpg exists in base_dir
     logo_file = os.path.join(base_dir, 'logo.jpg')
@@ -215,6 +235,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     cover_body = f"""
     <div class="bg-layer"></div>
     <div class="overlay"></div>
+    <div class="color-overlay"></div>
     {logo_html}
     <div class="cover-container">
         <h1 class="cover-title" style="font-size: {t_size}px;">{title}</h1>
@@ -222,7 +243,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     </div>
     """
     
-    html = html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cover_body).replace('{body_line_height}', line_height)
+    html = html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cover_body).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{overlay_gradient}', overlay_gradient)
     slides_html.append(html)
     
     # Helper for content slides
@@ -230,7 +251,8 @@ def generate_html(slides_data, bg_image_url, base_dir):
         content = f"""
         <div class="bg-layer blurred"></div>
         <div class="overlay"></div>
-        <div class="blue-glow"></div>
+        <div class="color-overlay"></div>
+        <div class="glow-layer"></div>
         {logo_html}
         <div class="card">
             <div class="slide-header {color}">{stitle}</div>
@@ -238,7 +260,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
             <div class="slide-fraction">{fraction}</div>
         </div>
         """
-        return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height)
+        return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{overlay_gradient}', overlay_gradient)
         
     # 2. Slide 1 (Blue)
     s1_title, s1_body = parse_slide_content(slides_data.get('slide_1', ''))
@@ -256,7 +278,8 @@ def generate_html(slides_data, bg_image_url, base_dir):
     cta_content = f"""
     <div class="bg-layer blurred"></div>
     <div class="overlay"></div>
-    <div class="blue-glow"></div>
+    <div class="color-overlay"></div>
+    <div class="glow-layer"></div>
     {logo_html}
     <div class="card" style="justify-content: center; padding: 120px;">
         <div class="cta-title">The Future of<br>Medical News.</div>
@@ -264,7 +287,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
         <div class="cta-button">Follow for more</div>
     </div>
     """
-    slides_html.append(html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cta_content).replace('{body_line_height}', line_height))
+    slides_html.append(html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cta_content).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{overlay_gradient}', overlay_gradient))
     
     return slides_html
 

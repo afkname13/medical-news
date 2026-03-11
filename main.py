@@ -109,6 +109,9 @@ def run_pipeline():
     slides_data = generate_carousel_content(article)
     caption = slides_data.pop('caption', article['title'] + ' #medicalnews')
     
+    # Safety: Strip HTML tags from caption (e.g. <b>)
+    caption = caption.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")
+    
     # Safety truncation for Instagram (2200 char limit)
     if len(caption) > 2100:
         print(f"Warning: Caption too long ({len(caption)} chars). Truncating to 2100...")
@@ -126,6 +129,7 @@ def run_pipeline():
     media_dir = os.path.join(base, "media")
     os.makedirs(media_dir, exist_ok=True)
     
+    # Pass slides_data (which now contains theme_color)
     image_paths = generate_carousel_images(slides_data, bg_path, media_dir)
     if not image_paths:
         print("Failed to generate images.")

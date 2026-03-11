@@ -27,11 +27,14 @@ def generate_carousel_content(article):
     4. Each content slide MUST have a context-specific CATCHY TITLE using the format 'CATCHY TITLE: Body text'.
     5. CAPTION MUST BE BETWEEN 1800 AND 2100 CHARACTERS:
        - Start with a viral, hooking title.
-       - Provide a comprehensive, easy-to-read summary of the research (4-5 solid paragraphs).
+       - Provide a comprehensive, easy-to-read summary (4-5 paragraphs, approx 1100-1300 characters).
+       - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
        - Include a section '🔬 RESEARCH CITATION:' followed by the full title and date.
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
-       - Include a massive block of viral, relevant hashtags (30+ hashtags) for maximum reach.
+       - Include a massive block of viral, relevant hashtags (40+ hashtags) for maximum reach.
        - IMPORTANT: Do NOT exceed 2100 characters in total for the caption.
+    
+    6. THEME COLOR: Choose an aesthetic 'theme_color' based on the topic: 'blue', 'purple', 'green', or 'red'.
     
     Respond STRICTLY in JSON format matching this schema:
     {{
@@ -39,7 +42,8 @@ def generate_carousel_content(article):
       "slide_1": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_2": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_3": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
-      "caption": "1800-2100 char elite summary + research citation + CTA + mega hashtag block"
+      "caption": "1200 char elite summary + research citation + CTA + mega hashtag block",
+      "theme_color": "blue | purple | green | red"
     }}
     """
     
@@ -68,7 +72,8 @@ def mock_content(article):
         "slide_1": f"JUST DISCOVERED: Scientists discovered something mind-blowing related to: {article.get('title', '')[:30]}.",
         "slide_2": "WHY THIS MATTERS: This shocking new finding could change lives and help millions of people in the future.",
         "slide_3": "THE FUTURE CURE: Stay tuned for more updates on this amazing discovery that left scientists stunned.",
-        "caption": f"Amazing new discovery in the medical field: {article.get('title', '')}. What are your thoughts? Drop a comment below! #medical #science #discovery"
+        "caption": f"Amazing new discovery in the medical field: {article.get('title', '')}. What are your thoughts? Drop a comment below! #medical #science #discovery",
+        "theme_color": "blue"
     }
 
 if __name__ == "__main__":
