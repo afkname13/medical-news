@@ -59,7 +59,8 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 background-image: url('logo.jpg');
                 background-size: cover;
                 background-position: center;
-                z-index: 10;
+                z-index: 100; /* TOP LAYER */
+                background-color: #58D68D;
             }
             
             /* Cover Slide Content */
@@ -95,11 +96,11 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 transform: translate(-50%, -50%);
                 width: 920px;
                 height: 1050px;
-                background-color: rgba(10, 12, 18, 0.7); /* 180 alpha = 70% */
+                background-color: rgba(10, 12, 18, 0.85); /* Slightly darker obsidian */
                 border: 2px solid rgba(255, 255, 255, 0.15);
                 border-radius: 40px;
                 padding: 100px 80px;
-                z-index: 10;
+                z-index: 20; /* Above glow, below logo */
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -165,7 +166,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 width: 1200px; height: 1200px;
                 border-radius: 50%;
                 background: radial-gradient(circle, rgba(93, 173, 226, 0.2) 0%, rgba(93, 173, 226, 0) 70%);
-                z-index: 5;
+                z-index: 10; /* Above background, below cards */
                 pointer-events: none;
             }
         </style>

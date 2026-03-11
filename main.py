@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import urllib.parse
 from dotenv import load_dotenv
 
 from fetcher import get_top_article
@@ -23,15 +24,19 @@ def save_posted(data):
     with open(POSTED_FILE, 'w') as f:
         json.dump(data, f, indent=2)
 
-def get_unsplash_bg():
+def get_unsplash_bg(topic_title):
     access_key = os.getenv("UNSPLASH_ACCESS_KEY")
-    query = "microscope cell abstract" # Highly relevant medical/viral abstract backgrounds
+    
+    # Refine the search query to be highly specific to the topic
+    # We strip common stop words and focus on medical/scientific keywords
+    search_keywords = topic_title.replace(":", "").replace("-", " ").split()[:5]
+    query = " ".join(search_keywords) + " medical abstract"
     
     if not access_key:
         print("Warning: UNSPLASH_ACCESS_KEY not found. Using static placeholder.")
         return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/cover.png")
         
-    url = f"https://api.unsplash.com/photos/random?query={query}&orientation=portrait&client_id={access_key}"
+    url = f"https://api.unsplash.com/photos/random?query={urllib.parse.quote(query)}&orientation=portrait&client_id={access_key}"
     try:
         res = requests.get(url, timeout=10)
         res.raise_for_status()
@@ -39,7 +44,8 @@ def get_unsplash_bg():
         img_url = data['urls']['regular']
         return download_image(img_url, "media/bg.jpg")
     except Exception as e:
-        print(f"Unsplash error: {e}")
+        print(f"Unsplash error for query '{query}': {e}")
+        # Fallback to a safe medical abstract search if specific search fails
         return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/cover.png")
 
 def download_image(url, path):
@@ -73,7 +79,7 @@ def run_pipeline():
     
     # 2. Get Background
     print("Fetching background from Unsplash...")
-    bg_path = get_unsplash_bg()
+    bg_path = get_unsplash_bg(article['title'])
     
     # 3. Generate Images
     print("Generating pixel-perfect carousel images...")

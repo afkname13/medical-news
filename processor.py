@@ -18,14 +18,26 @@ def generate_carousel_content(article):
     Article Title: {article.get('title', '')}
     Article Publish Date: {article.get('publish_date', '')}
     Article Abstract: {article.get('abstract', '')}
+    Source URL: {article.get('url', 'PubMed')}
+
+    STRICT RULES:
+    1. AVOID using these characters in ANY of the output text: semicolon (;), asterisk (*), and long dashes (—). Use commas, periods, or simple hyphens instead.
+    2. CONTENT SLIDES (Slide 1-3) MUST BE 50-80 WORDS EACH. This is critical. Expand on the "why" and "how".
+    3. Each content slide MUST have a context-specific CATCHY TITLE using the format 'CATCHY TITLE: Body text'.
+    4. CAPTION MUST BE LONG (Target ~1800 characters):
+       - Start with a viral, hooking title.
+       - Provide a comprehensive, easy-to-read summary of the research (4-5 paragraphs).
+       - Include a section '🔬 RESEARCH CITATION:' followed by the full title and date.
+       - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
+       - Include a massive block of viral, relevant hashtags (20+ hashtags) for maximum reach.
     
-    Respond STRICTLY in JSON format matching this schema. Each content slide MUST have an actual specific title based on the data, not just 'JUST DISCOVERED' or 'TITLE':
+    Respond STRICTLY in JSON format matching this schema:
     {{
       "cover": "Short, punchy, viral title (under 50 chars). E.g. 'CELL\\'S SECRET ENGINE UNLOCKED!'",
-      "slide_1": "CATCHY TITLE: Engaging 10th-grade explanation (Max 30 words). E.g. 'THE TINY FACTORY: Scientists found a whole new metabolic cycle running inside...'",
-      "slide_2": "CATCHY TITLE: Engaging 10th-grade explanation (Max 30 words). E.g. 'DNA REPAIR SQUAD: These specialized enzymes act like a rapid response team...'",
-      "slide_3": "CATCHY TITLE: Engaging 10th-grade explanation (Max 30 words). E.g. 'STOPPING CANCER: Understanding these fingerprints could lead to new ways...'",
-      "caption": "An engaging Instagram caption asking a question to drive comments, with max 3 hashtags based on the zero-hashtag policy."
+      "slide_1": "CATCHY TITLE: Detailed 50-80 word explanation...",
+      "slide_2": "CATCHY TITLE: Detailed 50-80 word explanation...",
+      "slide_3": "CATCHY TITLE: Detailed 50-80 word explanation...",
+      "caption": "1800 char detailed summary + citation + CTA + mega hashtags"
     }}
     """
     
