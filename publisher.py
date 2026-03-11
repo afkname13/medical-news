@@ -19,10 +19,11 @@ def publish_carousel(image_paths, caption):
     time.sleep(jitter)
     
     try:
-        print("Logging into Instagram...")
+        print(f"Logging into Instagram as {username}...")
         cl.login(username, password)
         
-        print("Uploading carousel to Instagram...")
+        print(f"Uploading carousel to Instagram (Caption Length: {len(caption)} chars)...")
+        print(f"Caption Snippet: {caption[:100]}...")
         media = cl.album_upload(
             paths=image_paths,
             caption=caption

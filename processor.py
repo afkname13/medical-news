@@ -25,12 +25,13 @@ def generate_carousel_content(article):
     2. CONTENT SLIDES (Slide 1-3) MUST BE 60-80 WORDS EACH. This is critical for depth. Expand on the "why" and "how".
     3. IMPORTANT: Use <b>bold tags</b> around key medical terms or mind-blowing findings within the slide body (e.g., 'Scientists found <b>hundreds of metabolic enzymes</b>...').
     4. Each content slide MUST have a context-specific CATCHY TITLE using the format 'CATCHY TITLE: Body text'.
-    5. CAPTION MUST BE EXTREMELY LONG (Target ~1800-2000 characters):
+    5. CAPTION MUST BE BETWEEN 1800 AND 2100 CHARACTERS:
        - Start with a viral, hooking title.
-       - Provide a comprehensive, easy-to-read summary of the research (5-6 solid paragraphs).
+       - Provide a comprehensive, easy-to-read summary of the research (4-5 solid paragraphs).
        - Include a section '🔬 RESEARCH CITATION:' followed by the full title and date.
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
        - Include a massive block of viral, relevant hashtags (30+ hashtags) for maximum reach.
+       - IMPORTANT: Do NOT exceed 2100 characters in total for the caption.
     
     Respond STRICTLY in JSON format matching this schema:
     {{
@@ -38,7 +39,7 @@ def generate_carousel_content(article):
       "slide_1": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_2": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_3": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
-      "caption": "2000 char elite summary + research citation + CTA + mega hashtag block"
+      "caption": "1800-2100 char elite summary + research citation + CTA + mega hashtag block"
     }}
     """
     

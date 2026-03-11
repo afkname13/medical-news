@@ -99,7 +99,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 background-color: rgba(10, 12, 18, 0.85); /* Slightly darker obsidian */
                 border: 2px solid rgba(255, 255, 255, 0.15);
                 border-radius: 40px;
-                padding: 100px 80px;
+                padding: 100px 80px 80px 80px;
                 z-index: 20; /* Above glow, below logo */
                 display: flex;
                 flex-direction: column;
@@ -111,7 +111,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 font-size: 44px;
                 font-weight: 800;
                 text-transform: uppercase;
-                margin: 0 0 60px 0;
+                margin: 0 0 25px 0;
                 line-height: 1.3;
             }
             .slide-header.blue { color: #5DADE2; }
@@ -136,7 +136,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 font-size: 30px;
                 color: #8B949E;
                 font-weight: 600;
-                margin-top: auto;
+                margin-top: 40px;
             }
             
             /* CTA Slide */

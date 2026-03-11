@@ -109,6 +109,13 @@ def run_pipeline():
     slides_data = generate_carousel_content(article)
     caption = slides_data.pop('caption', article['title'] + ' #medicalnews')
     
+    # Safety truncation for Instagram (2200 char limit)
+    if len(caption) > 2100:
+        print(f"Warning: Caption too long ({len(caption)} chars). Truncating to 2100...")
+        caption = caption[:2100] + "..."
+        
+    print(f"Caption extracted (Length: {len(caption)} chars)")
+    
     # 2. Get Background
     print("Fetching background from Unsplash...")
     bg_path = get_unsplash_bg(article['title'])
