@@ -73,7 +73,9 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .cover-title {
                 color: #FFFFFF;
                 font-weight: 800;
-                word-wrap: break-word;
+                word-wrap: normal;
+                word-break: keep-all;
+                overflow-wrap: normal;
                 text-transform: uppercase;
                 line-height: 1.15;
                 margin: 0 0 80px 0;
@@ -191,7 +193,13 @@ def generate_html(slides_data, bg_image_url, base_dir):
     if os.path.exists(logo_file):
         logo_url = f"file://{logo_file}"
     else:
-        logo_url = logo_path
+        # Check adjacent to this script too
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        adj_logo = os.path.join(script_dir, 'logo.jpg')
+        if os.path.exists(adj_logo):
+            logo_url = f"file://{adj_logo}"
+        else:
+            logo_url = logo_path
         
     logo_html = f"""<div class="logo" style="background-image: url('{logo_url}');"></div>"""
 
@@ -215,6 +223,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     def make_content_slide(stitle, sbody, fraction, color):
         content = f"""
         <div class="bg-layer blurred"></div>
+        <div class="overlay"></div>
         <div class="blue-glow"></div>
         {logo_html}
         <div class="card">
@@ -240,6 +249,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     # 5. CTA Slide
     cta_content = f"""
     <div class="bg-layer blurred"></div>
+    <div class="overlay"></div>
     <div class="blue-glow"></div>
     {logo_html}
     <div class="card" style="justify-content: center; padding: 120px;">

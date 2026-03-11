@@ -19,12 +19,12 @@ def generate_carousel_content(article):
     Article Publish Date: {article.get('publish_date', '')}
     Article Abstract: {article.get('abstract', '')}
     
-    Respond STRICTLY in JSON format matching this schema:
+    Respond STRICTLY in JSON format matching this schema. Each content slide MUST have an actual specific title based on the data, not just 'JUST DISCOVERED' or 'TITLE':
     {{
-      "cover": "Short, punchy, highly viral title (under 50 chars). E.g. 'CELL\\'S SECRET ENGINE UNLOCKED'",
-      "slide_1": "TITLE: Body. Example -> 'JUST DISCOVERED: Scientists found a whole new factory running inside...'",
-      "slide_2": "TITLE: Body. Example -> 'HOW YOUR DNA GETS REPAIRED: These enzymes quickly gather...'",
-      "slide_3": "TITLE: Body. Example -> 'THE FUTURE OF CANCER FIGHTING: This reveals an unexpected connection...'",
+      "cover": "Short, punchy, viral title (under 50 chars). E.g. 'CELL\\'S SECRET ENGINE UNLOCKED!'",
+      "slide_1": "CATCHY TITLE: Engaging 10th-grade explanation (Max 30 words). E.g. 'THE TINY FACTORY: Scientists found a whole new metabolic cycle running inside...'",
+      "slide_2": "CATCHY TITLE: Engaging 10th-grade explanation (Max 30 words). E.g. 'DNA REPAIR SQUAD: These specialized enzymes act like a rapid response team...'",
+      "slide_3": "CATCHY TITLE: Engaging 10th-grade explanation (Max 30 words). E.g. 'STOPPING CANCER: Understanding these fingerprints could lead to new ways...'",
       "caption": "An engaging Instagram caption asking a question to drive comments, with max 3 hashtags based on the zero-hashtag policy."
     }}
     """
