@@ -49,16 +49,33 @@ def cleanup_old_media(media_dir, days=3):
             except Exception as e:
                 print(f"Cleanup error: {e}")
 
+def get_pollinations_bg(topic_title, abstract):
+    """Generates a highly specific medical/scientific image using Pollinations.ai."""
+    print(f"Generating specific AI image for: {topic_title}")
+    
+    # Construct a highly detailed, neutral scientific prompt
+    prompt_base = f"Professional medical scientific photography, highly detailed, neutral background, {topic_title}, {abstract[:100]}"
+    clean_prompt = urllib.parse.quote(prompt_base)
+    
+    # Pollinations.ai simple GET-based image generation
+    img_url = f"https://pollinations.ai/p/{clean_prompt}?width=1080&height=1350&model=flux&seed={int(time.time())}"
+    
+    try:
+        # We try to download it. If it fails, we'll fallback.
+        path = download_image(img_url, "media/bg.jpg")
+        if os.path.exists(path) and os.path.getsize(path) > 1000:
+            return path
+    except Exception as e:
+        print(f"Pollinations error: {e}")
+        
+    return None
+
 def get_unsplash_bg(topic_title):
     access_key = os.getenv("UNSPLASH_ACCESS_KEY")
-    
-    # Refine the search query to be highly specific to the topic
-    # We strip common stop words and focus on medical/scientific keywords
     search_keywords = topic_title.replace(":", "").replace("-", " ").split()[:5]
     query = " ".join(search_keywords) + " medical abstract"
     
     if not access_key:
-        print("Warning: UNSPLASH_ACCESS_KEY not found. Using static placeholder.")
         return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/cover.png")
         
     url = f"https://api.unsplash.com/photos/random?query={urllib.parse.quote(query)}&orientation=portrait&client_id={access_key}"
@@ -69,8 +86,7 @@ def get_unsplash_bg(topic_title):
         img_url = data['urls']['regular']
         return download_image(img_url, "media/bg.jpg")
     except Exception as e:
-        print(f"Unsplash error for query '{query}': {e}")
-        # Fallback to a safe medical abstract search if specific search fails
+        print(f"Unsplash fallback error: {e}")
         return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/cover.png")
 
 def download_image(url, path):
@@ -107,8 +123,14 @@ def run_pipeline():
     # 1. Summarize
     print("Generating AI content...")
     slides_data = generate_carousel_content(article)
-    caption = slides_data.pop('caption', article['title'] + ' #medicalnews')
     
+    # Robust caption extraction: Ensure we always have a caption
+    caption = slides_data.get('caption', "")
+    if not caption or len(caption) < 100:
+        print("AI caption missing or too short. Generating fallback caption...")
+        research_link = article.get('url', 'PubMed')
+        caption = f"🚨 {article['title']} 🚨\n\nNew research breakthrough! Scientists have discovered significant findings related to this topic. Swipe left to see the breakdown!\n\n🔬 RESEARCH SOURCE: {article['title']} ({article['publish_date']}) - {research_link}\n\nHit FOLLOW @medicalnews_daily for daily medical breakthroughs! 🏥🚀\n\n#medicalnews #science #health #discovery #research"
+
     # Safety: Strip HTML tags from caption (e.g. <b>)
     caption = caption.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")
     
@@ -119,9 +141,12 @@ def run_pipeline():
         
     print(f"Caption extracted (Length: {len(caption)} chars)")
     
-    # 2. Get Background
-    print("Fetching background from Unsplash...")
-    bg_path = get_unsplash_bg(article['title'])
+    # 2. Get Background (AI First, Unsplash Fallback)
+    print("Fetching/Generating background...")
+    bg_path = get_pollinations_bg(article['title'], article.get('abstract', ''))
+    if not bg_path:
+        print("Pollinations failed. Falling back to Unsplash...")
+        bg_path = get_unsplash_bg(article['title'])
     
     # 3. Generate Images
     print("Generating pixel-perfect carousel images...")

@@ -50,10 +50,9 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .color-overlay {
                 position: absolute;
                 top: 0; left: 0; width: 1080px; height: 1350px;
-                background: {overlay_gradient};
+                background-color: {theme_color};
                 z-index: 3;
-                mix-blend-mode: overlay;
-                opacity: 0.5;
+                opacity: 0.15;
             }
             
             /* Logo */
@@ -127,7 +126,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .slide-header.purple { color: #C39BD3; }
             
             .slide-body {
-                font-size: 32px;
+                font-size: 28px;
                 font-weight: 400;
                 color: #FFFFFF;
                 line-height: {body_line_height};
@@ -190,17 +189,17 @@ def generate_html(slides_data, bg_image_url, base_dir):
     </html>
     """
     
-    # Theme color mapping
+    # Theme color mapping (Uniform solid tints)
     theme = slides_data.get('theme_color', 'blue').lower()
     themes = {
-        'blue': {'glow': 'rgba(93, 173, 226, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(41, 128, 185, 0.4) 0%, rgba(41, 128, 185, 0) 100%)'},
-        'purple': {'glow': 'rgba(155, 89, 182, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(142, 68, 173, 0.4) 0%, rgba(142, 68, 173, 0) 100%)'},
-        'green': {'glow': 'rgba(46, 204, 113, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(39, 174, 96, 0.4) 0%, rgba(39, 174, 96, 0) 100%)'},
-        'red': {'glow': 'rgba(231, 76, 60, 0.3)', 'overlay': 'linear-gradient(135deg, rgba(192, 57, 43, 0.4) 0%, rgba(192, 57, 43, 0) 100%)'}
+        'blue': {'glow': 'rgba(93, 173, 226, 0.3)', 'color': '#2980b9'},
+        'purple': {'glow': 'rgba(155, 89, 182, 0.3)', 'color': '#8e44ad'},
+        'green': {'glow': 'rgba(46, 204, 113, 0.3)', 'color': '#27ae60'},
+        'red': {'glow': 'rgba(231, 76, 60, 0.3)', 'color': '#c0392b'}
     }
     selected_theme = themes.get(theme, themes['blue'])
     glow_gradient = f"radial-gradient(circle, {selected_theme['glow']} 0%, rgba(0,0,0,0) 70%)"
-    overlay_gradient = selected_theme['overlay']
+    theme_color = selected_theme['color']
 
     # Calculate title font size based on length
     title = slides_data.get('cover', 'MEDICAL BREAKTHROUGH')
@@ -243,7 +242,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     </div>
     """
     
-    html = html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cover_body).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{overlay_gradient}', overlay_gradient)
+    html = html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cover_body).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{theme_color}', theme_color)
     slides_html.append(html)
     
     # Helper for content slides
@@ -260,17 +259,15 @@ def generate_html(slides_data, bg_image_url, base_dir):
             <div class="slide-fraction">{fraction}</div>
         </div>
         """
-        return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{overlay_gradient}', overlay_gradient)
+        return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{theme_color}', theme_color)
         
-    # 2. Slide 1 (Blue)
+    # 2. Slides 1-3
     s1_title, s1_body = parse_slide_content(slides_data.get('slide_1', ''))
     slides_html.append(make_content_slide(s1_title, s1_body, "2/5", "blue"))
 
-    # 3. Slide 2 (Mint)
     s2_title, s2_body = parse_slide_content(slides_data.get('slide_2', ''))
     slides_html.append(make_content_slide(s2_title, s2_body, "3/5", "mint"))
     
-    # 4. Slide 3 (Purple)
     s3_title, s3_body = parse_slide_content(slides_data.get('slide_3', ''))
     slides_html.append(make_content_slide(s3_title, s3_body, "4/5", "purple"))
     
@@ -287,7 +284,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
         <div class="cta-button">Follow for more</div>
     </div>
     """
-    slides_html.append(html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cta_content).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{overlay_gradient}', overlay_gradient))
+    slides_html.append(html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cta_content).replace('{body_line_height}', line_height).replace('{glow_gradient}', glow_gradient).replace('{theme_color}', theme_color))
     
     return slides_html
 

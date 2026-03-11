@@ -29,7 +29,7 @@ def generate_carousel_content(article):
        - Start with a viral, hooking title.
        - Provide a comprehensive, easy-to-read summary (4-5 paragraphs, approx 1100-1300 characters).
        - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
-       - Include a section '🔬 RESEARCH CITATION:' followed by the full title and date.
+       - Include a section '🔬 RESEARCH SOURCE:' followed by the full title, date, and these links: {article.get('url', 'PubMed')}
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
        - Include a massive block of viral, relevant hashtags (40+ hashtags) for maximum reach.
        - IMPORTANT: Do NOT exceed 2100 characters in total for the caption.
@@ -42,7 +42,7 @@ def generate_carousel_content(article):
       "slide_1": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_2": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_3": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
-      "caption": "1200 char elite summary + research citation + CTA + mega hashtag block",
+      "caption": "1200 char elite summary + research link + CTA + mega hashtag block",
       "theme_color": "blue | purple | green | red"
     }}
     """
