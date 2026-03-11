@@ -1,6 +1,7 @@
 import os
 import time
 import random
+import json
 from instagrapi import Client
 
 def publish_carousel(image_paths, caption):
@@ -13,14 +14,46 @@ def publish_carousel(image_paths, caption):
         
     cl = Client()
     
-    # Adding a realistic delay/jitter before login to mimic human behavior
-    jitter = random.randint(10, 30)
-    print(f"Waiting {jitter} seconds before login (Jitter Control)...")
+    # 1. Check for session environment variable
+    session_data = os.getenv("IG_SESSION")
+    if session_data:
+        try:
+            print("Found IG_SESSION. Attempting to load session...")
+            session_dict = json.loads(session_data)
+            cl.set_settings(session_dict)
+            print("Session loaded successfully!")
+        except Exception as e:
+            print(f"Error loading session from environment: {e}")
+    
+    # Adding a realistic delay/jitter before login/action
+    jitter = random.randint(5, 15)
+    print(f"Waiting {jitter} seconds (Jitter Control)...")
     time.sleep(jitter)
     
     try:
-        print(f"Logging into Instagram as {username}...")
-        cl.login(username, password)
+        # 2. Check login status
+        is_logged_in = False
+        try:
+            if session_data:
+                # Simple check if current session is valid
+                cl.get_timeline_feed() 
+                is_logged_in = True
+                print("Confirmed: Existing session is VALID. Skipping login.")
+        except:
+            print("Existing session is INVALID or expired. Proceeding to login...")
+
+        if not is_logged_in:
+            print(f"Logging into Instagram as {username}...")
+            cl.login(username, password)
+            
+            # Save the new session to a local file for the user to extract
+            print("Login successful! Saving session to ig_session.json...")
+            with open("ig_session.json", "w") as f:
+                json.dump(cl.get_settings(), f, indent=2)
+            print("--- IMPORTANT ---")
+            print("New session saved to ig_session.json")
+            print("Copy its contents to YOUR GITHUB SECRET named 'IG_SESSION' to bypass blacklist!")
+            print("-----------------")
         
         print(f"Uploading carousel to Instagram (Caption Length: {len(caption)} chars)...")
         print(f"Caption Snippet: {caption[:100]}...")
