@@ -107,10 +107,10 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 border: 2px solid rgba(255, 255, 255, 0.15);
                 border-radius: 40px;
                 padding: 100px 80px 80px 80px;
-                z-index: 20; /* Above glow, below logo */
+                z-index: 20;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
+                justify-content: center;
                 box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             }
             
@@ -126,11 +126,12 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .slide-header.purple { color: #C39BD3; }
             
             .slide-body {
-                font-size: 28px;
+                font-size: 34px;
                 font-weight: 400;
                 color: #FFFFFF;
                 line-height: {body_line_height};
-                flex-grow: 1;
+                flex-grow: 0;
+                margin-bottom: 20px;
             }
             .slide-body b {
                 font-weight: 800;
@@ -211,7 +212,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     else:
         t_size = 80
         
-    line_height = "48px"
+    line_height = "52px"
     
     # Pre-check if logo.jpg exists in base_dir
     logo_file = os.path.join(base_dir, 'logo.jpg')

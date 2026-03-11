@@ -47,10 +47,10 @@ def score_article(article):
     if article.get('publish_date') and article['publish_date'].startswith(current_month_year):
         score += 5
         
-    # 2. Abstract Depth (+5): >500 words. (Reduced to >300 to capture punchy but impactful past papers)
+    # 2. Abstract Depth (+5): >150 words. Favor punchy but descriptive news.
     abstract = article.get('abstract', '')
     word_count = len(abstract.split())
-    if word_count > 300:
+    if word_count > 150:
         score += 5
         
     # 3. Target Journals (+10 Bonus Points)
@@ -158,7 +158,8 @@ def fetch_rss():
                     'journal': source,
                     'abstract': clean_abstract,
                     'publish_date': pubdate,
-                    'source': 'RSS'
+                    'source': 'RSS',
+                    'score_bonus': 10 # Bonus for real-world news diversity
                 }
                 articles.append(article)
         except Exception as e:
@@ -177,6 +178,8 @@ def get_top_article(posted_ids):
         
     for a in new_articles:
         score_article(a)
+        if a.get('score_bonus'):
+            a['score'] += a['score_bonus']
         
     new_articles.sort(key=lambda x: x['score'], reverse=True)
     

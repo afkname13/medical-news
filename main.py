@@ -53,11 +53,12 @@ def get_pollinations_bg(topic_title, abstract):
     """Generates a highly specific medical/scientific image using Pollinations.ai."""
     print(f"Generating specific AI image for: {topic_title}")
     
-    # Construct a highly detailed, neutral scientific prompt
-    prompt_base = f"Professional medical scientific photography, highly detailed, neutral background, {topic_title}, {abstract[:100]}"
+    # Construct a hyper-realistic, vivid prompt
+    # Focused on macro textures and realistic medical/scientific objects (fruits, hearts, cells)
+    prompt_base = f"Hyper-realistic macro photography, highly detailed medical scientific object, {topic_title}, {abstract[:60]}, 8k resolution, cinematic lighting, sharp focus, shallow depth of field, bokeh, neutral professional background, no text, no labels"
     clean_prompt = urllib.parse.quote(prompt_base)
     
-    # Pollinations.ai simple GET-based image generation
+    # Pollinations.ai simplified URL
     img_url = f"https://pollinations.ai/p/{clean_prompt}?width=1080&height=1350&model=flux&seed={int(time.time())}"
     
     try:

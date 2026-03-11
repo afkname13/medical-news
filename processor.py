@@ -25,14 +25,13 @@ def generate_carousel_content(article):
     2. CONTENT SLIDES (Slide 1-3) MUST BE 60-80 WORDS EACH. This is critical for depth. Expand on the "why" and "how".
     3. IMPORTANT: Use <b>bold tags</b> around key medical terms or mind-blowing findings within the slide body (e.g., 'Scientists found <b>hundreds of metabolic enzymes</b>...').
     4. Each content slide MUST have a context-specific CATCHY TITLE using the format 'CATCHY TITLE: Body text'.
-    5. CAPTION MUST BE BETWEEN 1800 AND 2100 CHARACTERS:
+    5. CAPTION REQUIREMENTS:
        - Start with a viral, hooking title.
-       - Provide a comprehensive, easy-to-read summary (4-5 paragraphs, approx 1100-1300 characters).
+       - Provide a punchy, easy-to-read summary (strictly 100-150 words).
        - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
        - Include a section '🔬 RESEARCH SOURCE:' followed by the full title, date, and these links: {article.get('url', 'PubMed')}
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
        - Include a massive block of viral, relevant hashtags (40+ hashtags) for maximum reach.
-       - IMPORTANT: Do NOT exceed 2100 characters in total for the caption.
     
     6. THEME COLOR: Choose an aesthetic 'theme_color' based on the topic: 'blue', 'purple', 'green', or 'red'.
     
@@ -42,7 +41,7 @@ def generate_carousel_content(article):
       "slide_1": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_2": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_3": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
-      "caption": "1200 char elite summary + research link + CTA + mega hashtag block",
+      "caption": "Punchy 100-150 word elite summary + research link + CTA + mega hashtag block",
       "theme_color": "blue | purple | green | red"
     }}
     """
