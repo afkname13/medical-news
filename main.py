@@ -2,6 +2,8 @@ import os
 import json
 import requests
 import urllib.parse
+import time
+from datetime import datetime
 from dotenv import load_dotenv
 
 from fetcher import get_top_article
@@ -20,9 +22,32 @@ def load_posted():
             return json.load(f)
     return []
 
-def save_posted(data):
+def save_posted(posted_list, new_article):
+    # Store ID, Title, and Timestamp for variety tracking
+    entry = {
+        "id": new_article['id'],
+        "title": new_article['title'],
+        "timestamp": datetime.now().isoformat()
+    }
+    posted_list.append(entry)
     with open(POSTED_FILE, 'w') as f:
-        json.dump(data, f, indent=2)
+        json.dump(posted_list, f, indent=2)
+
+def cleanup_old_media(media_dir, days=3):
+    """Deletes media files older than X days to save storage."""
+    print(f"Cleaning up media older than {days} days...")
+    now = time.time()
+    if not os.path.exists(media_dir):
+        return
+    for f in os.listdir(media_dir):
+        f_path = os.path.join(media_dir, f)
+        if os.stat(f_path).st_mtime < now - (days * 86400):
+            try:
+                if os.path.isfile(f_path):
+                    os.remove(f_path)
+                    print(f"Deleted old file: {f}")
+            except Exception as e:
+                print(f"Cleanup error: {e}")
 
 def get_unsplash_bg(topic_title):
     access_key = os.getenv("UNSPLASH_ACCESS_KEY")
@@ -63,7 +88,14 @@ def download_image(url, path):
 
 def run_pipeline():
     print("=== Starting Medical News Bot Pipeline ===")
-    posted_ids = load_posted()
+    
+    # 0. Cleanup Old Storage
+    base = os.path.dirname(os.path.abspath(__file__))
+    media_dir = os.path.join(base, "media")
+    cleanup_old_media(media_dir)
+    
+    posted_data = load_posted()
+    posted_ids = [item['id'] if isinstance(item, dict) else item for item in posted_data]
     
     article = get_top_article(posted_ids)
     if not article:
@@ -98,8 +130,7 @@ def run_pipeline():
     
     if success:
         # Save to DB only on success
-        posted_ids.append(article['id'])
-        save_posted(posted_ids)
+        save_posted(posted_data, article)
         print("Pipeline finished successfully!")
     else:
         print("Pipeline finished with publishing error.")

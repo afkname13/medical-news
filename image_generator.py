@@ -125,6 +125,11 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 line-height: {body_line_height};
                 flex-grow: 1;
             }
+            .slide-body b {
+                font-weight: 800;
+                color: #FFFFFF;
+                text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            }
             
             .slide-fraction {
                 text-align: center;
