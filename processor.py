@@ -5,8 +5,8 @@ from google import genai
 def generate_carousel_content(article):
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        print("Warning: GEMINI_API_KEY not found. Using mock content.")
-        return mock_content(article)
+        print("Error: GEMINI_API_KEY not found. Aborting content generation.")
+        return None
         
     client = genai.Client(api_key=api_key)
     
@@ -69,17 +69,8 @@ def generate_carousel_content(article):
         return data
     except Exception as e:
         print(f"Gemini API Error: {e}")
-        return mock_content(article)
+        return None
 
-def mock_content(article):
-    return {
-        "cover": "HUGE MEDICAL BREAKTHROUGH UNLOCKED!",
-        "slide_1": f"JUST DISCOVERED: Scientists discovered something mind-blowing related to: {article.get('title', '')[:30]}.",
-        "slide_2": "WHY THIS MATTERS: This shocking new finding could change lives and help millions of people in the future.",
-        "slide_3": "THE FUTURE CURE: Stay tuned for more updates on this amazing discovery that left scientists stunned.",
-        "caption": f"Amazing new discovery in the medical field: {article.get('title', '')}. What are your thoughts? Drop a comment below! #medical #science #discovery",
-        "theme_color": "blue"
-    }
 
 if __name__ == "__main__":
     # Test

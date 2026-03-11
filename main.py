@@ -142,6 +142,11 @@ def run_pipeline():
     media_dir = os.path.join(base, "media")
     cleanup_old_media(media_dir)
     
+    # Pre-check: Ensure we have Instagram credentials or session
+    if not os.getenv("IG_SESSION") and (not os.getenv("IG_USERNAME") or not os.getenv("IG_PASSWORD")):
+        print("Error: Missing Instagram credentials and IG_SESSION. Aborting pipeline early.")
+        return
+    
     posted_data = load_posted()
     posted_ids = [item['id'] if isinstance(item, dict) else item for item in posted_data]
     
@@ -155,6 +160,10 @@ def run_pipeline():
     # 1. Summarize
     print("Generating AI content...")
     slides_data = generate_carousel_content(article)
+    
+    if not slides_data:
+        print("Error: AI content generation failed. Aborting pipeline to prevent low-quality posts.")
+        return
     
     # Robust caption extraction: Ensure we always have a caption
     caption = slides_data.get('caption', "")
