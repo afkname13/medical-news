@@ -135,7 +135,7 @@ def download_image(url, path):
     return path
 
 def run_pipeline():
-    print("=== Starting Medical News Bot Pipeline (Round 10) ===")
+    print("=== Starting Medical News Bot Pipeline (Round 11) ===")
     
     # 0. Cleanup Old Storage
     base = os.path.dirname(os.path.abspath(__file__))
