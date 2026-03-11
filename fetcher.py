@@ -12,14 +12,26 @@ TARGET_JOURNALS = [
 
 VIRAL_KEYWORDS = [
     "breakthrough", "miracle", "life saving", "instant", "discovery", 
-    "new treatment", "cancer", "brain", "heart", "AI"
+    "new treatment", "cancer", "brain", "heart", "AI", "genetics", 
+    "vaccine", "surgery", "longevity", "Alzheimer", "Diabetes"
 ]
 
 RSS_FEEDS = {
     "ScienceDaily": "https://www.sciencedaily.com/rss/health_medicine.xml",
     "MedicalXpress": "https://medicalxpress.com/rss-feed/",
     "Nature Medicine": "https://www.nature.com/nm.rss",
-    "Harvard Health": "https://www.health.harvard.edu/blog/feed"
+    "Harvard Health": "https://www.health.harvard.edu/blog/feed",
+    "The Lancet": "https://www.thelancet.com/rssfeeds/lancet/current.xml",
+    "JAMA": "https://jamanetwork.com/rss/site/67/mostreadall.xml",
+    "NEJM": "https://www.nejm.org/rss/recentActivity.xml",
+    "NIH News": "https://www.nih.gov/news-events/news-releases/rss",
+    "WHO News": "https://www.who.int/rss-feeds/news-english.xml",
+    "Mayo Clinic": "https://newsnetwork.mayoclinic.org/feed/",
+    "BMJ": "https://www.bmj.com/rss/recent.xml",
+    "Science": "https://www.science.org/rss/news_highlights.xml",
+    "Medical News Today": "https://rss.medicalnewstoday.com/medicalnewstoday.xml",
+    "HealthDay": "https://www.healthday.com/rss-feeds/healthday-news.xml",
+    "Johns Hopkins": "https://www.hopkinsmedicine.org/news/news-releases/feed"
 }
 
 def get_article_id(title):
@@ -62,7 +74,7 @@ def fetch_pubmed():
     search_params = {
         "db": "pubmed",
         # Broadened search to include highly cited past research and breakthroughs
-        "term": '(clinical trial OR breakthrough OR discovery OR new treatment OR life saving) AND ("Nature"[ta] OR "Science"[ta] OR "Cell"[ta] OR "New England Journal of Medicine"[ta] OR "Lancet"[ta])',
+        "term": '(medical OR health OR clinical OR disease) AND (breakthrough OR discovery OR new treatment OR life saving) AND ("Nature"[ta] OR "Science"[ta] OR "Cell"[ta] OR "New England Journal of Medicine"[ta] OR "Lancet"[ta])',
         "retmode": "json",
         "retmax": 15
     }

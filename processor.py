@@ -22,7 +22,7 @@ def generate_carousel_content(article):
 
     STRICT RULES:
     1. AVOID using these characters in ANY of the output text: semicolon (;), asterisk (*), and long dashes (—). Use commas, periods, or simple hyphens instead.
-    2. CONTENT SLIDES (Slide 1-3) MUST BE 50-80 WORDS EACH. This is critical. Expand on the "why" and "how".
+    2. CONTENT SLIDES (Slide 1-3) MUST BE 60-80 WORDS EACH. This is critical for depth. Expand on the "why" and "how".
     3. Each content slide MUST have a context-specific CATCHY TITLE using the format 'CATCHY TITLE: Body text'.
     4. CAPTION MUST BE LONG (Target ~1800 characters):
        - Start with a viral, hooking title.
@@ -34,9 +34,9 @@ def generate_carousel_content(article):
     Respond STRICTLY in JSON format matching this schema:
     {{
       "cover": "Short, punchy, viral title (under 50 chars). E.g. 'CELL\\'S SECRET ENGINE UNLOCKED!'",
-      "slide_1": "CATCHY TITLE: Detailed 50-80 word explanation...",
-      "slide_2": "CATCHY TITLE: Detailed 50-80 word explanation...",
-      "slide_3": "CATCHY TITLE: Detailed 50-80 word explanation...",
+      "slide_1": "CATCHY TITLE: Detailed 60-80 word explanation...",
+      "slide_2": "CATCHY TITLE: Detailed 60-80 word explanation...",
+      "slide_3": "CATCHY TITLE: Detailed 60-80 word explanation...",
       "caption": "1800 char detailed summary + citation + CTA + mega hashtags"
     }}
     """
