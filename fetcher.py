@@ -7,13 +7,16 @@ from bs4 import BeautifulSoup
 
 TARGET_JOURNALS = [
     "Nature", "The Lancet", "New England Journal of Medicine", "NEJM", 
-    "Cell", "Science", "JAMA", "BMJ", "PNAS", "Nature Medicine"
+    "Cell", "Science", "JAMA", "BMJ", "PNAS", "Nature Medicine", "Science Immunology",
+    "Science Translational Medicine"
 ]
 
 VIRAL_KEYWORDS = [
     "breakthrough", "miracle", "life saving", "instant", "discovery", 
     "new treatment", "cancer", "brain", "heart", "AI", "genetics", 
-    "vaccine", "surgery", "longevity", "Alzheimer", "Diabetes"
+    "vaccine", "surgery", "longevity", "Alzheimer", "Diabetes", "reversal",
+    "anti-aging", "nutrition", "weight loss", "Ozempic", "sleep", "biohacking",
+    "superfood", "fitness", "mental health"
 ]
 
 RSS_FEEDS = {
@@ -58,11 +61,11 @@ def score_article(article):
     if any(target.lower() in journal.lower() for target in TARGET_JOURNALS):
         score += 10
         
-    # 4. Viral Keywords (+5 Bonus Points each instead of +3 to heavily favor viral topics)
+    # 4. Viral Keywords (+8 Bonus Points to heavily favor viral topics)
     title_and_abstract = (article.get('title', '') + " " + abstract).lower()
     for keyword in VIRAL_KEYWORDS:
         if keyword.lower() in title_and_abstract:
-            score += 5
+            score += 8
             
     article['score'] = score
     return score

@@ -1,10 +1,13 @@
 import os
 import json
+import base64
 import requests
 import urllib.parse
 import time
 from datetime import datetime
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 
 from fetcher import get_top_article
 from processor import generate_carousel_content
@@ -19,7 +22,13 @@ POSTED_FILE = 'posted_articles.json'
 def load_posted():
     if os.path.exists(POSTED_FILE):
         with open(POSTED_FILE, 'r') as f:
-            return json.load(f)
+            try:
+                content = f.read().strip()
+                if not content:
+                    return []
+                return json.loads(content)
+            except json.JSONDecodeError:
+                return []
     return []
 
 def save_posted(posted_list, new_article):
@@ -33,8 +42,8 @@ def save_posted(posted_list, new_article):
     with open(POSTED_FILE, 'w') as f:
         json.dump(posted_list, f, indent=2)
 
-def cleanup_old_media(media_dir, days=3):
-    """Deletes media files older than X days to save storage."""
+def cleanup_old_media(media_dir, days=1):
+    """Deletes media files older than 1 day to save storage."""
     print(f"Cleaning up media older than {days} days...")
     now = time.time()
     if not os.path.exists(media_dir):
@@ -49,35 +58,59 @@ def cleanup_old_media(media_dir, days=3):
             except Exception as e:
                 print(f"Cleanup error: {e}")
 
-def get_pollinations_bg(visual_subject):
-    """Generates a highly specific medical/scientific image using Pollinations.ai."""
-    print(f"Generating hyper-realistic specific AI image for subject: {visual_subject[:50]}...")
+def generate_gemini_image(image_prompt):
+    """Generates a hyper-realistic cover image using Gemini's image generation model."""
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        print("GEMINI_API_KEY not set. Cannot generate image.")
+        return None
     
-    # Use the visual_subject directly as it's now curated by Gemini for realism
-    clean_prompt = urllib.parse.quote(visual_subject)
+    client = genai.Client(api_key=api_key)
     
-    # Pollinations.ai simplified URL
-    img_url = f"https://pollinations.ai/p/{clean_prompt}?width=1080&height=1350&model=flux&seed={int(time.time())}"
+    print(f"Generating Gemini AI image...")
     
     try:
-        # We try to download it. If it fails, we'll fallback.
-        path = download_image(img_url, "media/bg.jpg")
-        if os.path.exists(path) and os.path.getsize(path) > 1000:
-            return path
-    except Exception as e:
-        print(f"Pollinations error: {e}")
+        # Use gemini-2.5-flash-image for dedicated image generation
+        response = client.models.generate_content(
+            model="gemini-2.5-flash-image",
+            contents=image_prompt,
+            config=types.GenerateContentConfig(
+                response_modalities=["IMAGE"],
+            ),
+        )
         
-    return None
+        # Extract the image from the response
+        if response.candidates and response.candidates[0].content.parts:
+            for part in response.candidates[0].content.parts:
+                if part.inline_data and part.inline_data.mime_type.startswith("image/"):
+                    # Save the image locally
+                    base = os.path.dirname(os.path.abspath(__file__))
+                    bg_path = os.path.join(base, "media", "bg.jpg")
+                    os.makedirs(os.path.dirname(bg_path), exist_ok=True)
+                    
+                    image_data = part.inline_data.data
+                    with open(bg_path, "wb") as f:
+                        f.write(image_data)
+                    
+                    file_size = os.path.getsize(bg_path)
+                    print(f"Gemini image saved successfully ({file_size} bytes)")
+                    return bg_path
+        
+        print("Gemini image generation: No image data returned.")
+        return None
+    except Exception as e:
+        print(f"Gemini image generation error: {e}")
+        return None
 
-def get_unsplash_bg(topic_title):
+def get_unsplash_bg(search_query):
+    """Fetches a high-quality real photograph from Unsplash (fallback)."""
     access_key = os.getenv("UNSPLASH_ACCESS_KEY")
-    search_keywords = topic_title.replace(":", "").replace("-", " ").split()[:5]
-    query = " ".join(search_keywords) + " medical abstract"
     
     if not access_key:
-        return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/cover.png")
+        print("Warning: UNSPLASH_ACCESS_KEY not set. Using default fallback.")
+        return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/bg.jpg")
         
-    url = f"https://api.unsplash.com/photos/random?query={urllib.parse.quote(query)}&orientation=portrait&client_id={access_key}"
+    url = f"https://api.unsplash.com/photos/random?query={urllib.parse.quote(search_query)}&orientation=portrait&client_id={access_key}"
     try:
         res = requests.get(url, timeout=10)
         res.raise_for_status()
@@ -85,8 +118,8 @@ def get_unsplash_bg(topic_title):
         img_url = data['urls']['regular']
         return download_image(img_url, "media/bg.jpg")
     except Exception as e:
-        print(f"Unsplash fallback error: {e}")
-        return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/cover.png")
+        print(f"Unsplash API error: {e}")
+        return download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", "media/bg.jpg")
 
 def download_image(url, path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -102,7 +135,7 @@ def download_image(url, path):
     return path
 
 def run_pipeline():
-    print("=== Starting Medical News Bot Pipeline ===")
+    print("=== Starting Medical News Bot Pipeline (Round 10) ===")
     
     # 0. Cleanup Old Storage
     base = os.path.dirname(os.path.abspath(__file__))
@@ -128,33 +161,31 @@ def run_pipeline():
     if not caption or len(caption) < 100:
         print("AI caption missing or too short. Generating fallback caption...")
         research_link = article.get('url', 'PubMed')
-        caption = f"🚨 {article['title']} 🚨\n\nNew research breakthrough! Scientists have discovered significant findings related to this topic. Swipe left to see the breakdown!\n\n🔬 RESEARCH SOURCE: {article['title']} ({article['publish_date']}) - {research_link}\n\nHit FOLLOW @medicalnews_daily for daily medical breakthroughs! 🏥🚀\n\n#medicalnews #science #health #discovery #research"
+        caption = f"🚨 {article['title']} 🚨\n\nNew medical breakthrough! Swipe left for the breakdown. \n\n🔬 RESEARCH SOURCE: {article['url']}\n\nHit FOLLOW @medicalnews_daily for daily medical science! 🏥🚀"
 
-    # Safety: Strip HTML tags from caption (e.g. <b>)
+    # Safety: Strip HTML tags from caption
     caption = caption.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")
     
-    # Safety truncation for Instagram (2200 char limit)
+    # Instagram limits
     if len(caption) > 2100:
-        print(f"Warning: Caption too long ({len(caption)} chars). Truncating to 2100...")
         caption = caption[:2100] + "..."
         
     print(f"Caption extracted (Length: {len(caption)} chars)")
     
-    # 2. Get Background (AI First, Unsplash Fallback)
-    print("Fetching/Generating background...")
-    visual_subject = slides_data.get('visual_subject', article['title'])
-    bg_path = get_pollinations_bg(visual_subject)
-    if not bg_path:
-        print("Pollinations failed. Falling back to Unsplash...")
-        bg_path = get_unsplash_bg(article['title'])
+    # 2. Get Background Image — Gemini AI first, Unsplash fallback
+    image_prompt = slides_data.get('image_prompt', '')
+    bg_path = None
     
+    if image_prompt:
+        bg_path = generate_gemini_image(image_prompt)
+    
+    if not bg_path:
+        print("Gemini image failed. Falling back to Unsplash...")
+        fallback_query = article['title'] + " medical"
+        bg_path = get_unsplash_bg(fallback_query)
+
     # 3. Generate Images
     print("Generating pixel-perfect carousel images...")
-    base = os.path.dirname(os.path.abspath(__file__))
-    media_dir = os.path.join(base, "media")
-    os.makedirs(media_dir, exist_ok=True)
-    
-    # Pass slides_data (which now contains theme_color)
     image_paths = generate_carousel_images(slides_data, bg_path, media_dir)
     if not image_paths:
         print("Failed to generate images.")

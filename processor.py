@@ -21,33 +21,33 @@ def generate_carousel_content(article):
     Source URL: {article.get('url', 'PubMed')}
 
     STRICT RULES:
-    1. AVOID using these characters in ANY of the output text: semicolon (;), asterisk (*), and long dashes (—). Use commas, periods, or simple hyphens instead.
-    2. CONTENT SLIDES (Slide 1-3) MUST BE 60-80 WORDS EACH. This is critical for depth. Expand on the "why" and "how".
-    3. IMPORTANT: Use <b>bold tags</b> around key medical terms or mind-blowing findings within the slide body (e.g., 'Scientists found <b>hundreds of metabolic enzymes</b>...').
-    4. Each content slide MUST have a context-specific CATCHY TITLE using the format 'CATCHY TITLE: Body text'.
+    1. AVOID using these characters in ANY of the output text: semicolon (;), asterisk (*), and long dashes (—). Use commas, periods, or simple hyphens instead    2. CONTENT SLIDES (Slide 1-3) MUST BE 50-60 WORDS EACH. This is the sweet spot for readability and depth.
+    3. IMPORTANT: Use <b>bold tags</b> around key medical terms or viral findings within the slide body (e.g., 'Scientists found <b>hundreds of metabolic enzymes</b>...').
+    4. Each content slide MUST consist of natural, full sentences. DO NOT use titles like 'CATCHY TITLE:' or 'STEP 1:' inside the body paragraph. Avoid phrases like 'Doctors embrace digital health' or 'Beyond steps' if they look like headers. The text should flow as a coherent narrative.
     5. CAPTION REQUIREMENTS:
        - Start with a viral, hooking title.
-       - Provide a punchy, easy-to-read summary (strictly 100-150 words).
+       - Provide a punchy summary (strictly 100-150 words).
        - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
-       - Include a section '🔬 RESEARCH SOURCE:' followed by the full title, date, and these links: {article.get('url', 'PubMed')}
+       - Include '🔬 RESEARCH SOURCE:' with title, date, and link: {article.get('url', 'PubMed')}
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
-       - Include a block of viral, relevant hashtags (exactly 20-25 hashtags max) for maximum reach. Do NOT exceed 30 hashtags as it breaks the API.
+       - Include 20-25 viral hashtags (e.g. #fyp, #explore, #viral, #medicalnews).
     
-    6. VISUAL SUBJECT (IMPORTANT):
-       - Create a field 'visual_subject' that describes a SINGLE, HIGHLY DETAILED medical or scientific object for AI image generation. 
-       - Use descriptive, ultra-realistic photography terms (e.g., 'ultra-realistic human anatomical heart with glowing blue vessels', 'microscopic view of jagged cancer cells in iridescent purple', 'hyper-realistic silver medical pill on a dark slate background').
-       - Keep it to 1-2 detailed sentences. NO TEXT or LABELS in the description.
+    6. IMAGE PROMPT (CRITICAL - HYPER-REALISM):
+       - Create an 'image_prompt' for an AI image generator.
+       - It MUST describe a professional, hyper-realistic clinical or laboratory scene.
+       - Avoid anything "AI-looking" (no glowing neon futuristic pods). Use natural lighting, shallow depth of field, and real textures (glass, steel, biological tissue).
+       - Prompt should be 2-3 sentences. Include keywords: 'professional medical photography, 8k, ultra-realistic, cinematic lighting, macro lens'.
     
-    7. THEME COLOR: Choose an aesthetic 'theme_color' based on the topic: 'blue', 'purple', 'green', or 'red'.
+    7. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.
     
     Respond STRICTLY in JSON format matching this schema:
     {{
-      "cover": "Short, punchy, viral title (under 50 chars). E.g. 'CELL\\'S SECRET ENGINE UNLOCKED!'",
-      "slide_1": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
-      "slide_2": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
-      "slide_3": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
-      "caption": "Punchy 100-150 word elite summary + research link + CTA + mega hashtag block",
-      "visual_subject": "ultra-realistic [OBJECT] with [DETAIL], macro photography, 8k",
+      "cover": "Short, punchy, viral title (under 50 chars)",
+      "slide_1": "50-60 word natural explanation with <b>bold</b> terms...",
+      "slide_2": "50-60 word natural explanation with <b>bold</b> terms...",
+      "slide_3": "50-60 word natural explanation with <b>bold</b> terms...",
+      "caption": "100-150 word summary + source link + hashtags",
+      "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
       "theme_color": "blue | purple | green | red"
     }}
     """
