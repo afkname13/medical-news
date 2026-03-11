@@ -310,7 +310,7 @@ def generate_carousel_images(slides_data, bg_image_path, output_dir):
             with open(temp_html, "w", encoding='utf-8') as f:
                 f.write(html_str)
                 
-            page.goto(f"file://{os.path.abspath(temp_html)}")
+            page.goto(f"file://{os.path.abspath(temp_html)}", wait_until="networkidle")
             page.wait_for_timeout(500) # Ensure fonts and filters load
             
             output_path = os.path.join(output_dir, f"slide_{i+1}.jpg")

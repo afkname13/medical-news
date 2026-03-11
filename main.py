@@ -49,14 +49,12 @@ def cleanup_old_media(media_dir, days=3):
             except Exception as e:
                 print(f"Cleanup error: {e}")
 
-def get_pollinations_bg(topic_title, abstract):
+def get_pollinations_bg(visual_subject):
     """Generates a highly specific medical/scientific image using Pollinations.ai."""
-    print(f"Generating specific AI image for: {topic_title}")
+    print(f"Generating hyper-realistic specific AI image for subject: {visual_subject[:50]}...")
     
-    # Construct a hyper-realistic, vivid prompt
-    # Focused on macro textures and realistic medical/scientific objects (fruits, hearts, cells)
-    prompt_base = f"Hyper-realistic macro photography, highly detailed medical scientific object, {topic_title}, {abstract[:60]}, 8k resolution, cinematic lighting, sharp focus, shallow depth of field, bokeh, neutral professional background, no text, no labels"
-    clean_prompt = urllib.parse.quote(prompt_base)
+    # Use the visual_subject directly as it's now curated by Gemini for realism
+    clean_prompt = urllib.parse.quote(visual_subject)
     
     # Pollinations.ai simplified URL
     img_url = f"https://pollinations.ai/p/{clean_prompt}?width=1080&height=1350&model=flux&seed={int(time.time())}"
@@ -144,7 +142,8 @@ def run_pipeline():
     
     # 2. Get Background (AI First, Unsplash Fallback)
     print("Fetching/Generating background...")
-    bg_path = get_pollinations_bg(article['title'], article.get('abstract', ''))
+    visual_subject = slides_data.get('visual_subject', article['title'])
+    bg_path = get_pollinations_bg(visual_subject)
     if not bg_path:
         print("Pollinations failed. Falling back to Unsplash...")
         bg_path = get_unsplash_bg(article['title'])

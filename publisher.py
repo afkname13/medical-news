@@ -28,7 +28,25 @@ def publish_carousel(image_paths, caption):
             paths=image_paths,
             caption=caption
         )
-        print(f"Successfully published carousel! Media ID: {media.pk}")
+        print(f"Initial upload successful! Media ID: {media.pk}")
+        
+        # --- ROBUST CAPTION VERIFICATION LOOP ---
+        # Instagram sometimes strips captions on upload. We verify and force it if missing.
+        time.sleep(5) # Give it a few seconds to process
+        media_info = cl.media_info(media.pk)
+        
+        if not media_info.caption_text:
+            print("Warning: Instagram stripped the caption! Retrying with media_edit...")
+            cl.media_edit(media.pk, caption)
+            time.sleep(3)
+            media_info = cl.media_info(media.pk)
+            if media_info.caption_text:
+                print("Success: Caption restored via edit!")
+            else:
+                print("Critical Error: Caption still missing after retry.")
+        else:
+            print("Verified: Caption successfully posted.")
+            
         return True
     except Exception as e:
         print(f"Error publishing to Instagram: {e}")

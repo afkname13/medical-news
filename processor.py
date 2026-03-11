@@ -31,9 +31,14 @@ def generate_carousel_content(article):
        - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
        - Include a section '🔬 RESEARCH SOURCE:' followed by the full title, date, and these links: {article.get('url', 'PubMed')}
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
-       - Include a massive block of viral, relevant hashtags (40+ hashtags) for maximum reach.
+       - Include a block of viral, relevant hashtags (exactly 20-25 hashtags max) for maximum reach. Do NOT exceed 30 hashtags as it breaks the API.
     
-    6. THEME COLOR: Choose an aesthetic 'theme_color' based on the topic: 'blue', 'purple', 'green', or 'red'.
+    6. VISUAL SUBJECT (IMPORTANT):
+       - Create a field 'visual_subject' that describes a SINGLE, HIGHLY DETAILED medical or scientific object for AI image generation. 
+       - Use descriptive, ultra-realistic photography terms (e.g., 'ultra-realistic human anatomical heart with glowing blue vessels', 'microscopic view of jagged cancer cells in iridescent purple', 'hyper-realistic silver medical pill on a dark slate background').
+       - Keep it to 1-2 detailed sentences. NO TEXT or LABELS in the description.
+    
+    7. THEME COLOR: Choose an aesthetic 'theme_color' based on the topic: 'blue', 'purple', 'green', or 'red'.
     
     Respond STRICTLY in JSON format matching this schema:
     {{
@@ -42,6 +47,7 @@ def generate_carousel_content(article):
       "slide_2": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "slide_3": "CATCHY TITLE: Detailed 60-80 word explanation with <b>bold</b> terms...",
       "caption": "Punchy 100-150 word elite summary + research link + CTA + mega hashtag block",
+      "visual_subject": "ultra-realistic [OBJECT] with [DETAIL], macro photography, 8k",
       "theme_color": "blue | purple | green | red"
     }}
     """

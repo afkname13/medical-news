@@ -179,7 +179,7 @@ def get_top_article(posted_ids):
     for a in new_articles:
         score_article(a)
         if a.get('score_bonus'):
-            a['score'] += a['score_bonus']
+            a['score'] = int(a['score']) + int(a['score_bonus'])
         
     new_articles.sort(key=lambda x: x['score'], reverse=True)
     
