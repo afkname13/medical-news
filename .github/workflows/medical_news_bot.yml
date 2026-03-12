@@ -2,12 +2,12 @@ name: Medical News Instagram Bot
 
 on:
   schedule:
-    # 10:17 PM KST (Shifting from 10 PM to avoid traffic)
-    - cron: '17 13 * * *'
-    # 3:42 AM KST (Shifting from 3 AM)
-    - cron: '42 18 * * *'
-    # 10:47 AM KST (Shifting from 11 AM to pre-empt delays)
-    - cron: '47 1 * * *'
+    # Slot 1: US Morning Peak (Targets ~9 AM ET / 2 PM UK)
+    - cron: '17 12 * * *'
+    # Slot 2: UK Evening / US Midday Peak (Targets ~2 PM ET / 7 PM UK)
+    - cron: '17 17 * * *'
+    # Slot 3: US Evening Peak (Targets ~9 PM ET)
+    - cron: '17 0 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
