@@ -163,34 +163,56 @@ def download_image(url, path):
         print(f"Image download error: {e}")
     return path
 
-def run_pipeline(dry_run=False):
+def run_pipeline(dry_run=False, mock=False):
     print("\n=== Starting Medical News Bot Pipeline (Round 17) ===")
     if dry_run:
         print("⚠️  DRY RUN MODE ENABLED: No posts will be sent to Instagram.")
+    if mock:
+        print("🎭 MOCK MODE ENABLED: Bypassing Gemini AI to save quota.")
     
     # 0. Cleanup Old Storage
     base = os.path.dirname(os.path.abspath(__file__))
     media_dir = os.path.join(base, "media")
     cleanup_old_media(media_dir)
     
-    # Pre-check: Ensure we have Instagram credentials or session
-    if not os.getenv("IG_SESSION") and (not os.getenv("IG_USERNAME") or not os.getenv("IG_PASSWORD")):
-        print("Error: Missing Instagram credentials and IG_SESSION. Aborting pipeline early.")
-        return
-    
-    posted_data = load_posted()
-    posted_ids = [item['id'] if isinstance(item, dict) else item for item in posted_data]
-    
-    article = get_top_article(posted_ids)
-    if not article:
-        print("No suitable articles found. Exiting.")
-        return
+    if mock:
+        article = {
+            "id": "mock_id_123",
+            "title": "MOCK: The Future of Medical Automation",
+            "url": "https://example.com/mock-medical"
+        }
+        slides_data = {
+            "slides": [
+                {"title": "MOCK TITLE 1", "content": "This is a mock slide for testing music and layout."},
+                {"title": "MOCK TITLE 2", "content": "No AI quota was used to generate this test content."},
+                {"title": "MOCK TITLE 3", "content": "Everything is working as expected!"}
+            ],
+            "caption": "🎭 MOCK TEST CONTENT 🎭\n\nThis is a dummy post to verify the music integration and pipeline flow without using AI quota. \n\n#MedicalNews #Automation #Test",
+            "image_prompt": "Mock image prompt"
+        }
+        bg_path = os.path.join(base, "media", "bg.jpg")
+        # Ensure a dummy background exists
+        if not os.path.exists(bg_path):
+            download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", bg_path)
+    else:
+        # Pre-check: Ensure we have Instagram credentials or session
+        if not os.getenv("IG_SESSION") and (not os.getenv("IG_USERNAME") or not os.getenv("IG_PASSWORD")):
+            print("Error: Missing Instagram credentials and IG_SESSION. Aborting pipeline early.")
+            return
         
-    print(f"Selected Article: {article['title']}")
-    
-    # 1. Summarize
-    print("Generating AI content...")
-    slides_data = generate_carousel_content(article)
+        posted_data = load_posted()
+        posted_ids = [item['id'] if isinstance(item, dict) else item for item in posted_data]
+        
+        article = get_top_article(posted_ids)
+        if not article:
+            print("No suitable articles found. Exiting.")
+            return
+            
+        print(f"Selected Article: {article['title']}")
+        
+        # 1. Summarize
+        print("Generating AI content...")
+        slides_data = generate_carousel_content(article)
     
     if not slides_data:
         print("Error: AI content generation failed. Aborting pipeline to prevent low-quality posts.")
@@ -198,31 +220,33 @@ def run_pipeline(dry_run=False):
     
     # Robust caption extraction: Ensure we always have a caption
     caption = slides_data.get('caption', "")
-    if not caption or len(caption) < 100:
-        print("AI caption missing or too short. Generating fallback caption...")
-        research_link = article.get('url', 'PubMed')
-        caption = f"🚨 {article['title']} 🚨\n\nNew medical breakthrough! Swipe left for the breakdown. \n\n🔬 RESEARCH SOURCE: {article['url']}\n\nHit FOLLOW @medicalnews_daily for daily medical science! 🏥🚀"
+    if not caption or len(caption) < 10:
+        print("Caption missing. Generating fallback caption...")
+        caption = f"🚨 {article['title']} 🚨\n\nNew medical breakthrough! Swipe left for the breakdown. \n\nHit FOLLOW @medicalnews_daily for daily medical science! 🏥🚀"
 
-    # Safety: Strip HTML tags from caption
-    caption = caption.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")
+    # Safety: Strip HTML tags from caption (ensure it's a string)
+    if isinstance(caption, list):
+        caption = " ".join(caption)
+    caption = str(caption).replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")
     
     # Instagram limits
     if len(caption) > 2100:
         caption = caption[:2100] + "..."
         
-    print(f"Caption extracted (Length: {len(caption)} chars)")
+    print(f"Caption Length: {len(caption)} chars")
     
-    # 2. Get Background Image — Gemini AI first, Unsplash fallback
-    image_prompt = slides_data.get('image_prompt', '')
-    bg_path = None
-    
-    if image_prompt:
-        bg_path = generate_gemini_image(image_prompt)
-    
-    if not bg_path:
-        print("Gemini image failed. Falling back to Unsplash...")
-        fallback_query = article['title'] + " medical"
-        bg_path = get_unsplash_bg(fallback_query)
+    if not mock:
+        # 2. Get Background Image — Gemini AI first, Unsplash fallback
+        image_prompt = slides_data.get('image_prompt', '')
+        bg_path = None
+        
+        if image_prompt:
+            bg_path = generate_gemini_image(image_prompt)
+        
+        if not bg_path:
+            print("Gemini image failed. Falling back to Unsplash...")
+            fallback_query = article['title'] + " medical"
+            bg_path = get_unsplash_bg(fallback_query)
 
     # 3. Generate Images
     print("Generating pixel-perfect carousel images...")
@@ -235,8 +259,9 @@ def run_pipeline(dry_run=False):
     success = publish_carousel(image_paths, caption, dry_run=dry_run)
     
     if success:
-        # Save to DB only on success
-        save_posted(posted_data, article)
+        if not mock:
+            posted_data = load_posted()
+            save_posted(posted_data, article)
         print("Pipeline finished successfully!")
     else:
         print("Pipeline finished with publishing error.")
@@ -244,6 +269,7 @@ def run_pipeline(dry_run=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Medical News Instagram Bot')
     parser.add_argument('--dry-run', action='store_true', help='Run everything but don\'t post to Instagram')
+    parser.add_argument('--mock', action='store_true', help='Use mock content to bypass Gemini AI quota')
     args = parser.parse_args()
     
-    run_pipeline(dry_run=args.dry_run)
+    run_pipeline(dry_run=args.dry_run, mock=args.mock)

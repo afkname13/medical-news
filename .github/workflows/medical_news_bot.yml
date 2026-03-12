@@ -15,6 +15,11 @@ on:
         required: false
         default: false
         type: boolean
+      mock:
+        description: 'Use Mock Content (No Gemini AI quota used)'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   run-bot:
@@ -57,11 +62,14 @@ jobs:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           IG_SESSION: ${{ secrets.IG_SESSION }}
         run: |
+          ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
-            python main.py --dry-run
-          else
-            python main.py
+            ARGS="$ARGS --dry-run"
           fi
+          if [ "${{ github.event.inputs.mock }}" == "true" ]; then
+            ARGS="$ARGS --mock"
+          fi
+          python main.py $ARGS
 
       - name: Commit and Push Updated DB
         uses: stefanzweifel/git-auto-commit-action@v5
