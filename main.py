@@ -70,8 +70,10 @@ def generate_gemini_image(image_prompt):
     print(f"Generating Gemini AI image...")
     
     # Multi-level AI Image Generation
+    # NOTE: Most Gemini Free Tier accounts have a limit of 0 for image generation.
+    # We keep these here in case the account is upgraded or enabled by Google.
     models_to_try = [
-        {"name": "imagen-4.0-generate-001", "label": "Imagen 4.0 (Premier)"},
+        {"name": "gemini-2.0-flash", "label": "Gemini 2.0 Flash (Next-Gen)"},
         {"name": "gemini-2.5-flash-image", "label": "Gemini 2.5 Flash (Reliable)"}
     ]
     
@@ -161,7 +163,7 @@ def download_image(url, path):
     return path
 
 def run_pipeline():
-    print("=== Starting Medical News Bot Pipeline (Round 11) ===")
+    print("\n=== Starting Medical News Bot Pipeline (Round 17) ===")
     
     # 0. Cleanup Old Storage
     base = os.path.dirname(os.path.abspath(__file__))
