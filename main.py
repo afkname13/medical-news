@@ -69,48 +69,63 @@ def generate_gemini_image(image_prompt):
     
     print(f"Generating Gemini AI image...")
     
-    max_retries = 2
-    for attempt in range(max_retries):
-        try:
-            print(f"Generating Gemini AI image (Attempt {attempt + 1}/{max_retries})...")
-            # Use gemini-2.5-flash-image for dedicated image generation
-            response = client.models.generate_content(
-                model="gemini-2.5-flash-image",
-                contents=image_prompt,
-                config=types.GenerateContentConfig(
-                    response_modalities=["IMAGE"],
-                ),
-            )
-            
-            # Extract the image from the response
-            if response.candidates and response.candidates[0].content.parts:
-                for part in response.candidates[0].content.parts:
-                    if part.inline_data and part.inline_data.mime_type.startswith("image/"):
-                        # Save the image locally
-                        base = os.path.dirname(os.path.abspath(__file__))
-                        bg_path = os.path.join(base, "media", "bg.jpg")
-                        os.makedirs(os.path.dirname(bg_path), exist_ok=True)
-                        
-                        image_data = part.inline_data.data
-                        with open(bg_path, "wb") as f:
-                            f.write(image_data)
-                        
-                        file_size = os.path.getsize(bg_path)
-                        print(f"Gemini image saved successfully ({file_size} bytes)")
-                        return bg_path
-            
-            print("Gemini image generation: No image data returned.")
-            return None
-            
-        except Exception as e:
-            error_details = str(e)
-            print(f"Gemini image generation error (Attempt {attempt + 1}): {error_details}")
-            if "429" in error_details and attempt < max_retries - 1:
-                print("Rate limited. Waiting 20s before retry...")
-                time.sleep(20)
-                continue
-            return None
+    # Multi-level AI Image Generation
+    models_to_try = [
+        {"name": "imagen-4.0-generate-001", "label": "Imagen 4.0 (Premier)"},
+        {"name": "gemini-2.5-flash-image", "label": "Gemini 2.5 Flash (Reliable)"}
+    ]
     
+    for model_info in models_to_try:
+        model_name = model_info["name"]
+        model_label = model_info["label"]
+        
+        max_retries = 2
+        for attempt in range(max_retries):
+            try:
+                print(f"Generating image using {model_label} (Attempt {attempt + 1}/{max_retries})...")
+                
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=image_prompt,
+                    config=types.GenerateContentConfig(
+                        response_modalities=["IMAGE"],
+                    ),
+                )
+                
+                # Extract the image from the response
+                if response.candidates and response.candidates[0].content.parts:
+                    for part in response.candidates[0].content.parts:
+                        if part.inline_data and part.inline_data.mime_type.startswith("image/"):
+                            # Save the image locally
+                            base = os.path.dirname(os.path.abspath(__file__))
+                            bg_path = os.path.join(base, "media", "bg.jpg")
+                            os.makedirs(os.path.dirname(bg_path), exist_ok=True)
+                            
+                            image_data = part.inline_data.data
+                            with open(bg_path, "wb") as f:
+                                f.write(image_data)
+                            
+                            file_size = os.path.getsize(bg_path)
+                            print(f"{model_label} image saved successfully ({file_size} bytes)")
+                            return bg_path
+                
+                print(f"{model_label}: No image data returned.")
+                break # Try next model if no data
+                
+            except Exception as e:
+                error_details = str(e)
+                print(f"{model_label} Error (Attempt {attempt + 1}): {error_details}")
+                
+                # If rate limited, wait and retry THIS model
+                if "429" in error_details and attempt < max_retries - 1:
+                    print(f"Rate limited for {model_name}. Waiting 20s before retry...")
+                    time.sleep(20)
+                    continue
+                
+                # If persistent error or other failure, move to next model
+                break
+                
+    print("All AI image models failed or exhausted. Proceeding to Unsplash fallback.")
     return None
 
 def get_unsplash_bg(search_query):
