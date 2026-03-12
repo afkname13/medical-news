@@ -1,5 +1,6 @@
 import os
 import json
+import time
 from google import genai
 
 def generate_carousel_content(article):
@@ -52,24 +53,39 @@ def generate_carousel_content(article):
     }}
     """
     
-    try:
-        print("Calling Gemini API...")
-        response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=prompt,
-        )
-        
-        text = response.text
-        if "```json" in text:
-            text = text.split("```json")[1].split("```")[0].strip()
-        elif "```" in text:
-            text = text.split("```")[1].strip()
+    # 3 retry attempts for reliability
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            print(f"Calling Gemini API (Attempt {attempt + 1}/{max_retries})...")
+            # Using 1.5-flash for text: Extremely stable, high quota, and top-tier quality
+            response = client.models.generate_content(
+                model='gemini-1.5-flash',
+                contents=prompt,
+            )
             
-        data = json.loads(text)
-        return data
-    except Exception as e:
-        print(f"Gemini API Error: {e}")
-        return None
+            text = response.text
+            if "```json" in text:
+                text = text.split("```json")[1].split("```")[0].strip()
+            elif "```" in text:
+                text = text.split("```")[1].strip()
+                
+            data = json.loads(text)
+            return data
+            
+        except Exception as e:
+            error_msg = str(e)
+            print(f"Gemini API Error (Attempt {attempt + 1}): {error_msg}")
+            
+            if "429" in error_msg and attempt < max_retries - 1:
+                wait_time = (attempt + 1) * 20 # Exponential-ish backoff
+                print(f"Rate limited. Waiting {wait_time}s before retry...")
+                time.sleep(wait_time)
+                continue
+            
+            return None
+    
+    return None
 
 
 if __name__ == "__main__":
