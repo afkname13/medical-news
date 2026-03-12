@@ -44,12 +44,12 @@ def generate_carousel_content(article):
     
     Respond STRICTLY in JSON format matching this schema:
     {{
-      "cover": "Short, viral, and hyper-specific title (under 50 chars). It must be attention-grabbing while being scientifically accurate (e.g., 'DNA REPAIR FACTORY FOUND' instead of 'CELL DISCOVERY').",
-      "slide_1_title": "3-5 word intriguing specific header for slide 1",
+      "cover": "EXTREME HOOK: A punchy, high-impact title (under 45 chars). MUST use a specific number, a unique medical verb, or a direct promise (e.g. 'NEW 5-MINUTE BRAIN FIX' or 'THE END OF INSOMNIA?'). Avoid vague words like 'Discovery', 'Research', or 'Update'.",
+      "slide_1_title": "THE PROBLEM: 3-word punchy header",
       "slide_1_body": "50-60 word natural explanation with <b>bold</b> terms...",
-      "slide_2_title": "3-5 word intriguing specific header for slide 2",
+      "slide_2_title": "THE BREAKTHROUGH: 3-word header",
       "slide_2_body": "50-60 word natural explanation with <b>bold</b> terms...",
-      "slide_3_title": "3-5 word intriguing specific header for slide 3",
+      "slide_3_title": "THE RESULTS: 3-word header",
       "slide_3_body": "50-60 word natural explanation with <b>bold</b> terms...",
       "caption": "PUNCHY TITLE\n\nFull engaging description summary + source link + hashtags",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
