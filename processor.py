@@ -53,38 +53,53 @@ def generate_carousel_content(article):
     }}
     """
     
-    # 3 retry attempts for reliability
-    max_retries = 3
-    for attempt in range(max_retries):
-        try:
-            print(f"Calling Gemini API (Attempt {attempt + 1}/{max_retries})...")
-            # Using 1.5-flash for text: Extremely stable, high quota, and top-tier quality
-            response = client.models.generate_content(
-                model='gemini-1.5-flash',
-                contents=prompt,
-            )
-            
-            text = response.text
-            if "```json" in text:
-                text = text.split("```json")[1].split("```")[0].strip()
-            elif "```" in text:
-                text = text.split("```")[1].strip()
-                
-            data = json.loads(text)
-            return data
-            
-        except Exception as e:
-            error_msg = str(e)
-            print(f"Gemini API Error (Attempt {attempt + 1}): {error_msg}")
-            
-            if "429" in error_msg and attempt < max_retries - 1:
-                wait_time = (attempt + 1) * 20 # Exponential-ish backoff
-                print(f"Rate limited. Waiting {wait_time}s before retry...")
-                time.sleep(wait_time)
-                continue
-            
-            return None
+    # Multi-Tier Text Generation Strategy
+    # Order: 2.5 Pro (Max Intelligence) -> 1.5 Pro (High Intelligence) -> 1.5 Flash (Reliability/Quota)
+    text_models = [
+        {"name": "gemini-2.5-pro", "label": "Gemini 2.5 Pro (Premier)"},
+        {"name": "gemini-1.5-pro", "label": "Gemini 1.5 Pro (Advanced)"},
+        {"name": "gemini-1.5-flash", "label": "Gemini 1.5 Flash (Fast/High Quota)"}
+    ]
     
+    for model_info in text_models:
+        model_name = model_info["name"]
+        model_label = model_info["label"]
+        
+        # 2 retry attempts per model tier for reliability
+        max_retries = 2
+        for attempt in range(max_retries):
+            try:
+                print(f"Calling {model_label} (Attempt {attempt + 1}/{max_retries})...")
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                )
+                
+                text = response.text
+                if "```json" in text:
+                    text = text.split("```json")[1].split("```")[0].strip()
+                elif "```" in text:
+                    text = text.split("```")[1].strip()
+                    
+                data = json.loads(text)
+                print(f"Success: Content generated using {model_label}")
+                return data
+                
+            except Exception as e:
+                error_msg = str(e)
+                print(f"{model_label} Error (Attempt {attempt + 1}): {error_msg}")
+                
+                # If rate limited (429), wait and retry THIS model tier
+                if "429" in error_msg and attempt < max_retries - 1:
+                    wait_time = (attempt + 1) * 15
+                    print(f"Rate limited for {model_name}. Waiting {wait_time}s before retry...")
+                    time.sleep(wait_time)
+                    continue
+                
+                # For any other error or if all retries for this tier fail, move to next model
+                break
+    
+    print("CRITICAL: All text generation models failed or exhausted.")
     return None
 
 
