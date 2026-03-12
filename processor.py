@@ -54,11 +54,11 @@ def generate_carousel_content(article):
     """
     
     # Multi-Tier Text Generation Strategy
-    # Order: 2.5 Pro (Max Intelligence) -> 1.5 Pro (High Intelligence) -> 1.5 Flash (Reliability/Quota)
+    # Order: 2.5 Pro (Premier) -> 2.0 Flash (Advanced) -> Flash Latest (Reliability)
     text_models = [
         {"name": "gemini-2.5-pro", "label": "Gemini 2.5 Pro (Premier)"},
-        {"name": "gemini-1.5-pro", "label": "Gemini 1.5 Pro (Advanced)"},
-        {"name": "gemini-1.5-flash", "label": "Gemini 1.5 Flash (Fast/High Quota)"}
+        {"name": "gemini-2.0-flash", "label": "Gemini 2.0 Flash (Advanced)"},
+        {"name": "gemini-flash-latest", "label": "Gemini Flash Latest (Reliability/Quota)"}
     ]
     
     for model_info in text_models:
