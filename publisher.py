@@ -55,11 +55,34 @@ def publish_carousel(image_paths, caption):
             print("Copy its contents to YOUR GITHUB SECRET named 'IG_SESSION' to bypass blacklist!")
             print("-----------------")
         
+        from music_service import MusicService
+        music_svc = MusicService(cl)
+        track = music_svc.get_trending_track()
+        
+        extra_data = {}
+        if track:
+            print(f"Injecting music metadata for: {track.title}")
+            # EXPERIMENTAL: This payload mimics the official app's hidden sidecar music fields
+            extra_data = {
+                "audio_cluster_id": track.audio_cluster_id,
+                "audio_asset_id": track.id,
+                "music_params": json.dumps({
+                    "audio_asset_id": track.id,
+                    "audio_cluster_id": track.audio_cluster_id,
+                    "audio_asset_start_time_in_ms": 0,
+                    "product": "feed_audio", # Key field for carousel music
+                    "overlap_duration_in_ms": 30000,
+                    "song_name": track.title,
+                    "artist_name": track.display_artist,
+                })
+            }
+
         print(f"Uploading carousel to Instagram (Caption Length: {len(caption)} chars)...")
         print(f"Caption Snippet: {caption[:100]}...")
         media = cl.album_upload(
             paths=image_paths,
-            caption=caption
+            caption=caption,
+            extra_data=extra_data
         )
         print(f"Initial upload successful! Media ID: {media.pk}")
         
