@@ -31,15 +31,15 @@ fbsearch.extract_track = mega_safe_extract_track
 class MusicService:
     def __init__(self, client: Client):
         self.cl = client
-        # User Curated Vibelist (Round 21)
-        self.curated_vibes = [
-            "Dominic Fike Baby",
-            "Coldplay",
-            "Frank Sinatra L-O-V-E",
-            "Frank Sinatra",
-            "Modern Hip Hop",
-            "Pop 2024",
-            "Jazz Classics"
+        # Aesthetic Vibelist: Professional but trending (Round 26)
+        self.aesthetic_vibes = [
+            "Ambient Hip Hop",
+            "Modern Jazz Instrumental",
+            "Trending Pop Instrumental",
+            "Indie Band Vibes",
+            "Melodic Hip Hop",
+            "Professional Lo-fi (Premium)",
+            "Soulful RnB Instrumental"
         ]
         # High-growth keywords focused on virality
         self.viral_genres = [
@@ -47,14 +47,13 @@ class MusicService:
             "Trending Billboard",
             "Top Charts 2024",
             "Viral Instrumental",
-            "Trending Kpop",
             "Modern Pop Instrumental"
         ]
         # Low priority / fallback
         self.fallback_genres = [
             "Inspiring Piano",
             "Deep House Instrumental",
-            "Soulful Jazz"
+            "Classical Classics"
         ]
 
     def get_trending_track(self, topic: str = "") -> Optional[Track]:
@@ -62,9 +61,9 @@ class MusicService:
         Searches for a high-growth trending track.
         Prioritizes tracks explicitly marked as trending by Instagram.
         """
-        # Prioritize curated vibes, then viral queries, then fallback
+        # Prioritize aesthetic vibes, then viral queries, then fallback
         test_queries = [
-            random.choice(self.curated_vibes),
+            random.choice(self.aesthetic_vibes),
             random.choice(self.viral_genres),
             "Viral",
             "Trending",
