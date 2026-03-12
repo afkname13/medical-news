@@ -31,6 +31,16 @@ fbsearch.extract_track = mega_safe_extract_track
 class MusicService:
     def __init__(self, client: Client):
         self.cl = client
+        # User Curated Vibelist (Round 21)
+        self.curated_vibes = [
+            "Dominic Fike Baby",
+            "Coldplay",
+            "Frank Sinatra L-O-V-E",
+            "Frank Sinatra",
+            "Modern Hip Hop",
+            "Pop 2024",
+            "Jazz Classics"
+        ]
         # High-growth keywords focused on virality
         self.viral_genres = [
             "Viral Tik Tok",
@@ -40,11 +50,11 @@ class MusicService:
             "Trending Kpop",
             "Modern Pop Instrumental"
         ]
-        self.safe_genres = [
-            "Chill Lofi",
-            "Ambient Study",
+        # Low priority / fallback
+        self.fallback_genres = [
             "Inspiring Piano",
-            "Deep House Instrumental"
+            "Deep House Instrumental",
+            "Soulful Jazz"
         ]
 
     def get_trending_track(self, topic: str = "") -> Optional[Track]:
@@ -52,8 +62,14 @@ class MusicService:
         Searches for a high-growth trending track.
         Prioritizes tracks explicitly marked as trending by Instagram.
         """
-        # Prioritize viral queries, then fallback to safe ones
-        test_queries = [random.choice(self.viral_genres), "Viral", "Trending", random.choice(self.safe_genres)]
+        # Prioritize curated vibes, then viral queries, then fallback
+        test_queries = [
+            random.choice(self.curated_vibes),
+            random.choice(self.viral_genres),
+            "Viral",
+            "Trending",
+            random.choice(self.fallback_genres)
+        ]
         
         for query in test_queries:
             try:
