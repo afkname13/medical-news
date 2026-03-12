@@ -4,6 +4,7 @@ import base64
 import requests
 import urllib.parse
 import time
+import argparse
 from datetime import datetime
 from dotenv import load_dotenv
 from google import genai
@@ -162,8 +163,10 @@ def download_image(url, path):
         print(f"Image download error: {e}")
     return path
 
-def run_pipeline():
+def run_pipeline(dry_run=False):
     print("\n=== Starting Medical News Bot Pipeline (Round 17) ===")
+    if dry_run:
+        print("⚠️  DRY RUN MODE ENABLED: No posts will be sent to Instagram.")
     
     # 0. Cleanup Old Storage
     base = os.path.dirname(os.path.abspath(__file__))
@@ -229,8 +232,12 @@ def run_pipeline():
         return
         
     # 4. Publish
-    print("Publishing to Instagram...")
-    success = publish_carousel(image_paths, caption)
+    if dry_run:
+        print("⚠️  Dry Run: Skipping Instagram upload. All media generated in /media directory.")
+        success = True # Simulate success for logic flow
+    else:
+        print("Publishing to Instagram...")
+        success = publish_carousel(image_paths, caption)
     
     if success:
         # Save to DB only on success
@@ -240,4 +247,8 @@ def run_pipeline():
         print("Pipeline finished with publishing error.")
         
 if __name__ == "__main__":
-    run_pipeline()
+    parser = argparse.ArgumentParser(description='Medical News Instagram Bot')
+    parser.add_argument('--dry-run', action='store_true', help='Run everything but don\'t post to Instagram')
+    args = parser.parse_args()
+    
+    run_pipeline(dry_run=args.dry_run)
