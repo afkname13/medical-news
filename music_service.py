@@ -1,7 +1,23 @@
 import random
 from typing import Optional
-from instagrapi import Client
+from instagrapi import Client, extractors
 from instagrapi.types import Track
+
+# --- MONKEY PATCH: Fix for 'NoneType' object has no attribute 'get' in extract_track ---
+# This happens when Instagram returns a null track object in search results.
+original_extract_track = extractors.extract_track
+
+def safe_extract_track(data):
+    if data is None:
+        return None
+    try:
+        return original_extract_track(data)
+    except Exception:
+        return None
+
+# Apply the patch globally to the instagrapi library for this process
+extractors.extract_track = safe_extract_track
+# ------------------------------------------------------------------------------------
 
 class MusicService:
     def __init__(self, client: Client):
