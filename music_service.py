@@ -6,37 +6,50 @@ from instagrapi.types import Track
 class MusicService:
     def __init__(self, client: Client):
         self.cl = client
-        # Curated keywords for trending but non-distracting medical news background
+        # High-growth keywords focused on virality
+        self.viral_genres = [
+            "Viral Tik Tok",
+            "Trending Billboard",
+            "Top Charts 2024",
+            "Viral Instrumental",
+            "Trending Kpop",
+            "Modern Pop Instrumental"
+        ]
         self.safe_genres = [
             "Chill Lofi",
             "Ambient Study",
-            "Deep House Instrumental",
-            "Corporate Minimal",
             "Inspiring Piano",
-            "Trending Kpop Instrumental",
-            "Smooth RnB",
-            "Modern Jazz"
+            "Deep House Instrumental"
         ]
 
     def get_trending_track(self, topic: str = "") -> Optional[Track]:
         """
-        Searches for a suitable background track.
-        If a topic is provided, it might try to match the mood.
+        Searches for a high-growth trending track.
+        Prioritizes tracks explicitly marked as trending by Instagram.
         """
-        # We try multiple queries in case one fails or returns bad data
-        test_queries = [random.choice(self.safe_genres), "Lo-fi", "Ambient", "Chill"]
+        # Prioritize viral queries, then fallback to safe ones
+        test_queries = [random.choice(self.viral_genres), "Viral", "Trending", random.choice(self.safe_genres)]
         
         for query in test_queries:
             try:
-                print(f"Searching for music with query: '{query}'...")
+                print(f"Searching for VIRAL music with query: '{query}'...")
                 tracks = self.cl.search_music(query)
                 
                 if tracks:
-                    # Filter out any None values that might have slipped through faulty extraction
+                    # Filter and Sort: Put tracks with 'is_trending_in_clips' at the top
                     valid_tracks = [t for t in tracks if t and hasattr(t, "title")]
                     
                     if valid_tracks:
-                        # Pick one of the top 3
+                        # Sort by trending flag (True comes first)
+                        valid_tracks.sort(key=lambda x: getattr(x, 'is_trending_in_clips', False), reverse=True)
+                        
+                        # If the top track is trending, take it immediately!
+                        if getattr(valid_tracks[0], 'is_trending_in_clips', False):
+                            track = valid_tracks[0]
+                            print(f"🔥 TRENDING TRACK FOUND: {track.title} by {track.display_artist}")
+                            return track
+                            
+                        # Otherwise pick from the top 3 for variety
                         selection_pool = valid_tracks[:3]
                         track = random.choice(selection_pool)
                         print(f"Selected Track: {track.title} by {track.display_artist}")
@@ -44,10 +57,9 @@ class MusicService:
                 
                 print(f"No valid tracks found for '{query}'. Trying next...")
             except Exception as e:
-                # This catches the 'NoneType' or 'KeyError' issues inside the library's extractor
-                print(f"Music search failed for '{query}': {e}. Trying next fallback...")
+                print(f"Music search failed for '{query}': {e}. Trying next...")
         
-        print("Music Service: All searches failed. Proceeding without music.")
+        print("Music Service: All viral searches failed. Proceeding without music.")
         return None
 
 if __name__ == "__main__":
