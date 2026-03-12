@@ -27,6 +27,7 @@ def generate_carousel_content(article):
     4. Each content slide MUST consist of natural, full sentences. DO NOT use titles like 'CATCHY TITLE:' or 'STEP 1:' inside the body paragraph. Avoid phrases like 'Doctors embrace digital health' or 'Beyond steps' if they look like headers. The text should flow as a coherent narrative.
     5. CAPTION REQUIREMENTS:
        - Start with a viral, hooking title.
+       - IMPORTANT: Add TWO NEWLINES (empty line) after the title, then start the description.
        - Provide a punchy summary (strictly 100-150 words).
        - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
        - Include '🔬 RESEARCH SOURCE:' with title, date, and link: {article.get('url', 'PubMed')}
@@ -43,11 +44,14 @@ def generate_carousel_content(article):
     
     Respond STRICTLY in JSON format matching this schema:
     {{
-      "cover": "Short, punchy, viral title (under 50 chars)",
-      "slide_1": "50-60 word natural explanation with <b>bold</b> terms...",
-      "slide_2": "50-60 word natural explanation with <b>bold</b> terms...",
-      "slide_3": "50-60 word natural explanation with <b>bold</b> terms...",
-      "caption": "100-150 word summary + source link + hashtags",
+      "cover": "Short, punchy, hyper-specific title (under 50 chars)",
+      "slide_1_title": "3-5 word specific header for slide 1",
+      "slide_1_body": "50-60 word natural explanation with <b>bold</b> terms...",
+      "slide_2_title": "3-5 word specific header for slide 2",
+      "slide_2_body": "50-60 word natural explanation with <b>bold</b> terms...",
+      "slide_3_title": "3-5 word specific header for slide 3",
+      "slide_3_body": "50-60 word natural explanation with <b>bold</b> terms...",
+      "caption": "PUNCHY TITLE\n\nFull engaging description summary + source link + hashtags",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
       "theme_color": "blue | purple | green | red"
     }}

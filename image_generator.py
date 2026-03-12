@@ -231,14 +231,23 @@ def generate_html(slides_data, bg_image_url, base_dir):
         return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height)
         
     # 2. Slides 1-3
-    s1_title, s1_body = parse_slide_content(slides_data.get('slide_1', ''))
-    slides_html.append(make_content_slide(s1_title, s1_body, "2/5", "blue"))
+    slides_html.append(make_content_slide(
+        slides_data.get('slide_1_title', 'DID YOU KNOW?'), 
+        slides_data.get('slide_1_body', slides_data.get('slide_1', '')), 
+        "2/5", "blue"
+    ))
 
-    s2_title, s2_body = parse_slide_content(slides_data.get('slide_2', ''))
-    slides_html.append(make_content_slide(s2_title, s2_body, "3/5", "mint"))
+    slides_html.append(make_content_slide(
+        slides_data.get('slide_2_title', 'DID YOU KNOW?'), 
+        slides_data.get('slide_2_body', slides_data.get('slide_2', '')), 
+        "3/5", "mint"
+    ))
     
-    s3_title, s3_body = parse_slide_content(slides_data.get('slide_3', ''))
-    slides_html.append(make_content_slide(s3_title, s3_body, "4/5", "purple"))
+    slides_html.append(make_content_slide(
+        slides_data.get('slide_3_title', 'DID YOU KNOW?'), 
+        slides_data.get('slide_3_body', slides_data.get('slide_3', '')), 
+        "4/5", "purple"
+    ))
     
     # 5. CTA Slide
     cta_content = f"""
