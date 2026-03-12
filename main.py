@@ -232,12 +232,7 @@ def run_pipeline(dry_run=False):
         return
         
     # 4. Publish
-    if dry_run:
-        print("⚠️  Dry Run: Skipping Instagram upload. All media generated in /media directory.")
-        success = True # Simulate success for logic flow
-    else:
-        print("Publishing to Instagram...")
-        success = publish_carousel(image_paths, caption)
+    success = publish_carousel(image_paths, caption, dry_run=dry_run)
     
     if success:
         # Save to DB only on success

@@ -4,7 +4,7 @@ import random
 import json
 from instagrapi import Client
 
-def publish_carousel(image_paths, caption):
+def publish_carousel(image_paths, caption, dry_run=False):
     username = os.getenv("IG_USERNAME")
     password = os.getenv("IG_PASSWORD")
     
@@ -76,6 +76,10 @@ def publish_carousel(image_paths, caption):
                     "artist_name": track.display_artist,
                 })
             }
+
+        if dry_run:
+            print("⚠️  DRY RUN: Skipping ACTUAL upload and verification. Music discovery was tested above.")
+            return True
 
         print(f"Uploading carousel to Instagram (Caption Length: {len(caption)} chars)...")
         print(f"Caption Snippet: {caption[:100]}...")
