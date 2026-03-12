@@ -2,12 +2,12 @@ name: Medical News Instagram Bot
 
 on:
   schedule:
-    # 9 AM ET / 2 PM UK (assuming ET is UTC-4/-5, let's use UTC 13:00)
-    - cron: '0 13 * * *'
-    # 2 PM ET / 7 PM UK
-    - cron: '0 18 * * *'
-    # 10 PM ET / 7 PM PT (next day UTC 02:00)
-    - cron: '0 2 * * *'
+    # 10:17 PM KST (Shifting from 10 PM to avoid traffic)
+    - cron: '17 13 * * *'
+    # 3:42 AM KST (Shifting from 3 AM)
+    - cron: '42 18 * * *'
+    # 10:47 AM KST (Shifting from 11 AM to pre-empt delays)
+    - cron: '47 1 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
