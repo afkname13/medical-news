@@ -1,23 +1,32 @@
 import random
+import traceback
 from typing import Optional
 from instagrapi import Client, extractors
 from instagrapi.types import Track
+from instagrapi.mixins import fbsearch
 
-# --- MONKEY PATCH: Fix for 'NoneType' object has no attribute 'get' in extract_track ---
-# This happens when Instagram returns a null track object in search results.
-original_extract_track = extractors.extract_track
-
-def safe_extract_track(data):
-    if data is None:
+# --- MEGA MONKEY PATCH: Final Boss fix for Music Crashes ---
+def mega_safe_extract_track(data):
+    """Deeply resilient track extractor that ignores malformed/missing data."""
+    if data is None or not isinstance(data, dict):
         return None
     try:
-        return original_extract_track(data)
-    except Exception:
+        # We catch potential attribute errors deep inside the original extractor
+        return extractors.original_extract_track(data)
+    except Exception as e:
+        # Silently skip items that cause Pydantic or dict errors
         return None
 
-# Apply the patch globally to the instagrapi library for this process
-extractors.extract_track = safe_extract_track
-# ------------------------------------------------------------------------------------
+# 1. Save the original if not already saved
+if not hasattr(extractors, "original_extract_track"):
+    extractors.original_extract_track = extractors.extract_track
+
+# 2. Patch it in the global extractors module
+extractors.extract_track = mega_safe_extract_track
+
+# 3. CRITICAL: Patch it in the fbsearch module where it was ALREADY imported
+fbsearch.extract_track = mega_safe_extract_track
+# -----------------------------------------------------------
 
 class MusicService:
     def __init__(self, client: Client):
