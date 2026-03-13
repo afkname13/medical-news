@@ -230,33 +230,21 @@ def generate_html(slides_data, bg_image_url, base_dir):
         """
         return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height)
         
-    # 2. Content Slides 1-3
+    # 2. Content Slide 1
     slides_html.append(make_content_slide(
-        slides_data.get('slide_1_title', 'THE PROBLEM'), 
+        slides_data.get('slide_1_title', 'THE BREAKTHROUGH'), 
         slides_data.get('slide_1_body', ''), 
-        "2/6", "blue"
+        "2/4", "blue"
     ))
 
+    # 3. Content Slide 2
     slides_html.append(make_content_slide(
-        slides_data.get('slide_2_title', 'THE BREAKTHROUGH'), 
+        slides_data.get('slide_2_title', 'THE IMPACT'), 
         slides_data.get('slide_2_body', ''), 
-        "3/6", "mint"
+        "3/4", "mint"
     ))
     
-    slides_html.append(make_content_slide(
-        slides_data.get('slide_3_title', 'THE RESULTS'), 
-        slides_data.get('slide_3_body', ''), 
-        "4/6", "purple"
-    ))
-
-    # 4. Slide 4 (Key Takeaway)
-    slides_html.append(make_content_slide(
-        slides_data.get('slide_4_title', 'KEY TAKEAWAY'), 
-        slides_data.get('slide_4_body', ''), 
-        "5/6", "mint" # Mint or theme color
-    ))
-    
-    # 5. CTA Slide
+    # 4. CTA Slide
     cta_content = f"""
     <div class="bg-layer blurred"></div>
     <div class="overlay"></div>
@@ -264,8 +252,8 @@ def generate_html(slides_data, bg_image_url, base_dir):
     <div class="card" style="justify-content: center; padding: 120px;">
         <div class="cta-title">The Future of<br>Medical News.</div>
         <div class="cta-subtitle">Stay informed daily @medicalnews_daily</div>
-        <div class="cta-button">Join 20k+ Followers</div>
-        <div class="slide-fraction">6/6</div>
+        <div class="cta-button">Join for more</div>
+        <div class="slide-fraction">4/4</div>
     </div>
     """
     slides_html.append(html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cta_content).replace('{body_line_height}', line_height))

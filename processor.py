@@ -22,17 +22,15 @@ def generate_carousel_content(article):
     Source URL: {article.get('url', 'PubMed')}
 
     STRICT RULES:
-    1. AVOID using these characters in ANY of the output text: semicolon (;), asterisk (*), and long dashes (—). Use commas, periods, or simple hyphens instead    2. CONTENT SLIDES (Slide 1-3) MUST BE 50-60 WORDS EACH. This is the sweet spot for readability and depth.
-    3. IMPORTANT: Use <b>bold tags</b> around key medical terms or viral findings within the slide body (e.g., 'Scientists found <b>hundreds of metabolic enzymes</b>...').
-    4. Each content slide MUST consist of natural, full sentences. DO NOT use titles like 'CATCHY TITLE:' or 'STEP 1:' inside the body paragraph. Avoid phrases like 'Doctors embrace digital health' or 'Beyond steps' if they look like headers. The text should flow as a coherent narrative.
+    1. AVOID using these characters in ANY of the output text: semicolon (;), asterisk (*), and long dashes (—). Use commas, periods, or simple hyphens instead.
+    2. CONTENT SLIDES (Slide 1-2) MUST BE 50-60 WORDS EACH. This is the sweet spot for maximum reader retention.
+    3. IMPORTANT: Use <b>bold tags</b> around key medical terms or viral findings within the slide body.
+    4. Each content slide MUST consist of natural, full sentences. DO NOT use titles like 'STEP 1:' inside the body paragraph.
     5. CAPTION REQUIREMENTS:
        - Start with a viral, hooking title.
-       - IMPORTANT: Add TWO NEWLINES (empty line) after the title, then start the description.
        - Provide a punchy summary (strictly 100-150 words).
-       - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
-       - Include '🔬 RESEARCH SOURCE:' with title, date, and link: {article.get('url', 'PubMed')}
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
-       - Include 10-15 viral hashtags PLUS 5-10 hyper-niche hashtags related to the medical specialty (e.g. #NeuroScience, #Oncology).
+       - Include 10-15 viral hashtags PLUS 5-10 hyper-niche hashtags.
      
      6. SMART FIRST COMMENT (VIRAL ENGAGEMENT):
         - Create a 'first_comment' field.
@@ -40,24 +38,17 @@ def generate_carousel_content(article):
         - The goal is to make people want to reply. Keep it under 100 characters.
     
     7. IMAGE PROMPT (CRITICAL - HYPER-REALISM):
-       - Create an 'image_prompt' for an AI image generator.
-       - It MUST describe a professional, hyper-realistic clinical or laboratory scene.
-       - Avoid anything "AI-looking" (no glowing neon futuristic pods). Use natural lighting, shallow depth of field, and real textures (glass, steel, biological tissue).
-       - Prompt should be 2-3 sentences. Include keywords: 'professional medical photography, 8k, ultra-realistic, cinematic lighting, macro lens'.
+       - Create an 'image_prompt' for an AI image generator (professional medical photography).
     
     7. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.
     
     Respond STRICTLY in JSON format matching this schema:
     {
-      "cover": "EXTREME HOOK: A punchy, hyper-specific title (under 45 chars). MUST NOT start with the word 'Your'. MUST use a specific number, a unique medical verb, or a direct promise (e.g. 'NEW 5-MINUTE BRAIN FIX' or 'THE END OF INSOMNIA?'). Avoid vague words like 'Discovery', 'Research', 'Update', or generic possessives.",
-      "slide_1_title": "THE PROBLEM: 3-word punchy header",
-      "slide_1_body": "50-60 word natural explanation with <b>bold</b> terms...",
-      "slide_2_title": "THE BREAKTHROUGH: 3-word header",
-      "slide_2_body": "50-60 word natural explanation with <b>bold</b> terms...",
-      "slide_3_title": "THE RESULTS: 3-word header",
-      "slide_3_body": "50-60 word natural explanation with <b>bold</b> terms...",
-      "slide_4_title": "KEY TAKEAWAY: 2-3 word header",
-      "slide_4_body": "30-40 word powerful summary + a specific question to the reader (e.g. 'Would you try this?')",
+      "cover": "EXTREME HOOK: A punchy, hyper-specific title (under 45 chars). MUST NOT start with the word 'Your'.",
+      "slide_1_title": "THE BREAKTHROUGH: 3-word punchy header",
+      "slide_1_body": "50-60 word natural explanation of the discovery with <b>bold</b> terms...",
+      "slide_2_title": "THE IMPACT: 3-word header",
+      "slide_2_body": "50-60 word explanation of what this means for the patient or future with <b>bold</b> terms...",
       "caption": "PUNCHY TITLE\n\nFull engaging description summary + specialty hashtags",
       "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",

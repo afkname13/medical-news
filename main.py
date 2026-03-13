@@ -182,17 +182,13 @@ def run_pipeline(dry_run=False, mock=False):
             "url": "https://example.com/mock-medical"
         }
         slides_data = {
-            "cover": "MOCK: REVOLUTIONARY VIRAL HOOK",
-            "slide_1_title": "THE PROBLEM",
-            "slide_1_body": "This is a mock slide testing the new 6-slide progression and viral engagement features.",
-            "slide_2_title": "THE BREAKTHROUGH",
-            "slide_2_body": "No AI quota was used to generate this test content. The system is simulating a full run.",
-            "slide_3_title": "THE RESULTS",
-            "slide_3_body": "Everything is working as expected! 6 total slides (Cover + 3 Content + 1 Takeaway + 1 CTA).",
-            "slide_4_title": "KEY TAKEAWAY",
-            "slide_4_body": "Always test your pipeline! Would you trust an automated doctor? Let us know below!",
-            "caption": "🎭 MOCK TEST CONTENT (ROUND 28) 🎭\n\nVerifying the new viral takeover features. \n\n#MedicalNews #Automation #Test #NeuroScience",
-            "first_comment": "BONUS QUESTION: Do you think AI will replace surgeons by 2030? 🤔",
+            "cover": "MOCK: LEAN VIRAL HOOK",
+            "slide_1_title": "THE BREAKTHROUGH",
+            "slide_1_body": "This is a mock slide testing the new 4-slide lean progression. It maintains exactly 50-60 words for reader retention.",
+            "slide_2_title": "THE IMPACT",
+            "slide_2_body": "Everything is working as expected! 4 total slides (1 Cover + 2 Content + 1 CTA). The bot is now faster than ever.",
+            "caption": "🎭 LEAN TEST CONTENT (ROUND 29) 🎭\n\nVerifying the new 4-slide high-speed layout. \n\n#MedicalNews #Automation #Test",
+            "first_comment": "QUICK QUESTION: Do you prefer these shorter carousels? 👇",
             "image_prompt": "Mock image prompt"
         }
         bg_path = os.path.join(base, "media", "bg.jpg")
