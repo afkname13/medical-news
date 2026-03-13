@@ -245,14 +245,16 @@ def generate_html(slides_data, bg_image_url, base_dir):
     ))
     
     # 4. CTA Slide
+    cta_question = slides_data.get('slide_4_question', 'Would you try this treatment?')
     cta_content = f"""
     <div class="bg-layer blurred"></div>
     <div class="overlay"></div>
     {logo_html}
-    <div class="card" style="justify-content: center; padding: 120px;">
-        <div class="cta-title">The Future of<br>Medical News.</div>
-        <div class="cta-subtitle">Stay informed daily @medicalnews_daily</div>
-        <div class="cta-button">Join for more</div>
+    <div class="card" style="justify-content: center; padding: 120px; text-align: center;">
+        <div class="cta-title" style="font-size: 60px; margin-bottom: 60px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 40px;">{cta_question}</div>
+        <div class="cta-subtitle" style="font-size: 45px; color: #FFFFFF; font-weight: 700; margin-bottom: 10px;">Stay informed daily</div>
+        <div class="cta-subtitle" style="font-size: 35px; color: #8B949E; margin-bottom: 60px;">@medicalnews_daily</div>
+        <div class="cta-button" style="margin: 0 auto;">Follow for more</div>
         <div class="slide-fraction">4/4</div>
     </div>
     """

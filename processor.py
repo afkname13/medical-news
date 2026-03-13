@@ -49,6 +49,7 @@ def generate_carousel_content(article):
       "slide_1_body": "50-60 word natural explanation of the discovery with <b>bold</b> terms...",
       "slide_2_title": "THE IMPACT: 3-word header",
       "slide_2_body": "50-60 word explanation of what this means for the patient or future with <b>bold</b> terms...",
+      "slide_4_question": "A provocative, direct question to the reader (e.g. 'Would you trust an AI doctor?' - max 60 chars)",
       "caption": "PUNCHY TITLE\n\nFull engaging description summary + specialty hashtags",
       "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",

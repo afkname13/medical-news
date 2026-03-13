@@ -182,14 +182,15 @@ def run_pipeline(dry_run=False, mock=False):
             "url": "https://example.com/mock-medical"
         }
         slides_data = {
-            "cover": "MOCK: LEAN VIRAL HOOK",
+            "cover": "NEW 5-MINUTE BRAIN REPAIR FOUND",
             "slide_1_title": "THE BREAKTHROUGH",
-            "slide_1_body": "This is a mock slide testing the new 4-slide lean progression. It maintains exactly 50-60 words for reader retention.",
+            "slide_1_body": "Researchers from <b>Mayo Clinic</b> have discovered a specific wave of <b>near-infrared light</b> that can trigger the brain's natural repair system. This non-invasive method successfully reversed memory loss in clinical trials for the first time.",
             "slide_2_title": "THE IMPACT",
-            "slide_2_body": "Everything is working as expected! 4 total slides (1 Cover + 2 Content + 1 CTA). The bot is now faster than ever.",
-            "caption": "🎭 LEAN TEST CONTENT (ROUND 29) 🎭\n\nVerifying the new 4-slide high-speed layout. \n\n#MedicalNews #Automation #Test",
-            "first_comment": "QUICK QUESTION: Do you prefer these shorter carousels? 👇",
-            "image_prompt": "Mock image prompt"
+            "slide_2_body": "This discovery could lead to a world without <b>Alzheimer's disease</b>. Portable devices are already being tested, meaning a <b>5-minute daily treatment</b> at home could soon replace expensive hospitals and risky surgeries.",
+            "slide_4_question": "Would you try a 5-minute brain fix? 🤔",
+            "caption": "BRAIN REPAIR BREAKTHROUGH 🧠✨\n\nScientists have finally cracked the code to brain regeneration. Swipe left to see how 5 minutes of light could change medicine forever. \n\nHit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀\n\n#MedicalNews #BrainHealth #Science #Innovation",
+            "first_comment": "QUICK QUESTION: What's the one thing you wish your brain could do better? Let us know! 👇",
+            "image_prompt": "Hyper-realistic clinical photography of a patient wearing a sleek medical headset, soft blue glowing light, bokeh background, macro lens, 8k"
         }
         bg_path = os.path.join(base, "media", "bg.jpg")
         if not os.path.exists(bg_path):
