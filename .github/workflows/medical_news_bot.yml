@@ -2,16 +2,13 @@ name: Medical News Instagram Bot
 
 on:
   schedule:
-    # Slot 1: Reel (Early Morning Asia / Late Night US) - Hits fresh news cycle
-    - cron: '17 0 * * *'
-    # Slot 2: Carousel (Morning Peak EU / Night US) - High context retention
-    - cron: '17 6 * * *'
-    # Slot 3: Reel (Mid-day EU / Morning Peak US) - Discovery reach
-    - cron: '17 12 * * *'
-    # Slot 4: Carousel (Evening Peak EU / Afternoon US) - Deep dive engagement
-    - cron: '17 18 * * *'
-    # Slot 5: Reel (Late Night EU / Evening Peak US) - Viral night-owl reach
-    - cron: '17 22 * * *'
+    # Aggressive Growth Strategy: 3 Carousels + 3 Reels (Every 4 Hours)
+    - cron: '17 0 * * *'  # Reel (Reach)
+    - cron: '17 4 * * *'  # Carousel (Retention)
+    - cron: '17 8 * * *'  # Reel (Reach)
+    - cron: '17 12 * * *' # Carousel (Retention)
+    - cron: '17 16 * * *' # Reel (Reach)
+    - cron: '17 20 * * *' # Carousel (Retention)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -74,10 +71,10 @@ jobs:
             ARGS="$ARGS --mock"
           fi
           
-          # GROWTH STRATEGY: 2 Posts (Carousels) + 3 Reels
-          # We check the hour of execution (UTC) to decide format
+          # AGGRESSIVE STRATEGY: 3 Carousels + 3 Reels
+          # Alternate format (Reel ➔ Carousel ➔ Reel...)
           HOUR=$(date -u +%H)
-          if [ "$HOUR" == "06" ] || [ "$HOUR" == "18" ]; then
+          if [ "$HOUR" == "04" ] || [ "$HOUR" == "12" ] || [ "$HOUR" == "20" ]; then
             echo "⏰ Slot detected: Carousel (Retention Focus)"
             ARGS="$ARGS --carousel-only"
           else
