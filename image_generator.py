@@ -180,8 +180,10 @@ def generate_html(slides_data, bg_image_url, base_dir):
     """
     
     # Calculate title font size based on length
-    title = slides_data.get('cover', 'MEDICAL BREAKTHROUGH')
-    t_len = len(title)
+    title_raw = slides_data.get('cover', 'MEDICAL BREAKTHROUGH')
+    title = title_raw.replace('\\n', '<br>').replace('\n', '<br>')
+    
+    t_len = len(title_raw)
     if t_len < 30:
         t_size = 110
     elif t_len < 50:
@@ -209,13 +211,14 @@ def generate_html(slides_data, bg_image_url, base_dir):
     slides_html = []
     
     # 1. Cover
+    cover_cta = slides_data.get('cover_cta', 'TAP TO LEARN MORE ➔')
     cover_body = f"""
     <div class="bg-layer"></div>
     <div class="overlay"></div>
     {logo_html}
     <div class="cover-container">
         <h1 class="cover-title" style="font-size: {t_size}px;">{title}</h1>
-        <div class="cover-tap">TAP TO LEARN MORE ➔</div>
+        <div class="cover-tap">{cover_cta}</div>
     </div>
     """
     

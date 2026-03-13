@@ -136,27 +136,14 @@ def publish_reel(video_path, caption, dry_run=False):
         print(f"Caption: {caption[:50]}...")
         return True
 
-    # Reuse existing login logic (simplified for now)
-    username = os.getenv("IG_USERNAME")
-    password = os.getenv("IG_PASSWORD")
-    if not username or not password:
-        print("Warning: IG_USERNAME or IG_PASSWORD not set.")
+    cl = login_to_instagram()
+    if not cl:
+        print("Failed to log in to Instagram. Skipping Reel publishing.")
         return False
         
-    cl = Client()
-    session_data = os.getenv("IG_SESSION")
-    if session_data:
-        try:
-            cl.set_settings(json.loads(session_data))
-        except:
-            pass
-            
     try:
-        if not session_data:
-            cl.login(username, password)
-            
         print(f"Uploading Reel: {video_path}...")
-        media = cl.clip_upload(video_path, caption)
+        media = cl.clip_upload(video_path, caption, feed_show='0')
         print(f"Reel published successfully! Media ID: {media.pk}")
         return True
     except Exception as e:

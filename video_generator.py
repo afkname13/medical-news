@@ -112,24 +112,58 @@ class VideoGenerator:
         except:
             return None
 
+    def _download_viral_audio(self):
+        """Downloads a royalty-free medical-lofi track for fallback."""
+        audio_path = os.path.join(self.output_dir, "viral_lofi.mp3")
+        if os.path.exists(audio_path):
+            return audio_path
+            
+        # SoundHelix - Reliable test audio source
+        url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        try:
+            print(f"Downloading Viral Lo-fi Library: {url}")
+            headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+            r = requests.get(url, headers=headers, timeout=15)
+            r.raise_for_status()
+            with open(audio_path, 'wb') as f:
+                f.write(r.content)
+            return audio_path
+        except Exception as e:
+            print(f"Failed to download lofi: {e}")
+            return None
+
     def create_static_reel(self, image_path, music_path=None, duration=15):
         """Creates a Reel from a flat image (meme-style hook)."""
         output_path = os.path.join(self.output_dir, "final_reel.mp4")
         
+        # Audio Fallback Logic (Round 38)
+        if not music_path or not os.path.exists(music_path):
+            print("No trending audio provided. Using Viral Lo-fi Fallback...")
+            music_path = self._download_viral_audio()
+
         try:
             print(f"Creating static Reel from: {image_path}...")
             # Load static image as a clip
             clip = ImageClip(image_path).set_duration(duration)
-            clip = clip.set_fps(24) # Standard for IG
+            clip = clip.set_fps(30) # Round 38: Smoother FPS for IG
             
             # Add Music
             if music_path and os.path.exists(music_path):
-                print(f"Syncing audio: {music_path}")
+                print(f"Syncing hardcoded audio: {music_path}")
                 audio = AudioFileClip(music_path).subclip(0, duration)
                 clip = clip.set_audio(audio)
+            else:
+                print("Warning: Creating Reel WITHOUT audio (all fallbacks failed).")
             
-            # Write file
-            clip.write_videofile(output_path, codec="libx264", audio_codec="aac", fps=24)
+            # Write file with professional settings
+            clip.write_videofile(
+                output_path, 
+                codec="libx264", 
+                audio_codec="aac", 
+                fps=30,
+                preset="veryslow", # Higher quality compression
+                bitrate="5000k"
+            )
             print(f"Static Reel ready: {output_path}")
             return output_path
         except Exception as e:

@@ -2,12 +2,16 @@ name: Medical News Instagram Bot
 
 on:
   schedule:
-    # Slot 1: US Morning Peak (Targets ~9 AM ET / 2 PM UK)
-    - cron: '17 12 * * *'
-    # Slot 2: UK Evening / US Midday Peak (Targets ~2 PM ET / 7 PM UK)
-    - cron: '17 17 * * *'
-    # Slot 3: US Evening Peak (Targets ~9 PM ET)
+    # Slot 1: Reel (Early Morning Asia / Late Night US) - Hits fresh news cycle
     - cron: '17 0 * * *'
+    # Slot 2: Carousel (Morning Peak EU / Night US) - High context retention
+    - cron: '17 6 * * *'
+    # Slot 3: Reel (Mid-day EU / Morning Peak US) - Discovery reach
+    - cron: '17 12 * * *'
+    # Slot 4: Carousel (Evening Peak EU / Afternoon US) - Deep dive engagement
+    - cron: '17 18 * * *'
+    # Slot 5: Reel (Late Night EU / Evening Peak US) - Viral night-owl reach
+    - cron: '17 22 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -69,6 +73,18 @@ jobs:
           if [ "${{ github.event.inputs.mock }}" == "true" ]; then
             ARGS="$ARGS --mock"
           fi
+          
+          # GROWTH STRATEGY: 2 Posts (Carousels) + 3 Reels
+          # We check the hour of execution (UTC) to decide format
+          HOUR=$(date -u +%H)
+          if [ "$HOUR" == "06" ] || [ "$HOUR" == "18" ]; then
+            echo "⏰ Slot detected: Carousel (Retention Focus)"
+            ARGS="$ARGS --carousel-only"
+          else
+            echo "⏰ Slot detected: Reel (Reach Focus)"
+            ARGS="$ARGS --reels-only"
+          fi
+          
           python main.py $ARGS
 
       - name: Commit and Push Updated DB

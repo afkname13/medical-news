@@ -26,36 +26,60 @@ def generate_carousel_content(article):
     2. CONTENT SLIDES (Slide 1-2) MUST BE 50-60 WORDS EACH. This is the sweet spot for maximum reader retention.
     3. IMPORTANT: Use <b>bold tags</b> around key medical terms or viral findings within the slide body.
     4. Each content slide MUST consist of natural, full sentences. DO NOT use titles like 'STEP 1:' inside the body paragraph.
-    5. CAPTION REQUIREMENTS:
-       - Start with a viral, hooking title.
-       - Provide a punchy summary (strictly 100-150 words).
-       - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
-       - Include 10-15 viral hashtags PLUS 5-10 hyper-niche hashtags.
-     
-     6. SMART FIRST COMMENT (VIRAL ENGAGEMENT):
-        - Create a 'first_comment' field.
-        - Generate a provocative question or a "Mind-Blowing Bonus Fact" related to the article.
-        - The goal is to make people want to reply. Keep it under 100 characters.
+    5. EXTREME VIRAL HOOK (COVER):
+       - Create a 2-line 'Tease + Punch' structure using a newline (\n).
+       - Line 1 (The Tease): A punchy, news-style hook phrase. Examples: 'WE CAN'T WAIT ANY LONGER', 'NO MORE DELAYS', 'THE TRUTH IS OUT', 'IT HAS FINALLY HAPPENED'.
+       - Line 2 (The Punch): The specific medical breakthrough in 4-6 words.
+       - Example: "WE CAN'T WAIT ANY LONGER\nTHE ALZHEIMER'S CURE IS HERE"
     
-    7. IMAGE PROMPT (CRITICAL - HYPER-REALISM):
-       - Create an 'image_prompt' for an AI image generator (professional medical photography).
+    6. SMART FIRST COMMENT (VIRAL ENGAGEMENT):
+       - Create a 'first_comment' field.
+       - Generate a provocative question or a "Mind-Blowing Bonus Fact" related to the article.
+       - The goal is to make people want to reply. Keep it under 100 characters.
     
-    7. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.
+    7. IMAGE PROMPT (PHOTOREALISM & SPECIFICITY MANDATE):
+       - **MANDATORY**: The image MUST be 1:1 with the scientific subject.
+       - **FORBIDDEN (FAILURE CASE)**: Absolutely NO generic anatomical icons, plastic models, or medical diagrams. 
+       - **NEVER** show a generic heart, a generic red brain, or a head model. If you show a heart, you have FAILED.
+       - **FOCUS**: Instead of the organ, show the **MICROSCOPIC** or **MOLECULAR** level of the discovery.
+       - **NEGATIVE PROMPT**: No plastic, no toys, no clip-art, no stock-photo doctors, no stethoscopes.
+       - **SPECIFIC VISUALS**:
+         - If it's a drug: Show the "3D Molecular Architecture" or "Chemical Crystal Lattice".
+         - If it's a virus: Show a "Cinematic Pathogen View" or "Cryo-EM Spike Protein model".
+         - If it's a cell: Show "Scanning Electron Microscopy" or "Cross-section of the cell nucleus".
+       - Vibe: "Microscopic Cinematic", "High-Tech Biological Architecture", "Cold Scientific Realism", "High-Fidelity Molecular Realism".
     
+    8. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.
+    
+    9. CAPTION STYLE (CRITICAL):
+       - Start with 'READ THIS! 🚨' or 'MUST READ! ⚠️'.
+       - Provide a deep-dive summary (exactly 100-120 words).
+       - Use massive spacing (double newlines) between points to make it easy to scan.
+       - The tone should be 'Insider Alert' style.
+
     Respond STRICTLY in JSON format matching this schema:
     {{
-      "cover": "A hyper-specific, attention-grabbing title (Outcome-First). Mandatory: Use 'Meme-Style' factual hooks. Example: 'LUNGS REGENERATE AFTER 20 YEARS SCARRING 🫁🔥' or 'THIS CRYSTAL REPAIRS BRAIN NEURONS IN 5 MINS 🧠✨'. Avoid vague words like 'Discovery', 'New', 'Research', 'Breakthrough'.",
-      "slide_1_title": "THE BREAKTHROUGH: 3-word punchy header",
-      "slide_1_body": "50-60 word natural explanation of the discovery with <b>bold</b> terms...",
-      "slide_2_title": "THE IMPACT: 3-word header",
-      "slide_2_body": "50-60 word explanation of what this means for the patient or future with <b>bold</b> terms...",
-      "slide_4_question": "A provocative, direct question to the reader (e.g. 'Would you trust an AI doctor?' - max 60 chars)",
-      "reel_script": "A punchy, 1-sentence hook for a 15-second Reel (matches cover).",
-      "video_keywords": ["keyword1", "keyword2"] (kept for fallback).",
-      "caption": "PUNCHY TITLE\n\nFull engaging description summary + specialty hashtags",
-      "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT",
-      "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
-      "theme_color": "blue | purple | green | red"
+      "theme_color": "blue | purple | green | red",
+      "carousel_data": {{
+        "cover": "TEASE PHRASE\nSPECIFIC BREAKTHROUGH (Max 10 words total)",
+        "cover_cta": "TAP TO LEARN MORE ➔",
+        "slide_1_title": "THE BREAKTHROUGH: 3-word punchy header",
+        "slide_1_body": "60-70 word detailed, academic explanation of the discovery with <b>bold</b> terms...",
+        "slide_2_title": "THE IMPACT: 3-word header",
+        "slide_2_body": "60-70 word detailed explanation of the clinical impact with <b>bold</b> terms...",
+        "slide_4_question": "A provocative, academic question (e.g. 'How will this change medicine?' - max 60 chars)",
+        "caption": "READ THIS! 🚨\n\n[Academic-Viral Title]\n\n[Body Point 1]\n\n[Body Point 2]\n\n[Body Point 3]\n\nHit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀\n\n#AcademicHashtags...",
+        "image_prompt": "Ultra-specific scientific prompt (3D Molecular/Pathogen view)"
+      }},
+      "reel_data": {{
+        "cover": "TEASE PHRASE\nSPECIFIC BREAKTHROUGH (Max 10 words total)",
+        "cover_cta": "READ THE CAPTION TO LEARN MORE ⬇️",
+        "reel_script": "A PURE VIRAL 1-sentence hook for a 15-second Reel (Extreme shock value).",
+        "video_keywords": ["keyword1", "keyword2"],
+        "caption": "READ THIS! 🚨\n\n[Pure Viral Title]\n\n[Short Punchy Summary - 100 words]\n\nHit FOLLOW @medicalnews_daily for more viral science! 🧬🔥\n\n#ViralHashtags...",
+        "image_prompt": "High-impact, cinematic visual for the Reel cover"
+      }},
+      "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT (Shared)"
     }}
     """
     
