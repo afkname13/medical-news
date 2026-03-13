@@ -4,57 +4,61 @@ import random
 import json
 from instagrapi import Client
 
-def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
+def login_to_instagram():
+    """Authenticates with Instagram using credentials or session."""
     username = os.getenv("IG_USERNAME")
     password = os.getenv("IG_PASSWORD")
     
     if not username or not password:
-        print("Warning: IG_USERNAME or IG_PASSWORD not set. Skipping publishing.")
-        return False
+        print("Warning: IG_USERNAME or IG_PASSWORD not set.")
+        return None
         
     cl = Client()
-    
-    # 1. Check for session environment variable
     session_data = os.getenv("IG_SESSION")
-    if session_data:
-        try:
-            print("Found IG_SESSION. Attempting to load session...")
-            session_dict = json.loads(session_data)
-            cl.set_settings(session_dict)
-            print("Session loaded successfully!")
-        except Exception as e:
-            print(f"Error loading session from environment: {e}")
     
     # Adding a realistic delay/jitter before login/action
     jitter = random.randint(5, 15)
     print(f"Waiting {jitter} seconds (Jitter Control)...")
     time.sleep(jitter)
+
+    if session_data:
+        try:
+            print("Found IG_SESSION. Attempting to load session...")
+            cl.set_settings(json.loads(session_data))
+            # Test session
+            cl.get_timeline_feed()
+            print("Session loaded and verified!")
+            return cl
+        except Exception as e:
+            print(f"Session invalid or expired: {e}")
+
+    try:
+        print(f"Logging into Instagram as {username}...")
+        cl.login(username, password)
+        # Save session for local use
+        with open("ig_session.json", "w") as f:
+            json.dump(cl.get_settings(), f, indent=2)
+        print("Login successful! Session saved to ig_session.json")
+        print("--- IMPORTANT ---")
+        print("New session saved to ig_session.json")
+        print("Copy its contents to YOUR GITHUB SECRET named 'IG_SESSION' to bypass blacklist!")
+        print("-----------------")
+        return cl
+    except Exception as e:
+        print(f"Login failed: {e}")
+        return None
+
+def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
+    if dry_run:
+        print("⚠️  DRY RUN: Skipping ACTUAL upload.")
+        return True
+
+    cl = login_to_instagram()
+    if not cl:
+        print("Failed to log in to Instagram. Skipping publishing.")
+        return False
     
     try:
-        # 2. Check login status
-        is_logged_in = False
-        try:
-            if session_data:
-                # Simple check if current session is valid
-                cl.get_timeline_feed() 
-                is_logged_in = True
-                print("Confirmed: Existing session is VALID. Skipping login.")
-        except:
-            print("Existing session is INVALID or expired. Proceeding to login...")
-
-        if not is_logged_in:
-            print(f"Logging into Instagram as {username}...")
-            cl.login(username, password)
-            
-            # Save the new session to a local file for the user to extract
-            print("Login successful! Saving session to ig_session.json...")
-            with open("ig_session.json", "w") as f:
-                json.dump(cl.get_settings(), f, indent=2)
-            print("--- IMPORTANT ---")
-            print("New session saved to ig_session.json")
-            print("Copy its contents to YOUR GITHUB SECRET named 'IG_SESSION' to bypass blacklist!")
-            print("-----------------")
-        
         from music_service import MusicService
         music_svc = MusicService(cl)
         track = music_svc.get_trending_track()
@@ -122,6 +126,41 @@ def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
         return True
     except Exception as e:
         print(f"Error publishing to Instagram: {e}")
+        return False
+
+
+def publish_reel(video_path, caption, dry_run=False):
+    """Publishes a Reel (clip) to Instagram."""
+    if dry_run:
+        print(f"⚠️  DRY RUN: Skipping ACTUAL Reel upload for: {video_path}")
+        print(f"Caption: {caption[:50]}...")
+        return True
+
+    # Reuse existing login logic (simplified for now)
+    username = os.getenv("IG_USERNAME")
+    password = os.getenv("IG_PASSWORD")
+    if not username or not password:
+        print("Warning: IG_USERNAME or IG_PASSWORD not set.")
+        return False
+        
+    cl = Client()
+    session_data = os.getenv("IG_SESSION")
+    if session_data:
+        try:
+            cl.set_settings(json.loads(session_data))
+        except:
+            pass
+            
+    try:
+        if not session_data:
+            cl.login(username, password)
+            
+        print(f"Uploading Reel: {video_path}...")
+        media = cl.clip_upload(video_path, caption)
+        print(f"Reel published successfully! Media ID: {media.pk}")
+        return True
+    except Exception as e:
+        print(f"Error publishing Reel: {e}")
         return False
 
 if __name__ == "__main__":

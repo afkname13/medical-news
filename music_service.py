@@ -102,6 +102,17 @@ class MusicService:
         print("Music Service: All viral searches failed. Proceeding without music.")
         return None
 
+def search_viral_music(theme_color="blue", client=None):
+    """Convenience function to search for music without manual class instantiation."""
+    from publisher import login_to_instagram
+    
+    cl = client or login_to_instagram()
+    if not cl:
+        return None
+        
+    svc = MusicService(cl)
+    return svc.get_trending_track()
+
 if __name__ == "__main__":
-    # Test stub (requires valid session/login)
+    # Test stub
     pass
