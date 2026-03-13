@@ -32,9 +32,14 @@ def generate_carousel_content(article):
        - IMPORTANT: Do NOT use any HTML tags like <b> in the caption.
        - Include '🔬 RESEARCH SOURCE:' with title, date, and link: {article.get('url', 'PubMed')}
        - End with 'Hit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀'
-       - Include 20-25 viral hashtags (e.g. #fyp, #explore, #viral, #medicalnews).
+       - Include 10-15 viral hashtags PLUS 5-10 hyper-niche hashtags related to the medical specialty (e.g. #NeuroScience, #Oncology).
+     
+     6. SMART FIRST COMMENT (VIRAL ENGAGEMENT):
+        - Create a 'first_comment' field.
+        - Generate a provocative question or a "Mind-Blowing Bonus Fact" related to the article.
+        - The goal is to make people want to reply. Keep it under 100 characters.
     
-    6. IMAGE PROMPT (CRITICAL - HYPER-REALISM):
+    7. IMAGE PROMPT (CRITICAL - HYPER-REALISM):
        - Create an 'image_prompt' for an AI image generator.
        - It MUST describe a professional, hyper-realistic clinical or laboratory scene.
        - Avoid anything "AI-looking" (no glowing neon futuristic pods). Use natural lighting, shallow depth of field, and real textures (glass, steel, biological tissue).
@@ -51,7 +56,10 @@ def generate_carousel_content(article):
       "slide_2_body": "50-60 word natural explanation with <b>bold</b> terms...",
       "slide_3_title": "THE RESULTS: 3-word header",
       "slide_3_body": "50-60 word natural explanation with <b>bold</b> terms...",
-      "caption": "PUNCHY TITLE\n\nFull engaging description summary + source link + hashtags",
+      "slide_4_title": "KEY TAKEAWAY: 2-3 word header",
+      "slide_4_body": "30-40 word powerful summary + a specific question to the reader (e.g. 'Would you try this?')",
+      "caption": "PUNCHY TITLE\n\nFull engaging description summary + specialty hashtags",
+      "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
       "theme_color": "blue | purple | green | red"
     }

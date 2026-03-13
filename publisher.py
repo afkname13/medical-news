@@ -4,7 +4,7 @@ import random
 import json
 from instagrapi import Client
 
-def publish_carousel(image_paths, caption, dry_run=False):
+def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
     username = os.getenv("IG_USERNAME")
     password = os.getenv("IG_PASSWORD")
     
@@ -78,7 +78,10 @@ def publish_carousel(image_paths, caption, dry_run=False):
             }
 
         if dry_run:
-            print("⚠️  DRY RUN: Skipping ACTUAL upload and verification. Music discovery was tested above.")
+            print("⚠️  DRY RUN: Skipping ACTUAL upload and verification.")
+            print(f"Music Discovery: {track.title if track else 'None'}")
+            if first_comment:
+                print(f"Engagement Check: Would post First Comment: '{first_comment}'")
             return True
 
         print(f"Uploading carousel to Instagram (Caption Length: {len(caption)} chars)...")
@@ -96,7 +99,7 @@ def publish_carousel(image_paths, caption, dry_run=False):
         media_info = cl.media_info(media.pk)
         
         if not media_info.caption_text:
-            print("Warning: Instagram stripped the caption! Retrying with media_edit...")
+            print("Warning: Instagram stripped the caption! Retrying media_edit...")
             cl.media_edit(media.pk, caption)
             time.sleep(3)
             media_info = cl.media_info(media.pk)
@@ -106,6 +109,15 @@ def publish_carousel(image_paths, caption, dry_run=False):
                 print("Critical Error: Caption still missing after retry.")
         else:
             print("Verified: Caption successfully posted.")
+            
+        # --- FIRST COMMENT (Engagement Booster) ---
+        if first_comment:
+            print(f"Posting algorithmic first comment: '{first_comment}'")
+            try:
+                cl.media_comment(media.pk, first_comment)
+                print("First comment posted successfully!")
+            except Exception as e:
+                print(f"Warning: Failed to post first comment: {e}")
             
         return True
     except Exception as e:

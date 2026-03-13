@@ -230,23 +230,30 @@ def generate_html(slides_data, bg_image_url, base_dir):
         """
         return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height)
         
-    # 2. Slides 1-3
+    # 2. Content Slides 1-3
     slides_html.append(make_content_slide(
-        slides_data.get('slide_1_title', 'DID YOU KNOW?'), 
-        slides_data.get('slide_1_body', slides_data.get('slide_1', '')), 
-        "2/5", "blue"
+        slides_data.get('slide_1_title', 'THE PROBLEM'), 
+        slides_data.get('slide_1_body', ''), 
+        "2/6", "blue"
     ))
 
     slides_html.append(make_content_slide(
-        slides_data.get('slide_2_title', 'DID YOU KNOW?'), 
-        slides_data.get('slide_2_body', slides_data.get('slide_2', '')), 
-        "3/5", "mint"
+        slides_data.get('slide_2_title', 'THE BREAKTHROUGH'), 
+        slides_data.get('slide_2_body', ''), 
+        "3/6", "mint"
     ))
     
     slides_html.append(make_content_slide(
-        slides_data.get('slide_3_title', 'DID YOU KNOW?'), 
-        slides_data.get('slide_3_body', slides_data.get('slide_3', '')), 
-        "4/5", "purple"
+        slides_data.get('slide_3_title', 'THE RESULTS'), 
+        slides_data.get('slide_3_body', ''), 
+        "4/6", "purple"
+    ))
+
+    # 4. Slide 4 (Key Takeaway)
+    slides_html.append(make_content_slide(
+        slides_data.get('slide_4_title', 'KEY TAKEAWAY'), 
+        slides_data.get('slide_4_body', ''), 
+        "5/6", "mint" # Mint or theme color
     ))
     
     # 5. CTA Slide
@@ -257,7 +264,8 @@ def generate_html(slides_data, bg_image_url, base_dir):
     <div class="card" style="justify-content: center; padding: 120px;">
         <div class="cta-title">The Future of<br>Medical News.</div>
         <div class="cta-subtitle">Stay informed daily @medicalnews_daily</div>
-        <div class="cta-button">Follow for more</div>
+        <div class="cta-button">Join 20k+ Followers</div>
+        <div class="slide-fraction">6/6</div>
     </div>
     """
     slides_html.append(html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cta_content).replace('{body_line_height}', line_height))

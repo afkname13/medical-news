@@ -182,16 +182,20 @@ def run_pipeline(dry_run=False, mock=False):
             "url": "https://example.com/mock-medical"
         }
         slides_data = {
-            "slides": [
-                {"title": "MOCK TITLE 1", "content": "This is a mock slide for testing music and layout."},
-                {"title": "MOCK TITLE 2", "content": "No AI quota was used to generate this test content."},
-                {"title": "MOCK TITLE 3", "content": "Everything is working as expected!"}
-            ],
-            "caption": "🎭 MOCK TEST CONTENT 🎭\n\nThis is a dummy post to verify the music integration and pipeline flow without using AI quota. \n\n#MedicalNews #Automation #Test",
+            "cover": "MOCK: REVOLUTIONARY VIRAL HOOK",
+            "slide_1_title": "THE PROBLEM",
+            "slide_1_body": "This is a mock slide testing the new 6-slide progression and viral engagement features.",
+            "slide_2_title": "THE BREAKTHROUGH",
+            "slide_2_body": "No AI quota was used to generate this test content. The system is simulating a full run.",
+            "slide_3_title": "THE RESULTS",
+            "slide_3_body": "Everything is working as expected! 6 total slides (Cover + 3 Content + 1 Takeaway + 1 CTA).",
+            "slide_4_title": "KEY TAKEAWAY",
+            "slide_4_body": "Always test your pipeline! Would you trust an automated doctor? Let us know below!",
+            "caption": "🎭 MOCK TEST CONTENT (ROUND 28) 🎭\n\nVerifying the new viral takeover features. \n\n#MedicalNews #Automation #Test #NeuroScience",
+            "first_comment": "BONUS QUESTION: Do you think AI will replace surgeons by 2030? 🤔",
             "image_prompt": "Mock image prompt"
         }
         bg_path = os.path.join(base, "media", "bg.jpg")
-        # Ensure a dummy background exists
         if not os.path.exists(bg_path):
             download_image("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop", bg_path)
     else:
@@ -218,13 +222,15 @@ def run_pipeline(dry_run=False, mock=False):
         print("Error: AI content generation failed. Aborting pipeline to prevent low-quality posts.")
         return
     
-    # Robust caption extraction: Ensure we always have a caption
+    # Robust caption extraction
     caption = slides_data.get('caption', "")
+    first_comment = slides_data.get('first_comment', "")
+
     if not caption or len(caption) < 10:
         print("Caption missing. Generating fallback caption...")
         caption = f"🚨 {article['title']} 🚨\n\nNew medical breakthrough! Swipe left for the breakdown. \n\nHit FOLLOW @medicalnews_daily for daily medical science! 🏥🚀"
 
-    # Safety: Strip HTML tags from caption (ensure it's a string)
+    # Safety: Strip HTML tags from caption
     if isinstance(caption, list):
         caption = " ".join(caption)
     caption = str(caption).replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")
@@ -234,9 +240,11 @@ def run_pipeline(dry_run=False, mock=False):
         caption = caption[:2100] + "..."
         
     print(f"Caption Length: {len(caption)} chars")
+    if first_comment:
+        print(f"Engagement Booster: Prepared first comment: '{first_comment}'")
     
     if not mock:
-        # 2. Get Background Image — Gemini AI first, Unsplash fallback
+        # 2. Get Background Image
         image_prompt = slides_data.get('image_prompt', '')
         bg_path = None
         
@@ -256,7 +264,7 @@ def run_pipeline(dry_run=False, mock=False):
         return
         
     # 4. Publish
-    success = publish_carousel(image_paths, caption, dry_run=dry_run)
+    success = publish_carousel(image_paths, caption, dry_run=dry_run, first_comment=first_comment)
     
     if success:
         if not mock:
