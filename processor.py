@@ -43,7 +43,7 @@ def generate_carousel_content(article):
     7. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.
     
     Respond STRICTLY in JSON format matching this schema:
-    {
+    {{
       "cover": "EXTREME HOOK: A punchy, hyper-specific title (under 45 chars). MUST NOT start with the word 'Your'.",
       "slide_1_title": "THE BREAKTHROUGH: 3-word punchy header",
       "slide_1_body": "50-60 word natural explanation of the discovery with <b>bold</b> terms...",
@@ -54,7 +54,7 @@ def generate_carousel_content(article):
       "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
       "theme_color": "blue | purple | green | red"
-    }
+    }}
     """
     
     # Multi-Tier Text Generation Strategy
