@@ -2,8 +2,10 @@ name: Medical News Reels Bot
 
 on:
   schedule:
-    # Reels Slot: Afternoon engagement high-discovery time
-    - cron: '47 14 * * *'
+    # Reach Strategy: 3 Reels per day (8-hour intervals)
+    - cron: '17 0 * * *'  # Early Morning (Asia) / Late Night (US)
+    - cron: '17 8 * * *'  # Morning (EU) / Night (Asia)
+    - cron: '17 16 * * *' # Morning (US) / Evening (EU)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -46,7 +48,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           IG_SESSION: ${{ secrets.IG_SESSION }}
         run: |
-          ARGS="--reels"
+          ARGS="--reels-only"
           if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
             ARGS="$ARGS --dry-run"
           fi

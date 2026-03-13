@@ -25,9 +25,9 @@ def login_to_instagram():
         try:
             print("Found IG_SESSION. Attempting to load session...")
             cl.set_settings(json.loads(session_data))
-            # Test session
+            # Test session with a lightweight check
             cl.get_timeline_feed()
-            print("Session loaded and verified!")
+            print("Session loaded and verified via timeline!")
             return cl
         except Exception as e:
             print(f"Session invalid or expired: {e}")
@@ -35,6 +35,14 @@ def login_to_instagram():
     try:
         print(f"Logging into Instagram as {username}...")
         cl.login(username, password)
+        
+        # --- SMART SESSION WARMING (Round 43) ---
+        # Some accounts fail if they jump straight to uploads.
+        # We do a 'warm-up' call to mimic real user behavior.
+        print("Warming up session...")
+        cl.account_info() # Lightweight call to confirm full auth state
+        time.sleep(random.randint(3, 7))
+        
         # Save session for local use
         with open("ig_session.json", "w") as f:
             json.dump(cl.get_settings(), f, indent=2)
@@ -143,7 +151,18 @@ def publish_reel(video_path, caption, dry_run=False):
         
     try:
         print(f"Uploading Reel: {video_path}...")
-        media = cl.clip_upload(video_path, caption, feed_show='0')
+        try:
+            media = cl.clip_upload(video_path, caption, feed_show='0')
+        except Exception as e:
+            if "login_required" in str(e).lower():
+                print("Detected 'login_required' during upload. Attempting ONE-TIME re-login...")
+                cl = login_to_instagram() # Force fresh login
+                if cl:
+                    media = cl.clip_upload(video_path, caption, feed_show='0')
+                else:
+                    raise e
+            else:
+                raise e
         print(f"Reel published successfully! Media ID: {media.pk}")
         return True
     except Exception as e:

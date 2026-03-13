@@ -2,13 +2,10 @@ name: Medical News Instagram Bot
 
 on:
   schedule:
-    # Aggressive Growth Strategy: 3 Carousels + 3 Reels (Every 4 Hours)
-    - cron: '17 0 * * *'  # Reel (Reach)
-    - cron: '17 4 * * *'  # Carousel (Retention)
-    - cron: '17 8 * * *'  # Reel (Reach)
-    - cron: '17 12 * * *' # Carousel (Retention)
-    - cron: '17 16 * * *' # Reel (Reach)
-    - cron: '17 20 * * *' # Carousel (Retention)
+    # Retention Strategy: 3 Carousels per day (8-hour intervals)
+    - cron: '17 4 * * *'  # Morning Peak (EU/Asia)
+    - cron: '17 12 * * *' # Mid-day Peak (US/UK)
+    - cron: '17 20 * * *' # Evening Peak (US/UK)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -63,25 +60,13 @@ jobs:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           IG_SESSION: ${{ secrets.IG_SESSION }}
         run: |
-          ARGS=""
+          ARGS="--carousel-only"
           if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
           if [ "${{ github.event.inputs.mock }}" == "true" ]; then
             ARGS="$ARGS --mock"
           fi
-          
-          # AGGRESSIVE STRATEGY: 3 Carousels + 3 Reels
-          # Alternate format (Reel ➔ Carousel ➔ Reel...)
-          HOUR=$(date -u +%H)
-          if [ "$HOUR" == "04" ] || [ "$HOUR" == "12" ] || [ "$HOUR" == "20" ]; then
-            echo "⏰ Slot detected: Carousel (Retention Focus)"
-            ARGS="$ARGS --carousel-only"
-          else
-            echo "⏰ Slot detected: Reel (Reach Focus)"
-            ARGS="$ARGS --reels-only"
-          fi
-          
           python main.py $ARGS
 
       - name: Commit and Push Updated DB
