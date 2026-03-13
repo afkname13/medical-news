@@ -112,6 +112,30 @@ class VideoGenerator:
         except:
             return None
 
+    def create_static_reel(self, image_path, music_path=None, duration=15):
+        """Creates a Reel from a flat image (meme-style hook)."""
+        output_path = os.path.join(self.output_dir, "final_reel.mp4")
+        
+        try:
+            print(f"Creating static Reel from: {image_path}...")
+            # Load static image as a clip
+            clip = ImageClip(image_path).set_duration(duration)
+            clip = clip.set_fps(24) # Standard for IG
+            
+            # Add Music
+            if music_path and os.path.exists(music_path):
+                print(f"Syncing audio: {music_path}")
+                audio = AudioFileClip(music_path).subclip(0, duration)
+                clip = clip.set_audio(audio)
+            
+            # Write file
+            clip.write_videofile(output_path, codec="libx264", audio_codec="aac", fps=24)
+            print(f"Static Reel ready: {output_path}")
+            return output_path
+        except Exception as e:
+            print(f"Error creating static Reel: {e}")
+            return None
+
     def create_reel(self, video_path, text_script, music_path, output_path="media/final_reel.mp4"):
         """Assembles the Reel using MoviePy + PIL (No ImageMagick)."""
         try:

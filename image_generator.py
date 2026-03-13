@@ -7,7 +7,13 @@ def generate_html(slides_data, bg_image_url, base_dir):
     
     # We will use base64 or raw URLs. Assuming we fetch Unsplash images and save locally.
     # To keep things simple, we'll just reference the local bg image.
-    bg_image_path = f"file://{os.path.abspath(bg_image_url)}"
+    # Ensure bg_image_url is a path or valid string
+    if not bg_image_url:
+        bg_image_path = "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop"
+    elif bg_image_url.startswith("http"):
+        bg_image_path = bg_image_url
+    else:
+        bg_image_path = f"file://{os.path.abspath(bg_image_url)}"
     logo_path = "https://ui-avatars.com/api/?name=Med+News&background=58D68D&color=fff&rounded=true&size=200" # Placeholder if no physical logo
     
     html_template = """

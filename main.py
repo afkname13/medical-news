@@ -122,35 +122,41 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
     # 3. Carousel Output
     if post_carousel:
         print("--- Processing Carousel ---")
-        # For simplicity in mock, generator can handle None bg_path or fetch one
         image_paths = generate_carousel_images(slides_data, None, media_dir)
         if image_paths:
             publish_carousel(
                 image_paths, 
                 slides_data['caption'], 
-                music_track,
-                first_comment=slides_data.get('first_comment'),
-                dry_run=dry_run
+                dry_run=dry_run,
+                first_comment=slides_data.get('first_comment')
             )
 
-    # 4. Reels Output
+    # --- REELS FLOW (Round 34 Pivot) ---
     if post_reels:
-        print("--- Processing Reel ---")
-        vg = VideoGenerator()
-        keywords = slides_data.get("video_keywords", ["medical research"])
-        video_bg = vg.fetch_pexels_video(keywords)
+        print("--- Processing Meme-Style Reel ---")
         
-        if video_bg:
+        vg = VideoGenerator()
+        
+        # In Static Image Reels, we use the COVER slide from the carousel
+        # If carousel was already generated, use image_paths[0]
+        cover_image = None
+        if post_carousel and image_paths:
+            cover_image = image_paths[0]
+        else:
+            # Fallback: Regenerate just the cover if only Reels requested
+            print("Regenerating cover for standalone Reel...")
+            temp_image_paths = generate_carousel_images(slides_data, None, media_dir)
+            if temp_image_paths:
+                cover_image = temp_image_paths[0]
+
+        if cover_image:
             music_path = getattr(music_track, 'local_path', None)
-            final_reel = vg.create_reel(
-                video_bg, 
-                slides_data.get("reel_script", slides_data['cover']), 
-                music_path
-            )
+            final_reel = vg.create_static_reel(cover_image, music_path)
+            
             if final_reel:
                 publish_reel(final_reel, slides_data['caption'], dry_run=dry_run)
         else:
-            print("Skipping Reel: No background footage found.")
+            print("Skipping Reel: No cover image found to freeze.")
 
     if not mock and (post_carousel or post_reels):
         save_posted(load_posted(), article)

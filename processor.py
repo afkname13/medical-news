@@ -44,14 +44,14 @@ def generate_carousel_content(article):
     
     Respond STRICTLY in JSON format matching this schema:
     {{
-      "cover": "HYPER-SPECIFIC HOOK: Under 45 chars. MUST BE 'OUTCOME-FIRST'. Use a unique medical verb or a concrete number. MUST NOT start with 'Your' or use vague words like 'Discovery', 'Research', 'New', 'Update'. Example: 'REVERSES 20-YEAR LUNG SCARRING' or '90% SEIZURE REDUCTION FOUND' or 'STOPS CANCER METASTASIS'.",
+      "cover": "A hyper-specific, attention-grabbing title (Outcome-First). Mandatory: Use 'Meme-Style' factual hooks. Example: 'LUNGS REGENERATE AFTER 20 YEARS SCARRING 🫁🔥' or 'THIS CRYSTAL REPAIRS BRAIN NEURONS IN 5 MINS 🧠✨'. Avoid vague words like 'Discovery', 'New', 'Research', 'Breakthrough'.",
       "slide_1_title": "THE BREAKTHROUGH: 3-word punchy header",
       "slide_1_body": "50-60 word natural explanation of the discovery with <b>bold</b> terms...",
       "slide_2_title": "THE IMPACT: 3-word header",
       "slide_2_body": "50-60 word explanation of what this means for the patient or future with <b>bold</b> terms...",
       "slide_4_question": "A provocative, direct question to the reader (e.g. 'Would you trust an AI doctor?' - max 60 chars)",
-      "reel_script": "A PUNCHY, FAST-PACED 3-sentence script for a vertical video overlay. Keep it impactful and scientific.",
-      "video_keywords": ["3-5", "search", "terms", "for", "pexels", "stock", "footage"],
+      "reel_script": "A punchy, 1-sentence hook for a 15-second Reel (matches cover).",
+      "video_keywords": ["keyword1", "keyword2"] (kept for fallback).",
       "caption": "PUNCHY TITLE\n\nFull engaging description summary + specialty hashtags",
       "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
