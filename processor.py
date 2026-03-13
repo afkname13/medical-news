@@ -43,8 +43,8 @@ def generate_carousel_content(article):
     7. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.
     
     Respond STRICTLY in JSON format matching this schema:
-    {{
-      "cover": "EXTREME HOOK: A punchy, high-impact title (under 45 chars). MUST use a specific number, a unique medical verb, or a direct promise (e.g. 'NEW 5-MINUTE BRAIN FIX' or 'THE END OF INSOMNIA?'). Avoid vague words like 'Discovery', 'Research', or 'Update'.",
+    {
+      "cover": "EXTREME HOOK: A punchy, hyper-specific title (under 45 chars). MUST NOT start with the word 'Your'. MUST use a specific number, a unique medical verb, or a direct promise (e.g. 'NEW 5-MINUTE BRAIN FIX' or 'THE END OF INSOMNIA?'). Avoid vague words like 'Discovery', 'Research', 'Update', or generic possessives.",
       "slide_1_title": "THE PROBLEM: 3-word punchy header",
       "slide_1_body": "50-60 word natural explanation with <b>bold</b> terms...",
       "slide_2_title": "THE BREAKTHROUGH: 3-word header",
@@ -54,7 +54,7 @@ def generate_carousel_content(article):
       "caption": "PUNCHY TITLE\n\nFull engaging description summary + source link + hashtags",
       "image_prompt": "Sensory-rich, hyper-realistic photography prompt",
       "theme_color": "blue | purple | green | red"
-    }}
+    }
     """
     
     # Multi-Tier Text Generation Strategy
