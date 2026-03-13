@@ -38,7 +38,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           # Specific for Reels
-          pip install imageio-ffmpeg
+          pip install imageio-ffmpeg playwright
+          playwright install chromium --with-deps
 
       - name: Run Reels Bot
         env:

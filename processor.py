@@ -121,7 +121,7 @@ def generate_carousel_content(article):
                 
                 # If rate limited (429), wait and retry THIS model tier
                 if "429" in error_msg and attempt < max_retries - 1:
-                    wait_time = (attempt + 1) * 15
+                    wait_time = (attempt + 1) * 35 # Round 44: Aggressive backoff for Free Tier
                     print(f"Rate limited for {model_name}. Waiting {wait_time}s before retry...")
                     time.sleep(wait_time)
                     continue

@@ -1,22 +1,22 @@
 {
   "uuids": {
-    "phone_id": "5d2aed11-0b2b-4197-85ab-c59633b7828e",
-    "uuid": "8f772eaf-6874-4827-9aa0-79bccfa0ea6a",
-    "client_session_id": "e4f58fd5-9209-4fdd-92e3-debdf7d2690b",
-    "advertising_id": "505bb959-ef25-4b67-a2ec-2bc64a5b4282",
-    "android_device_id": "android-3fba2f80c0407316",
-    "request_id": "2f6a27d1-f13d-4197-8025-2593ecb3f786",
-    "tray_session_id": "1cc45020-8fc6-4e4d-8b65-7d65bd30259d"
+    "phone_id": "d65ef4a2-3f81-4ac3-abc5-95763563add6",
+    "uuid": "e023e762-4f8e-4be8-a77d-dafb636aa3ff",
+    "client_session_id": "64a4ab9d-fb3d-4e50-9c0c-10a722a5041f",
+    "advertising_id": "c758fde6-c77b-4e83-ad4e-9bb97d455e8f",
+    "android_device_id": "android-22094a34f288284e",
+    "request_id": "9da9ff48-472c-4812-b0f1-9a0a9fb0bb37",
+    "tray_session_id": "3f3ccdd7-ce7f-434a-8efb-5cdc2254b4c5"
   },
-  "mid": "abO8CwABAAF24tPwsuE1RPtNuqDl",
+  "mid": "abQnkwABAAHWLB4oe4AQReIU1hCp",
   "ig_u_rur": null,
   "ig_www_claim": null,
   "authorization_data": {
     "ds_user_id": "46013340102",
-    "sessionid": "46013340102%3APVhVnrbqfcLdXI%3A8%3AAYjfjK4lCiMACXR6lUOjORaoa6M-WOncSontOQVi8A"
+    "sessionid": "46013340102%3A5k19PtIZzVGi7w%3A4%3AAYjhqPWoKAsDzfUM41B26E0FkXIBr2_6vLT0Tv6BmQ"
   },
   "cookies": {},
-  "last_login": 1773386773.4072902,
+  "last_login": 1773414299.727783,
   "device_settings": {
     "android_version": 26,
     "android_release": "8.0.0",
@@ -26,11 +26,11 @@
     "device": "devitron",
     "model": "6T Dev",
     "cpu": "qcom",
-    "app_version": "364.0.0.35.86",
-    "version_code": "374010953",
-    "bloks_versioning_id": "8ccf54aad76788a6ca03ddfc33afcdcf692f2f5a3ba814ea73d5facba7fa2c2d"
+    "app_version": "385.0.0.47.74",
+    "version_code": "378906843",
+    "bloks_versioning_id": "a8973d49a9cc6a6f65a4997c10216ce2a06f65a517010e64885e92029bb19221"
   },
-  "user_agent": "Instagram 364.0.0.35.86 Android (26/8.0.0; 480dpi; 1080x1920; OnePlus; 6T Dev; devitron; qcom; en_US; 374010953)",
+  "user_agent": "Instagram 385.0.0.47.74 Android (26/8.0.0; 480dpi; 1080x1920; OnePlus; 6T Dev; devitron; qcom; en_US; 378906843)",
   "country": "US",
   "country_code": 1,
   "locale": "en_US",
