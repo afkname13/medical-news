@@ -182,7 +182,7 @@ def run_pipeline(dry_run=False, mock=False):
             "url": "https://example.com/mock-medical"
         }
         slides_data = {
-            "cover": "NEW 5-MINUTE BRAIN REPAIR FOUND",
+            "cover": "REVERSES 20-YEAR LUNG SCARRING",
             "slide_1_title": "THE BREAKTHROUGH",
             "slide_1_body": "Researchers from <b>Mayo Clinic</b> have discovered a specific wave of <b>near-infrared light</b> that can trigger the brain's natural repair system. This non-invasive method successfully reversed memory loss in clinical trials for the first time.",
             "slide_2_title": "THE IMPACT",

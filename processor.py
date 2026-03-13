@@ -44,7 +44,7 @@ def generate_carousel_content(article):
     
     Respond STRICTLY in JSON format matching this schema:
     {{
-      "cover": "EXTREME HOOK: A punchy, hyper-specific title (under 45 chars). MUST NOT start with the word 'Your'.",
+      "cover": "HYPER-SPECIFIC HOOK: Under 45 chars. MUST BE 'OUTCOME-FIRST'. Use a unique medical verb or a concrete number. MUST NOT start with 'Your' or use vague words like 'Discovery', 'Research', 'New', 'Update'. Example: 'REVERSES 20-YEAR LUNG SCARRING' or '90% SEIZURE REDUCTION FOUND' or 'STOPS CANCER METASTASIS'.",
       "slide_1_title": "THE BREAKTHROUGH: 3-word punchy header",
       "slide_1_body": "50-60 word natural explanation of the discovery with <b>bold</b> terms...",
       "slide_2_title": "THE IMPACT: 3-word header",
