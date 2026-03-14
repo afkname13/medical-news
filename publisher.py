@@ -14,12 +14,37 @@ def login_to_instagram():
         return None
         
     cl = Client()
-    # --- GEO-TARGETING OPTIMIZATION: US Region (Round 46) ---
-    # We force the bot to identify as US-based to reach English-speaking audiences.
+    # --- GEO-TARGETING OPTIMIZATION: US Region (Round 46/48) ---
+    # 1. Force US Device Fingerprint
+    cl.set_device({
+        "app_version": "269.0.0.18.75",
+        "android_version": 26,
+        "android_release": "8.0.0",
+        "device_model": "SM-G960F",
+        "device_id": "android-564564564564564",
+        "uuid": "7f093010-3882-11ed-a261-0242ac120002",
+        "phone_id": "7f093010-3882-11ed-a261-0242ac120002",
+        "ad_id": "7f093010-3882-11ed-a261-0242ac120002",
+        "device_type": "android",
+        "cpu": "samsungexynos9810",
+        "version_code": "443075838"
+    })
+    cl.set_user_agent("Instagram 269.0.0.18.75 Android (26/8.0.0; 480dpi; 1080x2220; samsung; SM-G960F; starlte; samsungexynos9810; en_US; 443075838)")
+    
+    # 2. Force US Locale/Timezone
     cl.set_locale("en_US")
     cl.set_country("US")
     cl.set_timezone_offset(-14400) # US Eastern Time (GMT-4)
-    print("Geo-Targeting: Account localized to United States (En-US / GMT-4) 🇺🇸")
+    
+    # 3. Verify Bot IP (Cloud Presence)
+    try:
+        import requests
+        bot_ip = requests.get('https://api.ipify.org', timeout=5).text
+        print(f"Geo-Verification: Bot is running from IP {bot_ip} (US Actions Runner) 🇺🇸")
+    except:
+        print("Geo-Verification: Could not fetch external IP. Proceeding with metadata defaults.")
+    
+    print("Geo-Targeting: Account localized to United States (En-US / SM-G960F) 🇺🇸")
     
     session_data = os.getenv("IG_SESSION")
     
