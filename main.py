@@ -114,25 +114,7 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
         article = {"id": "mock-123", "title": "Mock Article"}
     else:
         posted_data = load_posted()
-        exclude_ids = []
-        for item in posted_data:
-            art_id = item['id'] if isinstance(item, dict) else item
-            metadata = item if isinstance(item, dict) else {}
-            
-            # Smart isolation: skip already posted in the SPECIFIC requested format
-            if post_carousel and not post_reels:
-                if metadata.get('posted_as_carousel'): exclude_ids.append(art_id)
-            elif post_reels and not post_carousel:
-                if metadata.get('posted_as_reel'): exclude_ids.append(art_id)
-            elif post_carousel and post_reels:
-                if metadata.get('posted_as_carousel') and metadata.get('posted_as_reel'):
-                    exclude_ids.append(art_id)
-            else:
-                # If neither carousel nor reels are explicitly requested, or if both are,
-                # we exclude if it's been posted in any format.
-                # This case should ideally not be hit if post_carousel or post_reels is True.
-                # If both are False, then nothing will be posted anyway.
-                exclude_ids.append(art_id)
+        exclude_ids = [item['id'] if isinstance(item, dict) else item for item in posted_data]
 
         article = get_top_article(exclude_ids)
         if not article:
