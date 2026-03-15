@@ -23,7 +23,7 @@ def generate_ai_image(prompt, save_path):
         enhanced_prompt = f"{prompt}, hyper-realistic, 8k resolution, cinematic lighting, biological realism, microscopic detail, anti-generic, no plastic models."
         
         response = client.models.generate_images(
-            model='imagen-4.0-generate-001',
+            model='imagen-3.0-generate-001',
             prompt=enhanced_prompt,
             config=types.GenerateImagesConfig(
                 number_of_images=1,
@@ -45,24 +45,27 @@ def generate_ai_image(prompt, save_path):
 
     # Strategy 2: High-Quality Unsplash Fallback
     try:
-        # Extract keywords for better Unsplash matching
-        # Force "microscope" and "abstract" to avoid generic doctor photos
-        clean_prompt = prompt.lower().replace("microscopic", "").replace("molecular", "").replace("3d", "").replace("model", "").strip()
-        # Take first 5 words only for better Unsplash keyword matching
-        short_keywords = " ".join(clean_prompt.split()[:5])
-        search_query = f"microscope {short_keywords} science abstract"
+        # Curated list of high-fidelity medical/science Unsplash assets to avoid repetition
+        FALLBACK_ASSETS = [
+            "https://images.unsplash.com/photo-1576086213369-97a306d36557", # Mint/Bio
+            "https://images.unsplash.com/photo-1530026405186-ed1f139313f8", # Blue/Scientific
+            "https://images.unsplash.com/photo-1559757175-5700dde675bc", # Microscopic Red
+            "https://images.unsplash.com/photo-1532187875605-1ef6c237ddc4", # Lab Blue
+            "https://images.unsplash.com/photo-1581093588401-fbb62a02f120", # Biotech Blue
+            "https://images.unsplash.com/photo-1505751172676-43ad27a3f46b", # Lab Tech
+            "https://images.unsplash.com/photo-1579154236599-c1a3b3a105ac", # Cells Abstract
+            "https://images.unsplash.com/photo-1576086476234-1103be98f096", # Medical Research
+            "https://images.unsplash.com/photo-1511174511562-5f7f18b874f8", # Lab Glass
+            "https://images.unsplash.com/photo-1584036561566-baf2418e3308"  # Biology Abstract
+        ]
         
-        # New Unsplash Source API (source is deprecated)
-        unsplash_url = f"https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1080&auto=format&fit=crop" # HIGH QUALITY MINT/BIO DEFAULT
+        import random
+        asset_url = random.choice(FALLBACK_ASSETS) + "?q=80&w=1080&auto=format&fit=crop"
         
-        # If we want dynamic-ish, we can use a keyword-based redirect if available, 
-        # but Unsplash Source is officially dead. We use a high-fidelity 'Scientific' default 
-        # that looks amazing for multiple topics.
-        
-        print(f"📸 Fetching High-Fidelity Scientific Asset: {search_query}")
+        print(f"🔄 AI failed. Fetching Dynamic Scientific Asset")
         
         headers = { 'User-Agent': 'Mozilla/5.0' }
-        img_response = requests.get(unsplash_url, headers=headers, timeout=15)
+        img_response = requests.get(asset_url, headers=headers, timeout=15)
         
         if img_response.status_code == 200:
             with open(save_path, 'wb') as f:

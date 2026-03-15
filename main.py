@@ -35,15 +35,16 @@ def load_posted():
                 return []
     return []
 
-def save_posted(posted_list, new_article):
-    entry = {
-        "id": new_article.get('id', str(random.randint(1000, 9999))),
-        "title": new_article.get('title', 'Unknown Title'),
-        "timestamp": datetime.now().isoformat()
-    }
-    posted_list.append(entry)
-    with open(POSTED_FILE, 'w') as f:
-        json.dump(posted_list, f, indent=2)
+def save_posted(posted_list):
+    temp_file = POSTED_FILE + '.tmp'
+    try:
+        with open(temp_file, 'w') as f:
+            json.dump(posted_list, f, indent=2)
+        os.replace(temp_file, POSTED_FILE)
+    except Exception as e:
+        print(f"Error saving posted articles: {e}")
+        if os.path.exists(temp_file):
+            os.remove(temp_file)
 
 def cleanup_old_media(media_dir, days=1):
     print(f"Cleaning up media older than {days} days...")
@@ -114,9 +115,7 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
         article = {"id": "mock-123", "title": "Mock Article"}
     else:
         posted_data = load_posted()
-        exclude_ids = [item['id'] if isinstance(item, dict) else item for item in posted_data]
-
-        article = get_top_article(exclude_ids)
+        article = get_top_article(posted_data)
         if not article:
             print("No new articles found.")
             return
@@ -137,7 +136,8 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
         c_data = slides_data.get('carousel_data', slides_data)
         
         # Round 39: AI Image Generation
-        bg_image = os.path.join(media_dir, "ai_gen_carousel.jpg")
+        unique_id = int(time.time())
+        bg_image = os.path.join(media_dir, f"ai_gen_carousel_{unique_id}.jpg")
         ai_bg = generate_ai_image(c_data['image_prompt'], bg_image) if not mock else None
         
         image_paths = generate_carousel_images(c_data, ai_bg, media_dir)
@@ -154,28 +154,44 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
         print("--- Processing Pure Viral Reel ---")
         r_data = slides_data.get('reel_data', slides_data)
         vg = VideoGenerator()
+        unique_id = int(time.time())
         
-        print("Generating Reels-specific cover image...")
-        # Round 39: AI Image Generation
-        bg_image_reel = os.path.join(media_dir, "ai_gen_reel.jpg")
-        prompt_reel = r_data.get('image_prompt', r_data.get('Image Prompt', 'Microscopic biological architecture, cinematic lighting'))
-        ai_bg_reel = generate_ai_image(prompt_reel, bg_image_reel) if not mock else None
+        # 1. Try to fetch a relevant video from Pexels first (Max Variety)
+        keywords = r_data.get('video_keywords', ['medical', 'science', 'microscope'])
+        pexels_video = vg.fetch_pexels_video(keywords)
         
-        reel_image_paths = generate_carousel_images(r_data, ai_bg_reel, media_dir)
+        music_path = getattr(music_track, 'local_path', None)
+        final_reel = None
         
-        if reel_image_paths:
-            cover_image = reel_image_paths[0]
-            # HARDCODED AUDIO: Round 38 fix for silent reels
-            # We use a local file if available, or fetch a sample
-            music_path = getattr(music_track, 'local_path', None)
+        if pexels_video:
+            print(f"Pexels Video Found: {pexels_video}. Generating dynamic Reel...")
+            reel_name = f"final_reel_{unique_id}.mp4"
+            final_reel = vg.create_reel(
+                pexels_video, 
+                r_data.get('reel_script', 'Medical Breakthrough'),
+                music_path,
+                output_path=os.path.join(media_dir, reel_name)
+            )
+        
+        # 2. Fallback to Static Reel if Pexels fails or isn't configured
+        if not final_reel:
+            print("Pexels Video unavailable. Falling back to static image Reel...")
+            bg_image_reel = os.path.join(media_dir, f"ai_gen_reel_{unique_id}.jpg")
+            prompt_reel = r_data.get('image_prompt', r_data.get('Image Prompt', 'Microscopic biological architecture, cinematic lighting'))
+            ai_bg_reel = generate_ai_image(prompt_reel, bg_image_reel) if not mock else None
             
-            final_reel = vg.create_static_reel(cover_image, music_path)
-            if final_reel:
-                publish_reel(final_reel, r_data['caption'], dry_run=dry_run)
-        else:
-            print("Skipping Reel: No cover image generated.")
+            reel_image_paths = generate_carousel_images(r_data, ai_bg_reel, media_dir)
+            
+            if reel_image_paths:
+                cover_image = reel_image_paths[0]
+                final_reel = vg.create_static_reel(cover_image, music_path)
 
-    if not mock and (post_carousel or post_reels):
+        if final_reel:
+            publish_reel(final_reel, r_data['caption'], dry_run=dry_run)
+        else:
+            print("Skipping Reel: No video or image generated.")
+
+    if not mock and article and (post_carousel or post_reels):
         # Update metadata for tracking
         posted_data = load_posted()
         article_id = article.get('id')
@@ -183,19 +199,30 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
         # Find existing or create new
         entry = next((i for i in posted_data if (i['id'] if isinstance(i, dict) else i) == article_id), None)
         if not entry or not isinstance(entry, dict):
-            entry = {"id": article_id, "title": article.get('title')}
+            entry = {
+                "id": article_id, 
+                "title": article.get('title'),
+                "timestamp": datetime.now().isoformat()
+            }
             posted_data.append(entry)
             
         if post_carousel: entry['posted_as_carousel'] = True
         if post_reels: entry['posted_as_reel'] = True
         
-        # We need to remove the old entry if it exists and add the updated one
-        # This ensures we don't have duplicates and the latest metadata is saved.
-        posted_data = [item for item in posted_data if (item['id'] if isinstance(item, dict) else item) != article_id]
-        posted_data.append(entry)
+        # Filter out old entry placeholder if it was just an ID string, 
+        # and re-insert the updated dict entry.
+        final_posted = []
+        appended = False
+        for item in posted_data:
+            item_id = item['id'] if isinstance(item, dict) else item
+            if item_id == article_id:
+                if not appended:
+                    final_posted.append(entry)
+                    appended = True
+            else:
+                final_posted.append(item)
 
-        with open(POSTED_FILE, 'w') as f:
-            json.dump(posted_data, f, indent=2)
+        save_posted(final_posted)
 
     print("Pipeline finished successfully!")
 

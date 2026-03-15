@@ -102,6 +102,29 @@ class MusicService:
         print("Music Service: All viral searches failed. Proceeding without music.")
         return None
 
+    def download_track(self, track: Track) -> Optional[str]:
+        """Downloads the track to a local file for processing."""
+        if not track or not hasattr(track, 'uri'):
+            return None
+        
+        # instagrapi tracks usually have a uri or can be fetched via media_info
+        # For simplicity in this bot, if we can't get a direct URL, we return None
+        # and let the video generator handle fallback.
+        # However, some versions of instagrapi provide a preview_url.
+        url = getattr(track, 'preview_url', None)
+        if not url:
+            return None
+            
+        try:
+            path = f"media/trending_{track.pk}.mp3"
+            r = requests.get(url, timeout=10)
+            r.raise_for_status()
+            with open(path, 'wb') as f:
+                f.write(r.content)
+            return path
+        except:
+            return None
+
 def search_viral_music(theme_color="blue", client=None):
     """Convenience function to search for music without manual class instantiation."""
     from publisher import login_to_instagram
@@ -111,7 +134,13 @@ def search_viral_music(theme_color="blue", client=None):
         return None
         
     svc = MusicService(cl)
-    return svc.get_trending_track()
+    track = svc.get_trending_track()
+    if track:
+        # Try to download it so it has a local_path
+        local_path = svc.download_track(track)
+        if local_path:
+            track.local_path = local_path
+    return track
 
 if __name__ == "__main__":
     # Test stub

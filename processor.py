@@ -47,6 +47,11 @@ def generate_carousel_content(article):
          - If it's a drug: Show the "3D Molecular Architecture" or "Chemical Crystal Lattice".
          - If it's a virus: Show a "Cinematic Pathogen View" or "Cryo-EM Spike Protein model".
          - If it's a cell: Show "Scanning Electron Microscopy" or "Cross-section of the cell nucleus".
+        - **STYLE VARIETY**: Oscillate the visual style. Choose ONE of these for each prompt:
+          - 'Scientific Realism': 8k, hyper-realistic, clinical lighting.
+          - 'Digital Illustration': Vibrant, futuristic, clean vector-style lines.
+          - 'Macro Photography': Extreme close-up with shallow depth of field, warm cinematic lighting.
+          - 'Abstract Visualization': Ethereal, energetic, glowing particles.
        - Vibe: "Microscopic Cinematic", "High-Tech Biological Architecture", "Cold Scientific Realism", "High-Fidelity Molecular Realism".
     
     8. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.

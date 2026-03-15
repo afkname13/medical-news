@@ -37,9 +37,13 @@ RSS_FEEDS = {
     "Johns Hopkins": "https://www.hopkinsmedicine.org/news/news-releases/feed"
 }
 
+def normalize_title(title):
+    # Lowercase and remove non-alphanumeric characters for robust comparison
+    return re.sub(r'[^a-z0-9]', '', title.lower())
+
 def get_article_id(title):
     # MD5 hash of lowercase alphanumeric title
-    clean_title = re.sub(r'[^a-zA-Z0-9]', '', title.lower())
+    clean_title = normalize_title(title)
     return hashlib.md5(clean_title.encode('utf-8')).hexdigest()
 
 def score_article(article):
@@ -170,13 +174,32 @@ def fetch_rss():
             
     return articles
 
-def get_top_article(posted_ids):
+def get_top_article(posted_data):
+    # posted_data can be a list of IDs or a list of dicts
+    posted_ids = set()
+    posted_titles_norm = set()
+    
+    for item in posted_data:
+        if isinstance(item, dict):
+            posted_ids.add(item.get('id'))
+            if item.get('title'):
+                posted_titles_norm.add(normalize_title(item['title']))
+        else:
+            posted_ids.add(item)
+
     articles = fetch_rss() + fetch_pubmed()
     
-    new_articles = [a for a in articles if a['id'] not in posted_ids]
+    new_articles = []
+    for a in articles:
+        if a['id'] in posted_ids:
+            continue
+        if normalize_title(a['title']) in posted_titles_norm:
+            print(f"Skipping article (Duplicate Title/Normalized Match): '{a['title']}'")
+            continue
+        new_articles.append(a)
     
     if not new_articles:
-        print("No new articles found.")
+        print("No matches after filtering already posted content.")
         return None
         
     for a in new_articles:
@@ -186,8 +209,12 @@ def get_top_article(posted_ids):
         
     new_articles.sort(key=lambda x: x['score'], reverse=True)
     
-    top_article = new_articles[0]
-    print(f"Top article selected: '{top_article['title']}' (Score: {top_article['score']})")
+    # Variety Improvement: Pick randomly from the top 5 instead of always #1
+    top_pool = new_articles[:5]
+    import random
+    top_article = random.choice(top_pool)
+    
+    print(f"Top article selected: '{top_article['title']}' (Score: {top_article['score']}) [Out of top {len(top_pool)} candidates]")
     return top_article
 
 if __name__ == "__main__":

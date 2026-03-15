@@ -99,7 +99,7 @@ class VideoGenerator:
                 return None
 
             video_url = best_file.get("link")
-            video_path = os.path.join(self.output_dir, "raw_reel_bg.mp4")
+            video_path = os.path.join(self.output_dir, f"raw_reel_bg_{int(time.time())}.mp4")
             
             print(f"Downloading Pexels video: {video_url}")
             with requests.get(video_url, stream=True) as r:
@@ -109,20 +109,33 @@ class VideoGenerator:
                         f.write(chunk)
             
             return video_path
-        except:
+        except Exception as e: # Changed generic except to specific Exception
+            print(f"Error fetching Pexels video: {e}") # Added error message
             return None
 
     def _download_viral_audio(self):
-        """Downloads a royalty-free medical-lofi track for fallback."""
-        audio_path = os.path.join(self.output_dir, "viral_lofi.mp3")
+        """Downloads a royalty-free medical-lofi track for fallback from a randomized library."""
+        # Round 49: Expanded library for variety
+        FALLBACK_LIBRARY = [
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
+        ]
+        
+        url = random.choice(FALLBACK_LIBRARY)
+        # Use simple hash of URL to avoid re-downloading if already present
+        import hashlib
+        name = hashlib.md5(url.encode()).hexdigest()[:8]
+        audio_path = os.path.join(self.output_dir, f"fallback_{name}.mp3")
+        
         if os.path.exists(audio_path):
             return audio_path
             
-        # SoundHelix - Reliable test audio source
-        url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
         try:
-            print(f"Downloading Viral Lo-fi Library: {url}")
-            headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+            print(f"Downloading Viral Lo-fi Library Asset: {url}")
+            headers = {"User-Agent": "Mozilla/5.0"}
             r = requests.get(url, headers=headers, timeout=15)
             r.raise_for_status()
             with open(audio_path, 'wb') as f:
@@ -134,7 +147,8 @@ class VideoGenerator:
 
     def create_static_reel(self, image_path, music_path=None, duration=15):
         """Creates a Reel from a flat image (meme-style hook)."""
-        output_path = os.path.join(self.output_dir, "final_reel.mp4")
+        unique_id = int(time.time())
+        output_path = os.path.join(self.output_dir, f"final_reel_{unique_id}.mp4")
         
         # Audio Fallback Logic (Round 38)
         if not music_path or not os.path.exists(music_path):

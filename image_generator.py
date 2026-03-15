@@ -295,7 +295,8 @@ def generate_carousel_images(slides_data, bg_image_path, output_dir):
             page.goto(f"file://{os.path.abspath(temp_html)}", wait_until="networkidle")
             page.wait_for_timeout(500) # Ensure fonts and filters load
             
-            output_path = os.path.join(output_dir, f"slide_{i+1}.jpg")
+            unique_suffix = int(time.time() * 100)
+            output_path = os.path.join(output_dir, f"slide_{unique_suffix}_{i+1}.jpg")
             page.screenshot(path=output_path, type="jpeg", quality=90)
             image_paths.append(output_path)
             
