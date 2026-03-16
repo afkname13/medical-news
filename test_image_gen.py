@@ -1,14 +1,21 @@
-import asyncio
+import os
 from image_generator import generate_carousel_images
 
 content = {
-    "cover": "CELL'S SECRET ENGINE UNLOCKED: CANCER'S NEW ENEMY?",
-    "slide_1": "Imagine finding a whole new factory running inside something you thought you knew inside out. Scientists just did that, deep within our cells. They uncovered hundreds of tiny workers, called metabolic enzymes, mysteriously attached to our DNA right inside the cell's command center, the nucleus. This completely rewrites what we thought we knew about how our cells function and manage their energy.",
-    "slide_2": "These newly found enzymes aren't just lounging around. They form unique patterns, like fingerprints, in different body tissues and even in cancers. When DNA gets damaged, these specialized enzymes quickly gather around the affected areas, acting like a rapid repair crew. This critical process helps fix errors and keep our genetic code intact, preventing potential health issues. Over 300 unique enzyme types were observed.",
-    "slide_3": "This breakthrough reveals an unexpected direct connection between a cell's energy system and how our genes are controlled. It offers powerful new clues on how cancers grow and resist current treatments. Understanding these 'nuclear metabolic fingerprints' could lead to entirely new ways to stop cancer cells in their tracks, potentially leading to treatment breakthroughs with an estimated 25% improvement in targeted therapy development."
+    "cover": "CELL'S SECRET ENGINE",
+    "slide_1_title": "BREAKTHROUGH",
+    "slide_1_body": "Content body for slide 1...",
+    "slide_2_title": "IMPACT",
+    "slide_2_body": "Content body for slide 2...",
+    "slide_4_question": "What do you think?",
+    "caption": "Test caption."
 }
 
-async def run():
-    print(await generate_carousel_images(content))
+def run():
+    media_dir = "media"
+    os.makedirs(media_dir, exist_ok=True)
+    paths = generate_carousel_images(content, None, media_dir)
+    print(f"Generated: {paths}")
 
-asyncio.run(run())
+if __name__ == "__main__":
+    run()
