@@ -143,7 +143,14 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
         image_paths = generate_carousel_images(c_data, ai_bg, media_dir)
         if image_paths:
             # Round 52: Use absolute paths and verify files
-            abs_image_paths = [os.path.abspath(p) for p in image_paths if os.path.exists(p)]
+            abs_image_paths = []
+            for p in image_paths:
+                if os.path.exists(p):
+                    f_size = os.path.getsize(p)
+                    print(f"DEBUG: Generated Slide: {os.path.basename(p)} ({f_size} bytes)")
+                    if f_size > 1000: # Basic check for non-empty image
+                        abs_image_paths.append(os.path.abspath(p))
+                
             if len(abs_image_paths) == len(image_paths):
                 publish_carousel(
                     abs_image_paths, 
@@ -199,6 +206,8 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
                 print("❌ Error: No reel images generated for static reel fallback.")
 
         if final_reel and os.path.exists(final_reel):
+            f_size = os.path.getsize(final_reel)
+            print(f"DEBUG: Generated Reel: {os.path.basename(final_reel)} ({f_size} bytes)")
             publish_reel(os.path.abspath(final_reel), r_data['caption'], dry_run=dry_run)
         else:
             print("Skipping Reel: No video or image generated.")

@@ -2,6 +2,7 @@ import os
 import time
 import urllib.parse
 import base64
+import requests
 from playwright.sync_api import sync_playwright
 
 def generate_html(slides_data, bg_image_url, base_dir):
@@ -199,21 +200,43 @@ def generate_html(slides_data, bg_image_url, base_dir):
         if not image_path_or_url:
             return "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop"
         
+        # Round 53: Always download remote URLs first to ensure full offline rendering reliability
+        target_path = image_path_or_url
+        is_temp = False
+        
         if image_path_or_url.startswith("http"):
-            return image_path_or_url
+            try:
+                print(f"DEBUG: Localizing remote asset for Base64 encoding: {image_path_or_url[:50]}...")
+                temp_name = f"render_tmp_{int(time.time() * 1000)}.jpg"
+                target_path = os.path.join(base_dir, temp_name)
+                response = requests.get(image_path_or_url, timeout=15)
+                if response.status_code == 200:
+                    with open(target_path, "wb") as f:
+                        f.write(response.content)
+                    is_temp = True
+                else:
+                    return image_path_or_url # Fallback to URL if download fails
+            except Exception as e:
+                print(f"Warning: Failed to localize {image_path_or_url}: {e}")
+                return image_path_or_url
             
         try:
-            abs_path = os.path.abspath(image_path_or_url)
+            abs_path = os.path.abspath(target_path)
             if os.path.exists(abs_path):
                 ext = abs_path.split('.')[-1].lower()
                 mime = f"image/{'jpeg' if ext in ['jpg', 'jpeg'] else ext}"
                 with open(abs_path, "rb") as image_file:
                     encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-                    return f"data:{mime};base64,{encoded_string}"
+                    result = f"data:{mime};base64,{encoded_string}"
+                    # Cleanup temp file if created
+                    if is_temp:
+                        try: os.remove(abs_path)
+                        except: pass
+                    return result
         except Exception as e:
-            print(f"Warning: Base64 conversion failed for {image_path_or_url}: {e}")
+            print(f"Warning: Base64 conversion failed for {target_path}: {e}")
             
-        return image_path_or_url # Fallback to original
+        return image_path_or_url 
 
     bg_image_embed = get_base64_image(bg_image_url)
     

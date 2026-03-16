@@ -66,9 +66,31 @@ def generate_ai_image(prompt, save_path):
     except Exception as e:
         print(f"⚠️ Pollinations fallback failed: {str(e)}")
 
-    # Strategy 3: High-Quality Unsplash Fallback
+    # Strategy 3: Unsplash API Fallback (High Quality Photography)
     try:
-        # Try a few scientific IDs
+        access_key = os.getenv("UNSPLASH_ACCESS_KEY")
+        if access_key:
+            print("🔄 Using Unsplash API for high-quality medical asset...")
+            query = f"{prompt} medical research science"
+            search_url = f"https://api.unsplash.com/search/photos?query={urllib.parse.quote(query)}&per_page=10&orientation=portrait"
+            headers = {"Authorization": f"Client-ID {access_key}"}
+            
+            s_response = requests.get(search_url, headers=headers, timeout=15)
+            if s_response.status_code == 200:
+                results = s_response.json().get("results", [])
+                if results:
+                    photo = random.choice(results)
+                    asset_url = photo["urls"]["regular"]
+                    print(f"✅ Found Unsplash photo: {photo['id']}")
+                    
+                    img_response = requests.get(asset_url, timeout=15)
+                    if img_response.status_code == 200:
+                        with open(save_path, 'wb') as f:
+                            f.write(img_response.content)
+                        print(f"✅ Unsplash Asset successful: {save_path}")
+                        return save_path
+
+        # Legacy Hardcoded Fallback
         FALLBACK_IDS = [
             "1576086213369-97a306d36557", "1530026405186-ed1f139313f8",
             "1559757175-5700dde675bc", "1532187875605-1ef6c237ddc4",
@@ -77,22 +99,15 @@ def generate_ai_image(prompt, save_path):
             "1511174511562-5f7f18b874f8", "1584036561566-baf2418e3308"
         ]
         
-        random.shuffle(FALLBACK_IDS)
-        for photo_id in FALLBACK_IDS[:3]: # Try up to 3 random IDs
-            asset_url = f"https://images.unsplash.com/photo-{photo_id}?q=80&w=1080&auto=format&fit=crop"
-            
-            print(f"🔄 AI failed. Fetching Dynamic Scientific Asset: {photo_id}")
-            
-            headers = { 'User-Agent': 'Mozilla/5.0' }
-            img_response = requests.get(asset_url, headers=headers, timeout=15)
-            
-            if img_response.status_code == 200:
-                with open(save_path, 'wb') as f:
-                    f.write(img_response.content)
-                print(f"✅ Scientific Asset Fallback successful: {save_path}")
-                return save_path
-            else:
-                print(f"❌ Asset {photo_id} fetch failed (Status {img_response.status_code})")
+        photo_id = random.choice(FALLBACK_IDS)
+        asset_url = f"https://images.unsplash.com/photo-{photo_id}?q=80&w=1080&auto=format&fit=crop"
+        print(f"🔄 AI failed. Fetching Hardcoded Scientific Asset: {photo_id}")
+        
+        img_response = requests.get(asset_url, timeout=15)
+        if img_response.status_code == 200:
+            with open(save_path, 'wb') as f:
+                f.write(img_response.content)
+            return save_path
             
     except Exception as e:
         print(f"❌ Final fallback failed: {str(e)}")
