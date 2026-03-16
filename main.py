@@ -142,12 +142,17 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
         
         image_paths = generate_carousel_images(c_data, ai_bg, media_dir)
         if image_paths:
-            publish_carousel(
-                image_paths, 
-                c_data['caption'], 
-                dry_run=dry_run,
-                first_comment=slides_data.get('first_comment')
-            )
+            # Round 52: Use absolute paths and verify files
+            abs_image_paths = [os.path.abspath(p) for p in image_paths if os.path.exists(p)]
+            if len(abs_image_paths) == len(image_paths):
+                publish_carousel(
+                    abs_image_paths, 
+                    c_data['caption'], 
+                    dry_run=dry_run,
+                    first_comment=slides_data.get('first_comment')
+                )
+            else:
+                print(f"❌ Error: Some carousel images are missing or empty! ({len(abs_image_paths)}/{len(image_paths)})")
 
     # 4. Reels Flow
     if post_reels:
@@ -183,11 +188,18 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True, post_reels=False
             reel_image_paths = generate_carousel_images(r_data, ai_bg_reel, media_dir)
             
             if reel_image_paths:
-                cover_image = reel_image_paths[0]
+                cover_image = os.path.abspath(reel_image_paths[0])
                 final_reel = vg.create_static_reel(cover_image, music_path)
+                
+                if final_reel and os.path.exists(final_reel):
+                    publish_reel(os.path.abspath(final_reel), r_data['caption'], dry_run=dry_run)
+                else:
+                    print("❌ Error: Static Reel creation failed (file not found).")
+            else:
+                print("❌ Error: No reel images generated for static reel fallback.")
 
-        if final_reel:
-            publish_reel(final_reel, r_data['caption'], dry_run=dry_run)
+        if final_reel and os.path.exists(final_reel):
+            publish_reel(os.path.abspath(final_reel), r_data['caption'], dry_run=dry_run)
         else:
             print("Skipping Reel: No video or image generated.")
 

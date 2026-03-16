@@ -1,6 +1,7 @@
 import os
 import time
 import urllib.parse
+import base64
 from playwright.sync_api import sync_playwright
 
 def generate_html(slides_data, bg_image_url, base_dir):
@@ -193,21 +194,38 @@ def generate_html(slides_data, bg_image_url, base_dir):
         t_size = 80
         
     line_height = "52px"
-    
-    # Pre-check if logo.jpg exists in base_dir
-    logo_file = os.path.join(base_dir, 'logo.jpg')
-    if os.path.exists(logo_file):
-        logo_url = f"file://{logo_file}"
-    else:
-        # Check adjacent to this script too
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        adj_logo = os.path.join(script_dir, 'logo.jpg')
-        if os.path.exists(adj_logo):
-            logo_url = f"file://{adj_logo}"
-        else:
-            logo_url = logo_path
+
+    def get_base64_image(image_path_or_url):
+        if not image_path_or_url:
+            return "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop"
         
-    logo_html = f"""<div class="logo" style="background-image: url('{logo_url}');"></div>"""
+        if image_path_or_url.startswith("http"):
+            return image_path_or_url
+            
+        try:
+            abs_path = os.path.abspath(image_path_or_url)
+            if os.path.exists(abs_path):
+                ext = abs_path.split('.')[-1].lower()
+                mime = f"image/{'jpeg' if ext in ['jpg', 'jpeg'] else ext}"
+                with open(abs_path, "rb") as image_file:
+                    encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+                    return f"data:{mime};base64,{encoded_string}"
+        except Exception as e:
+            print(f"Warning: Base64 conversion failed for {image_path_or_url}: {e}")
+            
+        return image_path_or_url # Fallback to original
+
+    bg_image_embed = get_base64_image(bg_image_url)
+    
+    # Pre-check if logo.jpg exists
+    logo_file = os.path.join(base_dir, 'logo.jpg')
+    if not os.path.exists(logo_file):
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        logo_file = os.path.join(script_dir, 'logo.jpg')
+    
+    logo_embed = get_base64_image(logo_file) if os.path.exists(logo_file) else logo_path
+        
+    logo_html = f"""<div class="logo" style="background-image: url('{logo_embed}');"></div>"""
 
     slides_html = []
     
@@ -223,7 +241,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     </div>
     """
     
-    html = html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cover_body).replace('{body_line_height}', line_height)
+    html = html_template.replace('{bg_image}', bg_image_embed).replace('{body_content}', cover_body).replace('{body_line_height}', line_height)
     slides_html.append(html)
     
     # Helper for content slides
@@ -238,7 +256,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
             <div class="slide-fraction">{fraction}</div>
         </div>
         """
-        return html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', content).replace('{body_line_height}', line_height)
+        return html_template.replace('{bg_image}', bg_image_embed).replace('{body_content}', content).replace('{body_line_height}', line_height)
         
     # 2. Content Slide 1
     slides_html.append(make_content_slide(
@@ -268,7 +286,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
         <div class="slide-fraction">4/4</div>
     </div>
     """
-    slides_html.append(html_template.replace('{bg_image}', bg_image_path).replace('{body_content}', cta_content).replace('{body_line_height}', line_height))
+    slides_html.append(html_template.replace('{bg_image}', bg_image_embed).replace('{body_content}', cta_content).replace('{body_line_height}', line_height))
     
     return slides_html
 
@@ -293,7 +311,7 @@ def generate_carousel_images(slides_data, bg_image_path, output_dir):
             with open(temp_html, "w", encoding='utf-8') as f:
                 f.write(html_str)
                 
-            page.goto(f"file://{os.path.abspath(temp_html)}", wait_until="networkidle")
+            page.goto(f"file://{os.path.abspath(temp_html)}", wait_until="load")
             page.wait_for_timeout(500) # Ensure fonts and filters load
             
             unique_suffix = int(time.time() * 100)
