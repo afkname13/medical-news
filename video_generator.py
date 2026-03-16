@@ -1,6 +1,7 @@
 import os
 import requests
 import random
+import time
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip, AudioFileClip, ColorClip
 from moviepy.config import change_settings
 
@@ -70,6 +71,7 @@ class VideoGenerator:
     def fetch_pexels_video(self, keywords):
         # ... (same as before)
         if not self.pexels_api_key:
+            print(f"DEBUG: PEXELS_API_KEY status: {'Found' if self.pexels_api_key else 'NOT FOUND'}")
             print("PEXELS_API_KEY not found. Skipping video fetch.")
             return None
 
