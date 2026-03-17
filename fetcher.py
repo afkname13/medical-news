@@ -179,27 +179,65 @@ def get_top_article(posted_data):
     posted_ids = set()
     posted_titles_norm = set()
     
+    # Round 54: Topic Lock - Block specific keywords for X days
+    TOPIC_LOCK_DAYS = 7
+    blocked_topics = set()
+    
+    now = datetime.now()
+    
     for item in posted_data:
         if isinstance(item, dict):
-            posted_ids.add(item.get('id'))
-            if item.get('title'):
-                posted_titles_norm.add(normalize_title(item['title']))
+            article_id = item.get('id')
+            posted_ids.add(article_id)
+            title = item.get('title', '')
+            if title:
+                posted_titles_norm.add(normalize_title(title))
+            
+            # Check if within Lock window
+            ts_str = item.get('timestamp')
+            if ts_str:
+                try:
+                    ts = datetime.fromisoformat(ts_str)
+                    if (now - ts).days < TOPIC_LOCK_DAYS:
+                        # Extract basic keywords from title for locking
+                        # We block common nouns/terms that define the topic
+                        words = [w.lower() for w in re.findall(r'\w+', title) if len(w) > 3]
+                        blocked_topics.update(words)
+                except: pass
         else:
             posted_ids.add(item)
+
+    # Specific "Hard Blocks" for problematic repetitions
+    HARD_BLOCKS = ["viagra", "sildenafil", "erectile", "dysfunction", "sexual", "sex", "libido"]
+    # If any hard block was posted recently, add it to blocked_topics
+    for hb in HARD_BLOCKS:
+        # If we see Viagra in any recent title, block all related terms
+        for title_norm in posted_titles_norm:
+            if hb in title_norm:
+                blocked_topics.update(HARD_BLOCKS)
+                break
 
     articles = fetch_rss() + fetch_pubmed()
     
     new_articles = []
     for a in articles:
-        if a['id'] in posted_ids:
+        a_id = a['id']
+        a_title = a['title']
+        a_title_norm = normalize_title(a_title)
+        
+        if a_id in posted_ids or a_title_norm in posted_titles_norm:
             continue
-        if normalize_title(a['title']) in posted_titles_norm:
-            print(f"Skipping article (Duplicate Title/Normalized Match): '{a['title']}'")
+            
+        # Topic Lock Check
+        title_words = [w.lower() for w in re.findall(r'\w+', a_title) if len(w) > 3]
+        if any(word in blocked_topics for word in title_words):
+            print(f"Skipping article (Topic Lock Active): '{a_title}'")
             continue
+            
         new_articles.append(a)
     
     if not new_articles:
-        print("No matches after filtering already posted content.")
+        print("No matches after filtering already posted content and Topic Locks.")
         return None
         
     for a in new_articles:
@@ -209,8 +247,8 @@ def get_top_article(posted_data):
         
     new_articles.sort(key=lambda x: x['score'], reverse=True)
     
-    # Variety Improvement: Pick randomly from the top 5 instead of always #1
-    top_pool = new_articles[:5]
+    # Variety Improvement: Pick randomly from the top 10 instead of top 5
+    top_pool = new_articles[:10]
     import random
     top_article = random.choice(top_pool)
     

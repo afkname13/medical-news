@@ -41,14 +41,20 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .bg-layer {
                 position: absolute;
                 top: 0; left: 0; width: 1080px; height: 1350px;
-                background-image: url('{bg_image}');
-                background-size: cover;
-                background-position: center;
+                background-color: #0D1117; /* Default background */
+                background: linear-gradient(135deg, #0D1621 0%, #1A2634 50%, #0D1117 100%); /* Medical Deep Gradient */
                 z-index: 1;
+            }
+            .bg-layer img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0.85;
             }
             .bg-layer.blurred {
                 filter: blur(60px);
-                transform: scale(1.1); /* Prevent blur from shrinking edges */
+                transform: scale(1.1);
+                opacity: 0.6;
             }
             .overlay {
                 position: absolute;
@@ -255,7 +261,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     # 1. Cover
     cover_cta = slides_data.get('cover_cta', 'TAP TO LEARN MORE ➔')
     cover_body = f"""
-    <div class="bg-layer"></div>
+    <div class="bg-layer"><img src="{bg_image_embed}"></div>
     <div class="overlay"></div>
     {logo_html}
     <div class="cover-container">
@@ -270,7 +276,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     # Helper for content slides
     def make_content_slide(stitle, sbody, fraction, color):
         content = f"""
-        <div class="bg-layer blurred"></div>
+        <div class="bg-layer blurred"><img src="{bg_image_embed}"></div>
         <div class="overlay"></div>
         {logo_html}
         <div class="card">
