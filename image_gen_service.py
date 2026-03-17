@@ -48,25 +48,7 @@ def generate_ai_image(prompt, save_path):
         except Exception as e:
             print(f"⚠️ {model_name} failed: {str(e)}")
 
-    # Strategy 2: Pollinations AI Fallback (Very Reliable)
-    try:
-        print("🔄 Imagen failed. Falling back to Pollinations AI...")
-        clean_prompt = urllib.parse.quote(prompt)
-        # Use FLUX model on Pollinations for high quality
-        pollin_url = f"https://pollinations.ai/p/{clean_prompt}?width=1080&height=1350&model=flux&seed={int(time.time())}&nologo=true"
-        
-        headers = { 'User-Agent': 'Mozilla/5.0' }
-        p_response = requests.get(pollin_url, headers=headers, timeout=30)
-        
-        if p_response.status_code == 200:
-            with open(save_path, 'wb') as f:
-                f.write(p_response.content)
-            print(f"✅ Pollinations AI image successful: {save_path}")
-            return save_path
-    except Exception as e:
-        print(f"⚠️ Pollinations fallback failed: {str(e)}")
-
-    # Strategy 3: Unsplash API Fallback (High Quality Photography)
+    # Strategy 2: Unsplash API (High Quality Photography)
     try:
         access_key = os.getenv("UNSPLASH_ACCESS_KEY")
         if access_key:
@@ -89,8 +71,37 @@ def generate_ai_image(prompt, save_path):
                             f.write(img_response.content)
                         print(f"✅ Unsplash Asset successful: {save_path}")
                         return save_path
+    except Exception as e:
+        print(f"⚠️ Unsplash fallback failed: {str(e)}")
 
-        # Legacy Hardcoded Fallback
+    # Strategy 3: Pexels API (Additional Photography Source)
+    try:
+        pexels_key = os.getenv("PEXELS_API_KEY")
+        if pexels_key:
+            print("🔄 Unsplash failed/unavailable. Trying Pexels API...")
+            query = f"{prompt} clinic medicine"
+            search_url = f"https://api.pexels.com/v1/search?query={urllib.parse.quote(query)}&per_page=10&orientation=portrait"
+            headers = {"Authorization": pexels_key}
+            
+            p_response = requests.get(search_url, headers=headers, timeout=15)
+            if p_response.status_code == 200:
+                photos = p_response.json().get("photos", [])
+                if photos:
+                    photo = random.choice(photos)
+                    asset_url = photo["src"]["large2x"]
+                    print(f"✅ Found Pexels photo: {photo['id']}")
+                    
+                    img_response = requests.get(asset_url, timeout=15)
+                    if img_response.status_code == 200:
+                        with open(save_path, 'wb') as f:
+                            f.write(img_response.content)
+                        print(f"✅ Pexels Asset successful: {save_path}")
+                        return save_path
+    except Exception as e:
+        print(f"⚠️ Pexels fallback failed: {str(e)}")
+
+    # Strategy 4: Legacy Hardcoded Fallback
+    try:
         FALLBACK_IDS = [
             "1576086213369-97a306d36557", "1530026405186-ed1f139313f8",
             "1559757175-5700dde675bc", "1532187875605-1ef6c237ddc4",
@@ -101,7 +112,7 @@ def generate_ai_image(prompt, save_path):
         
         photo_id = random.choice(FALLBACK_IDS)
         asset_url = f"https://images.unsplash.com/photo-{photo_id}?q=80&w=1080&auto=format&fit=crop"
-        print(f"🔄 AI failed. Fetching Hardcoded Scientific Asset: {photo_id}")
+        print(f"🔄 All dynamic fallbacks failed. Fetching Hardcoded Scientific Asset: {photo_id}")
         
         img_response = requests.get(asset_url, timeout=15)
         if img_response.status_code == 200:
