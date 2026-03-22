@@ -5,10 +5,14 @@ permissions:
 
 on:
   schedule:
-    # Retention Strategy: 3 Carousels per day (8-hour intervals)
-    - cron: '17 4 * * *'  # Morning Peak (EU/Asia)
-    - cron: '17 12 * * *' # Mid-day Peak (US/UK)
-    - cron: '17 20 * * *' # Evening Peak (US/UK)
+    # UTC schedule tuned for English-speaking audiences.
+    # Approx local targets:
+    # - 13:17 UTC = 9:17 AM ET / 6:17 AM PT / 1:17 PM UK
+    # - 17:17 UTC = 1:17 PM ET / 10:17 AM PT / 5:17 PM UK
+    # - 23:17 UTC = 7:17 PM ET / 4:17 PM PT / 11:17 PM UK
+    - cron: '17 13 * * *'
+    - cron: '17 17 * * *'
+    - cron: '17 23 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -22,9 +26,14 @@ on:
         default: false
         type: boolean
 
+concurrency:
+  group: medical-news-bot
+  cancel-in-progress: false
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
