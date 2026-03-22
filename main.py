@@ -44,6 +44,11 @@ def _caption_excerpt(text, max_words=24):
     words = (text or "").replace("\n", " ").split()
     return " ".join(words[:max_words]).strip()
 
+def _trim_history(items, max_items=150):
+    if len(items) <= max_items:
+        return items
+    return items[-max_items:]
+
 def cleanup_old_media(media_dir, days=1):
     print(f"Cleaning up media older than {days} days...")
     now = time.time()
@@ -67,9 +72,6 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
         print("🎭 MOCK MODE ENABLED: Bypassing Gemini AI to save quota.")
     
     # 0. Setup directories
-    base = os.path.dirname(os.path.abspath(__file__))
-    media_dir = os.path.join(base, "media")
-
     media_dir = "media"
     os.makedirs(media_dir, exist_ok=True)
 
@@ -89,6 +91,8 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
     article_context = None
 
     posted_data = load_posted()
+
+    publish_succeeded = dry_run
 
     if mock:
         print("Using MOCK content...")
@@ -164,7 +168,7 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
                         abs_image_paths.append(os.path.abspath(p))
                 
             if len(abs_image_paths) == len(image_paths):
-                publish_carousel(
+                publish_succeeded = publish_carousel(
                     abs_image_paths, 
                     c_data['caption'], 
                     dry_run=dry_run,
@@ -172,8 +176,9 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
                 )
             else:
                 print(f"❌ Error: Some carousel images are missing or empty! ({len(abs_image_paths)}/{len(image_paths)})")
+                publish_succeeded = False
 
-    if not mock and article and post_carousel:
+    if not mock and article and post_carousel and publish_succeeded:
         # Update metadata for tracking
         article_id = article.get('id')
         
@@ -213,7 +218,9 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
             else:
                 final_posted.append(item)
 
-        save_posted(final_posted)
+        save_posted(_trim_history(final_posted))
+    elif not mock and article and post_carousel:
+        print("Skipping posted-state update because the publish step did not complete successfully.")
 
     print("Pipeline finished successfully!")
 

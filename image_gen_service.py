@@ -15,6 +15,11 @@ IRRELEVANT_IMAGE_TERMS = [
     "portrait", "face", "person", "people", "woman", "man"
 ]
 
+PREFERRED_HERO_HINTS = [
+    "hero", "featured", "lead", "main", "article", "story", "header",
+    "cover", "og:image", "twitter:image", "figure", "image"
+]
+
 TERM_HINTS = {
     "cancer": ["tumor scan", "oncology laboratory", "cancer cells", "radiology imaging"],
     "tumor": ["tumor scan", "oncology imaging", "pathology slide", "cancer cells"],
@@ -213,19 +218,36 @@ def _extract_article_image_urls(article_url):
                 content = tag.get("content")
                 normalized = _normalize_candidate_url(content, article_url)
                 if normalized and normalized not in candidates:
-                    candidates.append(normalized)
+                    candidates.append({
+                        "url": normalized,
+                        "hint": f"{selector[1]}",
+                        "priority": 30,
+                    })
 
         for img in soup.find_all("img"):
             src = _normalize_candidate_url(img.get("src"), article_url)
-            alt_text = " ".join(filter(None, [img.get("alt", ""), img.get("class", "") if isinstance(img.get("class"), str) else " ".join(img.get("class", []))]))
+            classes = img.get("class", [])
+            if isinstance(classes, str):
+                classes = [classes]
+            alt_text = " ".join(filter(None, [img.get("alt", ""), " ".join(classes), img.get("id", "")]))
             blob = f"{src or ''} {alt_text}".lower()
             if not src:
                 continue
             if any(token in blob for token in ["logo", "icon", "avatar", "sprite", "banner", "advert"]):
                 continue
-            if src not in candidates:
-                candidates.append(src)
+            priority = 0
+            if any(hint in blob for hint in PREFERRED_HERO_HINTS):
+                priority += 8
+            if any(token in blob for token in ["thumbnail", "thumb"]):
+                priority -= 5
+            if src not in [item["url"] for item in candidates]:
+                candidates.append({
+                    "url": src,
+                    "hint": blob,
+                    "priority": priority,
+                })
 
+        candidates.sort(key=lambda item: item["priority"], reverse=True)
         return candidates[:12]
     except Exception as e:
         print(f"⚠️ Article image scrape failed: {e}")
@@ -233,9 +255,14 @@ def _extract_article_image_urls(article_url):
 
 def _try_article_page_image(article_url, save_path, article_context=None):
     candidate_urls = _extract_article_image_urls(article_url)
+    relevance_terms = _extract_relevance_terms("", article_context)
 
-    for url in candidate_urls:
+    for candidate in candidate_urls:
+        url = candidate["url"]
         if any(term in url.lower() for term in ["logo", "icon", "avatar", "sprite"]):
+            continue
+        hint_blob = f"{candidate.get('hint', '')} {article_context or ''}"
+        if candidate.get("priority", 0) < 8 and relevance_terms and _photo_score(hint_blob, relevance_terms) < 0:
             continue
 
         downloaded = _download_image(url, save_path)

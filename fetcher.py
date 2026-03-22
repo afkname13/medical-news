@@ -85,6 +85,17 @@ def score_article(article):
     article['score'] = score
     return score
 
+def article_sort_key(article):
+    publish_date = article.get('publish_date') or ''
+    abstract_len = len((article.get('abstract') or '').split())
+    journal = article.get('journal') or ''
+    return (
+        int(article.get('score', 0)),
+        publish_date,
+        abstract_len,
+        len(journal),
+    )
+
 def extract_topic_terms(text):
     words = [w.lower() for w in re.findall(r'\w+', text or '') if len(w) > 4]
     return {
@@ -279,14 +290,10 @@ def get_top_article(posted_data):
         if a.get('score_bonus'):
             a['score'] = int(a['score']) + int(a['score_bonus'])
         
-    new_articles.sort(key=lambda x: x['score'], reverse=True)
+    new_articles.sort(key=article_sort_key, reverse=True)
+    top_article = new_articles[0]
     
-    # Variety Improvement: Pick randomly from the top 10 instead of top 5
-    top_pool = new_articles[:10]
-    import random
-    top_article = random.choice(top_pool)
-    
-    print(f"Top article selected: '{top_article['title']}' (Score: {top_article['score']}) [Out of top {len(top_pool)} candidates]")
+    print(f"Top article selected: '{top_article['title']}' (Score: {top_article['score']}) [Best of {len(new_articles)} candidates]")
     return top_article
 
 if __name__ == "__main__":

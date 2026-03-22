@@ -355,8 +355,8 @@ def normalize_generated_payload(data, article=None):
 def generate_carousel_content(article, recent_history=None):
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        print("Error: GEMINI_API_KEY not found. Aborting content generation.")
-        return None
+        print("Error: GEMINI_API_KEY not found. Falling back to deterministic local content generator.")
+        return build_fallback_content(article)
         
     client = genai.Client(api_key=api_key)
     

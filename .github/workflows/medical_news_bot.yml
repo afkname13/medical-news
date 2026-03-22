@@ -34,6 +34,8 @@ jobs:
   run-bot:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      TZ: UTC
 
     steps:
       - name: Checkout repository
@@ -80,6 +82,17 @@ jobs:
             ARGS="$ARGS --mock"
           fi
           python main.py $ARGS
+
+      - name: Upload Debug Artifacts On Failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: medical-news-debug-${{ github.run_id }}
+          path: |
+            media/
+            posted_articles.json
+            used_image_assets.json
+          if-no-files-found: ignore
 
       - name: Commit and Push Updated DB
         uses: stefanzweifel/git-auto-commit-action@v5
