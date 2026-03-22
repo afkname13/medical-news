@@ -34,7 +34,26 @@ DEFAULT_HASHTAGS = [
     "#healthyliving",
     "#longevity",
     "#wellness",
+    "#medtok",
+    "#healthtok",
+    "#explorepage",
+    "#viral",
 ]
+
+COVER_TEASE_MAP = {
+    "cancer": "CANCER HUNTERS",
+    "tumor": "TUMOR ALERT",
+    "brain": "BRAIN SIGNAL",
+    "heart": "HEART WATCH",
+    "gene": "GENE TRACKERS",
+    "genetic": "GENE TRACKERS",
+    "chromosome": "CHROMOSOME WATCH",
+    "aging": "AGING ALERT",
+    "bacteria": "MICROBE HUNTERS",
+    "immune": "IMMUNE ALERT",
+    "alzheimer": "MEMORY ALERT",
+    "adhd": "BRAIN WATCH",
+}
 
 def _strip_html(text):
     return re.sub(r'<[^>]+>', '', text or '')
@@ -52,9 +71,16 @@ def _truncate_words(text, max_words):
 
 def _make_cover_from_title(title):
     title_words = re.findall(r"[A-Za-z0-9']+", (title or "").upper())
-    tease = FALLBACK_HOOKS[hash(title or "cover") % len(FALLBACK_HOOKS)]
-    punch = " ".join(title_words[:5]) if title_words else "MEDICAL SHIFT"
+    tease = _choose_cover_tease(title)
+    punch = " ".join(title_words[:4]) if title_words else "MEDICAL SHIFT"
     return _repair_cover_text(f"{tease}\n{punch}")
+
+def _choose_cover_tease(title):
+    lowered = (title or "").lower()
+    for keyword, tease in COVER_TEASE_MAP.items():
+        if keyword in lowered:
+            return tease
+    return FALLBACK_HOOKS[hash(title or "cover") % len(FALLBACK_HOOKS)]
 
 def build_hashtags(article):
     title = (article.get('title', '') + " " + article.get('abstract', '')).lower()
@@ -85,12 +111,15 @@ def build_hashtags(article):
         if keyword in title and tag not in tags:
             tags.append(tag)
 
-    engagement_tags = ["#fyp", "#foryou", "#learnontiktok", "#mustread", "#healthfacts"]
+    engagement_tags = [
+        "#fyp", "#foryou", "#learnontiktok", "#mustread", "#healthfacts",
+        "#science", "#medicine", "#medicalresearch", "#healthtips",
+    ]
     for tag in engagement_tags:
         if tag not in tags:
             tags.append(tag)
 
-    return tags[:14]
+    return tags[:18]
 
 def append_citation_and_hashtags(caption, article):
     citation_parts = []
@@ -105,7 +134,10 @@ def append_citation_and_hashtags(caption, article):
 
     base_caption = clean_caption(caption or "")
     base_lines = [line for line in base_caption.split("\n") if line.strip()]
-    non_hashtag_lines = [line for line in base_lines if not line.strip().startswith("#")]
+    non_hashtag_lines = [
+        line for line in base_lines
+        if not line.strip().startswith("#") and not re.fullmatch(r"[.\-\s]+", line.strip())
+    ]
 
     rebuilt = "\n".join(non_hashtag_lines).strip()
     if rebuilt:
@@ -220,7 +252,7 @@ def _repair_cover_text(cover):
     cleaned_lines = []
     for idx, line in enumerate(lines[:2]):
         words = re.findall(r"[A-Za-z0-9']+", line.upper())
-        max_words = 3 if idx == 0 else 4
+        max_words = 2 if idx == 0 else 4
         cleaned_lines.append(" ".join(words[:max_words]))
 
     if len(cleaned_lines) < 2:
@@ -231,7 +263,28 @@ def _repair_cover_text(cover):
 def _body_overlap_ratio(first_body, second_body):
     return SequenceMatcher(None, _normalize_text(first_body), _normalize_text(second_body)).ratio()
 
-def validate_generated_payload(data):
+def _recent_history_signals(recent_history, limit=10):
+    signals = []
+    for entry in (recent_history or [])[-limit:]:
+        if not isinstance(entry, dict):
+            continue
+        signals.append({
+            "title": entry.get("title", ""),
+            "cover": entry.get("cover", ""),
+            "image_prompt": entry.get("image_prompt", ""),
+            "caption_excerpt": entry.get("caption_excerpt", ""),
+            "slide_titles": " ".join(entry.get("slide_titles", []) or []),
+        })
+    return signals
+
+def _similarity(a, b):
+    left = _normalize_text(a)
+    right = _normalize_text(b)
+    if not left or not right:
+        return 0
+    return SequenceMatcher(None, left, right).ratio()
+
+def validate_generated_payload(data, recent_history=None):
     errors = []
 
     carousel = data.get("carousel_data", {})
@@ -244,7 +297,7 @@ def validate_generated_payload(data):
     if len(cover_lines) != 2:
         errors.append("cover must have exactly two lines")
     for idx, line in enumerate(cover_lines[:2]):
-        max_words = 3 if idx == 0 else 4
+        max_words = 2 if idx == 0 else 4
         if len(re.findall(r"[A-Za-z0-9']+", line)) > max_words:
             errors.append("cover line is too long for layout")
 
@@ -261,6 +314,24 @@ def validate_generated_payload(data):
     image_prompt = _normalize_text(carousel.get("image_prompt", ""))
     if len(image_prompt.split()) < 5:
         errors.append("image prompt is too generic")
+
+    recent_signals = _recent_history_signals(recent_history)
+    for signal in recent_signals:
+        if _similarity(cover, signal.get("cover", "")) > 0.76:
+            errors.append("cover repeats a recent format too closely")
+            break
+    for signal in recent_signals:
+        if _similarity(image_prompt, signal.get("image_prompt", "")) > 0.72:
+            errors.append("image prompt overlaps recent visual concept")
+            break
+    slide_title_blob = " ".join([
+        carousel.get("slide_1_title", ""),
+        carousel.get("slide_2_title", ""),
+    ])
+    for signal in recent_signals:
+        if _similarity(slide_title_blob, signal.get("slide_titles", "")) > 0.82:
+            errors.append("slide titles repeat a recent post")
+            break
 
     return errors
 
@@ -281,7 +352,7 @@ def normalize_generated_payload(data, article=None):
     return data
 
 
-def generate_carousel_content(article):
+def generate_carousel_content(article, recent_history=None):
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         print("Error: GEMINI_API_KEY not found. Aborting content generation.")
@@ -289,6 +360,13 @@ def generate_carousel_content(article):
         
     client = genai.Client(api_key=api_key)
     
+    recent_signals = _recent_history_signals(recent_history, limit=6)
+    recent_memory = "\n".join(
+        f"- Title: {item['title']} | Cover: {item['cover']} | Image: {item['image_prompt']}"
+        for item in recent_signals
+        if any(item.values())
+    ) or "None"
+
     prompt = f"""
     Act as an engaging, viral medical science communicator for Instagram.
     I will provide a medical news article or past research paper. You need to summarize it into a highly attention-grabbing Instagram carousel (10th-grade reading level).
@@ -299,6 +377,8 @@ def generate_carousel_content(article):
     Article Publish Date: {article.get('publish_date', '')}
     Article Abstract: {article.get('abstract', '')}
     Source URL: {article.get('url', 'PubMed')}
+    RECENT POSTS TO AVOID REPEATING:
+    {recent_memory}
 
     STRICT RULES:
     1. AVOID using these characters in ANY of the output text: semicolon (;), asterisk (*), and long dashes (—). Use commas, periods, or simple hyphens instead.
@@ -310,14 +390,13 @@ def generate_carousel_content(article):
        - DO NOT reuse generic hooks such as "THE TRUTH IS OUT", "IT HAS FINALLY HAPPENED", "THIS CHANGES EVERYTHING", or similar boilerplate.
        - Anchor the wording in the article's actual mechanism, disease area, patient impact, or scientific finding.
        - Slide 1 and Slide 2 must cover DIFFERENT angles. Slide 1 explains what was found. Slide 2 explains why it matters. Do not repeat the same facts in slightly different words.
-29. EXTREME VIRAL HOOK (COVER):
-       - Create a 2-line 'Tease + Punch' structure using a newline (\n).
-       - Line 1 (The Tease): A punchy, news-style hook phrase that is ORIGINAL and not overused. Examples: 'WE CAN'T WAIT ANY LONGER', 'NO MORE DELAYS', 'FINALLY DISCOVERED', 'NEW BREAKTHROUGH'.
-       - **FORBIDDEN**: DO NOT use the phrase 'THE TRUTH IS OUT' or anything similar to conspiracy theories.
-       - Line 1 must be 2-3 words only.
-       - Line 2 (The Punch): The specific medical breakthrough in 2-4 words only.
-       - TOTAL HARD LIMIT: maximum 7 words across both lines.
-       - Example: "WE CAN'T WAIT ANY LONGER\nTHE ALZHEIMER'S CURE IS HERE"
+29. COVER FORMAT:
+       - Create a 2-line 'Topic Label + Specific Reveal' structure using a newline (\n).
+       - Line 1 is a compact topic label in 1-2 words, or 2 short words. Examples: 'CANCER HUNTERS', 'AGING ALERT', 'BRAIN WATCH'.
+       - Line 2 is the specific reveal in 2-4 words. Examples: 'BACTERIA HIT TUMORS', 'Y CHROMOSOME VANISHES'.
+       - The first line should feel like a category tag, not a sentence.
+       - **FORBIDDEN**: DO NOT use the phrase 'THE TRUTH IS OUT' or similar clickbait boilerplate.
+       - TOTAL HARD LIMIT: maximum 6 words across both lines.
     
     6. SMART FIRST COMMENT (VIRAL ENGAGEMENT):
        - Create a 'first_comment' field.
@@ -389,7 +468,7 @@ def generate_carousel_content(article):
                     
                 data = json.loads(text)
                 data = normalize_generated_payload(data, article=article)
-                validation_errors = validate_generated_payload(data)
+                validation_errors = validate_generated_payload(data, recent_history=recent_history)
                 if validation_errors:
                     print(f"{model_label} validation failed: {', '.join(validation_errors)}")
                     continue

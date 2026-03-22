@@ -1,5 +1,8 @@
 name: Medical News Instagram Bot
 
+permissions:
+  contents: write
+
 on:
   schedule:
     # Retention Strategy: 3 Carousels per day (8-hour intervals)
@@ -26,6 +29,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ github.token }}
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -70,3 +77,4 @@ jobs:
         with:
           commit_message: "[Bot] Update posting state"
           file_pattern: "posted_articles.json used_image_assets.json"
+          skip_fetch: true

@@ -40,6 +40,10 @@ def save_posted(posted_list):
         if os.path.exists(temp_file):
             os.remove(temp_file)
 
+def _caption_excerpt(text, max_words=24):
+    words = (text or "").replace("\n", " ").split()
+    return " ".join(words[:max_words]).strip()
+
 def cleanup_old_media(media_dir, days=1):
     print(f"Cleaning up media older than {days} days...")
     now = time.time()
@@ -84,6 +88,8 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
     slides_data = None
     article_context = None
 
+    posted_data = load_posted()
+
     if mock:
         print("Using MOCK content...")
         slides_data = {
@@ -103,13 +109,12 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
         }
         article = {"id": "mock-123", "title": "Mock Article"}
     else:
-        posted_data = load_posted()
         article = get_top_article(posted_data)
         if not article:
             print("No new articles found.")
             return
         print(f"Selected Article: {article['title']}")
-        slides_data = generate_carousel_content(article)
+        slides_data = generate_carousel_content(article, recent_history=posted_data)
 
     if article:
         article_context = " ".join(
@@ -161,7 +166,6 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
 
     if not mock and article and post_carousel:
         # Update metadata for tracking
-        posted_data = load_posted()
         article_id = article.get('id')
         
         # Find existing or create new
@@ -176,7 +180,17 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
             
         if post_carousel:
             entry['posted_as_carousel'] = True
-        
+            carousel = slides_data.get("carousel_data", {})
+            entry['cover'] = carousel.get('cover')
+            entry['image_prompt'] = carousel.get('image_prompt')
+            entry['slide_titles'] = [
+                carousel.get('slide_1_title'),
+                carousel.get('slide_2_title'),
+            ]
+            entry['caption_excerpt'] = _caption_excerpt(carousel.get('caption', ''))
+            entry['url'] = article.get('url')
+            entry['journal'] = article.get('journal')
+
         # Filter out old entry placeholder if it was just an ID string, 
         # and re-insert the updated dict entry.
         final_posted = []

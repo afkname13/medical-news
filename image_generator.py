@@ -95,6 +95,13 @@ def generate_html(slides_data, bg_image_url, base_dir):
                     linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 36%, rgba(0,0,0,0.14) 65%, rgba(0,0,0,0.34) 100%);
                 z-index: 2;
             }
+            .cover-overlay {
+                position: absolute;
+                top: 0; left: 0; width: 1080px; height: 1350px;
+                background:
+                    linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.08) 42%, rgba(0,0,0,0.22) 72%, rgba(0,0,0,0.58) 100%);
+                z-index: 2;
+            }
             
             /* Logo */
             .logo {
@@ -123,15 +130,22 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .cover-title {
                 color: #FFFFFF;
                 font-weight: 800;
-                word-wrap: normal;
-                word-break: keep-all;
-                overflow-wrap: normal;
                 text-transform: uppercase;
-                line-height: 1.02;
-                letter-spacing: -2px;
+                line-height: 0.98;
+                letter-spacing: -2.8px;
                 margin: 0 0 22px 0;
-                max-width: 920px;
-                text-shadow: 0 3px 14px rgba(0,0,0,0.28);
+                max-width: 980px;
+                text-shadow: 0 3px 14px rgba(0,0,0,0.34);
+            }
+            .cover-title .tease {
+                display: block;
+                font-size: 0.52em;
+                letter-spacing: -1.4px;
+                opacity: 0.98;
+                margin-bottom: 14px;
+            }
+            .cover-title .punch {
+                display: block;
             }
             .cover-tap {
                 color: #FFFFFF;
@@ -230,17 +244,22 @@ def generate_html(slides_data, bg_image_url, base_dir):
     
     # Calculate title font size based on length
     title_raw = sanitize_display_text(slides_data.get('cover', 'MEDICAL BREAKTHROUGH'))
-    title = title_raw.replace('\\n', '<br>').replace('\n', '<br>')
+    title_lines = [line.strip() for line in title_raw.replace('\\n', '\n').split('\n') if line.strip()]
+    if len(title_lines) < 2:
+        title_lines = [title_lines[0] if title_lines else "MEDICAL", "BREAKTHROUGH"]
+    title = f'<span class="tease">{title_lines[0]}</span><span class="punch">{title_lines[1]}</span>'
     
     t_len = len(title_raw)
-    if t_len < 24:
-        t_size = 124
-    elif t_len < 34:
-        t_size = 110
-    elif t_len < 46:
-        t_size = 96
+    if t_len < 18:
+        t_size = 138
+    elif t_len < 24:
+        t_size = 128
+    elif t_len < 32:
+        t_size = 116
+    elif t_len < 40:
+        t_size = 102
     else:
-        t_size = 84
+        t_size = 92
         
     line_height = "52px"
 
@@ -307,7 +326,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     cover_cta = cover_cta.replace('➔', '').replace('⬇️', '').replace('âž”', '').strip().upper()
     cover_body = f"""
     <div class="bg-layer">{bg_image_html}</div>
-    <div class="overlay"></div>
+    <div class="cover-overlay"></div>
     {logo_html}
     <div class="cover-container">
         <h1 class="cover-title" style="font-size: {t_size}px;">{title}</h1>
@@ -352,15 +371,20 @@ def generate_html(slides_data, bg_image_url, base_dir):
     # 4. CTA Slide
     cta_question = sanitize_display_text(slides_data.get('slide_4_question', 'Would you try this treatment?'))
     cta_content = f"""
-    <div class="bg-layer blurred"></div>
+    {bg_soft_html}
+    <div class="bg-layer">{bg_image_html}</div>
     <div class="overlay"></div>
     {logo_html}
-    <div class="card" style="justify-content: center; padding: 120px; text-align: center;">
-        <div class="cta-title" style="font-size: 60px; margin-bottom: 60px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 40px;">{cta_question}</div>
-        <div class="cta-subtitle" style="font-size: 45px; color: #FFFFFF; font-weight: 700; margin-bottom: 10px;">Stay informed daily</div>
-        <div class="cta-subtitle" style="font-size: 35px; color: #8B949E; margin-bottom: 60px;">@medicalnews_daily</div>
+    <div class="card" style="justify-content: space-between; padding: 96px 78px 70px; text-align: center; height: 980px;">
+        <div>
+            <div class="cta-title" style="font-size: 58px; margin-bottom: 48px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 34px;">{cta_question}</div>
+            <div class="cta-subtitle" style="font-size: 42px; color: #FFFFFF; font-weight: 700; margin-bottom: 8px;">Stay informed daily</div>
+            <div class="cta-subtitle" style="font-size: 34px; color: #A7B0BC; margin-bottom: 0;">@medicalnews_daily</div>
+        </div>
+        <div>
         <div class="cta-button" style="margin: 0 auto;">Follow for more</div>
-        <div class="slide-fraction">4/4</div>
+            <div class="slide-fraction">4/4</div>
+        </div>
     </div>
     """
     slides_html.append(html_template.replace('{body_content}', cta_content).replace('{body_line_height}', line_height))
