@@ -3,6 +3,7 @@ import time
 import urllib.parse
 import base64
 import requests
+from PIL import Image, ImageStat
 from playwright.sync_api import sync_playwright
 
 def sanitize_display_text(text):
@@ -390,6 +391,24 @@ def generate_html(slides_data, bg_image_url, base_dir):
     slides_html.append(html_template.replace('{body_content}', cta_content).replace('{body_line_height}', line_height))
     
     return slides_html
+
+def validate_rendered_slide(path):
+    try:
+        if not os.path.exists(path) or os.path.getsize(path) < 15000:
+            return False
+        with Image.open(path) as img:
+            img = img.convert("RGB")
+            if img.width < 1000 or img.height < 1200:
+                return False
+            stat = ImageStat.Stat(img)
+            if max(stat.stddev) < 12:
+                return False
+            avg_brightness = sum(stat.mean) / len(stat.mean)
+            if avg_brightness < 8 or avg_brightness > 247:
+                return False
+        return True
+    except Exception:
+        return False
 
 def parse_slide_content(slide_text):
     """Splits 'TITLE: Body' if title is provided, else returns default Title and body."""

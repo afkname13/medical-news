@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 from fetcher import get_top_article
 from processor import generate_carousel_content, get_last_content_report
-from image_generator import generate_carousel_images
+from image_generator import generate_carousel_images, validate_rendered_slide
 from publisher import publish_carousel
 from image_gen_service import generate_ai_image, has_valid_image_asset, get_last_image_report
 
@@ -221,12 +221,14 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
                 if os.path.exists(p):
                     f_size = os.path.getsize(p)
                     print(f"DEBUG: Generated Slide: {os.path.basename(p)} ({f_size} bytes)")
-                    if f_size > 1000: # Basic check for non-empty image
+                    if validate_rendered_slide(p):
                         abs_image_paths.append(os.path.abspath(p))
                         report["rendered_slides"].append({
                             "path": os.path.abspath(p),
                             "size_bytes": f_size,
                         })
+                    else:
+                        print(f"❌ Render validation failed for {os.path.basename(p)}")
                 
             if len(abs_image_paths) == len(image_paths):
                 publish_succeeded = publish_carousel(

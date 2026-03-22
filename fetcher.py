@@ -47,6 +47,17 @@ TOPIC_STOP_WORDS = {
     "using", "with", "from", "into", "over", "under", "news"
 }
 
+LOW_QUALITY_TITLE_PATTERNS = [
+    "author correction",
+    "correction:",
+    "publisher correction",
+    "erratum",
+    "statement on",
+    "commentary:",
+    "editorial:",
+    "news in brief",
+]
+
 def normalize_title(title):
     # Lowercase and remove non-alphanumeric characters for robust comparison
     return re.sub(r'[^a-z0-9]', '', title.lower())
@@ -103,6 +114,18 @@ def extract_topic_terms(text):
         word for word in words
         if word not in TOPIC_STOP_WORDS and not word.isdigit()
     }
+
+def is_high_quality_article_candidate(article):
+    title = (article.get("title") or "").lower().strip()
+    abstract = (article.get("abstract") or "").strip()
+
+    if not title or len(title) < 18:
+        return False
+    if any(pattern in title for pattern in LOW_QUALITY_TITLE_PATTERNS):
+        return False
+    if article.get("source") == "PubMed" and len(abstract.split()) < 35:
+        return False
+    return True
 
 def fetch_pubmed():
     articles = []
@@ -182,7 +205,8 @@ def fetch_pubmed():
                 'publish_date': pubdate.replace('/', '-') if pubdate else '',
                 'source': 'PubMed'
             }
-            articles.append(article)
+            if is_high_quality_article_candidate(article):
+                articles.append(article)
     except Exception as e:
         print(f"PubMed fetch error: {e}")
         
@@ -215,7 +239,8 @@ def fetch_rss():
                     'source': 'RSS',
                     'score_bonus': 10 # Bonus for real-world news diversity
                 }
-                articles.append(article)
+                if is_high_quality_article_candidate(article):
+                    articles.append(article)
         except Exception as e:
             print(f"RSS fetch error for {source}: {e}")
             
