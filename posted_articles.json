@@ -133,5 +133,20 @@
     "title": "Remote monitoring of heart failure exacerbations using a smartwatch",
     "timestamp": "2026-03-22T16:23:13.350082",
     "posted_as_carousel": true
+  },
+  {
+    "id": "52344222bcd8369abea7e7b6576e9d37",
+    "title": "AI-based triage and decision support in mammography and digital tomosynthesis for breast cancer screening: a paired, noninferiority trial",
+    "timestamp": "2026-03-22T08:17:16.816438",
+    "posted_as_carousel": true,
+    "cover": "CANCER TECH\nAI FAILS DOCTORS",
+    "image_prompt": "Cinematic medical photography of a female radiologist in a dimly lit hospital suite intensely analyzing high-resolution digital mammography scans on multiple glowing monitors. The focus is on the sharp detail of the breast tissue imaging and the professional concentration of the doctor.",
+    "slide_titles": [
+      "AI TESTING RESULTS",
+      "WHY DOCTORS WIN"
+    ],
+    "caption_excerpt": "READ THIS! \ud83d\udea8 THE LIMITS OF CANCER AI A major new trial published in Nature Medicine just tested if AI can handle breast cancer",
+    "url": "https://www.nature.com/articles/s41591-026-04277-x",
+    "journal": "Nature Medicine"
   }
 ]
