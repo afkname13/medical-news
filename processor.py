@@ -21,6 +21,17 @@ FALLBACK_HOOKS = [
     "RESEARCH ALERT",
 ]
 
+DEFAULT_HASHTAGS = [
+    "#medicalnews",
+    "#healthnews",
+    "#medicalbreakthrough",
+    "#scienceupdate",
+    "#healthtips",
+    "#futureofmedicine",
+    "#biotech",
+    "#researchnews",
+]
+
 def _strip_html(text):
     return re.sub(r'<[^>]+>', '', text or '')
 
@@ -40,6 +51,56 @@ def _make_cover_from_title(title):
     tease = FALLBACK_HOOKS[hash(title or "cover") % len(FALLBACK_HOOKS)]
     punch = " ".join(title_words[:5]) if title_words else "MEDICAL SHIFT"
     return _repair_cover_text(f"{tease}\n{punch}")
+
+def build_hashtags(article):
+    title = (article.get('title', '') + " " + article.get('abstract', '')).lower()
+    tags = list(DEFAULT_HASHTAGS)
+
+    keyword_map = {
+        "cancer": "#cancerresearch",
+        "tumor": "#oncology",
+        "heart": "#hearthealth",
+        "cardio": "#cardiology",
+        "brain": "#brainhealth",
+        "adhd": "#adhd",
+        "alzheimer": "#alzheimers",
+        "gene": "#genetics",
+        "ai": "#aiinhealthcare",
+        "smartwatch": "#digitalhealth",
+        "wearable": "#wearabletech",
+        "diabetes": "#diabetes",
+        "sleep": "#sleephealth",
+    }
+
+    for keyword, tag in keyword_map.items():
+        if keyword in title and tag not in tags:
+            tags.append(tag)
+
+    return tags[:10]
+
+def append_citation_and_hashtags(caption, article):
+    citation_parts = []
+    if article.get("journal"):
+        citation_parts.append(article["journal"])
+    if article.get("publish_date"):
+        citation_parts.append(article["publish_date"])
+    citation_line = " | ".join(citation_parts) or "Medical source"
+
+    url = article.get("url")
+    hashtags = build_hashtags(article)
+
+    base_caption = clean_caption(caption or "")
+    base_lines = [line for line in base_caption.split("\n") if line.strip()]
+    non_hashtag_lines = [line for line in base_lines if not line.strip().startswith("#")]
+
+    rebuilt = "\n".join(non_hashtag_lines).strip()
+    if rebuilt:
+        rebuilt += "\n\n"
+    rebuilt += f"Source: {citation_line}"
+    if url:
+        rebuilt += f"\nRead more: {url}"
+    rebuilt += "\n\n.\n.\n.\n\n" + " ".join(hashtags)
+    return rebuilt.strip()
 
 def build_fallback_content(article):
     title = article.get('title', 'Medical breakthrough')
@@ -74,14 +135,15 @@ def build_fallback_content(article):
                 f"{title}\n\n"
                 f"{_truncate_words(' '.join(sentences[:2]), 38)}\n\n"
                 f"{_truncate_words(' '.join(sentences[2:4]) or ' '.join(sentences[:2]), 38)}\n\n"
-                f"Source: {journal}. Follow @medicalnews_daily for more medical science updates.\n\n"
-                "#medicalnews #healthnews #medicalresearch"
+                "Follow @medicalnews_daily for more medical science updates."
             ),
             "image_prompt": f"{prompt_terms} biomedical research laboratory scientific visualization clinical realism"
         },
         "first_comment": "What part of this finding matters most to you?"
     }
-    return normalize_generated_payload(data)
+    data = normalize_generated_payload(data)
+    data["carousel_data"]["caption"] = append_citation_and_hashtags(data["carousel_data"]["caption"], article)
+    return data
 
 def clean_caption(text):
     """
@@ -188,7 +250,7 @@ def validate_generated_payload(data):
 
     return errors
 
-def normalize_generated_payload(data):
+def normalize_generated_payload(data, article=None):
     carousel = data.get("carousel_data", {})
 
     if "cover" in carousel:
@@ -198,6 +260,9 @@ def normalize_generated_payload(data):
         carousel["caption"] = clean_caption(carousel["caption"])
     elif "caption" in data:
         data["caption"] = clean_caption(data["caption"])
+
+    if article and "caption" in carousel:
+        carousel["caption"] = append_citation_and_hashtags(carousel["caption"], article)
 
     return data
 
@@ -309,7 +374,7 @@ def generate_carousel_content(article):
                     text = text.split("```")[1].strip()
                     
                 data = json.loads(text)
-                data = normalize_generated_payload(data)
+                data = normalize_generated_payload(data, article=article)
                 validation_errors = validate_generated_payload(data)
                 if validation_errors:
                     print(f"{model_label} validation failed: {', '.join(validation_errors)}")

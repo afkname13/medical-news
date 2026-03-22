@@ -14,6 +14,20 @@ IRRELEVANT_IMAGE_TERMS = [
     "portrait", "face", "person", "people", "woman", "man"
 ]
 
+TERM_HINTS = {
+    "cancer": ["tumor scan", "oncology laboratory", "cancer cells", "radiology imaging"],
+    "tumor": ["tumor scan", "oncology imaging", "pathology slide", "cancer cells"],
+    "heart": ["cardiology monitor", "heart patient", "cardiac imaging", "clinical cardiology"],
+    "smartwatch": ["patient wearing smartwatch", "wearable heart monitor", "digital health device"],
+    "wearable": ["patient wearing smartwatch", "wearable monitor", "digital health device"],
+    "brain": ["brain scan", "neuroscience lab", "mri imaging", "neurology research"],
+    "adhd": ["brain scan", "neurology clinic", "attention research"],
+    "alzheimer": ["brain scan", "memory clinic", "neurology research"],
+    "cells": ["microscope cells", "cell culture laboratory", "biomedical microscopy"],
+    "gene": ["genetics laboratory", "dna sequencing", "molecular biology"],
+    "doctors": ["hospital policy meeting", "clinical team discussion", "medical ethics"],
+}
+
 IMAGE_HISTORY_FILE = "used_image_assets.json"
 
 def _save_response_image(image_bytes, save_path):
@@ -110,6 +124,9 @@ def _build_search_queries(prompt, article_context=None):
         add_query(" ".join(article_terms[:5] + ["medical research laboratory"]))
         add_query(" ".join(article_terms[:4] + ["biomedical microscopy"]))
         add_query(" ".join(article_terms[:4] + ["scientific visualization"]))
+        for term in article_terms[:4]:
+            for hint in TERM_HINTS.get(term, []):
+                add_query(f"{hint} medical photography")
 
     add_query(prompt_query)
     if combined_terms:
@@ -235,6 +252,10 @@ def _photo_score(photo_blob, relevance_terms):
     for term in IRRELEVANT_IMAGE_TERMS:
         if term in haystack:
             score -= 5
+    # Reward images with stronger descriptive metadata.
+    for keyword in ["laboratory", "monitor", "scan", "microscope", "hospital", "medical", "clinical", "research"]:
+        if keyword in haystack:
+            score += 1
     return score
 
 def generate_ai_image(prompt, save_path, article_context=None):

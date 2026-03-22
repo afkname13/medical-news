@@ -36,11 +36,25 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 background: linear-gradient(135deg, #0D1621 0%, #1A2634 50%, #0D1117 100%); /* Medical Deep Gradient */
                 z-index: 1;
             }
+            .bg-soft {
+                position: absolute;
+                top: 0; left: 0; width: 1080px; height: 1350px;
+                z-index: 1;
+                overflow: hidden;
+            }
+            .bg-soft img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: blur(34px);
+                transform: scale(1.08);
+                opacity: 0.72;
+            }
             .bg-layer img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                opacity: 0.85;
+                opacity: 0.92;
             }
             .bg-layer.blurred {
                 filter: blur(60px);
@@ -51,7 +65,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 position: absolute;
                 top: 0; left: 0; width: 1080px; height: 1350px;
                 background:
-                    linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.06) 40%, rgba(0,0,0,0.16) 68%, rgba(0,0,0,0.42) 100%);
+                    linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 36%, rgba(0,0,0,0.14) 65%, rgba(0,0,0,0.34) 100%);
                 z-index: 2;
             }
             
@@ -79,10 +93,10 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 z-index: 10;
                 padding: 34px 34px 28px 34px;
                 border-radius: 34px;
-                background: linear-gradient(180deg, rgba(16, 18, 26, 0.12) 0%, rgba(16, 18, 26, 0.28) 100%);
+                background: linear-gradient(180deg, rgba(16, 18, 26, 0.10) 0%, rgba(16, 18, 26, 0.20) 100%);
                 border: 1px solid rgba(255,255,255,0.10);
-                backdrop-filter: blur(18px) saturate(1.1);
-                box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+                backdrop-filter: blur(16px) saturate(1.08);
+                box-shadow: 0 18px 40px rgba(0,0,0,0.14);
             }
             .cover-title {
                 color: #FFFFFF;
@@ -113,16 +127,16 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 transform: translate(-50%, -50%);
                 width: 920px;
                 height: 1050px;
-                background: linear-gradient(180deg, rgba(16, 20, 28, 0.16) 0%, rgba(16, 20, 28, 0.30) 100%);
-                border: 1px solid rgba(255, 255, 255, 0.12);
+                background: linear-gradient(180deg, rgba(9, 12, 18, 0.74) 0%, rgba(9, 12, 18, 0.84) 100%);
+                border: 1px solid rgba(255, 255, 255, 0.10);
                 border-radius: 40px;
                 padding: 100px 80px 80px 80px;
                 z-index: 20;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                box-shadow: 0 20px 50px rgba(0,0,0,0.18);
-                backdrop-filter: blur(24px) saturate(1.08);
+                box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+                backdrop-filter: blur(28px) saturate(1.08);
             }
             
             .slide-header {
@@ -252,6 +266,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
 
     bg_image_embed = get_base64_image(bg_image_url)
     bg_image_html = f'<img src="{bg_image_embed}">' if bg_image_embed else ""
+    bg_soft_html = f'<div class="bg-soft"><img src="{bg_image_embed}"></div>' if bg_image_embed else ""
     
     # Pre-check if logo.jpg exists
     logo_file = os.path.join(base_dir, 'logo.jpg')
@@ -284,6 +299,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     # Helper for content slides
     def make_content_slide(stitle, sbody, fraction, color):
         content = f"""
+        {bg_soft_html}
         <div class="bg-layer">{bg_image_html}</div>
         <div class="overlay"></div>
         {logo_html}
