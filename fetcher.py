@@ -1,6 +1,7 @@
 import hashlib
 import re
 from datetime import datetime
+import xml.etree.ElementTree as ET
 import requests
 import feedparser
 from bs4 import BeautifulSoup
@@ -37,6 +38,14 @@ RSS_FEEDS = {
     "Johns Hopkins": "https://www.hopkinsmedicine.org/news/news-releases/feed"
 }
 
+TOPIC_STOP_WORDS = {
+    "about", "after", "against", "among", "brain", "cancer", "cells",
+    "clinical", "could", "daily", "disease", "during", "early", "health",
+    "human", "humans", "medical", "medicine", "people", "research",
+    "study", "studies", "system", "their", "these", "those", "treatment",
+    "using", "with", "from", "into", "over", "under", "news"
+}
+
 def normalize_title(title):
     # Lowercase and remove non-alphanumeric characters for robust comparison
     return re.sub(r'[^a-z0-9]', '', title.lower())
@@ -67,12 +76,21 @@ def score_article(article):
         
     # 4. Viral Keywords (+8 Bonus Points to heavily favor viral topics)
     title_and_abstract = (article.get('title', '') + " " + abstract).lower()
+    keyword_hits = 0
     for keyword in VIRAL_KEYWORDS:
         if keyword.lower() in title_and_abstract:
-            score += 8
+            keyword_hits += 1
+    score += min(keyword_hits, 3) * 8
             
     article['score'] = score
     return score
+
+def extract_topic_terms(text):
+    words = [w.lower() for w in re.findall(r'\w+', text or '') if len(w) > 4]
+    return {
+        word for word in words
+        if word not in TOPIC_STOP_WORDS and not word.isdigit()
+    }
 
 def fetch_pubmed():
     articles = []
@@ -104,27 +122,44 @@ def fetch_pubmed():
         f_res.raise_for_status()
         summaries = f_res.json().get('result', {})
         
-        # We need abstracts too. Let's get them via efetch.
+        # Fetch article bodies in XML so abstracts align to PMIDs reliably.
         abs_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
         abs_params = {
             "db": "pubmed",
             "id": ",".join(id_list),
-            "retmode": "text",
+            "retmode": "xml",
             "rettype": "abstract"
         }
         abs_res = requests.get(abs_url, params=abs_params, timeout=10)
-        # Using a simple split fallback, but abstract blocks are separated by double/triple newlines usually
-        abstracts_text = abs_res.text.split('\n\n\n')
+        abs_res.raise_for_status()
+        xml = ET.fromstring(abs_res.text)
+        abstracts_by_pmid = {}
+        for article_node in xml.findall('.//PubmedArticle'):
+            pmid_node = article_node.find('.//PMID')
+            if not pmid_node:
+                continue
+            pmid = "".join(pmid_node.itertext()).strip()
+            abstract_sections = article_node.findall('.//AbstractText')
+            abstract_parts = []
+            for section in abstract_sections:
+                label = section.attrib.get('Label')
+                text = " ".join("".join(section.itertext()).split())
+                if not text:
+                    continue
+                if label:
+                    abstract_parts.append(f"{label}: {text}")
+                else:
+                    abstract_parts.append(text)
+            abstracts_by_pmid[pmid] = " ".join(abstract_parts).strip()
         
-        for idx, uid in enumerate(id_list):
-            if uid == 'uids': continue
+        for uid in id_list:
             data = summaries.get(uid, {})
             title = data.get('title', '')
             if not title:
                 continue
             
             pubdate = data.get('sortpubdate', '').split(' ')[0]
-            abstract_text = abstracts_text[idx].strip() if idx < len(abstracts_text) else ""
+            abstract_text = abstracts_by_pmid.get(uid, "")
             
             article = {
                 'id': get_article_id(title),
@@ -201,8 +236,7 @@ def get_top_article(posted_data):
                     if (now - ts).days < TOPIC_LOCK_DAYS:
                         # Extract basic keywords from title for locking
                         # We block common nouns/terms that define the topic
-                        words = [w.lower() for w in re.findall(r'\w+', title) if len(w) > 3]
-                        blocked_topics.update(words)
+                        blocked_topics.update(extract_topic_terms(title))
                 except: pass
         else:
             posted_ids.add(item)
@@ -229,7 +263,7 @@ def get_top_article(posted_data):
             continue
             
         # Topic Lock Check
-        title_words = [w.lower() for w in re.findall(r'\w+', a_title) if len(w) > 3]
+        title_words = extract_topic_terms(a_title)
         if any(word in blocked_topics for word in title_words):
             print(f"Skipping article (Topic Lock Active): '{a_title}'")
             continue

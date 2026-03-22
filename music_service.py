@@ -1,6 +1,7 @@
 import random
 import traceback
 from typing import Optional
+import requests
 from instagrapi import Client, extractors
 from instagrapi.types import Track
 from instagrapi.mixins import fbsearch
@@ -124,23 +125,6 @@ class MusicService:
             return path
         except:
             return None
-
-def search_viral_music(theme_color="blue", client=None):
-    """Convenience function to search for music without manual class instantiation."""
-    from publisher import login_to_instagram
-    
-    cl = client or login_to_instagram()
-    if not cl:
-        return None
-        
-    svc = MusicService(cl)
-    track = svc.get_trending_track()
-    if track:
-        # Try to download it so it has a local_path
-        local_path = svc.download_track(track)
-        if local_path:
-            track.local_path = local_path
-    return track
 
 if __name__ == "__main__":
     # Test stub

@@ -2,29 +2,39 @@ import os
 import time
 import random
 import json
+import uuid
 from instagrapi import Client
+
+def env_flag(name, default=False):
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
 
 def login_to_instagram():
     """Authenticates with Instagram using credentials or session."""
     username = os.getenv("IG_USERNAME")
     password = os.getenv("IG_PASSWORD")
-    
-    if not username or not password:
-        print("Warning: IG_USERNAME or IG_PASSWORD not set.")
+    session_data = os.getenv("IG_SESSION")
+
+    if not session_data and (not username or not password):
+        print("Warning: Instagram credentials not fully set and IG_SESSION missing.")
         return None
         
     cl = Client()
-    # --- GEO-TARGETING OPTIMIZATION: US Region (Round 46/48) ---
-    # 1. Force US Device Fingerprint
+    # Use a stable but account-localized Android profile instead of a globally
+    # shared hard-coded identity reused across every run.
+    seed = os.getenv("IG_DEVICE_SEED") or username or "medical-news-bot"
+    device_suffix = uuid.uuid5(uuid.NAMESPACE_DNS, seed).hex[:16]
     cl.set_device({
         "app_version": "269.0.0.18.75",
         "android_version": 26,
         "android_release": "8.0.0",
         "device_model": "SM-G960F",
-        "device_id": "android-564564564564564",
-        "uuid": "7f093010-3882-11ed-a261-0242ac120002",
-        "phone_id": "7f093010-3882-11ed-a261-0242ac120002",
-        "ad_id": "7f093010-3882-11ed-a261-0242ac120002",
+        "device_id": f"android-{device_suffix}",
+        "uuid": str(uuid.uuid5(uuid.NAMESPACE_DNS, f"{seed}-uuid")),
+        "phone_id": str(uuid.uuid5(uuid.NAMESPACE_DNS, f"{seed}-phone")),
+        "ad_id": str(uuid.uuid5(uuid.NAMESPACE_DNS, f"{seed}-ad")),
         "device_type": "android",
         "cpu": "samsungexynos9810",
         "version_code": "443075838"
@@ -46,8 +56,6 @@ def login_to_instagram():
     
     print("Geo-Targeting: Account localized to United States (En-US / SM-G960F) 🇺🇸")
     
-    session_data = os.getenv("IG_SESSION")
-    
     # Adding a realistic delay/jitter before login/action
     jitter = random.randint(5, 15)
     print(f"Waiting {jitter} seconds (Jitter Control)...")
@@ -63,6 +71,10 @@ def login_to_instagram():
             return cl
         except Exception as e:
             print(f"Session invalid or expired: {e}")
+
+    if not username or not password:
+        print("Session login failed and no username/password fallback is configured.")
+        return None
 
     try:
         print(f"Logging into Instagram as {username}...")
@@ -123,9 +135,9 @@ def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
         return False
     
     try:
-        # --- PHASE 1: PRE-POST SIMULATION (Round 47) ---
-        simulate_browsing(cl)
-        time.sleep(random.randint(15, 30))
+        if env_flag("IG_ENABLE_PREBROWSE", default=False):
+            simulate_browsing(cl)
+            time.sleep(random.randint(15, 30))
 
         from music_service import MusicService
         music_svc = MusicService(cl)
@@ -166,13 +178,14 @@ def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
             time.sleep(random.randint(10, 20))
             media_info = cl.media_info(media.pk)
             
-        # --- AUTO-LIKE (Round 47) ---
-        try:
-            print("Engagement Engine: Auto-liking own post... 💖")
-            cl.media_like(media.pk)
-        except: pass
+        if env_flag("IG_ENABLE_AUTO_LIKE", default=False):
+            try:
+                print("Engagement Engine: Auto-liking own post... 💖")
+                cl.media_like(media.pk)
+            except Exception:
+                pass
 
-        if first_comment:
+        if first_comment and env_flag("IG_ENABLE_FIRST_COMMENT", default=False):
             time.sleep(random.randint(15, 40)) # More jitter
             print(f"Posting algorithmic first comment: '{first_comment}'")
             try:
@@ -184,52 +197,6 @@ def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
     except Exception as e:
         print(f"Error publishing to Instagram: {e}")
         return False
-
-
-def publish_reel(video_path, caption, dry_run=False):
-    """Publishes a Reel (clip) to Instagram."""
-    if dry_run:
-        print(f"⚠️  DRY RUN: Skipping ACTUAL Reel upload for: {video_path}")
-        return True
-
-    cl = login_to_instagram()
-    if not cl:
-        print("Failed to log in to Instagram. Skipping Reel publishing.")
-        return False
-        
-    try:
-        # --- PHASE 1: PRE-POST SIMULATION (Round 47) ---
-        simulate_browsing(cl)
-        time.sleep(random.randint(15, 30))
-
-        print(f"Uploading Reel: {video_path}...")
-        try:
-            media = cl.clip_upload(video_path, caption, feed_show='0')
-        except Exception as e:
-            if "login_required" in str(e).lower():
-                print("Detected 'login_required' during upload. Attempting ONE-TIME re-login...")
-                cl = login_to_instagram()
-                if cl:
-                    media = cl.clip_upload(video_path, caption, feed_show='0')
-                else:
-                    raise e
-            else:
-                raise e
-        
-        print(f"Reel published successfully! Media ID: {media.pk}")
-        
-        # --- PHASE 2: ENGAGEMENT (Round 47) ---
-        time.sleep(random.randint(20, 45))
-        try:
-            print("Engagement Engine: Auto-liking own Reel... 💖")
-            cl.media_like(media.pk)
-        except: pass
-
-        return True
-    except Exception as e:
-        print(f"Error publishing Reel: {e}")
-        return False
-
 if __name__ == "__main__":
     # Test stub
     pass

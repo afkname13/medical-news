@@ -1,7 +1,206 @@
 import os
 import json
 import time
+import re
+from difflib import SequenceMatcher
 from google import genai
+
+FORBIDDEN_HOOK_PHRASES = [
+    "the truth is out",
+    "it has finally happened",
+    "everything changed",
+    "this changes everything",
+    "no one saw this coming",
+]
+
+FALLBACK_HOOKS = [
+    "NEW BREAKTHROUGH",
+    "JUST REVEALED",
+    "SCIENTISTS FOUND",
+    "MAJOR DISCOVERY",
+    "RESEARCH ALERT",
+]
+
+def _strip_html(text):
+    return re.sub(r'<[^>]+>', '', text or '')
+
+def _split_sentences(text):
+    cleaned = re.sub(r'\s+', ' ', _strip_html(text)).strip()
+    if not cleaned:
+        return []
+    parts = re.split(r'(?<=[.!?])\s+', cleaned)
+    return [part.strip() for part in parts if part.strip()]
+
+def _truncate_words(text, max_words):
+    words = text.split()
+    return " ".join(words[:max_words]).strip()
+
+def _make_cover_from_title(title):
+    title_words = re.findall(r"[A-Za-z0-9']+", (title or "").upper())
+    tease = FALLBACK_HOOKS[hash(title or "cover") % len(FALLBACK_HOOKS)]
+    punch = " ".join(title_words[:5]) if title_words else "MEDICAL SHIFT"
+    return _repair_cover_text(f"{tease}\n{punch}")
+
+def build_fallback_content(article):
+    title = article.get('title', 'Medical breakthrough')
+    abstract = _strip_html(article.get('abstract', ''))
+    sentences = _split_sentences(abstract)
+    journal = article.get('journal', 'medical research')
+
+    if len(sentences) < 2:
+        sentences = [
+            f"Researchers reported a new finding linked to {title.lower()}.",
+            f"The work highlights why this result may matter for patients, clinicians, and future studies.",
+            f"The report came from {journal} and adds new context to the field.",
+        ]
+
+    slide_1_body = _truncate_words(" ".join(sentences[:2]), 58)
+    slide_2_body = _truncate_words(" ".join(sentences[2:4]) or " ".join(sentences[:2]), 58)
+    title_terms = [word.upper() for word in re.findall(r"[A-Za-z0-9']+", title)[:6]]
+    prompt_terms = " ".join(re.findall(r"[A-Za-z0-9']+", title.lower())[:8])
+
+    data = {
+        "theme_color": "blue",
+        "carousel_data": {
+            "cover": _make_cover_from_title(title),
+            "cover_cta": "TAP TO LEARN MORE",
+            "slide_1_title": "WHAT THEY FOUND",
+            "slide_1_body": slide_1_body,
+            "slide_2_title": "WHY IT MATTERS",
+            "slide_2_body": slide_2_body,
+            "slide_4_question": f"Could this shift {title_terms[0].lower() if title_terms else 'medicine'} care?",
+            "caption": (
+                "READ THIS! 🚨\n\n"
+                f"{title}\n\n"
+                f"{_truncate_words(' '.join(sentences[:2]), 38)}\n\n"
+                f"{_truncate_words(' '.join(sentences[2:4]) or ' '.join(sentences[:2]), 38)}\n\n"
+                f"Source: {journal}. Follow @medicalnews_daily for more medical science updates.\n\n"
+                "#medicalnews #healthnews #medicalresearch"
+            ),
+            "image_prompt": f"{prompt_terms} biomedical research laboratory scientific visualization clinical realism"
+        },
+        "first_comment": "What part of this finding matters most to you?"
+    }
+    return normalize_generated_payload(data)
+
+def clean_caption(text):
+    """
+    Cleans the caption for Instagram:
+    1. Removes <b> and </b> tags.
+    2. Ensures hashtags are on new lines at the end.
+    """
+    if not text:
+        return text
+        
+    # Remove HTML bold tags
+    text = re.sub(r'</?b>', '', text)
+    
+    # Identify hashtags
+    lines = text.split('\n')
+    content_lines = []
+    hashtags = []
+    
+    hashtag_pattern = re.compile(r'#\w+')
+    
+    for line in lines:
+        if line.strip().startswith('#') or (len(hashtag_pattern.findall(line)) > 2): # Mostly hashtags
+            hashtags.extend(hashtag_pattern.findall(line))
+        else:
+            content_lines.append(line)
+    
+    # Reconstruct content
+    clean_text = '\n'.join(content_lines).strip()
+    
+    # Add hashtags block if found
+    if hashtags:
+        ordered_hashtags = list(dict.fromkeys(hashtags))
+        # Standard Instagram aesthetic spacing
+        clean_text += "\n\n.\n.\n.\n\n"
+        clean_text += " ".join(ordered_hashtags)
+        
+    return clean_text.strip()
+
+def _normalize_text(text):
+    return re.sub(r'\s+', ' ', (text or '').strip().lower())
+
+def _repair_cover_text(cover):
+    if not cover:
+        return cover
+
+    lines = [line.strip() for line in cover.replace("\\n", "\n").split("\n") if line.strip()]
+    if not lines:
+        return cover
+
+    first_line = lines[0].upper()
+    for phrase in FORBIDDEN_HOOK_PHRASES:
+        if phrase in first_line.lower():
+            replacement = FALLBACK_HOOKS[hash(first_line) % len(FALLBACK_HOOKS)]
+            lines[0] = replacement
+            break
+
+    if len(lines) == 1:
+        lines.append("MEDICAL SHIFT")
+
+    cleaned_lines = []
+    for idx, line in enumerate(lines[:2]):
+        words = re.findall(r"[A-Za-z0-9']+", line.upper())
+        max_words = 4 if idx == 0 else 6
+        cleaned_lines.append(" ".join(words[:max_words]))
+
+    if len(cleaned_lines) < 2:
+        cleaned_lines.append("MEDICAL SHIFT")
+
+    return "\n".join(cleaned_lines[:2])
+
+def _body_overlap_ratio(first_body, second_body):
+    return SequenceMatcher(None, _normalize_text(first_body), _normalize_text(second_body)).ratio()
+
+def validate_generated_payload(data):
+    errors = []
+
+    carousel = data.get("carousel_data", {})
+
+    cover = carousel.get("cover", "")
+    cover_lower = _normalize_text(cover)
+    if any(phrase in cover_lower for phrase in FORBIDDEN_HOOK_PHRASES):
+        errors.append("cover uses a forbidden repetitive hook phrase")
+    cover_lines = [line.strip() for line in cover.replace("\\n", "\n").split("\n") if line.strip()]
+    if len(cover_lines) != 2:
+        errors.append("cover must have exactly two lines")
+    for idx, line in enumerate(cover_lines[:2]):
+        max_words = 4 if idx == 0 else 6
+        if len(re.findall(r"[A-Za-z0-9']+", line)) > max_words:
+            errors.append("cover line is too long for layout")
+
+    if carousel.get("slide_1_title") and carousel.get("slide_1_title") == carousel.get("slide_2_title"):
+        errors.append("slide_1_title and slide_2_title are identical")
+
+    overlap = _body_overlap_ratio(
+        carousel.get("slide_1_body", ""),
+        carousel.get("slide_2_body", ""),
+    )
+    if overlap > 0.72:
+        errors.append("slide bodies overlap too much")
+
+    image_prompt = _normalize_text(carousel.get("image_prompt", ""))
+    if len(image_prompt.split()) < 5:
+        errors.append("image prompt is too generic")
+
+    return errors
+
+def normalize_generated_payload(data):
+    carousel = data.get("carousel_data", {})
+
+    if "cover" in carousel:
+        carousel["cover"] = _repair_cover_text(carousel["cover"])
+
+    if "caption" in carousel:
+        carousel["caption"] = clean_caption(carousel["caption"])
+    elif "caption" in data:
+        data["caption"] = clean_caption(data["caption"])
+
+    return data
+
 
 def generate_carousel_content(article):
     api_key = os.getenv("GEMINI_API_KEY")
@@ -15,6 +214,7 @@ def generate_carousel_content(article):
     Act as an engaging, viral medical science communicator for Instagram.
     I will provide a medical news article or past research paper. You need to summarize it into a highly attention-grabbing Instagram carousel (10th-grade reading level).
     Your goal is to MAXIMIZE viewers, followers, likes, and comments. Make the discovery sound fascinating, life-changing, or mind-blowing.
+    Every output must feel fresh and specific to THIS article, not reusable boilerplate.
     
     Article Title: {article.get('title', '')}
     Article Publish Date: {article.get('publish_date', '')}
@@ -26,10 +226,18 @@ def generate_carousel_content(article):
     2. CONTENT SLIDES (Slide 1-2) MUST BE 50-60 WORDS EACH. This is the sweet spot for maximum reader retention.
     3. IMPORTANT: Use <b>bold tags</b> around key medical terms or viral findings within the slide body.
     4. Each content slide MUST consist of natural, full sentences. DO NOT use titles like 'STEP 1:' inside the body paragraph.
-    5. EXTREME VIRAL HOOK (COVER):
+    5. UNIQUENESS IS MANDATORY:
+       - The cover hook, slide titles, caption framing, and first comment must feel distinct from common viral templates.
+       - DO NOT reuse generic hooks such as "THE TRUTH IS OUT", "IT HAS FINALLY HAPPENED", "THIS CHANGES EVERYTHING", or similar boilerplate.
+       - Anchor the wording in the article's actual mechanism, disease area, patient impact, or scientific finding.
+       - Slide 1 and Slide 2 must cover DIFFERENT angles. Slide 1 explains what was found. Slide 2 explains why it matters. Do not repeat the same facts in slightly different words.
+29. EXTREME VIRAL HOOK (COVER):
        - Create a 2-line 'Tease + Punch' structure using a newline (\n).
-       - Line 1 (The Tease): A punchy, news-style hook phrase. Examples: 'WE CAN'T WAIT ANY LONGER', 'NO MORE DELAYS', 'THE TRUTH IS OUT', 'IT HAS FINALLY HAPPENED'.
-       - Line 2 (The Punch): The specific medical breakthrough in 4-6 words.
+       - Line 1 (The Tease): A punchy, news-style hook phrase that is ORIGINAL and not overused. Examples: 'WE CAN'T WAIT ANY LONGER', 'NO MORE DELAYS', 'FINALLY DISCOVERED', 'NEW BREAKTHROUGH'.
+       - **FORBIDDEN**: DO NOT use the phrase 'THE TRUTH IS OUT' or anything similar to conspiracy theories.
+       - Line 1 must be 2-4 words only.
+       - Line 2 (The Punch): The specific medical breakthrough in 3-6 words only.
+       - TOTAL HARD LIMIT: maximum 10 words across both lines.
        - Example: "WE CAN'T WAIT ANY LONGER\nTHE ALZHEIMER'S CURE IS HERE"
     
     6. SMART FIRST COMMENT (VIRAL ENGAGEMENT):
@@ -37,22 +245,12 @@ def generate_carousel_content(article):
        - Generate a provocative question or a "Mind-Blowing Bonus Fact" related to the article.
        - The goal is to make people want to reply. Keep it under 100 characters.
     
-    7. IMAGE PROMPT (PHOTOREALISM & SPECIFICITY MANDATE):
-       - **MANDATORY**: The image MUST be 1:1 with the scientific subject.
-       - **FORBIDDEN (FAILURE CASE)**: Absolutely NO generic anatomical icons, plastic models, or medical diagrams. 
-       - **NEVER** show a generic heart, a generic red brain, or a head model. If you show a heart, you have FAILED.
-       - **FOCUS**: Instead of the organ, show the **MICROSCOPIC** or **MOLECULAR** level of the discovery.
-       - **NEGATIVE PROMPT**: No plastic, no toys, no clip-art, no stock-photo doctors, no stethoscopes.
-       - **SPECIFIC VISUALS**:
-         - If it's a drug: Show the "3D Molecular Architecture" or "Chemical Crystal Lattice".
-         - If it's a virus: Show a "Cinematic Pathogen View" or "Cryo-EM Spike Protein model".
-         - If it's a cell: Show "Scanning Electron Microscopy" or "Cross-section of the cell nucleus".
-        - **STYLE VARIETY**: Oscillate the visual style. Choose ONE of these for each prompt:
-          - 'Scientific Realism': 8k, hyper-realistic, clinical lighting.
-          - 'Digital Illustration': Vibrant, futuristic, clean vector-style lines.
-          - 'Macro Photography': Extreme close-up with shallow depth of field, warm cinematic lighting.
-          - 'Abstract Visualization': Ethereal, energetic, glowing particles.
-       - Vibe: "Microscopic Cinematic", "High-Tech Biological Architecture", "Cold Scientific Realism", "High-Fidelity Molecular Realism".
+    7. IMAGE SEARCH KEYWORDS (PHOTOGRAPHY FOCUS):
+       - **MANDATORY**: Provide a descriptive prompt that can be used for image generation AND for searching high-quality photography if generation fails.
+       - **FORBIDDEN**: Absolutely NO generic anatomical icons, plastic models, or medical diagrams.
+       - **FOCUS**: Name the exact subject from this article, then the setting. Good examples: "Scientists studying pancreatic beta cells in a high-tech lab", "Immune cells attacking melanoma under fluorescent microscopy", "Cardiology team reviewing MRI scans in a hospital imaging suite".
+       - **STYLE**: Focus on "Cinematic Medical Photography", "Clinical Realism", or "Scientific Visual Realism".
+       - The image must be directly relevant to the article, not just vaguely medical.
     
     8. THEME COLOR: Choose 'blue', 'purple', 'green', or 'red' based on the topic.
     
@@ -61,6 +259,8 @@ def generate_carousel_content(article):
        - Provide a deep-dive summary (exactly 100-120 words).
        - Use massive spacing (double newlines) between points to make it easy to scan.
        - The tone should be 'Insider Alert' style.
+       - **FORBIDDEN**: DO NOT use any HTML tags (like <b>) inside the "caption" field. Keep caption as plain text only.
+       - **HASHTAGS**: Include them at the very end of the caption text.
 
     Respond STRICTLY in JSON format matching this schema:
     {{
@@ -75,14 +275,6 @@ def generate_carousel_content(article):
         "slide_4_question": "A provocative, academic question (e.g. 'How will this change medicine?' - max 60 chars)",
         "caption": "READ THIS! 🚨\n\n[Academic-Viral Title]\n\n[Body Point 1]\n\n[Body Point 2]\n\n[Body Point 3]\n\nHit FOLLOW @medicalnews_daily for your daily dose of life-saving science! 🏥🚀\n\n#AcademicHashtags...",
         "image_prompt": "Ultra-specific scientific prompt (3D Molecular/Pathogen view)"
-      }},
-      "reel_data": {{
-        "cover": "TEASE PHRASE\nSPECIFIC BREAKTHROUGH (Max 10 words total)",
-        "cover_cta": "READ THE CAPTION TO LEARN MORE ⬇️",
-        "reel_script": "A PURE VIRAL 1-sentence hook for a 15-second Reel (Extreme shock value).",
-        "video_keywords": ["keyword1", "keyword2"],
-        "caption": "READ THIS! 🚨\n\n[Pure Viral Title]\n\n[Short Punchy Summary - 100 words]\n\nHit FOLLOW @medicalnews_daily for more viral science! 🧬🔥\n\n#ViralHashtags...",
-        "image_prompt": "High-impact, cinematic visual for the Reel cover"
       }},
       "first_comment": "PROVOCATIVE QUESTION OR BONUS FACT (Shared)"
     }}
@@ -117,6 +309,12 @@ def generate_carousel_content(article):
                     text = text.split("```")[1].strip()
                     
                 data = json.loads(text)
+                data = normalize_generated_payload(data)
+                validation_errors = validate_generated_payload(data)
+                if validation_errors:
+                    print(f"{model_label} validation failed: {', '.join(validation_errors)}")
+                    continue
+
                 print(f"Success: Content generated using {model_label}")
                 return data
                 
@@ -125,6 +323,12 @@ def generate_carousel_content(article):
                 print(f"{model_label} Error (Attempt {attempt + 1}): {error_msg}")
                 
                 # If rate limited (429), wait and retry THIS model tier
+                if "429" in error_msg and (
+                    "PerDay" in error_msg or
+                    "limit: 0" in error_msg or
+                    "RESOURCE_EXHAUSTED" in error_msg
+                ):
+                    break
                 if "429" in error_msg and attempt < max_retries - 1:
                     wait_time = (attempt + 1) * 35 # Round 44: Aggressive backoff for Free Tier
                     print(f"Rate limited for {model_name}. Waiting {wait_time}s before retry...")
@@ -135,7 +339,8 @@ def generate_carousel_content(article):
                 break
     
     print("CRITICAL: All text generation models failed or exhausted.")
-    return None
+    print("Falling back to deterministic local content generator.")
+    return build_fallback_content(article)
 
 
 if __name__ == "__main__":

@@ -44,16 +44,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
-          # Required for Round 44 Cloud Redundancy
-          pip install playwright
           playwright install chromium --with-deps
-          pip install playwright
-          playwright install chromium
-          playwright install-deps
 
       - name: Run Medical News Bot
         env:
@@ -61,9 +53,10 @@ jobs:
           IG_USERNAME: ${{ secrets.IG_USERNAME }}
           IG_PASSWORD: ${{ secrets.IG_PASSWORD }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           IG_SESSION: ${{ secrets.IG_SESSION }}
         run: |
-          ARGS="--carousel-only"
+          ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
@@ -75,5 +68,5 @@ jobs:
       - name: Commit and Push Updated DB
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "[Bot] Update posted_articles.json"
-          file_pattern: "posted_articles.json"
+          commit_message: "[Bot] Update posting state"
+          file_pattern: "posted_articles.json used_image_assets.json"

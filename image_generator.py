@@ -7,16 +7,7 @@ from playwright.sync_api import sync_playwright
 
 def generate_html(slides_data, bg_image_url, base_dir):
     """Generates the HTML file for each slide."""
-    
-    # We will use base64 or raw URLs. Assuming we fetch Unsplash images and save locally.
-    # To keep things simple, we'll just reference the local bg image.
-    # Ensure bg_image_url is a path or valid string
-    if not bg_image_url:
-        bg_image_path = "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop"
-    elif bg_image_url.startswith("http"):
-        bg_image_path = bg_image_url
-    else:
-        bg_image_path = f"file://{os.path.abspath(bg_image_url)}"
+
     logo_path = "https://ui-avatars.com/api/?name=Med+News&background=58D68D&color=fff&rounded=true&size=200" # Placeholder if no physical logo
     
     html_template = """
@@ -59,7 +50,8 @@ def generate_html(slides_data, bg_image_url, base_dir):
             .overlay {
                 position: absolute;
                 top: 0; left: 0; width: 1080px; height: 1350px;
-                background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 80%);
+                background:
+                    linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.06) 40%, rgba(0,0,0,0.16) 68%, rgba(0,0,0,0.42) 100%);
                 z-index: 2;
             }
             
@@ -81,10 +73,16 @@ def generate_html(slides_data, bg_image_url, base_dir):
             /* Cover Slide Content */
             .cover-container {
                 position: absolute;
-                bottom: 150px; 
-                left: 80px;
-                right: 80px;
+                bottom: 92px; 
+                left: 44px;
+                right: 44px;
                 z-index: 10;
+                padding: 34px 34px 28px 34px;
+                border-radius: 34px;
+                background: linear-gradient(180deg, rgba(16, 18, 26, 0.12) 0%, rgba(16, 18, 26, 0.28) 100%);
+                border: 1px solid rgba(255,255,255,0.10);
+                backdrop-filter: blur(18px) saturate(1.1);
+                box-shadow: 0 18px 40px rgba(0,0,0,0.18);
             }
             .cover-title {
                 color: #FFFFFF;
@@ -93,15 +91,19 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 word-break: keep-all;
                 overflow-wrap: normal;
                 text-transform: uppercase;
-                line-height: 1.15;
-                margin: 0 0 80px 0;
+                line-height: 1.02;
+                letter-spacing: -2px;
+                margin: 0 0 22px 0;
+                max-width: 920px;
+                text-shadow: 0 3px 14px rgba(0,0,0,0.28);
             }
             .cover-tap {
                 color: #FFFFFF;
-                font-size: 34px;
+                font-size: 22px;
                 font-weight: 700;
-                opacity: 0.9;
-                letter-spacing: 1px;
+                opacity: 0.95;
+                letter-spacing: 0.2px;
+                text-transform: uppercase;
             }
 
             /* Content Slide Card */
@@ -111,15 +113,16 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 transform: translate(-50%, -50%);
                 width: 920px;
                 height: 1050px;
-                background-color: rgba(10, 12, 18, 0.85); /* Slightly darker obsidian */
-                border: 2px solid rgba(255, 255, 255, 0.15);
+                background: linear-gradient(180deg, rgba(16, 20, 28, 0.16) 0%, rgba(16, 20, 28, 0.30) 100%);
+                border: 1px solid rgba(255, 255, 255, 0.12);
                 border-radius: 40px;
                 padding: 100px 80px 80px 80px;
                 z-index: 20;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+                box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+                backdrop-filter: blur(24px) saturate(1.08);
             }
             
             .slide-header {
@@ -140,6 +143,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 line-height: {body_line_height};
                 flex-grow: 0;
                 margin-bottom: 20px;
+                text-shadow: 0 2px 10px rgba(0,0,0,0.18);
             }
             .slide-body b {
                 font-weight: 800;
@@ -193,18 +197,20 @@ def generate_html(slides_data, bg_image_url, base_dir):
     title = title_raw.replace('\\n', '<br>').replace('\n', '<br>')
     
     t_len = len(title_raw)
-    if t_len < 30:
+    if t_len < 24:
+        t_size = 124
+    elif t_len < 34:
         t_size = 110
-    elif t_len < 50:
-        t_size = 90
+    elif t_len < 46:
+        t_size = 96
     else:
-        t_size = 80
+        t_size = 84
         
     line_height = "52px"
 
     def get_base64_image(image_path_or_url):
         if not image_path_or_url:
-            return "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1080&auto=format&fit=crop"
+            return None
         
         # Round 53: Always download remote URLs first to ensure full offline rendering reliability
         target_path = image_path_or_url
@@ -242,9 +248,10 @@ def generate_html(slides_data, bg_image_url, base_dir):
         except Exception as e:
             print(f"Warning: Base64 conversion failed for {target_path}: {e}")
             
-        return image_path_or_url 
+        return None
 
     bg_image_embed = get_base64_image(bg_image_url)
+    bg_image_html = f'<img src="{bg_image_embed}">' if bg_image_embed else ""
     
     # Pre-check if logo.jpg exists
     logo_file = os.path.join(base_dir, 'logo.jpg')
@@ -259,9 +266,10 @@ def generate_html(slides_data, bg_image_url, base_dir):
     slides_html = []
     
     # 1. Cover
-    cover_cta = slides_data.get('cover_cta', 'TAP TO LEARN MORE ➔')
+    cover_cta = slides_data.get('cover_cta', 'Tap to learn more')
+    cover_cta = cover_cta.replace('➔', '').replace('⬇️', '').replace('âž”', '').strip().upper()
     cover_body = f"""
-    <div class="bg-layer"><img src="{bg_image_embed}"></div>
+    <div class="bg-layer">{bg_image_html}</div>
     <div class="overlay"></div>
     {logo_html}
     <div class="cover-container">
@@ -270,13 +278,13 @@ def generate_html(slides_data, bg_image_url, base_dir):
     </div>
     """
     
-    html = html_template.replace('{bg_image}', bg_image_embed).replace('{body_content}', cover_body).replace('{body_line_height}', line_height)
+    html = html_template.replace('{body_content}', cover_body).replace('{body_line_height}', line_height)
     slides_html.append(html)
     
     # Helper for content slides
     def make_content_slide(stitle, sbody, fraction, color):
         content = f"""
-        <div class="bg-layer blurred"><img src="{bg_image_embed}"></div>
+        <div class="bg-layer">{bg_image_html}</div>
         <div class="overlay"></div>
         {logo_html}
         <div class="card">
@@ -285,7 +293,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
             <div class="slide-fraction">{fraction}</div>
         </div>
         """
-        return html_template.replace('{bg_image}', bg_image_embed).replace('{body_content}', content).replace('{body_line_height}', line_height)
+        return html_template.replace('{body_content}', content).replace('{body_line_height}', line_height)
         
     # 2. Content Slide 1
     slides_html.append(make_content_slide(
@@ -315,7 +323,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
         <div class="slide-fraction">4/4</div>
     </div>
     """
-    slides_html.append(html_template.replace('{bg_image}', bg_image_embed).replace('{body_content}', cta_content).replace('{body_line_height}', line_height))
+    slides_html.append(html_template.replace('{body_content}', cta_content).replace('{body_line_height}', line_height))
     
     return slides_html
 
