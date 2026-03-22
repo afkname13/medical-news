@@ -5,6 +5,8 @@ import re
 from difflib import SequenceMatcher
 from google import genai
 
+LAST_CONTENT_REPORT = {}
+
 FORBIDDEN_HOOK_PHRASES = [
     "the truth is out",
     "it has finally happened",
@@ -353,9 +355,16 @@ def normalize_generated_payload(data, article=None):
 
 
 def generate_carousel_content(article, recent_history=None):
+    global LAST_CONTENT_REPORT
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         print("Error: GEMINI_API_KEY not found. Falling back to deterministic local content generator.")
+        LAST_CONTENT_REPORT = {
+            "mode": "fallback",
+            "provider": "local",
+            "model": None,
+            "reason": "missing_gemini_api_key",
+        }
         return build_fallback_content(article)
         
     client = genai.Client(api_key=api_key)
@@ -471,9 +480,21 @@ def generate_carousel_content(article, recent_history=None):
                 validation_errors = validate_generated_payload(data, recent_history=recent_history)
                 if validation_errors:
                     print(f"{model_label} validation failed: {', '.join(validation_errors)}")
+                    LAST_CONTENT_REPORT = {
+                        "mode": "rejected",
+                        "provider": "gemini",
+                        "model": model_name,
+                        "reason": ", ".join(validation_errors),
+                    }
                     continue
 
                 print(f"Success: Content generated using {model_label}")
+                LAST_CONTENT_REPORT = {
+                    "mode": "generated",
+                    "provider": "gemini",
+                    "model": model_name,
+                    "reason": "success",
+                }
                 return data
                 
             except Exception as e:
@@ -498,7 +519,16 @@ def generate_carousel_content(article, recent_history=None):
     
     print("CRITICAL: All text generation models failed or exhausted.")
     print("Falling back to deterministic local content generator.")
+    LAST_CONTENT_REPORT = {
+        "mode": "fallback",
+        "provider": "local",
+        "model": None,
+        "reason": "all_models_failed_or_exhausted",
+    }
     return build_fallback_content(article)
+
+def get_last_content_report():
+    return dict(LAST_CONTENT_REPORT)
 
 
 if __name__ == "__main__":

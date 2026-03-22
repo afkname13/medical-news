@@ -40,6 +40,7 @@ TERM_HINTS = {
 }
 
 IMAGE_HISTORY_FILE = "used_image_assets.json"
+LAST_IMAGE_REPORT = {}
 
 def _save_response_image(image_bytes, save_path):
     with open(save_path, 'wb') as f:
@@ -254,6 +255,7 @@ def _extract_article_image_urls(article_url):
         return []
 
 def _try_article_page_image(article_url, save_path, article_context=None):
+    global LAST_IMAGE_REPORT
     candidate_urls = _extract_article_image_urls(article_url)
     relevance_terms = _extract_relevance_terms("", article_context)
 
@@ -268,6 +270,14 @@ def _try_article_page_image(article_url, save_path, article_context=None):
         downloaded = _download_image(url, save_path)
         if downloaded:
             print(f"✅ Article page image selected: {url}")
+            LAST_IMAGE_REPORT = {
+                "status": "selected",
+                "provider": "article_page",
+                "source_type": "article_image",
+                "query": article_url,
+                "asset_url": url,
+                "reason": "article_page_image",
+            }
             return downloaded
 
     return None
@@ -363,15 +373,32 @@ def _photo_score(photo_blob, relevance_terms):
         score += 2
     return score
 
-def generate_ai_image(prompt, save_path, article_context=None, article_url=None):
+def generate_ai_image(prompt, save_path, article_context=None, article_url=None, remember_assets=True):
+    global LAST_IMAGE_REPORT
     """
     Attempts AI image generation first.
     Falls back to stock photography search if generation fails or is unavailable.
     """
+    LAST_IMAGE_REPORT = {
+        "status": "started",
+        "provider": None,
+        "source_type": None,
+        "query": None,
+        "asset_url": None,
+        "reason": None,
+    }
 
     # Strategy 1: OpenAI image generation
     openai_path = _generate_with_openai(prompt, save_path, article_context=article_context)
     if openai_path:
+        LAST_IMAGE_REPORT = {
+            "status": "selected",
+            "provider": "openai",
+            "source_type": "generated",
+            "query": prompt,
+            "asset_url": None,
+            "reason": "openai_generated",
+        }
         return openai_path
 
     # Strategy 2: Gemini image generation
@@ -402,6 +429,14 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None)
                         _save_response_image(image_bytes, save_path)
                         if _image_has_visual_content(save_path):
                             print(f"✅ Gemini image generated successfully: {save_path}")
+                            LAST_IMAGE_REPORT = {
+                                "status": "selected",
+                                "provider": "gemini",
+                                "source_type": "generated",
+                                "query": prompt,
+                                "asset_url": None,
+                                "reason": model_name,
+                            }
                             return save_path
 
                 print(f"⚠️ {model_name} returned no image payload. Trying fallback model...")
@@ -455,8 +490,17 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None)
                     print(f"✅ Found Unsplash photo candidate: {photo['id']} by {photo['user']['name']}")
                     downloaded_path = _download_image(asset_url, save_path)
                     if downloaded_path:
-                        _remember_asset("unsplash", photo.get("id"), asset_url, search_query)
+                        if remember_assets:
+                            _remember_asset("unsplash", photo.get("id"), asset_url, search_query)
                         print(f"✅ Unsplash Asset successful: {save_path}")
+                        LAST_IMAGE_REPORT = {
+                            "status": "selected",
+                            "provider": "unsplash",
+                            "source_type": "stock_photo",
+                            "query": search_query,
+                            "asset_url": asset_url,
+                            "reason": str(photo.get("id")),
+                        }
                         return downloaded_path
     except Exception as e:
         print(f"⚠️ Unsplash strategy failed: {str(e)}")
@@ -497,8 +541,17 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None)
                     print(f"✅ Found Pexels photo candidate: {photo['id']}")
                     downloaded_path = _download_image(asset_url, save_path)
                     if downloaded_path:
-                        _remember_asset("pexels", photo.get("id"), asset_url, search_query)
+                        if remember_assets:
+                            _remember_asset("pexels", photo.get("id"), asset_url, search_query)
                         print(f"✅ Pexels Asset successful: {save_path}")
+                        LAST_IMAGE_REPORT = {
+                            "status": "selected",
+                            "provider": "pexels",
+                            "source_type": "stock_photo",
+                            "query": search_query,
+                            "asset_url": asset_url,
+                            "reason": str(photo.get("id")),
+                        }
                         return downloaded_path
     except Exception as e:
         print(f"⚠️ Pexels strategy failed: {str(e)}")
@@ -526,18 +579,46 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None)
                             continue
                         downloaded_path = _download_image(asset_url, save_path)
                         if downloaded_path:
-                            _remember_asset("unsplash", photo.get("id"), asset_url, search_query)
+                            if remember_assets:
+                                _remember_asset("unsplash", photo.get("id"), asset_url, search_query)
                             print(f"✅ Relaxed Unsplash rescue asset selected: {photo.get('id')}")
+                            LAST_IMAGE_REPORT = {
+                                "status": "selected",
+                                "provider": "unsplash",
+                                "source_type": "stock_photo_rescue",
+                                "query": search_query,
+                                "asset_url": asset_url,
+                                "reason": f"rescue:{photo.get('id')}",
+                            }
                             return downloaded_path
         except Exception as e:
             print(f"⚠️ Relaxed Unsplash rescue failed: {e}")
 
     if has_valid_image_asset(save_path):
         print(f"✅ Recovered valid image already saved at {save_path}")
+        LAST_IMAGE_REPORT = {
+            "status": "selected",
+            "provider": "recovered",
+            "source_type": "saved_asset",
+            "query": prompt,
+            "asset_url": save_path,
+            "reason": "existing_valid_file",
+        }
         return save_path
 
     print("❌ No validated image source found. Refusing to render a no-image post.")
+    LAST_IMAGE_REPORT = {
+        "status": "failed",
+        "provider": None,
+        "source_type": None,
+        "query": prompt,
+        "asset_url": None,
+        "reason": "no_valid_image_source",
+    }
     return None
+
+def get_last_image_report():
+    return dict(LAST_IMAGE_REPORT)
 
 if __name__ == "__main__":
     from dotenv import load_dotenv

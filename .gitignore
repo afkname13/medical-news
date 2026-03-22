@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 media/
 .DS_Store
+reports/

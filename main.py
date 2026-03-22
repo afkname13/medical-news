@@ -6,16 +6,17 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 from fetcher import get_top_article
-from processor import generate_carousel_content
+from processor import generate_carousel_content, get_last_content_report
 from image_generator import generate_carousel_images
 from publisher import publish_carousel
-from image_gen_service import generate_ai_image, has_valid_image_asset
+from image_gen_service import generate_ai_image, has_valid_image_asset, get_last_image_report
 
 # Load env file in local development, GH actions will use secrets
 load_dotenv()
 
 PIPELINE_ROUND = "18 (Carousel Only)"
 POSTED_FILE = 'posted_articles.json'
+REPORTS_DIR = 'reports'
 
 def load_posted():
     if os.path.exists(POSTED_FILE):
@@ -39,6 +40,15 @@ def save_posted(posted_list):
         print(f"Error saving posted articles: {e}")
         if os.path.exists(temp_file):
             os.remove(temp_file)
+
+def write_quality_report(report):
+    os.makedirs(REPORTS_DIR, exist_ok=True)
+    filename = f"run_report_{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}.json"
+    path = os.path.join(REPORTS_DIR, filename)
+    with open(path, 'w') as f:
+        json.dump(report, f, indent=2)
+    print(f"Saved quality report: {path}")
+    return path
 
 def _caption_excerpt(text, max_words=24):
     words = (text or "").replace("\n", " ").split()
@@ -89,6 +99,20 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
     article = None
     slides_data = None
     article_context = None
+    report = {
+        "pipeline_round": PIPELINE_ROUND,
+        "started_at_utc": datetime.utcnow().isoformat() + "Z",
+        "dry_run": dry_run,
+        "mock": mock,
+        "post_carousel": post_carousel,
+        "status": "started",
+        "skip_reason": None,
+        "article": None,
+        "content": {},
+        "image": {},
+        "rendered_slides": [],
+        "published": False,
+    }
 
     posted_data = load_posted()
 
@@ -116,9 +140,13 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
         article = get_top_article(posted_data)
         if not article:
             print("No new articles found.")
+            report["status"] = "skipped"
+            report["skip_reason"] = "no_new_articles"
+            write_quality_report(report)
             return
         print(f"Selected Article: {article['title']}")
         slides_data = generate_carousel_content(article, recent_history=posted_data)
+        report["content"] = get_last_content_report()
 
     if article:
         article_context = " ".join(
@@ -128,9 +156,22 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
                 article.get('journal', ''),
             ] if part
         )
+        report["article"] = {
+            "id": article.get("id"),
+            "title": article.get("title"),
+            "journal": article.get("journal"),
+            "url": article.get("url"),
+            "publish_date": article.get("publish_date"),
+            "source": article.get("source"),
+            "score": article.get("score"),
+        }
     
     if not slides_data:
         print("Error: Content generation failed.")
+        report["status"] = "failed"
+        report["skip_reason"] = "content_generation_failed"
+        report["content"] = report["content"] or get_last_content_report()
+        write_quality_report(report)
         return
 
     # 2. Carousel Output
@@ -146,14 +187,30 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
             bg_image,
             article_context=article_context,
             article_url=article.get('url') if article else None,
+            remember_assets=not dry_run,
         ) if not mock else None
+        if not mock:
+            report["image"] = get_last_image_report()
+        else:
+            report["image"] = {
+                "status": "mock",
+                "provider": "mock",
+                "source_type": "mock",
+                "query": c_data.get("image_prompt"),
+                "asset_url": None,
+                "reason": "mock_mode",
+            }
 
         if not mock and not ai_bg and has_valid_image_asset(bg_image):
             print("✅ Using validated recovered image from disk after fallback chain.")
             ai_bg = bg_image
+            report["image"] = get_last_image_report()
 
         if not mock and (not ai_bg or not has_valid_image_asset(ai_bg)):
             print("❌ Error: No validated article-relevant image was found. Skipping this post instead of publishing a no-image carousel.")
+            report["status"] = "skipped"
+            report["skip_reason"] = "no_valid_image"
+            write_quality_report(report)
             return
         
         image_paths = generate_carousel_images(c_data, ai_bg, media_dir)
@@ -166,6 +223,10 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
                     print(f"DEBUG: Generated Slide: {os.path.basename(p)} ({f_size} bytes)")
                     if f_size > 1000: # Basic check for non-empty image
                         abs_image_paths.append(os.path.abspath(p))
+                        report["rendered_slides"].append({
+                            "path": os.path.abspath(p),
+                            "size_bytes": f_size,
+                        })
                 
             if len(abs_image_paths) == len(image_paths):
                 publish_succeeded = publish_carousel(
@@ -174,11 +235,15 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
                     dry_run=dry_run,
                     first_comment=slides_data.get('first_comment')
                 )
+                report["published"] = bool(publish_succeeded and not dry_run)
+                report["status"] = "completed" if publish_succeeded else "failed"
             else:
                 print(f"❌ Error: Some carousel images are missing or empty! ({len(abs_image_paths)}/{len(image_paths)})")
                 publish_succeeded = False
+                report["status"] = "failed"
+                report["skip_reason"] = "rendered_slides_missing_or_empty"
 
-    if not mock and article and post_carousel and publish_succeeded:
+    if not dry_run and not mock and article and post_carousel and publish_succeeded:
         # Update metadata for tracking
         article_id = article.get('id')
         
@@ -219,9 +284,13 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
                 final_posted.append(item)
 
         save_posted(_trim_history(final_posted))
-    elif not mock and article and post_carousel:
+    elif not dry_run and not mock and article and post_carousel:
         print("Skipping posted-state update because the publish step did not complete successfully.")
 
+    if report["status"] == "started":
+        report["status"] = "completed" if publish_succeeded else "failed"
+    report["finished_at_utc"] = datetime.utcnow().isoformat() + "Z"
+    write_quality_report(report)
     print("Pipeline finished successfully!")
 
 if __name__ == "__main__":

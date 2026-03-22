@@ -1,5 +1,6 @@
 import hashlib
 import re
+import html
 from datetime import datetime
 import xml.etree.ElementTree as ET
 import requests
@@ -165,7 +166,7 @@ def fetch_pubmed():
         
         for uid in id_list:
             data = summaries.get(uid, {})
-            title = data.get('title', '')
+            title = html.unescape(data.get('title', ''))
             if not title:
                 continue
             
@@ -194,7 +195,7 @@ def fetch_rss():
         try:
             feed = feedparser.parse(url)
             for entry in feed.entries[:10]:
-                title = entry.title
+                title = html.unescape(entry.title)
                 abstract = getattr(entry, 'summary', getattr(entry, 'description', ''))
                 
                 pubdate = ""
@@ -202,7 +203,7 @@ def fetch_rss():
                     pubdate = f"{entry.published_parsed.tm_year}-{entry.published_parsed.tm_mon:02d}-{entry.published_parsed.tm_mday:02d}"
                 
                 # Cleanup HTML from abstract
-                clean_abstract = BeautifulSoup(abstract, 'html.parser').get_text() if abstract else ''
+                clean_abstract = html.unescape(BeautifulSoup(abstract, 'html.parser').get_text()) if abstract else ''
                 
                 article = {
                     'id': get_article_id(title),

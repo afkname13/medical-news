@@ -90,8 +90,17 @@ jobs:
           name: medical-news-debug-${{ github.run_id }}
           path: |
             media/
+            reports/
             posted_articles.json
             used_image_assets.json
+          if-no-files-found: ignore
+
+      - name: Upload Run Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: medical-news-reports-${{ github.run_id }}
+          path: reports/
           if-no-files-found: ignore
 
       - name: Commit and Push Updated DB
