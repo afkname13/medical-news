@@ -6,6 +6,7 @@ import urllib.parse
 import re
 from google import genai
 from PIL import Image, ImageStat
+from bs4 import BeautifulSoup
 
 IRRELEVANT_IMAGE_TERMS = [
     "doctor", "doctors", "stethoscope", "hospital bed", "waiting room",
@@ -174,6 +175,77 @@ def _download_image(url, save_path):
         pass
     return None
 
+def _normalize_candidate_url(url, article_url=None):
+    if not url:
+        return None
+    if url.startswith("//"):
+        return f"https:{url}"
+    if article_url and url.startswith("/"):
+        parsed = urllib.parse.urlparse(article_url)
+        return f"{parsed.scheme}://{parsed.netloc}{url}"
+    return url
+
+def _extract_article_image_urls(article_url):
+    if not article_url:
+        return []
+
+    try:
+        response = requests.get(
+            article_url,
+            timeout=20,
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        if response.status_code != 200:
+            return []
+
+        soup = BeautifulSoup(response.text, "html.parser")
+        candidates = []
+
+        for selector in [
+            ('meta', {'property': 'og:image'}),
+            ('meta', {'name': 'twitter:image'}),
+            ('meta', {'property': 'og:image:url'}),
+        ]:
+            for tag in soup.find_all(selector[0], attrs=selector[1]):
+                content = tag.get("content")
+                normalized = _normalize_candidate_url(content, article_url)
+                if normalized and normalized not in candidates:
+                    candidates.append(normalized)
+
+        for img in soup.find_all("img"):
+            src = _normalize_candidate_url(img.get("src"), article_url)
+            alt_text = " ".join(filter(None, [img.get("alt", ""), img.get("class", "") if isinstance(img.get("class"), str) else " ".join(img.get("class", []))]))
+            blob = f"{src or ''} {alt_text}".lower()
+            if not src:
+                continue
+            if any(token in blob for token in ["logo", "icon", "avatar", "sprite", "banner", "advert"]):
+                continue
+            if src not in candidates:
+                candidates.append(src)
+
+        return candidates[:12]
+    except Exception as e:
+        print(f"⚠️ Article image scrape failed: {e}")
+        return []
+
+def _try_article_page_image(article_url, save_path, article_context=None):
+    candidate_urls = _extract_article_image_urls(article_url)
+    relevance_terms = _extract_relevance_terms("", article_context)
+
+    for url in candidate_urls:
+        blob = f"{url} {article_context or ''}"
+        if any(term in url.lower() for term in ["logo", "icon", "avatar", "sprite"]):
+            continue
+        if relevance_terms and _photo_score(blob, relevance_terms) < 0:
+            continue
+
+        downloaded = _download_image(url, save_path)
+        if downloaded:
+            print(f"✅ Article page image selected: {url}")
+            return downloaded
+
+    return None
+
 def _generate_with_openai(prompt, save_path, article_context=None):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
@@ -265,7 +337,7 @@ def _photo_score(photo_blob, relevance_terms):
         score += 2
     return score
 
-def generate_ai_image(prompt, save_path, article_context=None):
+def generate_ai_image(prompt, save_path, article_context=None, article_url=None):
     """
     Attempts AI image generation first.
     Falls back to stock photography search if generation fails or is unavailable.
@@ -313,10 +385,15 @@ def generate_ai_image(prompt, save_path, article_context=None):
     else:
         print("⚠️ GEMINI_API_KEY not found. Skipping AI image generation.")
 
+    # Strategy 3: Try the article page hero/social image first.
+    article_page_path = _try_article_page_image(article_url, save_path, article_context=article_context)
+    if article_page_path:
+        return article_page_path
+
     search_queries = _build_search_queries(prompt, article_context)
     relevance_terms = _extract_relevance_terms(prompt, article_context)
 
-    # Strategy 3: Unsplash API (Primary fallback - photography)
+    # Strategy 4: Unsplash API (Primary fallback - photography)
     try:
         access_key = os.getenv("UNSPLASH_ACCESS_KEY")
         if access_key:
@@ -358,7 +435,7 @@ def generate_ai_image(prompt, save_path, article_context=None):
     except Exception as e:
         print(f"⚠️ Unsplash strategy failed: {str(e)}")
 
-    # Strategy 4: Pexels API (Backup Strategy)
+    # Strategy 5: Pexels API (Backup Strategy)
     try:
         pexels_key = os.getenv("PEXELS_API_KEY")
         if pexels_key:
@@ -400,7 +477,36 @@ def generate_ai_image(prompt, save_path, article_context=None):
     except Exception as e:
         print(f"⚠️ Pexels strategy failed: {str(e)}")
 
-    print("⚠️ No relevant image asset found. Falling back to gradient-only card rendering.")
+    # Strategy 6: Relaxed stock-photo rescue pass.
+    relaxed_queries = []
+    if article_context:
+        relaxed_queries.append(" ".join(_extract_relevance_terms("", article_context)[:3]))
+    relaxed_queries.extend(["medical research", "biomedical laboratory", "microscope cells"])
+    relaxed_queries = [query for query in relaxed_queries if query]
+
+    for search_query in relaxed_queries[:4]:
+        try:
+            access_key = os.getenv("UNSPLASH_ACCESS_KEY")
+            if access_key:
+                headers = {"Authorization": f"Client-ID {access_key}"}
+                search_url = f"https://api.unsplash.com/search/photos?query={urllib.parse.quote(search_query)}&per_page=10&orientation=portrait"
+                s_response = requests.get(search_url, headers=headers, timeout=15)
+                if s_response.status_code == 200:
+                    results = s_response.json().get("results", [])
+                    ranked = sorted(results, key=lambda photo: _photo_score(photo, relevance_terms), reverse=True)
+                    for photo in ranked[:3]:
+                        asset_url = photo.get("urls", {}).get("regular")
+                        if not asset_url:
+                            continue
+                        downloaded_path = _download_image(asset_url, save_path)
+                        if downloaded_path:
+                            _remember_asset("unsplash", photo.get("id"), asset_url, search_query)
+                            print(f"✅ Relaxed Unsplash rescue asset selected: {photo.get('id')}")
+                            return downloaded_path
+        except Exception as e:
+            print(f"⚠️ Relaxed Unsplash rescue failed: {e}")
+
+    print("❌ No validated image source found. Refusing to render a no-image post.")
     return None
 
 if __name__ == "__main__":

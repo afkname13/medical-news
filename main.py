@@ -140,8 +140,13 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
         ai_bg = generate_ai_image(
             c_data['image_prompt'],
             bg_image,
-            article_context=article_context
+            article_context=article_context,
+            article_url=article.get('url') if article else None,
         ) if not mock else None
+
+        if not mock and not ai_bg:
+            print("❌ Error: No validated article-relevant image was found. Skipping this post instead of publishing a no-image carousel.")
+            return
         
         image_paths = generate_carousel_images(c_data, ai_bg, media_dir)
         if image_paths:
