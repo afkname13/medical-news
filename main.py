@@ -9,7 +9,7 @@ from fetcher import get_top_article
 from processor import generate_carousel_content
 from image_generator import generate_carousel_images
 from publisher import publish_carousel
-from image_gen_service import generate_ai_image
+from image_gen_service import generate_ai_image, has_valid_image_asset
 
 # Load env file in local development, GH actions will use secrets
 load_dotenv()
@@ -144,7 +144,11 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
             article_url=article.get('url') if article else None,
         ) if not mock else None
 
-        if not mock and not ai_bg:
+        if not mock and not ai_bg and has_valid_image_asset(bg_image):
+            print("✅ Using validated recovered image from disk after fallback chain.")
+            ai_bg = bg_image
+
+        if not mock and (not ai_bg or not has_valid_image_asset(ai_bg)):
             print("❌ Error: No validated article-relevant image was found. Skipping this post instead of publishing a no-image carousel.")
             return
         

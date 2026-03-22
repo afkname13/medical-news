@@ -162,6 +162,9 @@ def _image_has_visual_content(path):
     except Exception:
         return False
 
+def has_valid_image_asset(path):
+    return _image_has_visual_content(path)
+
 def _download_image(url, save_path):
     response = requests.get(url, timeout=20)
     if response.status_code != 200:
@@ -230,13 +233,9 @@ def _extract_article_image_urls(article_url):
 
 def _try_article_page_image(article_url, save_path, article_context=None):
     candidate_urls = _extract_article_image_urls(article_url)
-    relevance_terms = _extract_relevance_terms("", article_context)
 
     for url in candidate_urls:
-        blob = f"{url} {article_context or ''}"
         if any(term in url.lower() for term in ["logo", "icon", "avatar", "sprite"]):
-            continue
-        if relevance_terms and _photo_score(blob, relevance_terms) < 0:
             continue
 
         downloaded = _download_image(url, save_path)
@@ -505,6 +504,10 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None)
                             return downloaded_path
         except Exception as e:
             print(f"⚠️ Relaxed Unsplash rescue failed: {e}")
+
+    if has_valid_image_asset(save_path):
+        print(f"✅ Recovered valid image already saved at {save_path}")
+        return save_path
 
     print("❌ No validated image source found. Refusing to render a no-image post.")
     return None
