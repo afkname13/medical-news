@@ -121,9 +121,9 @@ def generate_html(slides_data, bg_image_url, base_dir):
             /* Cover Slide Content */
             .cover-container {
                 position: absolute;
-                bottom: 92px; 
-                left: 44px;
-                right: 44px;
+                bottom: 150px; 
+                left: 68px;
+                right: 68px;
                 z-index: 10;
                 padding: 0;
             }
@@ -134,7 +134,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 line-height: 0.98;
                 letter-spacing: -2.8px;
                 margin: 0 0 22px 0;
-                max-width: 980px;
+                max-width: 860px;
                 text-shadow: 0 3px 14px rgba(0,0,0,0.34);
             }
             .cover-title .tease {
