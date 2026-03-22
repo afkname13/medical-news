@@ -148,5 +148,20 @@
     "caption_excerpt": "READ THIS! \ud83d\udea8 THE LIMITS OF CANCER AI A major new trial published in Nature Medicine just tested if AI can handle breast cancer",
     "url": "https://www.nature.com/articles/s41591-026-04277-x",
     "journal": "Nature Medicine"
+  },
+  {
+    "id": "2387583cfc539a11238a04a9f2ad4e4b",
+    "title": "Real-world clinical utility of tumor whole-genome sequencing in solid cancers",
+    "timestamp": "2026-03-22T08:31:09.297848",
+    "posted_as_carousel": true,
+    "cover": "CANCER BLUEPRINT\nFULL GENOME REVEALED",
+    "image_prompt": "Cinematic medical photography of a genetics researcher in a high-tech genomic sequencing lab. They are looking at a large glowing screen displaying a complex human DNA sequence with highlighted mutations. The lighting is cold blue and clinical with high-resolution details of the laboratory equipment and digital genome readouts.",
+    "slide_titles": [
+      "THE BREAKTHROUGH: MASSIVE GENETIC DISCOVERY",
+      "THE IMPACT: PERSONALIZED SURVIVAL STRATEGIES"
+    ],
+    "caption_excerpt": "READ THIS! \ud83d\udea8 CANCER GENOME BLUEPRINT A ground-breaking study just proved that sequencing the entire tumor genome is no longer just for research. It",
+    "url": "https://www.nature.com/articles/s41591-026-04280-2",
+    "journal": "Nature Medicine"
   }
 ]
