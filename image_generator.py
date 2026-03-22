@@ -5,6 +5,33 @@ import base64
 import requests
 from playwright.sync_api import sync_playwright
 
+def sanitize_display_text(text):
+    if not text:
+        return ""
+
+    try:
+        if "Ã" in text or "â" in text:
+            repaired = text.encode("latin1", "ignore").decode("utf-8", "ignore")
+            if repaired:
+                text = repaired
+    except Exception:
+        pass
+
+    replacements = {
+        "’": "'",
+        "‘": "'",
+        "“": '"',
+        "”": '"',
+        "–": "-",
+        "—": "-",
+        "…": "...",
+        "™": "",
+    }
+    for source, target in replacements.items():
+        text = text.replace(source, target)
+
+    return text.strip()
+
 def generate_html(slides_data, bg_image_url, base_dir):
     """Generates the HTML file for each slide."""
 
@@ -91,12 +118,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
                 left: 44px;
                 right: 44px;
                 z-index: 10;
-                padding: 34px 34px 28px 34px;
-                border-radius: 34px;
-                background: linear-gradient(180deg, rgba(16, 18, 26, 0.10) 0%, rgba(16, 18, 26, 0.20) 100%);
-                border: 1px solid rgba(255,255,255,0.10);
-                backdrop-filter: blur(16px) saturate(1.08);
-                box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+                padding: 0;
             }
             .cover-title {
                 color: #FFFFFF;
@@ -207,7 +229,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     """
     
     # Calculate title font size based on length
-    title_raw = slides_data.get('cover', 'MEDICAL BREAKTHROUGH')
+    title_raw = sanitize_display_text(slides_data.get('cover', 'MEDICAL BREAKTHROUGH'))
     title = title_raw.replace('\\n', '<br>').replace('\n', '<br>')
     
     t_len = len(title_raw)
@@ -281,7 +303,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     slides_html = []
     
     # 1. Cover
-    cover_cta = slides_data.get('cover_cta', 'Tap to learn more')
+    cover_cta = sanitize_display_text(slides_data.get('cover_cta', 'Tap to learn more'))
     cover_cta = cover_cta.replace('➔', '').replace('⬇️', '').replace('âž”', '').strip().upper()
     cover_body = f"""
     <div class="bg-layer">{bg_image_html}</div>
@@ -298,6 +320,8 @@ def generate_html(slides_data, bg_image_url, base_dir):
     
     # Helper for content slides
     def make_content_slide(stitle, sbody, fraction, color):
+        stitle = sanitize_display_text(stitle)
+        sbody = sanitize_display_text(sbody)
         content = f"""
         {bg_soft_html}
         <div class="bg-layer">{bg_image_html}</div>
@@ -326,7 +350,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     ))
     
     # 4. CTA Slide
-    cta_question = slides_data.get('slide_4_question', 'Would you try this treatment?')
+    cta_question = sanitize_display_text(slides_data.get('slide_4_question', 'Would you try this treatment?'))
     cta_content = f"""
     <div class="bg-layer blurred"></div>
     <div class="overlay"></div>

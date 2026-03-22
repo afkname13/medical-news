@@ -3,5 +3,4 @@ venv/
 __pycache__/
 *.pyc
 media/
-posted_articles.json
 .DS_Store

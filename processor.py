@@ -26,10 +26,14 @@ DEFAULT_HASHTAGS = [
     "#healthnews",
     "#medicalbreakthrough",
     "#scienceupdate",
-    "#healthtips",
     "#futureofmedicine",
     "#biotech",
     "#researchnews",
+    "#breakingnews",
+    "#viralnews",
+    "#healthyliving",
+    "#longevity",
+    "#wellness",
 ]
 
 def _strip_html(text):
@@ -70,13 +74,23 @@ def build_hashtags(article):
         "wearable": "#wearabletech",
         "diabetes": "#diabetes",
         "sleep": "#sleephealth",
+        "chromosome": "#geneticsresearch",
+        "aging": "#agingresearch",
+        "male": "#menshealth",
+        "women": "#womenshealth",
+        "blood": "#hematology",
     }
 
     for keyword, tag in keyword_map.items():
         if keyword in title and tag not in tags:
             tags.append(tag)
 
-    return tags[:10]
+    engagement_tags = ["#fyp", "#foryou", "#learnontiktok", "#mustread", "#healthfacts"]
+    for tag in engagement_tags:
+        if tag not in tags:
+            tags.append(tag)
+
+    return tags[:14]
 
 def append_citation_and_hashtags(caption, article):
     citation_parts = []
@@ -98,8 +112,8 @@ def append_citation_and_hashtags(caption, article):
         rebuilt += "\n\n"
     rebuilt += f"Source: {citation_line}"
     if url:
-        rebuilt += f"\nRead more: {url}"
-    rebuilt += "\n\n.\n.\n.\n\n" + " ".join(hashtags)
+        rebuilt += f"\nStudy link: {url}"
+    rebuilt += "\n\n" + " ".join(hashtags)
     return rebuilt.strip()
 
 def build_fallback_content(article):
@@ -206,7 +220,7 @@ def _repair_cover_text(cover):
     cleaned_lines = []
     for idx, line in enumerate(lines[:2]):
         words = re.findall(r"[A-Za-z0-9']+", line.upper())
-        max_words = 4 if idx == 0 else 6
+        max_words = 3 if idx == 0 else 4
         cleaned_lines.append(" ".join(words[:max_words]))
 
     if len(cleaned_lines) < 2:
@@ -230,7 +244,7 @@ def validate_generated_payload(data):
     if len(cover_lines) != 2:
         errors.append("cover must have exactly two lines")
     for idx, line in enumerate(cover_lines[:2]):
-        max_words = 4 if idx == 0 else 6
+        max_words = 3 if idx == 0 else 4
         if len(re.findall(r"[A-Za-z0-9']+", line)) > max_words:
             errors.append("cover line is too long for layout")
 
@@ -300,9 +314,9 @@ def generate_carousel_content(article):
        - Create a 2-line 'Tease + Punch' structure using a newline (\n).
        - Line 1 (The Tease): A punchy, news-style hook phrase that is ORIGINAL and not overused. Examples: 'WE CAN'T WAIT ANY LONGER', 'NO MORE DELAYS', 'FINALLY DISCOVERED', 'NEW BREAKTHROUGH'.
        - **FORBIDDEN**: DO NOT use the phrase 'THE TRUTH IS OUT' or anything similar to conspiracy theories.
-       - Line 1 must be 2-4 words only.
-       - Line 2 (The Punch): The specific medical breakthrough in 3-6 words only.
-       - TOTAL HARD LIMIT: maximum 10 words across both lines.
+       - Line 1 must be 2-3 words only.
+       - Line 2 (The Punch): The specific medical breakthrough in 2-4 words only.
+       - TOTAL HARD LIMIT: maximum 7 words across both lines.
        - Example: "WE CAN'T WAIT ANY LONGER\nTHE ALZHEIMER'S CURE IS HERE"
     
     6. SMART FIRST COMMENT (VIRAL ENGAGEMENT):
@@ -331,7 +345,7 @@ def generate_carousel_content(article):
     {{
       "theme_color": "blue | purple | green | red",
       "carousel_data": {{
-        "cover": "TEASE PHRASE\nSPECIFIC BREAKTHROUGH (Max 10 words total)",
+        "cover": "TEASE PHRASE\nSPECIFIC BREAKTHROUGH (Max 7 words total)",
         "cover_cta": "TAP TO LEARN MORE ➔",
         "slide_1_title": "THE BREAKTHROUGH: 3-word punchy header",
         "slide_1_body": "60-70 word detailed, academic explanation of the discovery with <b>bold</b> terms...",

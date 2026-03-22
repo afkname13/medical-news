@@ -25,6 +25,11 @@ TERM_HINTS = {
     "alzheimer": ["brain scan", "memory clinic", "neurology research"],
     "cells": ["microscope cells", "cell culture laboratory", "biomedical microscopy"],
     "gene": ["genetics laboratory", "dna sequencing", "molecular biology"],
+    "genetic": ["genetics laboratory", "dna sequencing", "chromosome analysis", "genome research"],
+    "chromosome": ["chromosome analysis", "genetics laboratory", "dna sequencing", "microscope chromosomes"],
+    "male": ["mens health research", "male patient clinical", "sex differences research"],
+    "aging": ["aging research", "longevity science", "older patient clinical"],
+    "lifespan": ["aging research", "longevity science", "population health"],
     "doctors": ["hospital policy meeting", "clinical team discussion", "medical ethics"],
 }
 
@@ -256,6 +261,8 @@ def _photo_score(photo_blob, relevance_terms):
     for keyword in ["laboratory", "monitor", "scan", "microscope", "hospital", "medical", "clinical", "research"]:
         if keyword in haystack:
             score += 1
+    if any(keyword in haystack for keyword in ["dna", "genome", "chromosome", "cell", "pathology", "wearable", "smartwatch", "cardiology"]):
+        score += 2
     return score
 
 def generate_ai_image(prompt, save_path, article_context=None):
