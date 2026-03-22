@@ -42,6 +42,10 @@ TERM_HINTS = {
 IMAGE_HISTORY_FILE = "used_image_assets.json"
 LAST_IMAGE_REPORT = {}
 
+def _concept_signature(text):
+    words = _extract_relevance_terms(text or "")
+    return " ".join(sorted(words[:6]))
+
 def _save_response_image(image_bytes, save_path):
     with open(save_path, 'wb') as f:
         f.write(image_bytes)
@@ -85,11 +89,13 @@ def _save_used_assets(items):
 
 def _remember_asset(source, asset_id, asset_url, query):
     history = _load_used_assets()
+    concept_signature = _concept_signature(query)
     history.append({
         "source": source,
         "asset_id": str(asset_id),
         "asset_url": asset_url,
         "query": query,
+        "concept_signature": concept_signature,
     })
     _save_used_assets(history)
 
@@ -103,6 +109,12 @@ def _seen_asset(source, asset_id=None, asset_url=None):
         if asset_url and item.get("asset_url") == asset_url:
             return True
     return False
+
+def _seen_concept(concept_signature, limit=24):
+    if not concept_signature:
+        return False
+    history = _load_used_assets()[-limit:]
+    return any(item.get("concept_signature") == concept_signature for item in history)
 
 def _extract_relevance_terms(prompt, article_context=None):
     text = " ".join(filter(None, [article_context, prompt])).lower()
@@ -460,6 +472,10 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
         if access_key:
             headers = {"Authorization": f"Client-ID {access_key}"}
             for search_query in search_queries:
+                concept_signature = _concept_signature(search_query)
+                if len(search_queries) > 1 and _seen_concept(concept_signature):
+                    print(f"↩️ Skipping repeated visual concept query: {search_query}")
+                    continue
                 print(f"📸 Searching Unsplash with query: {search_query}")
                 search_url = f"https://api.unsplash.com/search/photos?query={urllib.parse.quote(search_query)}&per_page=15&orientation=portrait"
                 s_response = requests.get(search_url, headers=headers, timeout=15)
@@ -511,6 +527,10 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
         if pexels_key:
             headers = {"Authorization": pexels_key}
             for search_query in search_queries:
+                concept_signature = _concept_signature(search_query)
+                if len(search_queries) > 1 and _seen_concept(concept_signature):
+                    print(f"↩️ Skipping repeated visual concept query: {search_query}")
+                    continue
                 print(f"🔄 Searching Pexels with query: {search_query}")
                 search_url = f"https://api.pexels.com/v1/search?query={urllib.parse.quote(search_query)}&per_page=10&orientation=portrait"
                 p_response = requests.get(search_url, headers=headers, timeout=15)

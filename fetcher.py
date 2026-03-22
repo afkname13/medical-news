@@ -115,6 +115,13 @@ def extract_topic_terms(text):
         if word not in TOPIC_STOP_WORDS and not word.isdigit()
     }
 
+def topic_overlap_score(left_terms, right_terms):
+    left = set(left_terms or set())
+    right = set(right_terms or set())
+    if not left or not right:
+        return 0
+    return len(left & right) / len(left | right)
+
 def is_high_quality_article_candidate(article):
     title = (article.get("title") or "").lower().strip()
     abstract = (article.get("abstract") or "").strip()
@@ -250,6 +257,7 @@ def get_top_article(posted_data):
     # posted_data can be a list of IDs or a list of dicts
     posted_ids = set()
     posted_titles_norm = set()
+    recent_topic_sets = []
     
     # Round 54: Topic Lock - Block specific keywords for X days
     TOPIC_LOCK_DAYS = 7
@@ -264,6 +272,12 @@ def get_top_article(posted_data):
             title = item.get('title', '')
             if title:
                 posted_titles_norm.add(normalize_title(title))
+                merged_terms = set(entry_term.lower() for entry_term in item.get('topic_terms', []) or [])
+                merged_terms.update(extract_topic_terms(title))
+                merged_terms.update(extract_topic_terms(item.get('cover', '')))
+                merged_terms.update(extract_topic_terms(item.get('image_prompt', '')))
+                if merged_terms:
+                    recent_topic_sets.append(merged_terms)
             
             # Check if within Lock window
             ts_str = item.get('timestamp')
@@ -303,6 +317,12 @@ def get_top_article(posted_data):
         title_words = extract_topic_terms(a_title)
         if any(word in blocked_topics for word in title_words):
             print(f"Skipping article (Topic Lock Active): '{a_title}'")
+            continue
+        if any(
+            topic_overlap_score(title_words, prior_terms) >= 0.45 or len(title_words & prior_terms) >= 3
+            for prior_terms in recent_topic_sets[-12:]
+        ):
+            print(f"Skipping article (Recent Topic Overlap): '{a_title}'")
             continue
             
         new_articles.append(a)

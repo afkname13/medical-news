@@ -59,6 +59,33 @@ def _trim_history(items, max_items=150):
         return items
     return items[-max_items:]
 
+def _extract_topic_terms_for_history(*texts):
+    import re
+    stop_words = {
+        "medical", "research", "clinical", "health", "study", "news", "with",
+        "from", "that", "this", "into", "using", "their", "these", "those",
+    }
+    terms = []
+    for text in texts:
+        for word in re.findall(r"[A-Za-z]{4,}", text or ""):
+            lowered = word.lower()
+            if lowered in stop_words or lowered in terms:
+                continue
+            terms.append(lowered)
+    return terms[:12]
+
+def _content_signature(carousel):
+    pieces = [
+        carousel.get('cover', ''),
+        carousel.get('slide_1_title', ''),
+        carousel.get('slide_2_title', ''),
+        carousel.get('slide_1_body', '')[:180],
+        carousel.get('slide_2_body', '')[:180],
+        carousel.get('image_prompt', ''),
+        _caption_excerpt(carousel.get('caption', ''), max_words=32),
+    ]
+    return " ".join(piece.strip() for piece in pieces if piece).strip()
+
 def cleanup_old_media(media_dir, days=1):
     print(f"Cleaning up media older than {days} days...")
     now = time.time()
@@ -271,6 +298,12 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
             entry['caption_excerpt'] = _caption_excerpt(carousel.get('caption', ''))
             entry['url'] = article.get('url')
             entry['journal'] = article.get('journal')
+            entry['topic_terms'] = _extract_topic_terms_for_history(
+                article.get('title', ''),
+                carousel.get('cover', ''),
+                carousel.get('image_prompt', ''),
+            )
+            entry['content_signature'] = _content_signature(carousel)
 
         # Filter out old entry placeholder if it was just an ID string, 
         # and re-insert the updated dict entry.

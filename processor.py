@@ -276,6 +276,7 @@ def _recent_history_signals(recent_history, limit=10):
             "image_prompt": entry.get("image_prompt", ""),
             "caption_excerpt": entry.get("caption_excerpt", ""),
             "slide_titles": " ".join(entry.get("slide_titles", []) or []),
+            "content_signature": entry.get("content_signature", ""),
         })
     return signals
 
@@ -333,6 +334,22 @@ def validate_generated_payload(data, recent_history=None):
     for signal in recent_signals:
         if _similarity(slide_title_blob, signal.get("slide_titles", "")) > 0.82:
             errors.append("slide titles repeat a recent post")
+            break
+    caption_excerpt = _normalize_text(" ".join((carousel.get("caption", "") or "").split()[:28]))
+    for signal in recent_signals:
+        if _similarity(caption_excerpt, signal.get("caption_excerpt", "")) > 0.74:
+            errors.append("caption framing overlaps a recent post")
+            break
+    content_signature = _normalize_text(" ".join([
+        cover,
+        slide_title_blob,
+        carousel.get("slide_1_body", "")[:180],
+        carousel.get("slide_2_body", "")[:180],
+        image_prompt,
+    ]))
+    for signal in recent_signals:
+        if _similarity(content_signature, signal.get("content_signature", "")) > 0.76:
+            errors.append("overall post concept is too close to a recent post")
             break
 
     return errors
