@@ -15,6 +15,12 @@ IRRELEVANT_IMAGE_TERMS = [
     "portrait", "face", "person", "people", "woman", "man"
 ]
 
+ARTICLE_IMAGE_REJECT_TERMS = [
+    "beauty", "botox", "cosmetic", "discount", "sale", "cpd",
+    "coroner", "covid", "respiratory", "vascular", "ocd",
+    "unlock your beauty", "magazine", "issue cover"
+]
+
 PREFERRED_HERO_HINTS = [
     "hero", "featured", "lead", "main", "article", "story", "header",
     "cover", "og:image", "twitter:image", "figure", "image"
@@ -266,17 +272,42 @@ def _extract_article_image_urls(article_url):
         print(f"⚠️ Article image scrape failed: {e}")
         return []
 
+def _article_image_matches_context(candidate, article_context=None, article_url=None):
+    url = candidate["url"].lower()
+    hint_blob = f"{candidate.get('hint', '')} {url}".lower()
+    context_blob = (article_context or "").lower()
+    relevance_terms = _extract_relevance_terms("", article_context)
+
+    if article_url and "bmj.com" in article_url and ".short" in article_url:
+        return False
+
+    if any(term in hint_blob for term in ARTICLE_IMAGE_REJECT_TERMS if term not in context_blob):
+        return False
+
+    direct_matches = sum(1 for term in relevance_terms if term in hint_blob)
+
+    if direct_matches >= 2:
+        return True
+    if direct_matches >= 1 and candidate.get("priority", 0) >= 12:
+        return True
+
+    # Only trust high-priority article images when they are not obviously generic.
+    if candidate.get("priority", 0) >= 25 and not any(
+        token in hint_blob for token in ["cover", "issue", "bmj", "default-source", "rss", "newsletter"]
+    ):
+        return True
+
+    return False
+
 def _try_article_page_image(article_url, save_path, article_context=None):
     global LAST_IMAGE_REPORT
     candidate_urls = _extract_article_image_urls(article_url)
-    relevance_terms = _extract_relevance_terms("", article_context)
 
     for candidate in candidate_urls:
         url = candidate["url"]
         if any(term in url.lower() for term in ["logo", "icon", "avatar", "sprite"]):
             continue
-        hint_blob = f"{candidate.get('hint', '')} {article_context or ''}"
-        if candidate.get("priority", 0) < 8 and relevance_terms and _photo_score(hint_blob, relevance_terms) < 0:
+        if not _article_image_matches_context(candidate, article_context=article_context, article_url=article_url):
             continue
 
         downloaded = _download_image(url, save_path)
@@ -578,9 +609,15 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
 
     # Strategy 6: Relaxed stock-photo rescue pass.
     relaxed_queries = []
-    if article_context:
-        relaxed_queries.append(" ".join(_extract_relevance_terms("", article_context)[:3]))
-    relaxed_queries.extend(["medical research", "biomedical laboratory", "microscope cells"])
+    article_terms = _extract_relevance_terms("", article_context)
+    for term in article_terms[:4]:
+        for hint in TERM_HINTS.get(term, []):
+            if hint not in relaxed_queries:
+                relaxed_queries.append(hint)
+    if article_terms:
+        relaxed_queries.append(" ".join(article_terms[:3] + ["clinical image"]))
+        relaxed_queries.append(" ".join(article_terms[:3] + ["medical photography"]))
+    relaxed_queries.extend(["biomedical laboratory", "microscope cells"])
     relaxed_queries = [query for query in relaxed_queries if query]
 
     for search_query in relaxed_queries[:4]:
@@ -596,6 +633,8 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                     for photo in ranked[:3]:
                         asset_url = photo.get("urls", {}).get("regular")
                         if not asset_url:
+                            continue
+                        if _photo_score(photo, relevance_terms) < 2 and article_terms:
                             continue
                         downloaded_path = _download_image(asset_url, save_path)
                         if downloaded_path:
