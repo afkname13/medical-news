@@ -2,6 +2,7 @@ import os
 import json
 import time
 import re
+import html
 from difflib import SequenceMatcher
 from google import genai
 
@@ -59,6 +60,16 @@ COVER_TEASE_MAP = {
 
 def _strip_html(text):
     return re.sub(r'<[^>]+>', '', text or '')
+
+def _normalize_body_markup(text):
+    if not text:
+        return text
+    text = html.unescape(text)
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+    text = re.sub(r'__(.+?)__', r'<b>\1</b>', text)
+    text = re.sub(r'</?strong>', lambda m: '<b>' if m.group(0).startswith('<strong') else '</b>', text)
+    text = re.sub(r'(?<!<b>)\*\*(?!</b>)', '', text)
+    return text
 
 def _split_sentences(text):
     cleaned = re.sub(r'\s+', ' ', _strip_html(text)).strip()
@@ -204,6 +215,8 @@ def clean_caption(text):
         
     # Remove HTML bold tags
     text = re.sub(r'</?b>', '', text)
+    text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)
+    text = re.sub(r'__(.+?)__', r'\1', text)
     
     # Identify hashtags
     lines = text.split('\n')
@@ -367,6 +380,10 @@ def normalize_generated_payload(data, article=None):
 
     if article and "caption" in carousel:
         carousel["caption"] = append_citation_and_hashtags(carousel["caption"], article)
+
+    for body_key in ["slide_1_body", "slide_2_body"]:
+        if body_key in carousel:
+            carousel[body_key] = _normalize_body_markup(carousel[body_key])
 
     return data
 

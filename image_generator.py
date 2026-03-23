@@ -3,6 +3,8 @@ import time
 import urllib.parse
 import base64
 import requests
+import re
+import html
 from PIL import Image, ImageStat
 from playwright.sync_api import sync_playwright
 
@@ -31,6 +33,28 @@ def sanitize_display_text(text):
     for source, target in replacements.items():
         text = text.replace(source, target)
 
+    return text.strip()
+
+def format_slide_body_html(text):
+    text = sanitize_display_text(text or "")
+    text = html.unescape(text)
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+    text = re.sub(r'__(.+?)__', r'<b>\1</b>', text)
+    text = re.sub(r'</?strong>', lambda m: '<b>' if m.group(0).startswith('<strong') else '</b>', text)
+
+    placeholders = {}
+    for idx, match in enumerate(re.finditer(r'</?b>', text)):
+        token = f"__BOLDTOKEN{idx}__"
+        placeholders[token] = match.group(0)
+        text = text.replace(match.group(0), token, 1)
+
+    text = html.escape(text)
+
+    for token, tag in placeholders.items():
+        text = text.replace(html.escape(token), tag)
+
+    text = text.replace("\n", " ")
+    text = re.sub(r'(?<!<b>)\*\*(?!</b>)', '', text)
     return text.strip()
 
 def generate_html(slides_data, bg_image_url, base_dir):
@@ -341,7 +365,7 @@ def generate_html(slides_data, bg_image_url, base_dir):
     # Helper for content slides
     def make_content_slide(stitle, sbody, fraction, color):
         stitle = sanitize_display_text(stitle)
-        sbody = sanitize_display_text(sbody)
+        sbody = format_slide_body_html(sbody)
         content = f"""
         {bg_soft_html}
         <div class="bg-layer">{bg_image_html}</div>
