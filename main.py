@@ -96,7 +96,6 @@ def _image_report_matches_article(image_report, article):
         return False
     provider = image_report.get("provider")
     asset_url = (image_report.get("asset_url") or "").lower()
-    query = (image_report.get("query") or "").lower()
     article_blob = " ".join(
         part.lower() for part in [
             article.get("title", ""),
@@ -105,15 +104,15 @@ def _image_report_matches_article(image_report, article):
         ] if part
     )
 
-    suspicious_hits = [term for term in SUSPICIOUS_IMAGE_TERMS if term in asset_url and term not in article_blob]
+    suspicious_hits = [
+        term for term in SUSPICIOUS_IMAGE_TERMS
+        if term in asset_url and term not in article_blob
+    ]
     if suspicious_hits:
         return False
 
-    if provider == "article_page" and article.get("url", "").find("bmj.com") != -1 and article.get("url", "").find(".short") != -1:
-        return False
-
-    if image_report.get("source_type") == "stock_photo_rescue":
-        if query.strip() in {"medical research", "clinical image", "medical photography", "biomedical laboratory", "microscope cells"}:
+    if provider == "article_page":
+        if any(token in asset_url for token in ["default-source", "newsletter", "issue", "cover", "bmj"]):
             return False
 
     return True
