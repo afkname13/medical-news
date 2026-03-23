@@ -17,6 +17,11 @@ load_dotenv()
 PIPELINE_ROUND = "18 (Carousel Only)"
 POSTED_FILE = 'posted_articles.json'
 REPORTS_DIR = 'reports'
+SUSPICIOUS_IMAGE_TERMS = {
+    "beauty", "botox", "cosmetic", "discount", "sale", "cpd",
+    "coroner", "covid", "respiratory", "vascular", "ocd",
+    "beauty", "magazine", "issue", "newsletter",
+}
 
 def load_posted():
     if os.path.exists(POSTED_FILE):
@@ -85,6 +90,33 @@ def _content_signature(carousel):
         _caption_excerpt(carousel.get('caption', ''), max_words=32),
     ]
     return " ".join(piece.strip() for piece in pieces if piece).strip()
+
+def _image_report_matches_article(image_report, article):
+    if not image_report:
+        return False
+    provider = image_report.get("provider")
+    asset_url = (image_report.get("asset_url") or "").lower()
+    query = (image_report.get("query") or "").lower()
+    article_blob = " ".join(
+        part.lower() for part in [
+            article.get("title", ""),
+            article.get("abstract", ""),
+            article.get("journal", ""),
+        ] if part
+    )
+
+    suspicious_hits = [term for term in SUSPICIOUS_IMAGE_TERMS if term in asset_url and term not in article_blob]
+    if suspicious_hits:
+        return False
+
+    if provider == "article_page" and article.get("url", "").find("bmj.com") != -1 and article.get("url", "").find(".short") != -1:
+        return False
+
+    if image_report.get("source_type") == "stock_photo_rescue":
+        if query.strip() in {"medical research", "clinical image", "medical photography", "biomedical laboratory", "microscope cells"}:
+            return False
+
+    return True
 
 def cleanup_old_media(media_dir, days=1):
     print(f"Cleaning up media older than {days} days...")
@@ -232,6 +264,13 @@ def run_pipeline(dry_run=False, mock=False, post_carousel=True):
             print("✅ Using validated recovered image from disk after fallback chain.")
             ai_bg = bg_image
             report["image"] = get_last_image_report()
+
+        if not mock and not _image_report_matches_article(report["image"], article or {}):
+            print("❌ Error: Selected image failed final article-relevance quality gate.")
+            report["status"] = "skipped"
+            report["skip_reason"] = "image_failed_relevance_gate"
+            write_quality_report(report)
+            return
 
         if not mock and (not ai_bg or not has_valid_image_asset(ai_bg)):
             print("❌ Error: No validated article-relevant image was found. Skipping this post instead of publishing a no-image carousel.")
