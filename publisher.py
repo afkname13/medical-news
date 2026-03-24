@@ -45,16 +45,7 @@ def login_to_instagram():
     cl.set_locale("en_US")
     cl.set_country("US")
     cl.set_timezone_offset(-14400) # US Eastern Time (GMT-4)
-    
-    # 3. Verify Bot IP (Cloud Presence)
-    try:
-        import requests
-        bot_ip = requests.get('https://api.ipify.org', timeout=5).text
-        print(f"Geo-Verification: Bot is running from IP {bot_ip} (US Actions Runner) 🇺🇸")
-    except:
-        print("Geo-Verification: Could not fetch external IP. Proceeding with metadata defaults.")
-    
-    print("Geo-Targeting: Account localized to United States (En-US / SM-G960F) 🇺🇸")
+    print("Geo-Targeting: Account localized to United States metadata defaults.")
     
     # Adding a realistic delay/jitter before login/action
     jitter = random.randint(5, 15)
@@ -65,9 +56,9 @@ def login_to_instagram():
         try:
             print("Found IG_SESSION. Attempting to load session...")
             cl.set_settings(json.loads(session_data))
-            # Test session with a lightweight check
-            cl.get_timeline_feed()
-            print("Session loaded and verified via timeline!")
+            # Use a lighter account check than fetching the timeline feed.
+            cl.account_info()
+            print("Session loaded and verified.")
             return cl
         except Exception as e:
             print(f"Session invalid or expired: {e}")
@@ -139,26 +130,26 @@ def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
             simulate_browsing(cl)
             time.sleep(random.randint(15, 30))
 
-        from music_service import MusicService
-        music_svc = MusicService(cl)
-        track = music_svc.get_trending_track()
-        
         extra_data = {}
-        if track:
-            print(f"Injecting music metadata for: {track.title}")
-            extra_data = {
-                "audio_cluster_id": track.audio_cluster_id,
-                "audio_asset_id": track.id,
-                "music_params": json.dumps({
-                    "audio_asset_id": track.id,
+        if env_flag("IG_ENABLE_MUSIC", default=False):
+            from music_service import MusicService
+            music_svc = MusicService(cl)
+            track = music_svc.get_trending_track()
+            if track:
+                print(f"Injecting music metadata for: {track.title}")
+                extra_data = {
                     "audio_cluster_id": track.audio_cluster_id,
-                    "audio_asset_start_time_in_ms": 0,
-                    "product": "feed_audio",
-                    "overlap_duration_in_ms": 30000,
-                    "song_name": track.title,
-                    "artist_name": track.display_artist,
-                })
-            }
+                    "audio_asset_id": track.id,
+                    "music_params": json.dumps({
+                        "audio_asset_id": track.id,
+                        "audio_cluster_id": track.audio_cluster_id,
+                        "audio_asset_start_time_in_ms": 0,
+                        "product": "feed_audio",
+                        "overlap_duration_in_ms": 30000,
+                        "song_name": track.title,
+                        "artist_name": track.display_artist,
+                    })
+                }
 
         print(f"Uploading carousel to Instagram (Caption Length: {len(caption)} chars)...")
         media = cl.album_upload(
