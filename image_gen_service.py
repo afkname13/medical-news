@@ -47,6 +47,15 @@ TERM_HINTS = {
 
 IMAGE_HISTORY_FILE = "used_image_assets.json"
 LAST_IMAGE_REPORT = {}
+SAFE_ARTICLE_IMAGE_HOSTS = {
+    "nih.gov",
+    "cdc.gov",
+    "hhs.gov",
+    "nasa.gov",
+    "noaa.gov",
+    "usa.gov",
+    "medlineplus.gov",
+}
 
 def _concept_signature(text):
     words = _extract_relevance_terms(text or "")
@@ -212,6 +221,22 @@ def _normalize_candidate_url(url, article_url=None):
         return f"{parsed.scheme}://{parsed.netloc}{url}"
     return url
 
+def _is_safe_article_image_source(article_url, candidate_url=None):
+    allowed_hosts = set(SAFE_ARTICLE_IMAGE_HOSTS)
+    extra_hosts = os.getenv("ARTICLE_IMAGE_ALLOWLIST_DOMAINS", "")
+    for host in [item.strip().lower() for item in extra_hosts.split(",") if item.strip()]:
+        allowed_hosts.add(host)
+
+    urls_to_check = [url for url in [article_url, candidate_url] if url]
+    for url in urls_to_check:
+        host = urllib.parse.urlparse(url).netloc.lower()
+        host = host[4:] if host.startswith("www.") else host
+        if host.endswith(".gov") or host.endswith(".mil"):
+            return True
+        if any(host == allowed or host.endswith(f".{allowed}") for allowed in allowed_hosts):
+            return True
+    return False
+
 def _extract_article_image_urls(article_url):
     if not article_url:
         return []
@@ -301,11 +326,25 @@ def _article_image_matches_context(candidate, article_context=None, article_url=
 
 def _try_article_page_image(article_url, save_path, article_context=None):
     global LAST_IMAGE_REPORT
+    if not _is_safe_article_image_source(article_url):
+        print("⚖️ Skipping direct article-page image due to copyright-safe source policy.")
+        LAST_IMAGE_REPORT = {
+            "status": "skipped",
+            "provider": "article_page",
+            "source_type": "article_image",
+            "query": article_url,
+            "asset_url": None,
+            "reason": "source_not_in_safe_allowlist",
+        }
+        return None
+
     candidate_urls = _extract_article_image_urls(article_url)
 
     for candidate in candidate_urls:
         url = candidate["url"]
         if any(term in url.lower() for term in ["logo", "icon", "avatar", "sprite"]):
+            continue
+        if not _is_safe_article_image_source(article_url, url):
             continue
         if not _article_image_matches_context(candidate, article_context=article_context, article_url=article_url):
             continue
@@ -431,7 +470,12 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
         "reason": None,
     }
 
-    # Strategy 1: OpenAI image generation
+    # Strategy 1: Try a copyright-safe article page hero/social image first.
+    article_page_path = _try_article_page_image(article_url, save_path, article_context=article_context)
+    if article_page_path:
+        return article_page_path
+
+    # Strategy 2: OpenAI image generation
     openai_path = _generate_with_openai(prompt, save_path, article_context=article_context)
     if openai_path:
         LAST_IMAGE_REPORT = {
@@ -444,7 +488,7 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
         }
         return openai_path
 
-    # Strategy 2: Gemini image generation
+    # Strategy 3: Gemini image generation
     api_key = os.getenv("GEMINI_API_KEY")
     if api_key:
         client = genai.Client(api_key=api_key)
@@ -488,11 +532,6 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
 
     else:
         print("⚠️ GEMINI_API_KEY not found. Skipping AI image generation.")
-
-    # Strategy 3: Try the article page hero/social image first.
-    article_page_path = _try_article_page_image(article_url, save_path, article_context=article_context)
-    if article_page_path:
-        return article_page_path
 
     search_queries = _build_search_queries(prompt, article_context)
     relevance_terms = _extract_relevance_terms(prompt, article_context)
