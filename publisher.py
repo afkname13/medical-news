@@ -131,7 +131,8 @@ def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
             time.sleep(random.randint(15, 30))
 
         extra_data = {}
-        if env_flag("IG_ENABLE_MUSIC", default=False):
+        music_enabled = env_flag("IG_ENABLE_MUSIC", default=True)
+        if music_enabled:
             from music_service import MusicService
             music_svc = MusicService(cl)
             track = music_svc.get_trending_track()
@@ -150,6 +151,10 @@ def publish_carousel(image_paths, caption, dry_run=False, first_comment=None):
                         "artist_name": track.display_artist,
                     })
                 }
+            else:
+                print("Music metadata enabled, but no usable track was found. Continuing without music.")
+        else:
+            print("Music metadata disabled by IG_ENABLE_MUSIC.")
 
         print(f"Uploading carousel to Instagram (Caption Length: {len(caption)} chars)...")
         media = cl.album_upload(

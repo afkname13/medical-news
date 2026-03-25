@@ -73,6 +73,7 @@ jobs:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           IG_SESSION: ${{ secrets.IG_SESSION }}
+          IG_ENABLE_MUSIC: "true"
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
