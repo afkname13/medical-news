@@ -18,5 +18,12 @@
     "asset_url": "https://images.pexels.com/photos/7088522/pexels-photo-7088522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "brain scan medical photography",
     "concept_signature": "brain photography scan"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "5723875",
+    "asset_url": "https://images.pexels.com/photos/5723875/pexels-photo-5723875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "your brain sabotaging balance problems medical research laboratory",
+    "concept_signature": "balance brain laboratory problems sabotaging your"
   }
 ]
