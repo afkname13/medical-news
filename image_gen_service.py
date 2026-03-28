@@ -5,7 +5,7 @@ import requests
 import urllib.parse
 import re
 from google import genai
-from PIL import Image, ImageStat
+from PIL import Image, ImageDraw, ImageStat
 from bs4 import BeautifulSoup
 
 IRRELEVANT_IMAGE_TERMS = [
@@ -13,6 +13,11 @@ IRRELEVANT_IMAGE_TERMS = [
     "clipboard", "generic anatomy", "plastic model", "stock portrait",
     "smiling patient", "medical team", "nurse", "surgeon portrait",
     "portrait", "face", "person", "people", "woman", "man"
+]
+
+HARD_REJECT_IMAGE_TERMS = [
+    "generic anatomy", "plastic model", "stock portrait", "clip art", "cartoon",
+    "advert", "ad ", "newsletter", "issue cover"
 ]
 
 ARTICLE_IMAGE_REJECT_TERMS = [
@@ -43,6 +48,14 @@ TERM_HINTS = {
     "aging": ["aging research", "longevity science", "older patient clinical"],
     "lifespan": ["aging research", "longevity science", "population health"],
     "doctors": ["hospital policy meeting", "clinical team discussion", "medical ethics"],
+    "sleep": ["sleep laboratory", "sleep monitoring eeg", "sleep clinic patient"],
+    "dream": ["rem sleep monitoring", "sleep lab eeg", "night neuroscience"],
+    "dreams": ["rem sleep monitoring", "sleep lab eeg", "night neuroscience"],
+    "insomnia": ["sleep clinic patient", "sleep medicine lab", "sleep disorder study"],
+    "circadian": ["circadian rhythm lab", "sleep cycle monitoring", "chronobiology research"],
+    "fatigue": ["neurology fatigue clinic", "sleep disorder clinic", "clinical fatigue study"],
+    "neurology": ["neurology lab", "brain sleep study", "eeg monitoring"],
+    "rem": ["rem sleep eeg", "sleep cycle monitor", "sleep neuroscience"],
 }
 
 IMAGE_HISTORY_FILE = "used_image_assets.json"
@@ -56,6 +69,20 @@ SAFE_ARTICLE_IMAGE_HOSTS = {
     "usa.gov",
     "medlineplus.gov",
 }
+
+SEARCH_QUERY_STOP_WORDS = {
+    "ultra", "realistic", "hyper", "cinematic", "high", "tech", "sleek", "soft",
+    "ethereal", "glow", "around", "background", "team", "complex", "showing",
+    "resolution", "visualizations", "atmosphere", "calm", "futuristic", "sharp",
+    "focus", "patient", "resting", "face", "medical", "science", "research",
+    "clinical", "laboratory", "create", "instagram", "post", "visual", "image",
+}
+
+def _env_flag(name, default=False):
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
 
 def _concept_signature(text):
     words = _extract_relevance_terms(text or "")
@@ -74,18 +101,16 @@ def _extract_search_query(prompt):
     if not prompt:
         return "medical science research clinical laboratory"
 
-    blocked_terms = [
-        "8k", "hyper-realistic", "ultra-realistic", "cinematic lighting",
-        "biological realism", "microscopic detail", "anti-generic",
-        "no plastic models", "high-impact", "cold scientific realism"
-    ]
-
-    cleaned = prompt
-    for term in blocked_terms:
-        cleaned = cleaned.replace(term, "")
-
-    cleaned = " ".join(cleaned.replace(",", " ").split())
-    return f"{cleaned} medical science research clinical laboratory"
+    raw_words = re.findall(r"[a-zA-Z]{3,}", prompt.lower())
+    keywords = []
+    for word in raw_words:
+        if word in SEARCH_QUERY_STOP_WORDS:
+            continue
+        if word not in keywords:
+            keywords.append(word)
+    if not keywords:
+        return "medical research laboratory"
+    return " ".join((keywords[:6] + ["medical", "photography"]))
 
 def _load_used_assets():
     if not os.path.exists(IMAGE_HISTORY_FILE):
@@ -156,6 +181,7 @@ def _build_search_queries(prompt, article_context=None):
 
     def add_query(text):
         normalized = " ".join(text.split())
+        normalized = " ".join(normalized.split()[:10])
         if normalized and normalized not in queries:
             queries.append(normalized)
 
@@ -172,9 +198,53 @@ def _build_search_queries(prompt, article_context=None):
         add_query(" ".join(combined_terms[:4] + ["clinical research"]))
 
     if article_context:
-        add_query(f"{article_context} medical research")
+        context_terms = _extract_relevance_terms("", article_context)
+        if context_terms:
+            add_query(" ".join(context_terms[:4] + ["medical photography"]))
+        add_query("sleep laboratory medical photography")
+        add_query("clinical research laboratory portrait orientation")
 
-    return queries[:5]
+    return queries[:7]
+
+def _topic_palette(seed_blob):
+    lowered = (seed_blob or "").lower()
+    if any(token in lowered for token in ["sleep", "dream", "circadian", "rem", "fatigue"]):
+        return ((16, 34, 66), (45, 95, 148), (118, 180, 228))
+    if any(token in lowered for token in ["cancer", "tumor", "oncology"]):
+        return ((34, 18, 30), (115, 37, 66), (214, 97, 120))
+    if any(token in lowered for token in ["heart", "cardio", "vascular"]):
+        return ((32, 18, 26), (130, 45, 62), (217, 105, 118))
+    return ((12, 40, 74), (27, 88, 122), (114, 182, 211))
+
+def _generate_local_fallback_image(save_path, prompt=None, article_context=None):
+    seed_blob = " ".join(part for part in [prompt or "", article_context or ""] if part).lower()
+    try:
+        width, height = 1024, 1536
+        dark, mid, light = _topic_palette(seed_blob)
+        base = Image.new("RGBA", (width, height), dark + (255,))
+        draw = ImageDraw.Draw(base)
+
+        for y in range(height):
+            t = y / max(1, height - 1)
+            r = int(dark[0] + (mid[0] - dark[0]) * t)
+            g = int(dark[1] + (mid[1] - dark[1]) * t)
+            b = int(dark[2] + (mid[2] - dark[2]) * t)
+            draw.line([(0, y), (width, y)], fill=(r, g, b, 255))
+
+        overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+        od = ImageDraw.Draw(overlay)
+        od.ellipse((-120, 110, 600, 820), fill=light + (64,))
+        od.ellipse((450, -80, 1180, 600), fill=light + (54,))
+        od.ellipse((220, 820, 980, 1560), fill=mid + (42,))
+        od.rounded_rectangle((120, 170, 904, 1366), radius=64, outline=(220, 236, 248, 38), width=3)
+        od.rounded_rectangle((160, 210, 864, 1326), radius=58, outline=(220, 236, 248, 22), width=2)
+
+        result = Image.alpha_composite(base, overlay).convert("RGB")
+        result.save(save_path, format="JPEG", quality=92, optimize=True)
+        return save_path if _image_has_visual_content(save_path) else None
+    except Exception as e:
+        print(f"⚠️ Local synthetic fallback image failed: {e}")
+        return None
 
 def _image_has_visual_content(path):
     try:
@@ -429,14 +499,34 @@ def _generate_with_openai(prompt, save_path, article_context=None):
     return None
 
 def _photo_matches_context(photo_blob, relevance_terms):
+    return _photo_rejection_reason(photo_blob, relevance_terms) is None
+
+def _photo_rejection_reason(photo_blob, relevance_terms):
     haystack = " ".join(str(photo_blob).lower().split())
-    if any(term in haystack for term in IRRELEVANT_IMAGE_TERMS):
-        return False
+
+    hard_hit = next((term for term in HARD_REJECT_IMAGE_TERMS if term in haystack), None)
+    if hard_hit:
+        return f"hard_reject_term:{hard_hit}"
+
     if not relevance_terms:
-        return True
+        return None
+
     matches = sum(1 for term in relevance_terms if term in haystack)
     min_matches = 2 if len(relevance_terms) >= 3 else 1
-    return matches >= min_matches
+    if matches >= min_matches:
+        return None
+
+    sleep_context = any(token in " ".join(relevance_terms) for token in [
+        "sleep", "dream", "dreams", "rem", "circadian", "fatigue", "neurology", "brain"
+    ])
+    if sleep_context and matches >= 1:
+        return None
+
+    soft_hit = next((term for term in IRRELEVANT_IMAGE_TERMS if term in haystack), None)
+    if soft_hit:
+        return f"soft_reject_term:{soft_hit}"
+
+    return f"insufficient_topic_match:{matches}_of_{min_matches}"
 
 def _photo_score(photo_blob, relevance_terms):
     haystack = " ".join(str(photo_blob).lower().split())
@@ -444,9 +534,12 @@ def _photo_score(photo_blob, relevance_terms):
     for term in relevance_terms:
         if term in haystack:
             score += 3
-    for term in IRRELEVANT_IMAGE_TERMS:
+    for term in HARD_REJECT_IMAGE_TERMS:
         if term in haystack:
-            score -= 5
+            score -= 8
+    for term in IRRELEVANT_IMAGE_TERMS:
+        if term in haystack and term not in HARD_REJECT_IMAGE_TERMS:
+            score -= 2
     # Reward images with stronger descriptive metadata.
     for keyword in ["laboratory", "monitor", "scan", "microscope", "hospital", "medical", "clinical", "research"]:
         if keyword in haystack:
@@ -468,7 +561,13 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
         "query": None,
         "asset_url": None,
         "reason": None,
+        "diagnostics": [],
     }
+    diagnostics = []
+
+    def add_diag(stage, message):
+        if len(diagnostics) < 35:
+            diagnostics.append({"stage": stage, "message": message})
 
     # Strategy 1: Try a copyright-safe article page hero/social image first.
     article_page_path = _try_article_page_image(article_url, save_path, article_context=article_context)
@@ -550,19 +649,28 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                 search_url = f"https://api.unsplash.com/search/photos?query={urllib.parse.quote(search_query)}&per_page=15&orientation=portrait"
                 s_response = requests.get(search_url, headers=headers, timeout=15)
                 if s_response.status_code != 200:
+                    add_diag("unsplash", f"http_{s_response.status_code} query={search_query}")
                     continue
                 results = s_response.json().get("results", [])
                 if not results:
+                    add_diag("unsplash", f"no_results query={search_query}")
                     continue
 
                 fresh_results = [
                     photo for photo in results
                     if not _seen_asset("unsplash", asset_id=photo.get("id"), asset_url=photo.get("urls", {}).get("regular"))
                 ]
+                if not fresh_results:
+                    add_diag("unsplash", f"all_seen_before query={search_query}")
+                    continue
                 ranked_results = [
                     photo for photo in fresh_results
                     if _photo_matches_context(photo, relevance_terms)
                 ]
+                if not ranked_results:
+                    for photo in fresh_results[:3]:
+                        reason = _photo_rejection_reason(photo, relevance_terms) or "score_filtered"
+                        add_diag("unsplash", f"reject id={photo.get('id')} reason={reason}")
                 if not ranked_results:
                     ranked_results = sorted(
                         fresh_results,
@@ -571,6 +679,9 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                     )
 
                 ranked_results = [photo for photo in ranked_results if _photo_score(photo, relevance_terms) > 0]
+                if not ranked_results:
+                    add_diag("unsplash", f"ranked_nonpositive_scores query={search_query}")
+                    continue
                 for photo in ranked_results[:5]:
                     asset_url = photo["urls"]["regular"]
                     print(f"✅ Found Unsplash photo candidate: {photo['id']} by {photo['user']['name']}")
@@ -586,10 +697,13 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                             "query": search_query,
                             "asset_url": asset_url,
                             "reason": str(photo.get("id")),
+                            "diagnostics": diagnostics,
                         }
                         return downloaded_path
+                add_diag("unsplash", f"download_failed_for_top_candidates query={search_query}")
     except Exception as e:
         print(f"⚠️ Unsplash strategy failed: {str(e)}")
+        add_diag("unsplash", f"exception:{str(e)[:120]}")
 
     # Strategy 5: Pexels API (Backup Strategy)
     try:
@@ -605,19 +719,28 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                 search_url = f"https://api.pexels.com/v1/search?query={urllib.parse.quote(search_query)}&per_page=10&orientation=portrait"
                 p_response = requests.get(search_url, headers=headers, timeout=15)
                 if p_response.status_code != 200:
+                    add_diag("pexels", f"http_{p_response.status_code} query={search_query}")
                     continue
                 photos = p_response.json().get("photos", [])
                 if not photos:
+                    add_diag("pexels", f"no_results query={search_query}")
                     continue
 
                 fresh_photos = [
                     photo for photo in photos
                     if not _seen_asset("pexels", asset_id=photo.get("id"), asset_url=photo.get("src", {}).get("large2x"))
                 ]
+                if not fresh_photos:
+                    add_diag("pexels", f"all_seen_before query={search_query}")
+                    continue
                 ranked_photos = [
                     photo for photo in fresh_photos
                     if _photo_matches_context(photo, relevance_terms)
                 ]
+                if not ranked_photos:
+                    for photo in fresh_photos[:3]:
+                        reason = _photo_rejection_reason(photo, relevance_terms) or "score_filtered"
+                        add_diag("pexels", f"reject id={photo.get('id')} reason={reason}")
                 if not ranked_photos:
                     ranked_photos = sorted(
                         fresh_photos,
@@ -626,6 +749,9 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                     )
 
                 ranked_photos = [photo for photo in ranked_photos if _photo_score(photo, relevance_terms) > 0]
+                if not ranked_photos:
+                    add_diag("pexels", f"ranked_nonpositive_scores query={search_query}")
+                    continue
                 for photo in ranked_photos[:5]:
                     asset_url = photo["src"]["large2x"]
                     print(f"✅ Found Pexels photo candidate: {photo['id']}")
@@ -641,10 +767,13 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                             "query": search_query,
                             "asset_url": asset_url,
                             "reason": str(photo.get("id")),
+                            "diagnostics": diagnostics,
                         }
                         return downloaded_path
+                add_diag("pexels", f"download_failed_for_top_candidates query={search_query}")
     except Exception as e:
         print(f"⚠️ Pexels strategy failed: {str(e)}")
+        add_diag("pexels", f"exception:{str(e)[:120]}")
 
     # Strategy 6: Relaxed stock-photo rescue pass.
     relaxed_queries = []
@@ -668,6 +797,9 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                 s_response = requests.get(search_url, headers=headers, timeout=15)
                 if s_response.status_code == 200:
                     results = s_response.json().get("results", [])
+                    if not results:
+                        add_diag("unsplash_rescue", f"no_results query={search_query}")
+                        continue
                     ranked = sorted(results, key=lambda photo: _photo_score(photo, relevance_terms), reverse=True)
                     for photo in ranked[:3]:
                         asset_url = photo.get("urls", {}).get("regular")
@@ -687,10 +819,13 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
                                 "query": search_query,
                                 "asset_url": asset_url,
                                 "reason": f"rescue:{photo.get('id')}",
+                                "diagnostics": diagnostics,
                             }
                             return downloaded_path
+                    add_diag("unsplash_rescue", f"no_downloadable_candidate query={search_query}")
         except Exception as e:
             print(f"⚠️ Relaxed Unsplash rescue failed: {e}")
+            add_diag("unsplash_rescue", f"exception:{str(e)[:120]}")
 
     if has_valid_image_asset(save_path):
         print(f"✅ Recovered valid image already saved at {save_path}")
@@ -701,8 +836,29 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
             "query": prompt,
             "asset_url": save_path,
             "reason": "existing_valid_file",
+            "diagnostics": diagnostics,
         }
         return save_path
+
+    # Strategy 7: Optional local synthetic fallback (off by default).
+    if _env_flag("ALLOW_LOCAL_IMAGE_FALLBACK", default=False):
+        local_fallback_path = _generate_local_fallback_image(
+            save_path,
+            prompt=prompt,
+            article_context=article_context,
+        )
+        if local_fallback_path:
+            print(f"✅ Using local synthetic fallback image: {save_path}")
+            LAST_IMAGE_REPORT = {
+                "status": "selected",
+                "provider": "local_fallback",
+                "source_type": "generated_local",
+                "query": prompt,
+                "asset_url": None,
+                "reason": "synthetic_gradient_backdrop",
+                "diagnostics": diagnostics,
+            }
+            return local_fallback_path
 
     print("❌ No validated image source found. Refusing to render a no-image post.")
     LAST_IMAGE_REPORT = {
@@ -712,6 +868,7 @@ def generate_ai_image(prompt, save_path, article_context=None, article_url=None,
         "query": prompt,
         "asset_url": None,
         "reason": "no_valid_image_source",
+        "diagnostics": diagnostics,
     }
     return None
 
