@@ -137,5 +137,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079917886-a6994ae0d7f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxzdGlmZiUyMGRlZmVuc2UlMjBwaHlzaWNhbCUyMHJpZ2lkaXR5JTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NTA4NzYwMXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "stiff defense physical rigidity biomedical microscopy",
     "concept_signature": "biomedical defense microscopy physical rigidity stiff"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8442498",
+    "asset_url": "https://images.pexels.com/photos/8442498/pexels-photo-8442498.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "john robert martin fajohn born medical research laboratory",
+    "concept_signature": "born fajohn john laboratory martin robert"
   }
 ]
