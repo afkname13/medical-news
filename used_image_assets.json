@@ -151,5 +151,12 @@
     "asset_url": "https://images.unsplash.com/photo-1581594549713-200463fcd4ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxsdW5nJTIwY2FuY2VyJTIwc3VyZ2VyeSUyMHNhZmUlMjBtYW55JTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1MTUzMDcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "lung cancer surgery safe many medical research laboratory",
     "concept_signature": "cancer laboratory lung many safe surgery"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "J8fXxhqTJ0U",
+    "asset_url": "https://images.unsplash.com/photo-1576765608741-911f44c98546?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjb3VsZCUyMHByb3RlY3QlMjB2aXNpb24lMjBjZWxscyUyMGZhY2VzJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1MTczODk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "could protect vision cells faces medical research laboratory",
+    "concept_signature": "cells could faces laboratory protect vision"
   }
 ]
