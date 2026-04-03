@@ -158,5 +158,12 @@
     "asset_url": "https://images.unsplash.com/photo-1576765608741-911f44c98546?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjb3VsZCUyMHByb3RlY3QlMjB2aXNpb24lMjBjZWxscyUyMGZhY2VzJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1MTczODk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "could protect vision cells faces medical research laboratory",
     "concept_signature": "cells could faces laboratory protect vision"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "4226119",
+    "asset_url": "https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "exposome brain aging across countries medical research laboratory",
+    "concept_signature": "across aging brain countries exposome laboratory"
   }
 ]
