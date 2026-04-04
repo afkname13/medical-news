@@ -179,5 +179,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxjYWxjaXVtJTIwY2hhbm5lbCUyMG11dGF0aW9ucyUyMGRpc3J1cHQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc1MjYwMTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "calcium channel mutations disrupt biomedical microscopy",
     "concept_signature": "biomedical calcium channel disrupt microscopy mutations"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "9893839",
+    "asset_url": "https://images.pexels.com/photos/9893839/pexels-photo-9893839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "potential universal shot intranasal vaccine medical research laboratory",
+    "concept_signature": "intranasal laboratory potential shot universal vaccine"
   }
 ]
