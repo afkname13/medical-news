@@ -214,5 +214,12 @@
     "asset_url": "https://images.unsplash.com/photo-1639154968821-6dbc3efb8d23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxjb3VsZCUyMHRyYW5zZm9ybSUyMGVkdWNhdGlvbiUyMGV5ZSUyMGNhcmUlMjBiaW9tZWRpY2FsJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3NzU0MTE1MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "could transform education eye care biomedical medical photography",
     "concept_signature": "biomedical care could education photography transform"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "wDxFn_dBEC0",
+    "asset_url": "https://images.unsplash.com/photo-1582560475093-ba66accbc424?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHx0b29sJTIwcHJlZGljdHMlMjB3aGV0aGVyJTIwYWdncmVzc2l2ZSUyMHNtYWxsJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1NDMzMDI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "tool predicts whether aggressive small medical research laboratory",
+    "concept_signature": "aggressive laboratory predicts small tool whether"
   }
 ]
