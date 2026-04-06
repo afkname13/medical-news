@@ -221,5 +221,12 @@
     "asset_url": "https://images.unsplash.com/photo-1582560475093-ba66accbc424?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHx0b29sJTIwcHJlZGljdHMlMjB3aGV0aGVyJTIwYWdncmVzc2l2ZSUyMHNtYWxsJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1NDMzMDI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "tool predicts whether aggressive small medical research laboratory",
     "concept_signature": "aggressive laboratory predicts small tool whether"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8442369",
+    "asset_url": "https://images.pexels.com/photos/8442369/pexels-photo-8442369.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "diabetes drug metformin echo benefits medical research laboratory",
+    "concept_signature": "benefits diabetes drug echo laboratory metformin"
   }
 ]
