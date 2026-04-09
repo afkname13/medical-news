@@ -284,5 +284,12 @@
     "asset_url": "https://images.unsplash.com/photo-1770836037423-641b7c358bec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxuZXVyb2xvZ3klMjByZXNlYXJjaCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzc1NjkyNDg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "neurology research medical photography",
     "concept_signature": "neurology photography"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "9rz5x8LGBb8",
+    "asset_url": "https://images.unsplash.com/photo-1745270917331-787c80129680?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxoaWRkZW4lMjB0cmFkZW9mZiUyMGJlaGluZCUyMHRvZGF5JTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NTc0NjkxNHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hidden tradeoff behind today scientific visualization",
+    "concept_signature": "behind hidden scientific today tradeoff visualization"
   }
 ]
