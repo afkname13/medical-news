@@ -291,5 +291,12 @@
     "asset_url": "https://images.unsplash.com/photo-1745270917331-787c80129680?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxoaWRkZW4lMjB0cmFkZW9mZiUyMGJlaGluZCUyMHRvZGF5JTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NTc0NjkxNHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "hidden tradeoff behind today scientific visualization",
     "concept_signature": "behind hidden scientific today tradeoff visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "pzhmgzgL1Sk",
+    "asset_url": "https://images.unsplash.com/photo-1583912268179-ccc39663824a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHx5b3VyJTIwYnJhaW4lMjBjb3VsZCUyMGhlbHAlMjBzb2x2ZSUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NTc1ODM4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "your brain could help solve medical research laboratory",
+    "concept_signature": "brain could help laboratory solve your"
   }
 ]
