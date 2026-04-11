@@ -333,5 +333,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707861107091-2a32ba07fe06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHx1bnVzdWFsJTIwYWlyYm9ybmUlMjB0b3hpbiUyMGRldGVjdGVkJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NTkxNjE4NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "unusual airborne toxin detected scientific visualization",
     "concept_signature": "airborne detected scientific toxin unusual visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "PP5nO5gcLdA",
+    "asset_url": "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGhvdG9ncmFwaHklMjBkaXZlcnNlJTIwc2NpZW50aXN0cyUyMGZpZWxkJTIwdGhleSUyMGFyZSUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzc1OTI5OTE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography diverse scientists field they are medical photography",
+    "concept_signature": "diverse field photography they"
   }
 ]
