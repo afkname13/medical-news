@@ -347,5 +347,12 @@
     "asset_url": "https://images.unsplash.com/photo-1549925245-f20a1bac6454?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxicmFpbiUyMGRlZmF1bHQlMjBtb2RlJTIwbmV0d29yayUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3NzU5NTE1MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "brain default mode network biomedical microscopy",
     "concept_signature": "biomedical brain default microscopy mode network"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "qa3_bM3VMPc",
+    "asset_url": "https://images.unsplash.com/photo-1717445121817-c4c4e5b5ddbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxwdXN0dWxhciUyMGVydXB0aW9uJTIwcGFsbSUyMHByZXNjaG9vbCUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzYwMDI3MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "pustular eruption palm preschool scientific visualization",
+    "concept_signature": "eruption palm preschool pustular scientific visualization"
   }
 ]
