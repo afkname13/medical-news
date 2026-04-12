@@ -361,5 +361,12 @@
     "asset_url": "https://images.unsplash.com/photo-1614308459036-779d0dfe51ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8Y2xpbmljaWFucyUyMG5lZWQlMjBtb3JlJTIwYWNjdXJhdGUlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc2MDE2NDYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "clinicians need more accurate biomedical microscopy",
     "concept_signature": "accurate biomedical clinicians microscopy more need"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "ByYuOf4PIIw",
+    "asset_url": "https://images.unsplash.com/photo-1707386821166-4221717fcf8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8Y2FuY2VyJTIwY2VsbHMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3NjAzNzk3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "cancer cells medical photography",
+    "concept_signature": "cancer cells photography"
   }
 ]
