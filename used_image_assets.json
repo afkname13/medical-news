@@ -368,5 +368,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707386821166-4221717fcf8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8Y2FuY2VyJTIwY2VsbHMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3NjAzNzk3NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "cancer cells medical photography",
     "concept_signature": "cancer cells photography"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "mAGZNECMcUg",
+    "asset_url": "https://images.unsplash.com/photo-1605289982774-9a6fef564df8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8b2Jlc2l0eSUyMGRlcmFpbCUyMHZhY2NpbmUlMjByZXNwb25zZSUyMGZvcmNpbmclMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzYwOTIzMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "obesity derail vaccine response forcing medical research laboratory",
+    "concept_signature": "derail forcing laboratory obesity response vaccine"
   }
 ]
