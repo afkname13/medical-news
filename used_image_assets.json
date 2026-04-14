@@ -396,5 +396,12 @@
     "asset_url": "https://images.unsplash.com/photo-1642098410625-daaa51759888?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwaG90b2dyYXBoeSUyMGxhYiUyMHNldHRpbmclMjB3aGVyZSUyMHNjaWVudGlzdCUyMHVzZXMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3NjE3ODcxMXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography lab setting where scientist uses medical photography",
     "concept_signature": "photography setting uses where"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "916UCiGF2As",
+    "asset_url": "https://images.unsplash.com/flagged/photo-1563192114-10457fe93b23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxtaXhlZCUyMHJlYWxpdHklMjBwbGF0Zm9ybSUyMHBlcmZvcm1zJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NjE5MDc5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "mixed reality platform performs scientific visualization",
+    "concept_signature": "mixed performs platform reality scientific visualization"
   }
 ]
