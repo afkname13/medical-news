@@ -403,5 +403,12 @@
     "asset_url": "https://images.unsplash.com/flagged/photo-1563192114-10457fe93b23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxtaXhlZCUyMHJlYWxpdHklMjBwbGF0Zm9ybSUyMHBlcmZvcm1zJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NjE5MDc5OHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "mixed reality platform performs scientific visualization",
     "concept_signature": "mixed performs platform reality scientific visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "2pxjwLKlz6Y",
+    "asset_url": "https://images.unsplash.com/photo-1758573466927-87ba2f725c7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxhZnRlciUyMHRocmVlJTIweWVhcnMlMjBjb25mbGljdCUyMHN1ZGFuJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc2MjExMjczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "after three years conflict sudan medical research laboratory",
+    "concept_signature": "after conflict laboratory sudan three years"
   }
 ]
