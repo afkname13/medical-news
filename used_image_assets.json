@@ -424,5 +424,12 @@
     "asset_url": "https://images.unsplash.com/photo-1716637644831-e046c73be197?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxwaG90b2dyYXBoeSUyMGh1bWFuJTIwYnJhaW4lMjB2aXN1YWxpemF0aW9uJTIwd2hlcmUlMjBuZXVyYWwlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3NjI3NzA4NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography human brain visualization where neural medical photography",
     "concept_signature": "brain human neural photography visualization where"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "_2XBJVy9Z9E",
+    "asset_url": "https://images.unsplash.com/photo-1707862159533-caf8ddfe9cec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxkb2luZyUyMHRocm91Z2hvdXQlMjBsaWZlJTIwYWx6aGVpbWVyJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NjI5NzY0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "doing throughout life alzheimer biomedical microscopy",
+    "concept_signature": "alzheimer biomedical doing life microscopy throughout"
   }
 ]
