@@ -494,5 +494,12 @@
     "asset_url": "https://images.unsplash.com/photo-1630959300412-fe5827ce8fe2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxlYXRpbmclMjBtb3JlJTIwZnJ1aXRzJTIwdmVnZXRhYmxlcyUyMHRpZWQlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzY1NTYzODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "eating more fruits vegetables tied medical research laboratory",
     "concept_signature": "eating fruits laboratory more tied vegetables"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "4226139",
+    "asset_url": "https://images.pexels.com/photos/4226139/pexels-photo-4226139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "printed brain sensors unlock personalized medical research laboratory",
+    "concept_signature": "brain laboratory personalized printed sensors unlock"
   }
 ]
