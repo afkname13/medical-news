@@ -501,5 +501,12 @@
     "asset_url": "https://images.pexels.com/photos/4226139/pexels-photo-4226139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "printed brain sensors unlock personalized medical research laboratory",
     "concept_signature": "brain laboratory personalized printed sensors unlock"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "35444722",
+    "asset_url": "https://images.pexels.com/photos/35444722/pexels-photo-35444722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "cardiorespiratory fitness dementia depression psychosis medical research laboratory",
+    "concept_signature": "cardiorespiratory dementia depression fitness laboratory psychosis"
   }
 ]
