@@ -522,5 +522,12 @@
     "asset_url": "https://images.unsplash.com/photo-1587010579793-d870e1f79325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3NzY2OTcyMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "radiology imaging medical photography",
     "concept_signature": "imaging photography radiology"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "XLoEnIf4FLM",
+    "asset_url": "https://images.unsplash.com/photo-1628641538565-135707638a61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxwaHlzaWNpc3RzJTIwcmVmdXRlJTIwZmFtb3VzJTIwY2xhaW1pbmclMjBkYXlsaWdodCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NjcwODcwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "physicists refute famous claiming daylight medical research laboratory",
+    "concept_signature": "claiming daylight famous laboratory physicists refute"
   }
 ]
