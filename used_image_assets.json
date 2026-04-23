@@ -571,5 +571,12 @@
     "asset_url": "https://images.unsplash.com/photo-1671063125680-a2ebbebfbae5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxvbGRlciUyMGFkdWx0cyUyMHJpc2UlMjBjaGFpciUyMGluZmx1ZW5jZSUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3Njg4MTcxNnww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "older adults rise chair influence medical research laboratory",
     "concept_signature": "adults chair influence laboratory older rise"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "9574458",
+    "asset_url": "https://images.pexels.com/photos/9574458/pexels-photo-9574458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "overlooked brain damage sets chain medical research laboratory",
+    "concept_signature": "brain chain damage laboratory overlooked sets"
   }
 ]
