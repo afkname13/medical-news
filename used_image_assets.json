@@ -578,5 +578,12 @@
     "asset_url": "https://images.pexels.com/photos/9574458/pexels-photo-9574458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "overlooked brain damage sets chain medical research laboratory",
     "concept_signature": "brain chain damage laboratory overlooked sets"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "kTYPcIl_TZI",
+    "asset_url": "https://images.unsplash.com/photo-1691821601951-cb74caa0c3fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHx0aGVzZSUyMHllYXIlMjBvbGRzJTIwaGF2ZSUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzY5NTc3OTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "these year olds have scientific visualization",
+    "concept_signature": "have olds scientific these visualization year"
   }
 ]
