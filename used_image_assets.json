@@ -599,5 +599,12 @@
     "asset_url": "https://images.unsplash.com/photo-1724106588956-6ac1137f53bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxzaW1wbGUlMjBibG9vZCUyMHRlc3QlMjBjb3VsZCUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzY5ODkwNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "simple blood test could scientific visualization",
     "concept_signature": "blood could scientific simple test visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "6129877",
+    "asset_url": "https://images.pexels.com/photos/6129877/pexels-photo-6129877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "largest catch initiative delivers over medical research laboratory",
+    "concept_signature": "catch delivers initiative laboratory largest over"
   }
 ]
