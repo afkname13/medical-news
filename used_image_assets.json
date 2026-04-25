@@ -634,5 +634,12 @@
     "asset_url": "https://images.unsplash.com/photo-1748280317551-affaec88027d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8aGFsZiUyMGhlYWx0aCUyMGFuc3dlcnMlMjB3cm9uZyUyMGV2ZW4lMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzcxMzk5MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "half health answers wrong even medical research laboratory",
     "concept_signature": "answers even half health laboratory wrong"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "Qv8JEwWUhSI",
+    "asset_url": "https://images.unsplash.com/photo-1639772823907-a716be4bdecc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8cmVzaWRlbnQlMjBkb2N0b3JzJTIwc3RyZWV0aW5nJTIwcG90ZW50aWFsJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NzE2MTM1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "resident doctors streeting potential biomedical microscopy",
+    "concept_signature": "biomedical doctors microscopy potential resident streeting"
   }
 ]
