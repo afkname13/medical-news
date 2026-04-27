@@ -662,5 +662,12 @@
     "asset_url": "https://images.pexels.com/photos/8532860/pexels-photo-8532860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "their parents lived diets have medical research laboratory",
     "concept_signature": "diets have laboratory lived parents their"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "j7qpmAiQrbU",
+    "asset_url": "https://images.unsplash.com/photo-1657371030154-f691f4386f4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cHJvZ3JhbSUyMHdlYXJhYmxlcyUyMGRhdGFzZXQlMjBuYXR1cmUlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc3MzAzMzU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "program wearables dataset nature scientific visualization",
+    "concept_signature": "dataset nature program scientific visualization wearables"
   }
 ]
