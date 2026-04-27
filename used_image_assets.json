@@ -669,5 +669,12 @@
     "asset_url": "https://images.unsplash.com/photo-1657371030154-f691f4386f4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cHJvZ3JhbSUyMHdlYXJhYmxlcyUyMGRhdGFzZXQlMjBuYXR1cmUlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc3MzAzMzU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "program wearables dataset nature scientific visualization",
     "concept_signature": "dataset nature program scientific visualization wearables"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "spjsRRKWkXU",
+    "asset_url": "https://images.unsplash.com/photo-1578496781481-cfbd89f9aca8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxub25pbnZhc2l2ZSUyMHByb3RvbiUyMGJlYW0lMjB0aGVyYXB5JTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NzMxNTQxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "noninvasive proton beam therapy biomedical microscopy",
+    "concept_signature": "beam biomedical microscopy noninvasive proton therapy"
   }
 ]
