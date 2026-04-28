@@ -683,5 +683,12 @@
     "asset_url": "https://images.pexels.com/photos/7723622/pexels-photo-7723622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "drugging undruggable cancer slipperiest targets medical research laboratory",
     "concept_signature": "cancer drugging laboratory slipperiest targets undruggable"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "m8MKAXARaA0",
+    "asset_url": "https://images.unsplash.com/photo-1707079918151-d5931af83f06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGVzdGljaWRlJTIwZXhwb3N1cmUlMjBsaW5rZWQlMjBoaWdoZXIlMjBjYW5jZXIlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzczOTA4MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "pesticide exposure linked higher cancer medical research laboratory",
+    "concept_signature": "cancer exposure higher laboratory linked pesticide"
   }
 ]
