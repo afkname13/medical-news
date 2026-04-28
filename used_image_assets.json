@@ -690,5 +690,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079918151-d5931af83f06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGVzdGljaWRlJTIwZXhwb3N1cmUlMjBsaW5rZWQlMjBoaWdoZXIlMjBjYW5jZXIlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzczOTA4MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "pesticide exposure linked higher cancer medical research laboratory",
     "concept_signature": "cancer exposure higher laboratory linked pesticide"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "lTZUfrst5fM",
+    "asset_url": "https://images.unsplash.com/photo-1576671494903-8e2bb9327205?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3Nzc0MDI1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "radiology imaging medical photography",
+    "concept_signature": "imaging photography radiology"
   }
 ]
