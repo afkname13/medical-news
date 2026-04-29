@@ -697,5 +697,12 @@
     "asset_url": "https://images.unsplash.com/photo-1576671494903-8e2bb9327205?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3Nzc0MDI1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "radiology imaging medical photography",
     "concept_signature": "imaging photography radiology"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "j_DmMNZK-jo",
+    "asset_url": "https://images.unsplash.com/photo-1633977264259-b3517c187e3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxzdGF0ZW1lbnQlMjBoaWdobGlnaHRzJTIwYnJhaW4lMjBoZWFsdGglMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc3NDIxMzA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "statement highlights brain health scientific visualization",
+    "concept_signature": "brain health highlights scientific statement visualization"
   }
 ]
