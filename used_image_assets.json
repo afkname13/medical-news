@@ -753,5 +753,12 @@
     "asset_url": "https://images.pexels.com/photos/8442440/pexels-photo-8442440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "treatment cuts cholesterol nearly biomedical microscopy",
     "concept_signature": "biomedical cholesterol cuts microscopy nearly treatment"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "-Vw-E-g8-S0",
+    "asset_url": "https://images.unsplash.com/photo-1750192744323-a8b05af57574?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8bmVlZCUyMGludGVuc2UlMjB3b3Jrb3V0cyUyMGJ1aWxkJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NzY1OTI1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "need intense workouts build scientific visualization",
+    "concept_signature": "build intense need scientific visualization workouts"
   }
 ]
