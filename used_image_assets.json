@@ -739,5 +739,12 @@
     "asset_url": "https://images.unsplash.com/photo-1714734848024-32ab101d3534?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHx0dXJuJTIwY2hhb3RpYyUyMGxhc2VyJTIwbGlnaHQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc3NTc0OTAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "turn chaotic laser light biomedical microscopy",
     "concept_signature": "biomedical chaotic laser light microscopy turn"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "tLI5KpfTC2s",
+    "asset_url": "https://images.unsplash.com/photo-1748404456485-f5eeb18011d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8YWdlbnRpYyUyMGZyYW1ld29yayUyMGF1dG9ub21vdXMlMjBzY2llbnRpZmljJTIwY2xpbmljYWwlMjByZXNlYXJjaHxlbnwwfDF8fHwxNzc3NTk0MDE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "agentic framework autonomous scientific clinical research",
+    "concept_signature": "agentic autonomous framework scientific"
   }
 ]
