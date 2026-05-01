@@ -746,5 +746,12 @@
     "asset_url": "https://images.unsplash.com/photo-1748404456485-f5eeb18011d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8YWdlbnRpYyUyMGZyYW1ld29yayUyMGF1dG9ub21vdXMlMjBzY2llbnRpZmljJTIwY2xpbmljYWwlMjByZXNlYXJjaHxlbnwwfDF8fHwxNzc3NTk0MDE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "agentic framework autonomous scientific clinical research",
     "concept_signature": "agentic autonomous framework scientific"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8442440",
+    "asset_url": "https://images.pexels.com/photos/8442440/pexels-photo-8442440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "treatment cuts cholesterol nearly biomedical microscopy",
+    "concept_signature": "biomedical cholesterol cuts microscopy nearly treatment"
   }
 ]
