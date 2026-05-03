@@ -774,5 +774,12 @@
     "asset_url": "https://images.pexels.com/photos/8442147/pexels-photo-8442147.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "member states agree extend negotiations medical research laboratory",
     "concept_signature": "agree extend laboratory member negotiations states"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "M-Qi-agRdFs",
+    "asset_url": "https://images.unsplash.com/photo-1619332625667-f4c6714c3e29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8Ymxvb2QlMjB2ZXNzZWxzJTIwYWN0aXZhdGUlMjBzZWxmJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3Nzc2NjUzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "blood vessels activate self biomedical microscopy",
+    "concept_signature": "activate biomedical blood microscopy self vessels"
   }
 ]
