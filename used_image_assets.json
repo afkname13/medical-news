@@ -823,5 +823,12 @@
     "asset_url": "https://images.unsplash.com/photo-1549560976-3d5e358e6e87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxzY3JhcHMlMjBtYW5kYXRvcnklMjBqYWJzJTIwc29sZGllcnMlMjB3aGF0JTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc3OTM5NzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "scraps mandatory jabs soldiers what medical research laboratory",
     "concept_signature": "jabs laboratory mandatory scraps soldiers what"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "HaclvZtbTlU",
+    "asset_url": "https://images.unsplash.com/photo-1759268175319-29c44967ca19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8dHVtb3IlMjBzY2FuJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3NzgwMDcwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "tumor scan medical photography",
+    "concept_signature": "photography scan tumor"
   }
 ]
