@@ -844,5 +844,12 @@
     "asset_url": "https://images.pexels.com/photos/36111939/pexels-photo-36111939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "sleep monitoring eeg medical photography",
     "concept_signature": "monitoring photography sleep"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8442527",
+    "asset_url": "https://images.pexels.com/photos/8442527/pexels-photo-8442527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "thoracic stent grafts recalled after medical research laboratory",
+    "concept_signature": "after grafts laboratory recalled stent thoracic"
   }
 ]
