@@ -1,10 +1,5 @@
 [
   {
-    "id": "2dac6706a66717388b0317d76896670a",
-    "title": "Scientists say this simple diet change could transform your gut health",
-    "timestamp": "2026-03-11T20:46:59.671006"
-  },
-  {
     "id": "3fda5e26cd3db233d6ec99f5a2f4643c",
     "title": "Selective targeting of endothelial and perivascular angiocrine ROCK2 treats liver fibrosis.",
     "timestamp": "2026-03-11T20:54:54.049125"
@@ -3897,5 +3892,35 @@
       "recall"
     ],
     "content_signature": "AORTA ALERT\nFATAL DEVICE RECALL RECALL HITS HOSPITALS SURGICAL RISKS RISE The FDA issued a critical recall for <b>thoracic stent graft systems</b> after three patient deaths were reported. Investigators discovered a mechanical flaw that prevents the devi This failure is significant because it forces doctors to perform <b>open surgical repair</b> without warning. Switching methods mid-surgery causes extreme stress on the heart and c Cinematic medical photography of a high-tech operating theater. A team of surgeons in blue scrubs is focused on a glowing digital monitor displaying a high-resolution 3D scan of a human aorta. The scene has sharp focus on the metallic texture of a surgical stent on a sterile tray in the foreground. Clinical realism with soft red atmospheric lighting. READ THIS! \ud83d\udea8 FATAL HEART DEVICE RECALL The FDA has issued a high-level alert regarding the Relay Pro Thoracic Stent Graft System. This device is used to patch weakened spots in the"
+  },
+  {
+    "id": "3533f60d13f750a894cfab9b9c31ab74",
+    "title": "Uncovering risk factors in the exposome for early-onset colorectal cancer",
+    "timestamp": "2026-05-07T00:07:41.679376",
+    "posted_as_carousel": true,
+    "cover": "CANCER SHIFT\nYOUNG COLONS AT RISK",
+    "image_prompt": "Cinematic medical photography of a high-tech molecular pathology lab. A researcher in a white lab coat looks at a glowing digital screen displaying a complex 3D model of a DNA strand with neon-colored chemical markers. In the background, a high-resolution microscopic image of colon tissue is visible on a secondary monitor. Clinical realism with sharp focus and soft purple atmospheric lighting.",
+    "slide_titles": [
+      "THE BREAKTHROUGH: THE EXPOSOME MAP",
+      "THE IMPACT: EARLY DETECTION REVOLUTION"
+    ],
+    "caption_excerpt": "MUST READ! \u26a0\ufe0f THE ENVIRONMENT IS CHANGING OUR CELLS Scientists have identified a terrifying rise in colon cancer among people under 50. This isn't",
+    "url": "https://www.nature.com/articles/s41591-026-04369-8",
+    "journal": "Nature Medicine",
+    "topic_terms": [
+      "uncovering",
+      "risk",
+      "factors",
+      "exposome",
+      "early",
+      "onset",
+      "colorectal",
+      "cancer",
+      "shift",
+      "young",
+      "colons",
+      "cinematic"
+    ],
+    "content_signature": "CANCER SHIFT\nYOUNG COLONS AT RISK THE BREAKTHROUGH: THE EXPOSOME MAP THE IMPACT: EARLY DETECTION REVOLUTION Scientists are sounding the alarm as <b>colorectal cancer</b> cases skyrocket in young adults. This groundbreaking study investigates the <b>exposome</b>, which is the total sum of This discovery shifts our focus from genetics to the world around us. Understanding these <b>environmental drivers</b> allows doctors to identify high risk individuals decades earl Cinematic medical photography of a high-tech molecular pathology lab. A researcher in a white lab coat looks at a glowing digital screen displaying a complex 3D model of a DNA strand with neon-colored chemical markers. In the background, a high-resolution microscopic image of colon tissue is visible on a secondary monitor. Clinical realism with sharp focus and soft purple atmospheric lighting. MUST READ! \u26a0\ufe0f THE ENVIRONMENT IS CHANGING OUR CELLS Scientists have identified a terrifying rise in colon cancer among people under 50. This isn't just about genes. It is about the exposome."
   }
 ]
