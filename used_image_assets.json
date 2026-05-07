@@ -865,5 +865,12 @@
     "asset_url": "https://images.pexels.com/photos/16882902/pexels-photo-16882902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "diabetic peripheral neuropathy broader biomedical microscopy",
     "concept_signature": "biomedical broader diabetic microscopy neuropathy peripheral"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8442283",
+    "asset_url": "https://images.pexels.com/photos/8442283/pexels-photo-8442283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "discover ozempic works better some medical research laboratory",
+    "concept_signature": "better discover laboratory ozempic some works"
   }
 ]
