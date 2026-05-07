@@ -858,5 +858,12 @@
     "asset_url": "https://images.pexels.com/photos/7723578/pexels-photo-7723578.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "uncovering risk factors exposome early medical research laboratory",
     "concept_signature": "early exposome factors laboratory risk uncovering"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "16882902",
+    "asset_url": "https://images.pexels.com/photos/16882902/pexels-photo-16882902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "diabetic peripheral neuropathy broader biomedical microscopy",
+    "concept_signature": "biomedical broader diabetic microscopy neuropathy peripheral"
   }
 ]
