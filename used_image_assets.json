@@ -886,5 +886,12 @@
     "asset_url": "https://images.unsplash.com/photo-1631562501297-33f011a2933b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8ZG9jdG9ycyUyMHdhcm4lMjBwb3B1bGFyJTIwdml0YW1pbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzgyNTI2NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "doctors warn popular vitamin scientific visualization",
     "concept_signature": "doctors popular scientific visualization vitamin warn"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "lgkareDEqKg",
+    "asset_url": "https://images.unsplash.com/photo-1748261348213-62f4c399bb72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxhbHVtaW5pdW0lMjB2YWNjaW5lJTIwc2FmZXR5JTIwZmFsc2UlMjBoeXBvdGhlc2VzJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc4MjY2MDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "aluminium vaccine safety false hypotheses medical research laboratory",
+    "concept_signature": "aluminium false hypotheses laboratory safety vaccine"
   }
 ]
