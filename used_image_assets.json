@@ -893,5 +893,12 @@
     "asset_url": "https://images.unsplash.com/photo-1748261348213-62f4c399bb72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxhbHVtaW5pdW0lMjB2YWNjaW5lJTIwc2FmZXR5JTIwZmFsc2UlMjBoeXBvdGhlc2VzJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc4MjY2MDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "aluminium vaccine safety false hypotheses medical research laboratory",
     "concept_signature": "aluminium false hypotheses laboratory safety vaccine"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "e2A7KSAe4tw",
+    "asset_url": "https://images.unsplash.com/photo-1621075020417-f08bcfe30f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cGhvdG9ncmFwaHklMjBtb2xlY3VsYXIlMjBiaW9sb2d5JTIwc2NpZW50aXN0JTIwdXNlcyUyMGdsb3dpbmclMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3ODI4NTQ3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography molecular biology scientist uses glowing medical photography",
+    "concept_signature": "biology glowing molecular photography uses"
   }
 ]
