@@ -900,5 +900,12 @@
     "asset_url": "https://images.unsplash.com/photo-1621075020417-f08bcfe30f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cGhvdG9ncmFwaHklMjBtb2xlY3VsYXIlMjBiaW9sb2d5JTIwc2NpZW50aXN0JTIwdXNlcyUyMGdsb3dpbmclMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3ODI4NTQ3NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography molecular biology scientist uses glowing medical photography",
     "concept_signature": "biology glowing molecular photography uses"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "FtSCLW-TqCE",
+    "asset_url": "https://images.unsplash.com/photo-1707079917860-bfa11b3bcb65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxoYW50YXZpcnVzJTIwc2NhcmUlMjByZXZpdmVzJTIwY292aWQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc4MzM3MTYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hantavirus scare revives covid biomedical microscopy",
+    "concept_signature": "biomedical covid hantavirus microscopy revives scare"
   }
 ]
