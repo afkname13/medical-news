@@ -907,5 +907,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079917860-bfa11b3bcb65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxoYW50YXZpcnVzJTIwc2NhcmUlMjByZXZpdmVzJTIwY292aWQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc4MzM3MTYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "hantavirus scare revives covid biomedical microscopy",
     "concept_signature": "biomedical covid hantavirus microscopy revives scare"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "6671934",
+    "asset_url": "https://images.pexels.com/photos/6671934/pexels-photo-6671934.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "obesity discovery rewrites decades scientific visualization",
+    "concept_signature": "decades discovery obesity rewrites scientific visualization"
   }
 ]
