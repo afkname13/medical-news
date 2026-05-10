@@ -921,5 +921,12 @@
     "asset_url": "https://images.unsplash.com/photo-1631558554770-74e921444006?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxkZWNpc2lvbiUyMGZhdGlndWUlMjBjb3VsZCUyMGh1cnRpbmclMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc4MzcxNTY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "decision fatigue could hurting biomedical microscopy",
     "concept_signature": "biomedical could decision fatigue hurting microscopy"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8851791",
+    "asset_url": "https://images.pexels.com/photos/8851791/pexels-photo-8851791.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "nasal spray developed prehospital emergency medical research laboratory",
+    "concept_signature": "developed emergency laboratory nasal prehospital spray"
   }
 ]
