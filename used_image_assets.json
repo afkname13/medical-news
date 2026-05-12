@@ -970,5 +970,12 @@
     "asset_url": "https://images.pexels.com/photos/33964763/pexels-photo-33964763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography where block white tofu placed medical photography",
     "concept_signature": "block photography placed tofu where white"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "3908182",
+    "asset_url": "https://images.pexels.com/photos/3908182/pexels-photo-3908182.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "simple strength test could predict medical research laboratory",
+    "concept_signature": "could laboratory predict simple strength test"
   }
 ]
