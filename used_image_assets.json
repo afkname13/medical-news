@@ -963,5 +963,12 @@
     "asset_url": "https://images.pexels.com/photos/18069488/pexels-photo-18069488.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "noninvasive deep brain stimulation scientific visualization",
     "concept_signature": "brain deep noninvasive scientific stimulation visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "33964763",
+    "asset_url": "https://images.pexels.com/photos/33964763/pexels-photo-33964763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography where block white tofu placed medical photography",
+    "concept_signature": "block photography placed tofu where white"
   }
 ]
