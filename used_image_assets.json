@@ -956,5 +956,12 @@
     "asset_url": "https://images.unsplash.com/photo-1762690717744-5fcbd4afc95a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHx5ZWFyJTIwY2hpbmVzZSUyMGV4ZXJjaXNlJTIwaGVscHMlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc4NTI2ODM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "year chinese exercise helps scientific visualization",
     "concept_signature": "chinese exercise helps scientific visualization year"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "18069488",
+    "asset_url": "https://images.pexels.com/photos/18069488/pexels-photo-18069488.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "noninvasive deep brain stimulation scientific visualization",
+    "concept_signature": "brain deep noninvasive scientific stimulation visualization"
   }
 ]
