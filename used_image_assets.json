@@ -984,5 +984,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxtaWNyb3Njb3BlJTIwY2VsbHN8ZW58MHwxfHx8MTc3ODYzMTQwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "microscope cells",
     "concept_signature": "cells microscope"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "jeT_DE3esSI",
+    "asset_url": "https://images.unsplash.com/photo-1583912267623-a5a8c1ef7b56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8cmFyZSUyMGNhbmNlciUyMGZpZ2h0aW5nJTIwcGxhbnQlMjBjb21wb3VuZCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3ODY4Nzg0MXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "rare cancer fighting plant compound medical research laboratory",
+    "concept_signature": "cancer compound fighting laboratory plant rare"
   }
 ]
