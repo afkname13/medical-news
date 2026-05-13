@@ -991,5 +991,12 @@
     "asset_url": "https://images.unsplash.com/photo-1583912267623-a5a8c1ef7b56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8cmFyZSUyMGNhbmNlciUyMGZpZ2h0aW5nJTIwcGxhbnQlMjBjb21wb3VuZCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3ODY4Nzg0MXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "rare cancer fighting plant compound medical research laboratory",
     "concept_signature": "cancer compound fighting laboratory plant rare"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7617604",
+    "asset_url": "https://images.pexels.com/photos/7617604/pexels-photo-7617604.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography modern fda boardroom with large medical photography",
+    "concept_signature": "boardroom large modern photography"
   }
 ]
