@@ -977,5 +977,12 @@
     "asset_url": "https://images.pexels.com/photos/3908182/pexels-photo-3908182.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "simple strength test could predict medical research laboratory",
     "concept_signature": "could laboratory predict simple strength test"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "iIo6hxhh4Ls",
+    "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxtaWNyb3Njb3BlJTIwY2VsbHN8ZW58MHwxfHx8MTc3ODYzMTQwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "microscope cells",
+    "concept_signature": "cells microscope"
   }
 ]
