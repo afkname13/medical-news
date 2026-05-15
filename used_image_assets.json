@@ -1033,5 +1033,12 @@
     "asset_url": "https://images.pexels.com/photos/35973234/pexels-photo-35973234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "grad student wild idea biomedical microscopy",
     "concept_signature": "biomedical grad idea microscopy student wild"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "29500560",
+    "asset_url": "https://images.pexels.com/photos/29500560/pexels-photo-29500560.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "grad student wild idea medical photography",
+    "concept_signature": "grad idea photography student wild"
   }
 ]
