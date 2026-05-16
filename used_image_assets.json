@@ -1047,5 +1047,12 @@
     "asset_url": "https://images.pexels.com/photos/6011605/pexels-photo-6011605.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "brain scan medical photography",
     "concept_signature": "brain photography scan"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7089402",
+    "asset_url": "https://images.pexels.com/photos/7089402/pexels-photo-7089402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "mri imaging medical photography",
+    "concept_signature": "imaging photography"
   }
 ]
