@@ -1054,5 +1054,12 @@
     "asset_url": "https://images.pexels.com/photos/7089402/pexels-photo-7089402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "mri imaging medical photography",
     "concept_signature": "imaging photography"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "16328960",
+    "asset_url": "https://images.pexels.com/photos/16328960/pexels-photo-16328960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography microscopic glowing silver nanoparticles navigating medical photography",
+    "concept_signature": "glowing microscopic nanoparticles navigating photography silver"
   }
 ]
