@@ -1068,5 +1068,12 @@
     "asset_url": "https://images.pexels.com/photos/29859866/pexels-photo-29859866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography microscopic glowing gold nanoparticles interacting medical photography",
     "concept_signature": "glowing gold interacting microscopic nanoparticles photography"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "BbSd_S-Mkv4",
+    "asset_url": "https://images.unsplash.com/photo-1766297247913-54717c00e79c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxwaG90b2dyYXBoeSUyMHdoZXJlJTIwc2NpZW50aXN0JTIwb2JzZXJ2aW5nJTIwYmlvcmVhY3RvciUyMGNvbnRhaW5pbmclMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3OTEzMTEzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography where scientist observing bioreactor containing medical photography",
+    "concept_signature": "bioreactor containing observing photography where"
   }
 ]
