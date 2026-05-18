@@ -1061,5 +1061,12 @@
     "asset_url": "https://images.pexels.com/photos/16328960/pexels-photo-16328960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography microscopic glowing silver nanoparticles navigating medical photography",
     "concept_signature": "glowing microscopic nanoparticles navigating photography silver"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "29859866",
+    "asset_url": "https://images.pexels.com/photos/29859866/pexels-photo-29859866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography microscopic glowing gold nanoparticles interacting medical photography",
+    "concept_signature": "glowing gold interacting microscopic nanoparticles photography"
   }
 ]
