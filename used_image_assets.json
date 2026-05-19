@@ -1089,5 +1089,12 @@
     "asset_url": "https://images.pexels.com/photos/9574512/pexels-photo-9574512.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "people lost most weight biomedical microscopy",
     "concept_signature": "biomedical lost microscopy most people weight"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "3301",
+    "asset_url": "https://images.pexels.com/photos/3301/apple-norms-size-standards.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "people lost most weight scientific visualization",
+    "concept_signature": "lost most people scientific visualization weight"
   }
 ]
