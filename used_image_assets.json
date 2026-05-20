@@ -1103,5 +1103,12 @@
     "asset_url": "https://images.pexels.com/photos/4421501/pexels-photo-4421501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography cardiology where modern digital model medical photography",
     "concept_signature": "cardiology digital model modern photography where"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "tMaYiVhG6tA",
+    "asset_url": "https://images.unsplash.com/photo-1748404493910-2bda45c03086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8ZGlzY292ZXIlMjBzdHJhbmdlJTIwbGluayUyMGJldHdlZW4lMjB2aXRhbWluJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc5Mjk0ODUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "discover strange link between vitamin medical research laboratory",
+    "concept_signature": "between discover laboratory link strange vitamin"
   }
 ]
