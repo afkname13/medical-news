@@ -1131,5 +1131,12 @@
     "asset_url": "https://images.pexels.com/photos/4031436/pexels-photo-4031436.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "discover amino acid helps biomedical microscopy",
     "concept_signature": "acid amino biomedical discover helps microscopy"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "17820712",
+    "asset_url": "https://images.pexels.com/photos/17820712/pexels-photo-17820712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "discover amino acid helps clinical research",
+    "concept_signature": "acid amino discover helps"
   }
 ]
