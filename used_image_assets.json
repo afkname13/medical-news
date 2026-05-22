@@ -1145,5 +1145,12 @@
     "asset_url": "https://images.unsplash.com/photo-1631049129023-3b03d6d9b8bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxwaG90b2dyYXBoeSUyMHBldHJpJTIwZGlzaCUyMGdsb3dpbmclMjB1bmRlciUyMGdyZWVuJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3Nzk0MDkwNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography petri dish glowing under green medical photography",
     "concept_signature": "dish glowing green petri photography under"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "3cutgZyMD4Q",
+    "asset_url": "https://images.unsplash.com/photo-1766713203219-8ca06e1f4db9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8bWljcm9zY29wZSUyMGNlbGxzJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3Nzk0NjU1NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "microscope cells medical photography",
+    "concept_signature": "cells microscope photography"
   }
 ]
