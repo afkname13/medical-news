@@ -1166,5 +1166,12 @@
     "asset_url": "https://images.unsplash.com/photo-1709037880604-e87961542050?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8cGhvdG9ncmFwaHklMjByZXNlYXJjaGVycyUyMHVzaW5nJTIwZmx1b3Jlc2NlbnQlMjBtaWNyb3Njb3B5JTIwZGFyayUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzc5NDk1Mzk0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography researchers using fluorescent microscopy dark medical photography",
     "concept_signature": "dark fluorescent microscopy photography researchers"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "16328884",
+    "asset_url": "https://images.pexels.com/photos/16328884/pexels-photo-16328884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "zombie cells aren always scientific visualization",
+    "concept_signature": "always aren cells scientific visualization zombie"
   }
 ]
