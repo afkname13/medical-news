@@ -1201,5 +1201,12 @@
     "asset_url": "https://images.pexels.com/photos/5835451/pexels-photo-5835451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "discover hidden driver aging scientific visualization",
     "concept_signature": "aging discover driver hidden scientific visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8442145",
+    "asset_url": "https://images.pexels.com/photos/8442145/pexels-photo-8442145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography neuroscientist sterile lab analyzing glowing medical photography",
+    "concept_signature": "analyzing glowing neuroscientist photography sterile"
   }
 ]
