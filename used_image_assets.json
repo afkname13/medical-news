@@ -1222,5 +1222,12 @@
     "asset_url": "https://images.unsplash.com/photo-1766297246931-7b861269dab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxkaXNjb3ZlciUyMGhpZGRlbiUyMGFsemhlaW1lciUyMHRyaWdnZXIlMjBwb3NzaWJsZSUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3OTgxNDQ1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover hidden alzheimer trigger possible medical research laboratory",
     "concept_signature": "alzheimer discover hidden laboratory possible trigger"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "xbBIJ8jLz50",
+    "asset_url": "https://images.unsplash.com/photo-1738778151585-36b19054059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxkaXNjb3ZlciUyMGhpZGRlbiUyMGFsemhlaW1lciUyMHRyaWdnZXIlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc5ODIzODA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "discover hidden alzheimer trigger biomedical microscopy",
+    "concept_signature": "alzheimer biomedical discover hidden microscopy trigger"
   }
 ]
