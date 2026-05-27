@@ -1243,5 +1243,12 @@
     "asset_url": "https://images.unsplash.com/photo-1734607404671-f2b878caf3ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8c3VwZXJjaGFyZ2VkJTIwdml0YW1pbiUyMGhlbHBzJTIwYnJhaW4lMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc5OTAwNTEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "supercharged vitamin helps brain biomedical microscopy",
     "concept_signature": "biomedical brain helps microscopy supercharged vitamin"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "tX5DpDZsCBs",
+    "asset_url": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxzdXBlcmNoYXJnZWQlMjB2aXRhbWluJTIwaGVscHMlMjBicmFpbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3Nzk5MTA0ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "supercharged vitamin helps brain scientific visualization",
+    "concept_signature": "brain helps scientific supercharged visualization vitamin"
   }
 ]
