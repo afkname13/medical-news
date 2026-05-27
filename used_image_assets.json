@@ -1229,5 +1229,12 @@
     "asset_url": "https://images.unsplash.com/photo-1738778151585-36b19054059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxkaXNjb3ZlciUyMGhpZGRlbiUyMGFsemhlaW1lciUyMHRyaWdnZXIlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc5ODIzODA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover hidden alzheimer trigger biomedical microscopy",
     "concept_signature": "alzheimer biomedical discover hidden microscopy trigger"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "9GoOkNAEcCQ",
+    "asset_url": "https://images.unsplash.com/photo-1728675437273-d83d4cfaf938?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxkaXNjb3ZlciUyMGhpZGRlbiUyMGFsemhlaW1lciUyMHRyaWdnZXIlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc5ODQxMTMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "discover hidden alzheimer trigger scientific visualization",
+    "concept_signature": "alzheimer discover hidden scientific trigger visualization"
   }
 ]
