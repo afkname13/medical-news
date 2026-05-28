@@ -1264,5 +1264,12 @@
     "asset_url": "https://images.pexels.com/photos/9228382/pexels-photo-9228382.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "discover hidden brain circuit scientific visualization",
     "concept_signature": "brain circuit discover hidden scientific visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "5407214",
+    "asset_url": "https://images.pexels.com/photos/5407214/pexels-photo-5407214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "brain scan medical photography",
+    "concept_signature": "brain photography scan"
   }
 ]
