@@ -1250,5 +1250,12 @@
     "asset_url": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxzdXBlcmNoYXJnZWQlMjB2aXRhbWluJTIwaGVscHMlMjBicmFpbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3Nzk5MTA0ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "supercharged vitamin helps brain scientific visualization",
     "concept_signature": "brain helps scientific supercharged visualization vitamin"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "18795567",
+    "asset_url": "https://images.pexels.com/photos/18795567/pexels-photo-18795567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "supercharged vitamin helps brain heal medical research laboratory",
+    "concept_signature": "brain heal helps laboratory supercharged vitamin"
   }
 ]
