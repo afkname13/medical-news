@@ -1278,5 +1278,12 @@
     "asset_url": "https://images.pexels.com/photos/13176449/pexels-photo-13176449.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "mri imaging medical photography",
     "concept_signature": "imaging photography"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "0_zYIxsZQCM",
+    "asset_url": "https://images.unsplash.com/photo-1707386820844-5401078b38d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8cHJvdGVpbiUyMHRyYWZmaWMlMjBqYW1zJTIwZXhwbGFpbiUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgwMDczNzIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "protein traffic jams explain medical photography",
+    "concept_signature": "explain jams photography protein traffic"
   }
 ]
