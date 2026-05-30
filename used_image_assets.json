@@ -1299,5 +1299,12 @@
     "asset_url": "https://images.pexels.com/photos/12586916/pexels-photo-12586916.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "protein traffic jams explain scientific visualization",
     "concept_signature": "explain jams protein scientific traffic visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8531336",
+    "asset_url": "https://images.pexels.com/photos/8531336/pexels-photo-8531336.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography scientist analyzing model turquoise killifish medical photography",
+    "concept_signature": "analyzing killifish model photography turquoise"
   }
 ]
