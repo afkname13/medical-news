@@ -1313,5 +1313,12 @@
     "asset_url": "https://images.pexels.com/photos/8442108/pexels-photo-8442108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography researchers analyzing turquoise killifish under medical photography",
     "concept_signature": "analyzing killifish photography researchers turquoise under"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "37498129",
+    "asset_url": "https://images.pexels.com/photos/37498129/pexels-photo-37498129.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "protein traffic jams explain clinical research",
+    "concept_signature": "explain jams protein traffic"
   }
 ]
