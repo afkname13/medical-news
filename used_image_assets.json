@@ -1327,5 +1327,12 @@
     "asset_url": "https://images.unsplash.com/photo-1732400333616-8efa4f385a03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8Zm9yZ290dGVuJTIwb3JnYW4lMjBjb3VsZCUyMHByZWRpY3QlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzgwMzQwNTExfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "forgotten organ could predict biomedical microscopy",
     "concept_signature": "biomedical could forgotten microscopy organ predict"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "uL_cwtkT3Qk",
+    "asset_url": "https://images.unsplash.com/photo-1594033784466-7d44d7e82d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8Zm9yZ290dGVuJTIwb3JnYW4lMjBjb3VsZCUyMHByZWRpY3QlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzgwMzQ4MTI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "forgotten organ could predict scientific visualization",
+    "concept_signature": "could forgotten organ predict scientific visualization"
   }
 ]
