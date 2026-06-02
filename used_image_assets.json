@@ -1341,5 +1341,12 @@
     "asset_url": "https://images.unsplash.com/photo-1612836696857-bf3d0eab59a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHx0aGUlMjBmb3Jnb3R0ZW4lMjBvcmdhbiUyMHRoYXQlMjBjb3VsZCUyMHByZWRpY3QlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MDM2NDI1OHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "the forgotten organ that could predict medical photography",
     "concept_signature": "could forgotten organ photography predict"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "bQ1Mu_DBfoQ",
+    "asset_url": "https://images.unsplash.com/photo-1521144759179-a5c2e5c446bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8Zm9yZ290dGVuJTIwb3JnYW4lMjBjb3VsZCUyMHByZWRpY3QlMjBjbGluaWNhbCUyMHJlc2VhcmNofGVufDB8MXx8fDE3ODA0MjI2OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "forgotten organ could predict clinical research",
+    "concept_signature": "could forgotten organ predict"
   }
 ]
