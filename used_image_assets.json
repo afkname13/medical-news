@@ -1362,5 +1362,12 @@
     "asset_url": "https://images.pexels.com/photos/8460380/pexels-photo-8460380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography radiologist dark analyzing glowing reconstruction medical photography",
     "concept_signature": "analyzing dark glowing photography radiologist reconstruction"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OGRhN49boSo",
+    "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8cG9wdWxhciUyMHdlaWdodCUyMGxvc3MlMjBkcnVncyUyMGNsaW5pY2FsJTIwcmVzZWFyY2h8ZW58MHwxfHx8MTc4MDUwOTkxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "popular weight loss drugs clinical research",
+    "concept_signature": "drugs loss popular weight"
   }
 ]
