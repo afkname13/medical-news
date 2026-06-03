@@ -1355,5 +1355,12 @@
     "asset_url": "https://images.pexels.com/photos/30612451/pexels-photo-30612451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "forgotten organ could predict long medical research laboratory",
     "concept_signature": "could forgotten laboratory long organ predict"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8460380",
+    "asset_url": "https://images.pexels.com/photos/8460380/pexels-photo-8460380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography radiologist dark analyzing glowing reconstruction medical photography",
+    "concept_signature": "analyzing dark glowing photography radiologist reconstruction"
   }
 ]
