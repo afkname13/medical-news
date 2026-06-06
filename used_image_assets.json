@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "j8OkVyUdp6w",
-    "asset_url": "https://images.unsplash.com/photo-1650820188741-b4e000d4ede3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8dml2aWQlMjBkcmVhbXMlMjBzZWNyZXQlMjBkZWVwZXIlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc0NjY2MjY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "vivid dreams secret deeper scientific visualization",
-    "concept_signature": "deeper dreams scientific secret visualization vivid"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "F4yxoyRAPRE",
     "asset_url": "https://images.unsplash.com/photo-1676601019338-43d54f8f8282?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8Y2FyYm9uJTIwbWF0ZXJpYWwlMjBjb3VsZCUyMG1ha2UlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc0NzA2MzIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "carbon material could make biomedical microscopy",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDYyMzEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "popular weight loss clinical image",
     "concept_signature": "loss popular weight"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8539457",
+    "asset_url": "https://images.pexels.com/photos/8539457/pexels-photo-8539457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography researcher examining digital holographic model medical photography",
+    "concept_signature": "digital examining holographic model photography researcher"
   }
 ]
