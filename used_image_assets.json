@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "5723875",
-    "asset_url": "https://images.pexels.com/photos/5723875/pexels-photo-5723875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "your brain sabotaging balance problems medical research laboratory",
-    "concept_signature": "balance brain laboratory problems sabotaging your"
-  },
-  {
     "source": "unsplash",
     "asset_id": "j8OkVyUdp6w",
     "asset_url": "https://images.unsplash.com/photo-1650820188741-b4e000d4ede3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8dml2aWQlMjBkcmVhbXMlMjBzZWNyZXQlMjBkZWVwZXIlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc0NjY2MjY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1377,6 +1370,13 @@
     "asset_url": "https://images.pexels.com/photos/7460053/pexels-photo-7460053.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "popular weight loss drugs medical photography",
     "concept_signature": "drugs loss photography popular weight"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OGRhN49boSo",
+    "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDYyMzEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "popular weight loss clinical image",
+    "concept_signature": "loss popular weight"
   },
   {
     "source": "unsplash",
