@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "QKRExiI02ik",
-    "asset_url": "https://images.unsplash.com/photo-1737064294961-54ca7d20fdfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwc3VnYXIlMjBzdWJzdGl0dXRlJTIwbGlua2VkJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NDcyMDE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "popular sugar substitute linked scientific visualization",
-    "concept_signature": "linked popular scientific substitute sugar visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "Ok_53tB-zoQ",
     "asset_url": "https://images.unsplash.com/photo-1676237557635-50daa09a67c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxkZWVwZmFrZSUyMHJheXMlMjByZWFsJTIwZXZlbiUyMGRvY3RvcnMlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzQ3NDE2NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "deepfake rays real even doctors medical research laboratory",
@@ -1396,6 +1389,13 @@
     "source": "unsplash",
     "asset_id": "OGRhN49boSo",
     "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDYyMzEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "popular weight loss clinical image",
+    "concept_signature": "loss popular weight"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OGRhN49boSo",
+    "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDc3MTM1OXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "popular weight loss clinical image",
     "concept_signature": "loss popular weight"
   }
