@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "Ok_53tB-zoQ",
-    "asset_url": "https://images.unsplash.com/photo-1676237557635-50daa09a67c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxkZWVwZmFrZSUyMHJheXMlMjByZWFsJTIwZXZlbiUyMGRvY3RvcnMlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzQ3NDE2NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "deepfake rays real even doctors medical research laboratory",
-    "concept_signature": "deepfake doctors even laboratory rays real"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "ct10qdGv1hQ",
     "asset_url": "https://images.unsplash.com/photo-1630959305606-3123a081dada?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8d2hhdCUyMHRlZW5zJTIwY291bGQlMjBhZmZlY3RpbmclMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc0NzkyODY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "what teens could affecting biomedical microscopy",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDc3MTM1OXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "popular weight loss clinical image",
     "concept_signature": "loss popular weight"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "0HGLd5gcqiA",
+    "asset_url": "https://images.unsplash.com/photo-1563932127565-699eeea1e17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxwaG90b2dyYXBoeSUyMHN0YXRlJTIwdGhlJTIwYXJ0JTIwY2FyZGlvbG9neSUyMGFuZCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgwOTQ3NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography state the art cardiology and medical photography",
+    "concept_signature": "cardiology photography state"
   }
 ]
