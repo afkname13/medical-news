@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "ct10qdGv1hQ",
-    "asset_url": "https://images.unsplash.com/photo-1630959305606-3123a081dada?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8d2hhdCUyMHRlZW5zJTIwY291bGQlMjBhZmZlY3RpbmclMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc0NzkyODY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "what teens could affecting biomedical microscopy",
-    "concept_signature": "affecting biomedical could microscopy teens what"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "NJrTB5rgRn8",
     "asset_url": "https://images.unsplash.com/photo-1704731832601-c15a82dc8ff3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHx0aGVyYXB5JTIwdHVybnMlMjBwYWluJTIwd2l0aG91dCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzc0ODA2NjI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "therapy turns pain without medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1563932127565-699eeea1e17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxwaG90b2dyYXBoeSUyMHN0YXRlJTIwdGhlJTIwYXJ0JTIwY2FyZGlvbG9neSUyMGFuZCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgwOTQ3NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography state the art cardiology and medical photography",
     "concept_signature": "cardiology photography state"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "kooSjlL8LnQ",
+    "asset_url": "https://images.unsplash.com/photo-1580281658626-ee379f3cce93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxwaG90b2dyYXBoeSUyMHJlc2VhcmNoZXIlMjBleGFtaW5pbmclMjB0cmlhbCUyMHBpbGwlMjBzdGVyaWxlJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODA5NjQyMDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography researcher examining trial pill sterile medical photography",
+    "concept_signature": "examining photography pill researcher sterile trial"
   }
 ]
