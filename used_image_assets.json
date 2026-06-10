@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "iM3Qz7mM8HM",
-    "asset_url": "https://images.unsplash.com/photo-1703991245233-285269db6cd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxqdXN0JTIwbWludXRlcyUyMGVmZm9ydCUyMGNvdWxkJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NDg4MjA2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "just minutes effort could biomedical microscopy",
-    "concept_signature": "biomedical could effort just microscopy minutes"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "ttSUmjv0nl8",
     "asset_url": "https://images.unsplash.com/photo-1769695832195-a8d534193860?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxoZWxlbiUyMHNhbGlzYnVyeSUyMGNvbmZpZGVudGlhbGl0eSUyMG1hdHRlcnMlMjBjbGluaWNhbCUyMHJlc2VhcmNofGVufDB8MXx8fDE3NzQ4OTQ3NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "helen salisbury confidentiality matters clinical research",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7723587/pexels-photo-7723587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cancer patients found simple stay medical research laboratory",
     "concept_signature": "cancer found laboratory patients simple stay"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7723609",
+    "asset_url": "https://images.pexels.com/photos/7723609/pexels-photo-7723609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "cancer patients found simple scientific visualization",
+    "concept_signature": "cancer found patients scientific simple visualization"
   }
 ]
