@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "ttSUmjv0nl8",
-    "asset_url": "https://images.unsplash.com/photo-1769695832195-a8d534193860?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxoZWxlbiUyMHNhbGlzYnVyeSUyMGNvbmZpZGVudGlhbGl0eSUyMG1hdHRlcnMlMjBjbGluaWNhbCUyMHJlc2VhcmNofGVufDB8MXx8fDE3NzQ4OTQ3NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "helen salisbury confidentiality matters clinical research",
-    "concept_signature": "confidentiality helen matters salisbury"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "b9JB_msrFhA",
     "asset_url": "https://images.unsplash.com/photo-1668440246408-b84fc9df62a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxvdmVybG9va2VkJTIwaG9ybW9uZSUyMGNvdWxkJTIweW91ciUyMGJsb29kJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc0OTE0ODAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "overlooked hormone could your blood medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7723609/pexels-photo-7723609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cancer patients found simple scientific visualization",
     "concept_signature": "cancer found patients scientific simple visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8428395",
+    "asset_url": "https://images.pexels.com/photos/8428395/pexels-photo-8428395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "cancer cells medical photography",
+    "concept_signature": "cancer cells photography"
   }
 ]
