@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "upu9xUQVFZk",
-    "asset_url": "https://images.unsplash.com/photo-1642979904576-408d8e8ea8c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxtaWxsaW9ucyUyMHN0YXJ0JTIwd29yayUyMGVhcmx5JTIwZHJ1ZyUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NTA1NDg4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "millions start work early drug medical research laboratory",
-    "concept_signature": "drug early laboratory millions start work"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "bwMhq_itmMU",
     "asset_url": "https://images.unsplash.com/photo-1579154392429-0e6b4e850ad2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxkaXNjb3ZlciUyMGhpZGRlbiUyMHdpbmRzJTIwY2VsbHMlMjBjb3VsZCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NTA2NjgyMXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover hidden winds cells could medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/36757560/pexels-photo-36757560.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "stanford regrow lost cartilage scientific visualization",
     "concept_signature": "cartilage lost regrow scientific stanford visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "24513256",
+    "asset_url": "https://images.pexels.com/photos/24513256/pexels-photo-24513256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "stanford regrow lost cartilage medical photography",
+    "concept_signature": "cartilage lost photography regrow stanford"
   }
 ]
