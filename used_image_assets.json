@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "GxnEI7D24iQ",
-    "asset_url": "https://images.unsplash.com/photo-1707079917886-a6994ae0d7f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxzdGlmZiUyMGRlZmVuc2UlMjBwaHlzaWNhbCUyMHJpZ2lkaXR5JTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NTA4NzYwMXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "stiff defense physical rigidity biomedical microscopy",
-    "concept_signature": "biomedical defense microscopy physical rigidity stiff"
-  },
-  {
     "source": "pexels",
     "asset_id": "8442498",
     "asset_url": "https://images.pexels.com/photos/8442498/pexels-photo-8442498.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/6129868/pexels-photo-6129868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography scientist sterile stanford examining glowing medical photography",
     "concept_signature": "examining glowing photography stanford sterile"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "Dsr7qt8hOys",
+    "asset_url": "https://images.unsplash.com/photo-1613409517928-acb2ac425fe0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxmZW50YW55bCUyMHZhY2NpbmUlMjBibG9ja3MlMjBkZWFkbHklMjBvdmVyZG9zZXMlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODEzNjM2MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "fentanyl vaccine blocks deadly overdoses medical research laboratory",
+    "concept_signature": "blocks deadly fentanyl laboratory overdoses vaccine"
   }
 ]
