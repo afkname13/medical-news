@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "bwMhq_itmMU",
-    "asset_url": "https://images.unsplash.com/photo-1579154392429-0e6b4e850ad2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxkaXNjb3ZlciUyMGhpZGRlbiUyMHdpbmRzJTIwY2VsbHMlMjBjb3VsZCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NTA2NjgyMXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "discover hidden winds cells could medical research laboratory",
-    "concept_signature": "cells could discover hidden laboratory winds"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "GxnEI7D24iQ",
     "asset_url": "https://images.unsplash.com/photo-1707079917886-a6994ae0d7f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxzdGlmZiUyMGRlZmVuc2UlMjBwaHlzaWNhbCUyMHJpZ2lkaXR5JTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NTA4NzYwMXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "stiff defense physical rigidity biomedical microscopy",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/24513256/pexels-photo-24513256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "stanford regrow lost cartilage medical photography",
     "concept_signature": "cartilage lost photography regrow stanford"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "6129868",
+    "asset_url": "https://images.pexels.com/photos/6129868/pexels-photo-6129868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography scientist sterile stanford examining glowing medical photography",
+    "concept_signature": "examining glowing photography stanford sterile"
   }
 ]
