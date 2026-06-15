@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "TEtQXtYpqHk",
-    "asset_url": "https://images.unsplash.com/photo-1752842350655-838c443e4676?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8ZGVhZm5lc3MlMjByZXZlcnNlZCUyMGluamVjdGlvbiUyMHJlc3RvcmVzJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NTIzODkwNnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "deafness reversed injection restores scientific visualization",
-    "concept_signature": "deafness injection restores reversed scientific visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "iIo6hxhh4Ls",
     "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxjYWxjaXVtJTIwY2hhbm5lbCUyMG11dGF0aW9ucyUyMGRpc3J1cHQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc1MjYwMTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "calcium channel mutations disrupt biomedical microscopy",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/4047058/pexels-photo-4047058.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "people taking weight loss drugs medical research laboratory",
     "concept_signature": "drugs laboratory loss people taking weight"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "4IWYIdwE93o",
+    "asset_url": "https://images.unsplash.com/photo-1575969554136-c8e0013df13a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGhvdG9ncmFwaHklMjByZXNlYXJjaGVyJTIwZXhhbWluaW5nJTIwZ2xvd2luZyUyMHNtYXJ0JTIwd2F0Y2glMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MTQ4NzcyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography researcher examining glowing smart watch medical photography",
+    "concept_signature": "examining glowing photography researcher smart watch"
   }
 ]
