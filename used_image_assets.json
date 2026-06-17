@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "-DCNY22iDeI",
-    "asset_url": "https://images.unsplash.com/photo-1582719298818-904ce0e5cd87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxob3BlJTIwY29udHJvbCUyMGNlbnR1cmllcyUyMGVwaWRlbWljJTIwbmF0dXJlJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1MzQ2NDY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "hope control centuries epidemic nature medical research laboratory",
-    "concept_signature": "centuries control epidemic hope laboratory nature"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "2fyeLhUeYpg",
     "asset_url": "https://images.unsplash.com/photo-1578496479531-32e296d5c6e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8YXJ0aWZpY2lhbCUyMHNhbGl2YSUyMG1hZGUlMjBzdWdhcmNhbmUlMjBwcm90ZWluJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1Mzk3NzUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "artificial saliva made sugarcane protein medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1687618625218-c80009356fbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxkaWFiZXRlcyUyMHBpbGwlMjBkZWxpdmVycyUyMG1ham9yJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4MTU3NDUyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "diabetes pill delivers major scientific visualization",
     "concept_signature": "delivers diabetes major pill scientific visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "hjnK78T0jY4",
+    "asset_url": "https://images.unsplash.com/photo-1706178924579-86b4e99f5479?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8c3VycHJpc2luZyUyMHdheXMlMjBkaWFiZXRlcyUyMGRlbWVudGlhJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4MTcxNDk0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "surprising ways diabetes dementia scientific visualization",
+    "concept_signature": "dementia diabetes scientific surprising visualization ways"
   }
 ]
