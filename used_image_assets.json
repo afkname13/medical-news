@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "CXlPbXjsjvs",
-    "asset_url": "https://images.unsplash.com/photo-1766568363109-1947def814a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8cGhvdG9ncmFwaHklMjBkZW50aXN0JTIwdXNpbmclMjBpbnRlbnNpdHklMjBzcGVjaWFsaXplZCUyMGZsdW9yZXNjZW50JTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3NzU0OTg4ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "photography dentist using intensity specialized fluorescent medical photography",
-    "concept_signature": "dentist fluorescent intensity photography specialized"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "1Ao5N6OqEfg",
     "asset_url": "https://images.unsplash.com/photo-1766297248076-2848d8d0d464?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8aW50ZXJuYXRpb25hbCUyMG1lZ2ElMjBhbmFseXNpcyUyMHBzeWNoZWRlbGljJTIwZHJ1ZyUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NTUxOTU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "international mega analysis psychedelic drug medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1698423846501-cc5c25d07e85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxoYXZlJTIwZm91bmQlMjB3aGF0JTIwcmVhbGx5JTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4MTg5NjMyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "have found what really scientific visualization",
     "concept_signature": "found have really scientific visualization what"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "zna7XRjnc6k",
+    "asset_url": "https://images.unsplash.com/photo-1707079346045-58fed6cde83a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxtaWNyb3Njb3BlJTIwY2VsbHN8ZW58MHwxfHx8MTc4MTkxNDg2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "microscope cells",
+    "concept_signature": "cells microscope"
   }
 ]
