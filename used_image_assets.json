@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "FqRrkRsmDwM",
-    "asset_url": "https://images.unsplash.com/photo-1748404456463-16144dcc6181?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxzYWZlZ3VhcmRpbmclMjBldmlkZW5jZSUyMGhlYWx0aCUyMGZhY2UlMjBwb2xpdGljYWwlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzU1ODU1MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "safeguarding evidence health face political medical research laboratory",
-    "concept_signature": "evidence face health laboratory political safeguarding"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "Tz3qK-6MMl4",
     "asset_url": "https://images.unsplash.com/photo-1707386821177-1c3dde2e1d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxkaWV0JTIwY291bGQlMjBzbGFzaCUyMGNob2xlcmElMjBpbmZlY3Rpb25zJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1NjA2MTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "diet could slash cholera infections medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1758204054683-6e3a7d552bd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxzY2llbnRpc3RzJTIwbWF5JTIwaGF2ZSUyMGZvdW5kJTIwd2hhdCUyMHJlYWxseSUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgxOTgxMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "scientists may have found what really medical photography",
     "concept_signature": "found have photography really what"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8532854",
+    "asset_url": "https://images.pexels.com/photos/8532854/pexels-photo-8532854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography researcher analyzing glowing molecular model medical photography",
+    "concept_signature": "analyzing glowing model molecular photography researcher"
   }
 ]
