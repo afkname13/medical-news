@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "g3PwRvJPcjM",
-    "asset_url": "https://images.unsplash.com/photo-1770836037423-641b7c358bec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxuZXVyb2xvZ3klMjByZXNlYXJjaCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzc1NjkyNDg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "neurology research medical photography",
-    "concept_signature": "neurology photography"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "9rz5x8LGBb8",
     "asset_url": "https://images.unsplash.com/photo-1745270917331-787c80129680?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxoaWRkZW4lMjB0cmFkZW9mZiUyMGJlaGluZCUyMHRvZGF5JTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NTc0NjkxNHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "hidden tradeoff behind today scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7203697/pexels-photo-7203697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "tubulin prevents toxic brain scientific visualization",
     "concept_signature": "brain prevents scientific toxic tubulin visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "5HbxyB0_DBg",
+    "asset_url": "https://images.unsplash.com/photo-1524684009724-bee13ad8305f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8ZWJvbGElMjBoYW50YXZpcnVzJTIwc3RhcnQlMjBsaWtlJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc4MjE1MDgwOHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "ebola hantavirus start like biomedical microscopy",
+    "concept_signature": "biomedical ebola hantavirus like microscopy start"
   }
 ]
