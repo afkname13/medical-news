@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "j8FuEZ6PHO8",
-    "asset_url": "https://images.unsplash.com/photo-1748181156060-8b914ecda190?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHx3YXRlciUyMGZpbHRlciUyMHJlbW92ZXMlMjB0b3hpYyUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3NzU3Nzg4Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "water filter removes toxic biomedical microscopy",
-    "concept_signature": "biomedical filter microscopy removes toxic water"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "VdkZz0v7EM8",
     "asset_url": "https://images.unsplash.com/photo-1582560475135-72433678395b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxnb29kYnllJTIwY29sb25vc2NvcHklMjBzdG9vbCUyMHRlc3QlMjBkZXRlY3RzJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc1ODMxNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "goodbye colonoscopy stool test detects medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1766299892683-d50398e31823?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8ZWJvbGElMjBhbmQlMjBoYW50YXZpcnVzJTIwY2FuJTIwc3RhcnQlMjBsaWtlJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODIxNzc5MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "ebola and hantavirus can start like medical photography",
     "concept_signature": "ebola hantavirus like photography start"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "Tz3qK-6MMl4",
+    "asset_url": "https://images.unsplash.com/photo-1707386821177-1c3dde2e1d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxlYm9sYSUyMGhhbnRhdmlydXMlMjBzdGFydCUyMGxpa2UlMjBjbGluaWNhbCUyMHJlc2VhcmNofGVufDB8MXx8fDE3ODIyMzA4OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "ebola hantavirus start like clinical research",
+    "concept_signature": "ebola hantavirus like start"
   }
 ]
