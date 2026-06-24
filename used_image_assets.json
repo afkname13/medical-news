@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "xcN1taJ2y0M",
-    "asset_url": "https://images.unsplash.com/photo-1581595219315-a187dd40c322?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxoaXBwb2NhbXBhbCUyMHBhdGh3YXlzJTIwb25jZSUyMHRob3VnaHQlMjBzZXBhcmF0ZSUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NTg2NTE4NXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "hippocampal pathways once thought separate medical research laboratory",
-    "concept_signature": "hippocampal laboratory once pathways separate thought"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "t6RqcZjxzJ8",
     "asset_url": "https://images.unsplash.com/photo-1707861107091-2a32ba07fe06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHx1bnVzdWFsJTIwYWlyYm9ybmUlMjB0b3hpbiUyMGRldGVjdGVkJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NTkxNjE4NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "unusual airborne toxin detected scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8442563/pexels-photo-8442563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "sleep laboratory medical photography",
     "concept_signature": "laboratory photography sleep"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "Tz3qK-6MMl4",
+    "asset_url": "https://images.unsplash.com/photo-1707386821177-1c3dde2e1d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxlYm9sYSUyMGhhbnRhdmlydXMlMjBzdGFydCUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MjMxNTU5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "ebola hantavirus start clinical image",
+    "concept_signature": "ebola hantavirus start"
   }
 ]
