@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "tEVGmMaPFXk",
-    "asset_url": "https://images.unsplash.com/photo-1549925245-f20a1bac6454?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxicmFpbiUyMGRlZmF1bHQlMjBtb2RlJTIwbmV0d29yayUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3NzU5NTE1MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "brain default mode network biomedical microscopy",
-    "concept_signature": "biomedical brain default microscopy mode network"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "qa3_bM3VMPc",
     "asset_url": "https://images.unsplash.com/photo-1717445121817-c4c4e5b5ddbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxwdXN0dWxhciUyMGVydXB0aW9uJTIwcGFsbSUyMHByZXNjaG9vbCUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzYwMDI3MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "pustular eruption palm preschool scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707386821177-1c3dde2e1d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxlYm9sYSUyMGhhbnRhdmlydXMlMjBzdGFydCUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MjMxNTU5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "ebola hantavirus start clinical image",
     "concept_signature": "ebola hantavirus start"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "5x50sikAh0A",
+    "asset_url": "https://images.unsplash.com/photo-1729704200257-f0a9265d4b1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHx3ZWdvdnklMjB3ZWlnaHQlMjBsb3NzJTIwcGlsbCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgyNDAyNDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "wegovy weight loss pill medical photography",
+    "concept_signature": "loss photography pill wegovy weight"
   }
 ]
