@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "fN6K30xtiKE",
-    "asset_url": "https://images.unsplash.com/photo-1614308459036-779d0dfe51ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8Y2xpbmljaWFucyUyMG5lZWQlMjBtb3JlJTIwYWNjdXJhdGUlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc2MDE2NDYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "clinicians need more accurate biomedical microscopy",
-    "concept_signature": "accurate biomedical clinicians microscopy more need"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "ByYuOf4PIIw",
     "asset_url": "https://images.unsplash.com/photo-1707386821166-4221717fcf8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8Y2FuY2VyJTIwY2VsbHMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3NjAzNzk3NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "cancer cells medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8851257/pexels-photo-8851257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "wegovy weight loss pill gets medical research laboratory",
     "concept_signature": "gets laboratory loss pill wegovy weight"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "29197738",
+    "asset_url": "https://images.pexels.com/photos/29197738/pexels-photo-29197738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "wegovy weight loss pill biomedical microscopy",
+    "concept_signature": "biomedical loss microscopy pill wegovy weight"
   }
 ]
