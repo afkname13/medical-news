@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "bcqDxjddPGk",
-    "asset_url": "https://images.unsplash.com/photo-1581091007718-0c50d599bfd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cHVzaCUyMHByaXZhdGUlMjBwcmFjdGljZSUyMGZhaWxpbmdzJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3NjEyNDkyNXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "push private practice failings biomedical microscopy",
-    "concept_signature": "biomedical failings microscopy practice private push"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "EXWhFRxYlj8",
     "asset_url": "https://images.unsplash.com/photo-1642098410625-daaa51759888?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwaG90b2dyYXBoeSUyMGxhYiUyMHNldHRpbmclMjB3aGVyZSUyMHNjaWVudGlzdCUyMHVzZXMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3NjE3ODcxMXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography lab setting where scientist uses medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1582719202047-76d3432ee323?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxyZXNlYXJjaGVycyUyMGRpc2NvdmVyJTIwZnJ1Y3Rvc2UlMjBkb2VzbiUyMHNhdGlzZnklMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODI1MTk3MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "researchers discover fructose doesn satisfy medical research laboratory",
     "concept_signature": "discover doesn fructose laboratory researchers satisfy"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "xcN1taJ2y0M",
+    "asset_url": "https://images.unsplash.com/photo-1581595219315-a187dd40c322?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxwaG90b2dyYXBoeSUyMHNldHRpbmclMjB3aGVyZSUyMHJlc2VhcmNoZXIlMjBhbmFseXplcyUyMGRpZ2l0YWwlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MjU3MjIyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography setting where researcher analyzes digital medical photography",
+    "concept_signature": "analyzes digital photography researcher setting where"
   }
 ]
