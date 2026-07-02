@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "DI4LAKENiDg",
-    "asset_url": "https://images.unsplash.com/photo-1737998246454-b40fb86d353c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8YXJ0aWZpY2lhbCUyMG5ldXJvbnMlMjBzdWNjZXNzZnVsbHklMjBjb21tdW5pY2F0ZSUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzY1MzQ5NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "artificial neurons successfully communicate scientific visualization",
-    "concept_signature": "artificial communicate neurons scientific successfully visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "an2lygqOQHY",
     "asset_url": "https://images.unsplash.com/photo-1630959300412-fe5827ce8fe2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxlYXRpbmclMjBtb3JlJTIwZnJ1aXRzJTIwdmVnZXRhYmxlcyUyMHRpZWQlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzY1NTYzODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "eating more fruits vegetables tied medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1758573466865-e0a3e20204e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxtZWxhbm9tYSUyMHNlY3JldCUyMGNoZWF0aW5nJTIwZGVhdGglMjBmaW5hbGx5JTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzgyOTMzMzU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "melanoma secret cheating death finally medical research laboratory",
     "concept_signature": "cheating death finally laboratory melanoma secret"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8532838",
+    "asset_url": "https://images.pexels.com/photos/8532838/pexels-photo-8532838.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography cancer researchers analyzing glowing holographic medical photography",
+    "concept_signature": "analyzing cancer glowing holographic photography researchers"
   }
 ]
