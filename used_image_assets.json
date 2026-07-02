@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "4226139",
-    "asset_url": "https://images.pexels.com/photos/4226139/pexels-photo-4226139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "printed brain sensors unlock personalized medical research laboratory",
-    "concept_signature": "brain laboratory personalized printed sensors unlock"
-  },
-  {
-    "source": "pexels",
     "asset_id": "35444722",
     "asset_url": "https://images.pexels.com/photos/35444722/pexels-photo-35444722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cardiorespiratory fitness dementia depression psychosis medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1600282447501-e63f7bb6f183?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxtZWxhbm9tYSUyMHNlY3JldCUyMGNoZWF0aW5nJTIwZGVhdGglMjBoYXMlMjBmaW5hbGx5JTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODMwMDY0MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "melanoma secret cheating death has finally medical photography",
     "concept_signature": "cheating death finally melanoma photography secret"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "15A-vtQ-IYE",
+    "asset_url": "https://images.unsplash.com/photo-1615632539968-670d00f3c9a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxwaG90b2dyYXBoeSUyMGdsb3dpbmclMjBtdXRhdGVkJTIwZG5hJTIwc3RyYW5kcyUyMGluc2lkZSUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgzMDE4MjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography glowing mutated dna strands inside medical photography",
+    "concept_signature": "glowing mutated photography strands"
   }
 ]
