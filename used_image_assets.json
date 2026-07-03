@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "q-T-kobnPKU",
-    "asset_url": "https://images.unsplash.com/photo-1707862159556-3f213b35f14c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cm9idXN0JTIwcHJvdGVjdGlvbiUyMHJlbHklMjBjZWxscyUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3NzY2NDI4Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "robust protection rely cells biomedical microscopy",
-    "concept_signature": "biomedical cells microscopy protection rely robust"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "cWRVSX6lfBg",
     "asset_url": "https://images.unsplash.com/photo-1587010579793-d870e1f79325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3NzY2OTcyMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "radiology imaging medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8110792/pexels-photo-8110792.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "melanoma secret cheating death clinical research",
     "concept_signature": "cheating death melanoma secret"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7776956",
+    "asset_url": "https://images.pexels.com/photos/7776956/pexels-photo-7776956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "melanoma secret cheating death medical photography",
+    "concept_signature": "cheating death melanoma photography secret"
   }
 ]
