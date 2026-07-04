@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "cWRVSX6lfBg",
-    "asset_url": "https://images.unsplash.com/photo-1587010579793-d870e1f79325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3NzY2OTcyMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "radiology imaging medical photography",
-    "concept_signature": "imaging photography radiology"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "XLoEnIf4FLM",
     "asset_url": "https://images.unsplash.com/photo-1628641538565-135707638a61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxwaHlzaWNpc3RzJTIwcmVmdXRlJTIwZmFtb3VzJTIwY2xhaW1pbmclMjBkYXlsaWdodCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NjcwODcwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "physicists refute famous claiming daylight medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7776956/pexels-photo-7776956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "melanoma secret cheating death medical photography",
     "concept_signature": "cheating death melanoma photography secret"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "rVEZesuF65k",
+    "asset_url": "https://images.unsplash.com/photo-1602404454048-b0243398564e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cGhvdG9ncmFwaHklMjBjYW5jZXIlMjByZXNlYXJjaGVycyUyMGFuYWx5emluZyUyMGZsdW9yZXNjZW50JTIwbWljcm9zY29waWMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MzE4ODkyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography cancer researchers analyzing fluorescent microscopic medical photography",
+    "concept_signature": "analyzing cancer fluorescent microscopic photography researchers"
   }
 ]
