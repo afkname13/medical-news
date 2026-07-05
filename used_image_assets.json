@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "vexUCf-xWvg",
-    "asset_url": "https://images.unsplash.com/photo-1632993542602-2abe45f2f6c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHx0cnVtcCUyMHNpZ25zJTIwb3JkZXIlMjBiYWNraW5nJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NjcyOTYxNHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "trump signs order backing scientific visualization",
-    "concept_signature": "backing order scientific signs trump visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "7wWRXewYCH4",
     "asset_url": "https://images.unsplash.com/photo-1524683745036-b46f52b8505a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxlcGlnZW5ldGljJTIwZmluZ2VycHJpbnRzJTIwbGluayUyMGVhcmx5JTIwb25zZXQlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzY3ODMzMjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "epigenetic fingerprints link early onset medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1604331204667-3ce5601c21b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8cGhvdG9ncmFwaHklMjBnbG93aW5nJTIwZmx1b3Jlc2NlbnQlMjBsYWJlbGVkJTIwbWVsYW5vbWElMjBjYW5jZXIlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MzIxMDQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography glowing fluorescent labeled melanoma cancer medical photography",
     "concept_signature": "cancer fluorescent glowing labeled melanoma photography"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "2906090",
+    "asset_url": "https://images.pexels.com/photos/2906090/pexels-photo-2906090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography sleeping state the art sleep medical photography",
+    "concept_signature": "photography sleep sleeping state"
   }
 ]
