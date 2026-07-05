@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "XLoEnIf4FLM",
-    "asset_url": "https://images.unsplash.com/photo-1628641538565-135707638a61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxwaHlzaWNpc3RzJTIwcmVmdXRlJTIwZmFtb3VzJTIwY2xhaW1pbmclMjBkYXlsaWdodCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3NjcwODcwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "physicists refute famous claiming daylight medical research laboratory",
-    "concept_signature": "claiming daylight famous laboratory physicists refute"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "vexUCf-xWvg",
     "asset_url": "https://images.unsplash.com/photo-1632993542602-2abe45f2f6c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHx0cnVtcCUyMHNpZ25zJTIwb3JkZXIlMjBiYWNraW5nJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc3NjcyOTYxNHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "trump signs order backing scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1602404454048-b0243398564e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cGhvdG9ncmFwaHklMjBjYW5jZXIlMjByZXNlYXJjaGVycyUyMGFuYWx5emluZyUyMGZsdW9yZXNjZW50JTIwbWljcm9zY29waWMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MzE4ODkyMHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography cancer researchers analyzing fluorescent microscopic medical photography",
     "concept_signature": "analyzing cancer fluorescent microscopic photography researchers"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "tvVVvdVR__I",
+    "asset_url": "https://images.unsplash.com/photo-1604331204667-3ce5601c21b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8cGhvdG9ncmFwaHklMjBnbG93aW5nJTIwZmx1b3Jlc2NlbnQlMjBsYWJlbGVkJTIwbWVsYW5vbWElMjBjYW5jZXIlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MzIxMDQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography glowing fluorescent labeled melanoma cancer medical photography",
+    "concept_signature": "cancer fluorescent glowing labeled melanoma photography"
   }
 ]
