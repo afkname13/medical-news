@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "O6CrpReEz94",
-    "asset_url": "https://images.unsplash.com/photo-1706201320999-84f6deb0afaf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8Y29tbW9uJTIwZHJ1Z3MlMjByZXZlcnNlJTIwZmF0dHklMjBsaXZlciUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3Njg2OTkxMXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "common drugs reverse fatty liver medical research laboratory",
-    "concept_signature": "common drugs fatty laboratory liver reverse"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "X0zmMtohm2g",
     "asset_url": "https://images.unsplash.com/photo-1671063125680-a2ebbebfbae5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxvbGRlciUyMGFkdWx0cyUyMHJpc2UlMjBjaGFpciUyMGluZmx1ZW5jZSUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3Njg4MTcxNnww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "older adults rise chair influence medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1729704200283-a41b04e18da8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8d2VpZ2h0JTIwbG9zcyUyMHBpbGwlMjBiZWF0cyUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODM1MjUxMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "weight loss pill beats scientific visualization",
     "concept_signature": "beats loss pill scientific visualization weight"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OQYv1-YZkZQ",
+    "asset_url": "https://images.unsplash.com/photo-1581159186721-b68b78da4ec9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxuZXclMjB3ZWlnaHQlMjBsb3NzJTIwcGlsbCUyMGJlYXRzJTIwb3JhbCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgzNTM2NTcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "new weight loss pill beats oral medical photography",
+    "concept_signature": "beats loss oral photography pill weight"
   }
 ]
