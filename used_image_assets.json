@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "KPBo-_1jqhY",
-    "asset_url": "https://images.unsplash.com/photo-1772053969396-07327f116bff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxzaG93cyUyMHByb21pc2UlMjBhZ2FpbnN0JTIwbG9jYWxseSUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzY4MTU1OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "shows promise against locally scientific visualization",
-    "concept_signature": "against locally promise scientific shows visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "O6CrpReEz94",
     "asset_url": "https://images.unsplash.com/photo-1706201320999-84f6deb0afaf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8Y29tbW9uJTIwZHJ1Z3MlMjByZXZlcnNlJTIwZmF0dHklMjBsaXZlciUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc3Njg2OTkxMXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "common drugs reverse fatty liver medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/6248491/pexels-photo-6248491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography asleep sleep study clinic with medical photography",
     "concept_signature": "asleep clinic photography sleep"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "8bzZU9iGxkU",
+    "asset_url": "https://images.unsplash.com/photo-1729704200283-a41b04e18da8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8d2VpZ2h0JTIwbG9zcyUyMHBpbGwlMjBiZWF0cyUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODM1MjUxMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "weight loss pill beats scientific visualization",
+    "concept_signature": "beats loss pill scientific visualization weight"
   }
 ]
