@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "7723622",
-    "asset_url": "https://images.pexels.com/photos/7723622/pexels-photo-7723622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "drugging undruggable cancer slipperiest targets medical research laboratory",
-    "concept_signature": "cancer drugging laboratory slipperiest targets undruggable"
-  },
-  {
     "source": "unsplash",
     "asset_id": "m8MKAXARaA0",
     "asset_url": "https://images.unsplash.com/photo-1707079918151-d5931af83f06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGVzdGljaWRlJTIwZXhwb3N1cmUlMjBsaW5rZWQlMjBoaWdoZXIlMjBjYW5jZXIlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzczOTA4MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8037024/pexels-photo-8037024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "losing just minutes sleep night biomedical medical photography",
     "concept_signature": "biomedical just losing minutes night sleep"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "C-ilWb0Y_No",
+    "asset_url": "https://images.unsplash.com/photo-1714925240802-828c674c34bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxoaWRkZW4lMjBza2VsZXRvbiUyMGdhdGVrZWVwZXIlMjBicmFpbiUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODQxMjc4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hidden skeleton gatekeeper brain biomedical microscopy",
+    "concept_signature": "biomedical brain gatekeeper hidden microscopy skeleton"
   }
 ]
