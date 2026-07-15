@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "m8MKAXARaA0",
-    "asset_url": "https://images.unsplash.com/photo-1707079918151-d5931af83f06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGVzdGljaWRlJTIwZXhwb3N1cmUlMjBsaW5rZWQlMjBoaWdoZXIlMjBjYW5jZXIlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3NzczOTA4MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "pesticide exposure linked higher cancer medical research laboratory",
-    "concept_signature": "cancer exposure higher laboratory linked pesticide"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "lTZUfrst5fM",
     "asset_url": "https://images.unsplash.com/photo-1576671494903-8e2bb9327205?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3Nzc0MDI1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "radiology imaging medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1714925240802-828c674c34bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxoaWRkZW4lMjBza2VsZXRvbiUyMGdhdGVrZWVwZXIlMjBicmFpbiUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODQxMjc4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "hidden skeleton gatekeeper brain biomedical microscopy",
     "concept_signature": "biomedical brain gatekeeper hidden microscopy skeleton"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "ox9eYdyjaM0",
+    "asset_url": "https://images.unsplash.com/photo-1714929818826-583ce7c11422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxoaWRkZW4lMjBza2VsZXRvbiUyMGdhdGVrZWVwZXIlMjBicmFpbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODQxNDA0MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hidden skeleton gatekeeper brain scientific visualization",
+    "concept_signature": "brain gatekeeper hidden scientific skeleton visualization"
   }
 ]
