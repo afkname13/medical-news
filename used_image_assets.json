@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "lTZUfrst5fM",
-    "asset_url": "https://images.unsplash.com/photo-1576671494903-8e2bb9327205?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3Nzc0MDI1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "radiology imaging medical photography",
-    "concept_signature": "imaging photography radiology"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "j_DmMNZK-jo",
     "asset_url": "https://images.unsplash.com/photo-1633977264259-b3517c187e3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxzdGF0ZW1lbnQlMjBoaWdobGlnaHRzJTIwYnJhaW4lMjBoZWFsdGglMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc3NDIxMzA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "statement highlights brain health scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1714929818826-583ce7c11422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxoaWRkZW4lMjBza2VsZXRvbiUyMGdhdGVrZWVwZXIlMjBicmFpbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODQxNDA0MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "hidden skeleton gatekeeper brain scientific visualization",
     "concept_signature": "brain gatekeeper hidden scientific skeleton visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7088522",
+    "asset_url": "https://images.pexels.com/photos/7088522/pexels-photo-7088522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "brain scan medical photography",
+    "concept_signature": "brain photography scan"
   }
 ]
