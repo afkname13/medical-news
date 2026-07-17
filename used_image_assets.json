@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "j_DmMNZK-jo",
-    "asset_url": "https://images.unsplash.com/photo-1633977264259-b3517c187e3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxzdGF0ZW1lbnQlMjBoaWdobGlnaHRzJTIwYnJhaW4lMjBoZWFsdGglMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc3NDIxMzA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "statement highlights brain health scientific visualization",
-    "concept_signature": "brain health highlights scientific statement visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "Jq1OTRrRxIs",
     "asset_url": "https://images.unsplash.com/photo-1775873931506-cfd9d96d030b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxmaW5kcyUyMGNoaWxkcmVuJTIwbW9yZSUyMHZ1bG5lcmFibGUlMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzc3NDc2NjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "finds children more vulnerable scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7088522/pexels-photo-7088522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "brain scan medical photography",
     "concept_signature": "brain photography scan"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "QKRExiI02ik",
+    "asset_url": "https://images.unsplash.com/photo-1737064294961-54ca7d20fdfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8c3VnYXIlMjBjb2F0ZWQlMjB0aGVyYXB5JTIwYm9vc3RlZCUyMGNsaW5pY2FsJTIwcmVzZWFyY2h8ZW58MHwxfHx8MTc4NDMwMDA3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "sugar coated therapy boosted clinical research",
+    "concept_signature": "boosted coated sugar therapy"
   }
 ]
