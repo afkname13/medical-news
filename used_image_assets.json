@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "syaNdznQACk",
-    "asset_url": "https://images.unsplash.com/photo-1714734848024-32ab101d3534?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHx0dXJuJTIwY2hhb3RpYyUyMGxhc2VyJTIwbGlnaHQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzc3NTc0OTAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "turn chaotic laser light biomedical microscopy",
-    "concept_signature": "biomedical chaotic laser light microscopy turn"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "tLI5KpfTC2s",
     "asset_url": "https://images.unsplash.com/photo-1748404456485-f5eeb18011d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8YWdlbnRpYyUyMGZyYW1ld29yayUyMGF1dG9ub21vdXMlMjBzY2llbnRpZmljJTIwY2xpbmljYWwlMjByZXNlYXJjaHxlbnwwfDF8fHwxNzc3NTk0MDE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "agentic framework autonomous scientific clinical research",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1767607918018-8e5e91fa41cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxwb3B1bGFyJTIwc3VnYXIlMjBzdWJzdGl0dXRlcyUyMGxpbmtlZCUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODQzOTgyMzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "popular sugar substitutes linked biomedical microscopy",
     "concept_signature": "biomedical linked microscopy popular substitutes sugar"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "u89F75tdJ1k",
+    "asset_url": "https://images.unsplash.com/photo-1585352608223-3008052896c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxwb3B1bGFyJTIwc3VnYXIlMjBzdWJzdGl0dXRlcyUyMGxpbmtlZCUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODQ0MTk4NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "popular sugar substitutes linked scientific visualization",
+    "concept_signature": "linked popular scientific substitutes sugar visualization"
   }
 ]
