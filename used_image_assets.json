@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "tLI5KpfTC2s",
-    "asset_url": "https://images.unsplash.com/photo-1748404456485-f5eeb18011d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8YWdlbnRpYyUyMGZyYW1ld29yayUyMGF1dG9ub21vdXMlMjBzY2llbnRpZmljJTIwY2xpbmljYWwlMjByZXNlYXJjaHxlbnwwfDF8fHwxNzc3NTk0MDE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "agentic framework autonomous scientific clinical research",
-    "concept_signature": "agentic autonomous framework scientific"
-  },
-  {
     "source": "pexels",
     "asset_id": "8442440",
     "asset_url": "https://images.pexels.com/photos/8442440/pexels-photo-8442440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1585352608223-3008052896c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxwb3B1bGFyJTIwc3VnYXIlMjBzdWJzdGl0dXRlcyUyMGxpbmtlZCUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODQ0MTk4NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "popular sugar substitutes linked scientific visualization",
     "concept_signature": "linked popular scientific substitutes sugar visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OXZ4HSv7PbA",
+    "asset_url": "https://images.unsplash.com/photo-1697318827718-4ac5c7f5545a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cG9wdWxhciUyMHN1Z2FyJTIwc3Vic3RpdHV0ZXMlMjBsaW5rZWQlMjBjbGluaWNhbCUyMHJlc2VhcmNofGVufDB8MXx8fDE3ODQ0NzE3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "popular sugar substitutes linked clinical research",
+    "concept_signature": "linked popular substitutes sugar"
   }
 ]
