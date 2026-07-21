@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "3992945",
-    "asset_url": "https://images.pexels.com/photos/3992945/pexels-photo-3992945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "boosting protein helps brain biomedical microscopy",
-    "concept_signature": "biomedical boosting brain helps microscopy protein"
-  },
-  {
-    "source": "pexels",
     "asset_id": "8442147",
     "asset_url": "https://images.pexels.com/photos/8442147/pexels-photo-8442147.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "member states agree extend negotiations medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707862159533-caf8ddfe9cec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8ZGlzY292ZXIlMjBwcm90ZWluJTIwcHJvdGVjdHMlMjBicmFpbiUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODQ1NjA5Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover protein protects brain biomedical microscopy",
     "concept_signature": "biomedical brain discover microscopy protects protein"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "34755829",
+    "asset_url": "https://images.pexels.com/photos/34755829/pexels-photo-34755829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "alzheimer restore hours sleep biomedical microscopy",
+    "concept_signature": "alzheimer biomedical hours microscopy restore sleep"
   }
 ]
