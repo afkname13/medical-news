@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "M-Qi-agRdFs",
-    "asset_url": "https://images.unsplash.com/photo-1619332625667-f4c6714c3e29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8Ymxvb2QlMjB2ZXNzZWxzJTIwYWN0aXZhdGUlMjBzZWxmJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc3Nzc2NjUzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "blood vessels activate self biomedical microscopy",
-    "concept_signature": "activate biomedical blood microscopy self vessels"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "wDTDdRpFSRI",
     "asset_url": "https://images.unsplash.com/photo-1690494825126-98fa59e2ae24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxzdG9wcGluZyUyMHJlc3RhcnRpbmclMjBjZXJ0YWluJTIwbG9zZSUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3Nzc4MTc3Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "stopping restarting certain lose scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBwcm90ZWN0JTIweW91ciUyMGhlYXJ0JTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4NDczMzUwNHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "coffee protect your heart scientific visualization",
     "concept_signature": "coffee heart protect scientific visualization your"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "XZwrk9YQacI",
+    "asset_url": "https://images.unsplash.com/photo-1746842421998-8e440fa93a00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxjYXJkaW9sb2d5JTIwbW9uaXRvciUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzg0NzQ1Mzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "cardiology monitor medical photography",
+    "concept_signature": "cardiology monitor photography"
   }
 ]
