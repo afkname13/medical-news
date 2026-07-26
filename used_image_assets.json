@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "36111939",
-    "asset_url": "https://images.pexels.com/photos/36111939/pexels-photo-36111939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "sleep monitoring eeg medical photography",
-    "concept_signature": "monitoring photography sleep"
-  },
-  {
-    "source": "pexels",
     "asset_id": "8442527",
     "asset_url": "https://images.pexels.com/photos/8442527/pexels-photo-8442527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "thoracic stent grafts recalled after medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/4923044/pexels-photo-4923044.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "ozempic and mounjaro linked surprising hair medical photography",
     "concept_signature": "hair linked mounjaro ozempic photography surprising"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "kmAhp91dHu4",
+    "asset_url": "https://images.unsplash.com/photo-1636386689060-37d233b5d345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxoaWRkZW4lMjBhbHpoZWltZXIlMjB0aXBwaW5nJTIwcG9pbnQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzg1MDc3MTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hidden alzheimer tipping point biomedical microscopy",
+    "concept_signature": "alzheimer biomedical hidden microscopy point tipping"
   }
 ]
