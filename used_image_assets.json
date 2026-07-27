@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "7723578",
-    "asset_url": "https://images.pexels.com/photos/7723578/pexels-photo-7723578.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "uncovering risk factors exposome early medical research laboratory",
-    "concept_signature": "early exposome factors laboratory risk uncovering"
-  },
-  {
-    "source": "pexels",
     "asset_id": "16882902",
     "asset_url": "https://images.pexels.com/photos/16882902/pexels-photo-16882902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "diabetic peripheral neuropathy broader biomedical microscopy",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1583912267856-1fcdf6e0a1f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8c2FtZSUyMGRhbWFnZSUyMGNhdXNlcyUyMGNhbmNlciUyMHNvbWUlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODUxNjc1Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "same damage causes cancer some medical research laboratory",
     "concept_signature": "cancer causes damage laboratory same some"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "cWRVSX6lfBg",
+    "asset_url": "https://images.unsplash.com/photo-1587010579793-d870e1f79325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODUxNzgxOTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "radiology imaging medical photography",
+    "concept_signature": "imaging photography radiology"
   }
 ]
