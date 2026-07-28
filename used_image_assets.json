@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8442283",
-    "asset_url": "https://images.pexels.com/photos/8442283/pexels-photo-8442283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "discover ozempic works better some medical research laboratory",
-    "concept_signature": "better discover laboratory ozempic some works"
-  },
-  {
-    "source": "pexels",
     "asset_id": "12672390",
     "asset_url": "https://images.pexels.com/photos/12672390/pexels-photo-12672390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "takes overprescribing psychiatric drugs scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8428400/pexels-photo-8428400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "same damage causes cancer scientific visualization",
     "concept_signature": "cancer causes damage same scientific visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7723622",
+    "asset_url": "https://images.pexels.com/photos/7723622/pexels-photo-7723622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "cancer cells medical photography",
+    "concept_signature": "cancer cells photography"
   }
 ]
