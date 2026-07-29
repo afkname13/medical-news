@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "lgkareDEqKg",
-    "asset_url": "https://images.unsplash.com/photo-1748261348213-62f4c399bb72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxhbHVtaW5pdW0lMjB2YWNjaW5lJTIwc2FmZXR5JTIwZmFsc2UlMjBoeXBvdGhlc2VzJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzc4MjY2MDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "aluminium vaccine safety false hypotheses medical research laboratory",
-    "concept_signature": "aluminium false hypotheses laboratory safety vaccine"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "e2A7KSAe4tw",
     "asset_url": "https://images.unsplash.com/photo-1621075020417-f08bcfe30f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cGhvdG9ncmFwaHklMjBtb2xlY3VsYXIlMjBiaW9sb2d5JTIwc2NpZW50aXN0JTIwdXNlcyUyMGdsb3dpbmclMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc3ODI4NTQ3NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography molecular biology scientist uses glowing medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1631049123177-37356471f3dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjYW5jZXIlMjBjZWxsc3xlbnwwfDF8fHwxNzg1MjgzNzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "cancer cells",
     "concept_signature": "cancer cells"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "pzhmgzgL1Sk",
+    "asset_url": "https://images.unsplash.com/photo-1583912268179-ccc39663824a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxndWlkZWxpbmVzJTIwZGVtZW50aWElMjByaXNrJTIwY291bGQlMjBwcmV2ZW50ZWQlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODUzMzg1Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "guidelines dementia risk could prevented medical research laboratory",
+    "concept_signature": "could dementia guidelines laboratory prevented risk"
   }
 ]
