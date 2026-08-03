@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "33964763",
-    "asset_url": "https://images.pexels.com/photos/33964763/pexels-photo-33964763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "photography where block white tofu placed medical photography",
-    "concept_signature": "block photography placed tofu where white"
-  },
-  {
-    "source": "pexels",
     "asset_id": "3908182",
     "asset_url": "https://images.pexels.com/photos/3908182/pexels-photo-3908182.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "simple strength test could predict medical research laboratory",
@@ -1396,6 +1389,13 @@
     "source": "unsplash",
     "asset_id": "p1zy6izFI0M",
     "asset_url": "https://images.unsplash.com/photo-1631049123177-37356471f3dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjYW5jZXIlMjBjZWxsc3xlbnwwfDF8fHwxNzg1NzE2MDAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "cancer cells",
+    "concept_signature": "cancer cells"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "p1zy6izFI0M",
+    "asset_url": "https://images.unsplash.com/photo-1631049123177-37356471f3dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjYW5jZXIlMjBjZWxsc3xlbnwwfDF8fHwxNzg1NzcyNjIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "cancer cells",
     "concept_signature": "cancer cells"
   }
