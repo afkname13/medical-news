@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "18069488",
-    "asset_url": "https://images.pexels.com/photos/18069488/pexels-photo-18069488.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "noninvasive deep brain stimulation scientific visualization",
-    "concept_signature": "brain deep noninvasive scientific stimulation visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "33964763",
     "asset_url": "https://images.pexels.com/photos/33964763/pexels-photo-33964763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography where block white tofu placed medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8940346/pexels-photo-8940346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cancer breaking keep growing cells medical research laboratory",
     "concept_signature": "breaking cancer cells growing keep laboratory"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "p1zy6izFI0M",
+    "asset_url": "https://images.unsplash.com/photo-1631049123177-37356471f3dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjYW5jZXIlMjBjZWxsc3xlbnwwfDF8fHwxNzg1NzE2MDAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "cancer cells",
+    "concept_signature": "cancer cells"
   }
 ]
