@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "6011605",
-    "asset_url": "https://images.pexels.com/photos/6011605/pexels-photo-6011605.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "brain scan medical photography",
-    "concept_signature": "brain photography scan"
-  },
-  {
-    "source": "pexels",
     "asset_id": "7089402",
     "asset_url": "https://images.pexels.com/photos/7089402/pexels-photo-7089402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "mri imaging medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1752659504436-ef69b8e45b10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxkaWFiZXRlcyUyMGFkdm9jYWN5JTIwY2FtcGFpZ25zJTIwc2hvdWxkJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4NjI5Nzg0NXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "diabetes advocacy campaigns should scientific visualization",
     "concept_signature": "advocacy campaigns diabetes scientific should visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7006368",
+    "asset_url": "https://images.pexels.com/photos/7006368/pexels-photo-7006368.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "just days meditation rewire medical photography",
+    "concept_signature": "days just meditation photography rewire"
   }
 ]
