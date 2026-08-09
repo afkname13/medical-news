@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "29500560",
-    "asset_url": "https://images.pexels.com/photos/29500560/pexels-photo-29500560.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "grad student wild idea medical photography",
-    "concept_signature": "grad idea photography student wild"
-  },
-  {
-    "source": "pexels",
     "asset_id": "6011605",
     "asset_url": "https://images.pexels.com/photos/6011605/pexels-photo-6011605.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "brain scan medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8442369/pexels-photo-8442369.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "just days meditation rewire your medical research laboratory",
     "concept_signature": "days just laboratory meditation rewire your"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "Ja9inZMbZkg",
+    "asset_url": "https://images.unsplash.com/photo-1752659504436-ef69b8e45b10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxkaWFiZXRlcyUyMGFkdm9jYWN5JTIwY2FtcGFpZ25zJTIwc2hvdWxkJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4NjI5Nzg0NXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "diabetes advocacy campaigns should scientific visualization",
+    "concept_signature": "advocacy campaigns diabetes scientific should visualization"
   }
 ]
