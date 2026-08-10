@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "7089402",
-    "asset_url": "https://images.pexels.com/photos/7089402/pexels-photo-7089402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "mri imaging medical photography",
-    "concept_signature": "imaging photography"
-  },
-  {
-    "source": "pexels",
     "asset_id": "16328960",
     "asset_url": "https://images.pexels.com/photos/16328960/pexels-photo-16328960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography microscopic glowing silver nanoparticles navigating medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7006368/pexels-photo-7006368.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "just days meditation rewire medical photography",
     "concept_signature": "days just meditation photography rewire"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "iul3dSPs1G4",
+    "asset_url": "https://images.unsplash.com/photo-1748280317551-affaec88027d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwaWxsJTIwZGVsaXZlcnMlMjB3ZWlnaHQlMjBsb3NzJTIwd2Vla3MlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODYzODUxOTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "pill delivers weight loss weeks medical research laboratory",
+    "concept_signature": "delivers laboratory loss pill weeks weight"
   }
 ]
