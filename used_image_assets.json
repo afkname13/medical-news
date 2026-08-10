@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "16328960",
-    "asset_url": "https://images.pexels.com/photos/16328960/pexels-photo-16328960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "photography microscopic glowing silver nanoparticles navigating medical photography",
-    "concept_signature": "glowing microscopic nanoparticles navigating photography silver"
-  },
-  {
-    "source": "pexels",
     "asset_id": "29859866",
     "asset_url": "https://images.pexels.com/photos/29859866/pexels-photo-29859866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography microscopic glowing gold nanoparticles interacting medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1748280317551-affaec88027d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwaWxsJTIwZGVsaXZlcnMlMjB3ZWlnaHQlMjBsb3NzJTIwd2Vla3MlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODYzODUxOTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "pill delivers weight loss weeks medical research laboratory",
     "concept_signature": "delivers laboratory loss pill weeks weight"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OzM2aoduGWU",
+    "asset_url": "https://images.unsplash.com/photo-1576066582425-b429feadf10f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGlsbCUyMGRlbGl2ZXJzJTIwd2VpZ2h0JTIwbG9zcyUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODY0MDU5MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "pill delivers weight loss biomedical microscopy",
+    "concept_signature": "biomedical delivers loss microscopy pill weight"
   }
 ]
