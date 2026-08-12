@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "9574512",
-    "asset_url": "https://images.pexels.com/photos/9574512/pexels-photo-9574512.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "people lost most weight biomedical microscopy",
-    "concept_signature": "biomedical lost microscopy most people weight"
-  },
-  {
-    "source": "pexels",
     "asset_id": "3301",
     "asset_url": "https://images.pexels.com/photos/3301/apple-norms-size-standards.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "people lost most weight scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7460055/pexels-photo-7460055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "new glp pill delivers biomedical scientific medical photography",
     "concept_signature": "biomedical delivers photography pill scientific"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "9769115",
+    "asset_url": "https://images.pexels.com/photos/9769115/pexels-photo-9769115.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "pill delivers weight loss medical photography",
+    "concept_signature": "delivers loss photography pill weight"
   }
 ]
