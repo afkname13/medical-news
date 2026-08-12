@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "3301",
-    "asset_url": "https://images.pexels.com/photos/3301/apple-norms-size-standards.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "people lost most weight scientific visualization",
-    "concept_signature": "lost most people scientific visualization weight"
-  },
-  {
-    "source": "pexels",
     "asset_id": "4421501",
     "asset_url": "https://images.pexels.com/photos/4421501/pexels-photo-4421501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography cardiology where modern digital model medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/9769115/pexels-photo-9769115.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "pill delivers weight loss medical photography",
     "concept_signature": "delivers loss photography pill weight"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "FqRrkRsmDwM",
+    "asset_url": "https://images.unsplash.com/photo-1748404456463-16144dcc6181?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxuZXVyb3NjaWVuY2UlMjBsYWIlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4NjU1ODE2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "neuroscience lab medical photography",
+    "concept_signature": "neuroscience photography"
   }
 ]
