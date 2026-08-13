@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "H6A0DB8BJdU",
-    "asset_url": "https://images.unsplash.com/photo-1743792930023-774d74a015cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxkaXNjb3ZlciUyMHN0cmFuZ2UlMjBsaW5rJTIwYmV0d2VlbiUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3NzkzMDU3Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "discover strange link between biomedical microscopy",
-    "concept_signature": "between biomedical discover link microscopy strange"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "-u2OrY9ftGw",
     "asset_url": "https://images.unsplash.com/photo-1705167067074-3120938950d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxkaXNjb3ZlciUyMHN0cmFuZ2UlMjBsaW5rJTIwYmV0d2VlbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3NzkzMjI3Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover strange link between scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1714939722610-9169e8883bf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxicmFpbiUyMHNjYW4lMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4NjYzMTYzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "brain scan medical photography",
     "concept_signature": "brain photography scan"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "lgBzryMIxHA",
+    "asset_url": "https://images.unsplash.com/photo-1744912739625-1c188aa85c7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxuZXVyb2xvZ3klMjByZXNlYXJjaCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzg2NjQ0NTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "neurology research medical photography",
+    "concept_signature": "neurology photography"
   }
 ]
