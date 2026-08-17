@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "3cutgZyMD4Q",
-    "asset_url": "https://images.unsplash.com/photo-1766713203219-8ca06e1f4db9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8bWljcm9zY29wZSUyMGNlbGxzJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3Nzk0NjU1NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "microscope cells medical photography",
-    "concept_signature": "cells microscope photography"
-  },
-  {
     "source": "pexels",
     "asset_id": "36372301",
     "asset_url": "https://images.pexels.com/photos/36372301/pexels-photo-36372301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/6192326/pexels-photo-6192326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "solve mystery brain switch biomedical microscopy",
     "concept_signature": "biomedical brain microscopy mystery solve switch"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OPWpI0IZZ_Q",
+    "asset_url": "https://images.unsplash.com/photo-1676206584892-c5e08cc47354?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxsaXR0bGUlMjBrbm93biUyMHByb3RlaW4lMjBmdWVsaW5nJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4Njk3NDkwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "little known protein fueling scientific visualization",
+    "concept_signature": "fueling known little protein scientific visualization"
   }
 ]
