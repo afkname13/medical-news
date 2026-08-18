@@ -1,20 +1,5 @@
 [
   {
-    "id": "52344222bcd8369abea7e7b6576e9d37",
-    "title": "AI-based triage and decision support in mammography and digital tomosynthesis for breast cancer screening: a paired, noninferiority trial",
-    "timestamp": "2026-03-22T08:17:16.816438",
-    "posted_as_carousel": true,
-    "cover": "CANCER TECH\nAI FAILS DOCTORS",
-    "image_prompt": "Cinematic medical photography of a female radiologist in a dimly lit hospital suite intensely analyzing high-resolution digital mammography scans on multiple glowing monitors. The focus is on the sharp detail of the breast tissue imaging and the professional concentration of the doctor.",
-    "slide_titles": [
-      "AI TESTING RESULTS",
-      "WHY DOCTORS WIN"
-    ],
-    "caption_excerpt": "READ THIS! \ud83d\udea8 THE LIMITS OF CANCER AI A major new trial published in Nature Medicine just tested if AI can handle breast cancer",
-    "url": "https://www.nature.com/articles/s41591-026-04277-x",
-    "journal": "Nature Medicine"
-  },
-  {
     "id": "2387583cfc539a11238a04a9f2ad4e4b",
     "title": "Real-world clinical utility of tumor whole-genome sequencing in solid cancers",
     "timestamp": "2026-03-22T08:31:09.297848",
@@ -4463,5 +4448,34 @@
       "laboratory"
     ],
     "content_signature": "MEMORY ALERT\nA LITTLE KNOWN PROTEIN WHAT THEY FOUND WHY IT MATTERS An experimental Alzheimer\u2019s compound prevented damaging protein clumps from forming in the brains of mice, helping nerve cells survive longer and reducing amyloid buildup. The trea An experimental Alzheimer\u2019s compound prevented damaging protein clumps from forming in the brains of mice, helping nerve cells survive longer and reducing amyloid buildup. The trea a little known protein may be fueling alzheimer biomedical research laboratory scientific visualization clinical realism READ THIS! \ud83d\udea8 A little-known protein may be fueling Alzheimer\u2019s \u2014 and scientists found a way to block it An experimental Alzheimer\u2019s compound prevented damaging protein clumps from forming in the brains"
+  },
+  {
+    "id": "428c288d7c1b6d27f11a6be400355dc4",
+    "title": "This 10-cent heart drug cuts hospitalizations by 25%",
+    "timestamp": "2026-08-18T17:53:59.365049",
+    "posted_as_carousel": true,
+    "cover": "HEART WATCH\nTHIS 10 CENT HEART",
+    "image_prompt": "this 10 cent heart drug cuts hospitalizations by biomedical research laboratory scientific visualization clinical realism",
+    "slide_titles": [
+      "WHAT THEY FOUND",
+      "WHY IT MATTERS"
+    ],
+    "caption_excerpt": "READ THIS! \ud83d\udea8 This 10-cent heart drug cuts hospitalizations by 25% A centuries-old heart drug costing less than ten cents a day could help",
+    "url": "https://www.sciencedaily.com/releases/2026/08/260814235858.htm",
+    "journal": "ScienceDaily",
+    "topic_terms": [
+      "cent",
+      "heart",
+      "drug",
+      "cuts",
+      "hospitalizations",
+      "watch",
+      "biomedical",
+      "laboratory",
+      "scientific",
+      "visualization",
+      "realism"
+    ],
+    "content_signature": "HEART WATCH\nTHIS 10 CENT HEART WHAT THEY FOUND WHY IT MATTERS A centuries-old heart drug costing less than ten cents a day could help keep heart-failure patients out of the hospital. New research suggests low-dose digoxin can reduce heart-fai A centuries-old heart drug costing less than ten cents a day could help keep heart-failure patients out of the hospital. New research suggests low-dose digoxin can reduce heart-fai this 10 cent heart drug cuts hospitalizations by biomedical research laboratory scientific visualization clinical realism READ THIS! \ud83d\udea8 This 10-cent heart drug cuts hospitalizations by 25% A centuries-old heart drug costing less than ten cents a day could help keep heart-failure patients out of the hospital. New"
   }
 ]

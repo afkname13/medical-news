@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "16328884",
-    "asset_url": "https://images.pexels.com/photos/16328884/pexels-photo-16328884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "zombie cells aren always scientific visualization",
-    "concept_signature": "always aren cells scientific visualization zombie"
-  },
-  {
-    "source": "pexels",
     "asset_id": "8940347",
     "asset_url": "https://images.pexels.com/photos/8940347/pexels-photo-8940347.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cell culture laboratory medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/28516276/pexels-photo-28516276.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "doctor prescribed ozempic wegovy scientific visualization",
     "concept_signature": "doctor ozempic prescribed scientific visualization wegovy"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "Zmay3snoIaM",
+    "asset_url": "https://images.unsplash.com/photo-1676032095373-b6452d235f1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxjZW50JTIwaGVhcnQlMjBkcnVnJTIwY3V0cyUyMGhvc3BpdGFsaXphdGlvbnMlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODcwNzU1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "cent heart drug cuts hospitalizations medical research laboratory",
+    "concept_signature": "cent cuts drug heart hospitalizations laboratory"
   }
 ]
