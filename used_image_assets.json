@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "5835451",
-    "asset_url": "https://images.pexels.com/photos/5835451/pexels-photo-5835451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "discover hidden driver aging scientific visualization",
-    "concept_signature": "aging discover driver hidden scientific visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "8442145",
     "asset_url": "https://images.pexels.com/photos/8442145/pexels-photo-8442145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography neuroscientist sterile lab analyzing glowing medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/9574501/pexels-photo-9574501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "african union world health organization medical research laboratory",
     "concept_signature": "african health laboratory organization union world"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "tBZXYspGH_M",
+    "asset_url": "https://images.unsplash.com/photo-1725399633864-ae5493e9f1bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHx0cmF1bWF0aWMlMjBicmFpbiUyMGluanVyeSUyMG91dGNvbWVzJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc4NzE4MjYzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "traumatic brain injury outcomes biomedical microscopy",
+    "concept_signature": "biomedical brain injury microscopy outcomes traumatic"
   }
 ]
