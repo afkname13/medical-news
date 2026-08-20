@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8442145",
-    "asset_url": "https://images.pexels.com/photos/8442145/pexels-photo-8442145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "photography neuroscientist sterile lab analyzing glowing medical photography",
-    "concept_signature": "analyzing glowing neuroscientist photography sterile"
-  },
-  {
-    "source": "pexels",
     "asset_id": "9768454",
     "asset_url": "https://images.pexels.com/photos/9768454/pexels-photo-9768454.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography researchers state the art neurobiology medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1725399633864-ae5493e9f1bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHx0cmF1bWF0aWMlMjBicmFpbiUyMGluanVyeSUyMG91dGNvbWVzJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc4NzE4MjYzNnww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "traumatic brain injury outcomes biomedical microscopy",
     "concept_signature": "biomedical brain injury microscopy outcomes traumatic"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "OcDGCRNfgPc",
+    "asset_url": "https://images.unsplash.com/photo-1715531785980-ce9b3bf1c38d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxrbmVlJTIwb3N0ZW9hcnRocml0aXMlMjBpbmV2aXRhYmxlJTIwaGVyZSUyMHdoYXQlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODcyMzQ0ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "knee osteoarthritis inevitable here what medical research laboratory",
+    "concept_signature": "here inevitable knee laboratory osteoarthritis what"
   }
 ]
