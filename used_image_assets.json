@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "9228382",
-    "asset_url": "https://images.pexels.com/photos/9228382/pexels-photo-9228382.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "discover hidden brain circuit scientific visualization",
-    "concept_signature": "brain circuit discover hidden scientific visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "5407214",
     "asset_url": "https://images.pexels.com/photos/5407214/pexels-photo-5407214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "brain scan medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1607278843240-419b8d83672d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHx0b290aCUyMGNvdW50JTIwcHJlZGljdCUyMHN1cnZpdmFsJTIwYWZ0ZXIlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODc0MjAzOTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "tooth count predict survival after medical research laboratory",
     "concept_signature": "after count laboratory predict survival tooth"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "q0-2yIJRDcE",
+    "asset_url": "https://images.unsplash.com/photo-1687811267358-1cdecc3025f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHx0b290aCUyMGNvdW50JTIwcHJlZGljdCUyMHN1cnZpdmFsJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4NzQ0MTcxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "tooth count predict survival scientific visualization",
+    "concept_signature": "count predict scientific survival tooth visualization"
   }
 ]
