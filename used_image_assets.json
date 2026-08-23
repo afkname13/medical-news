@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "5407214",
-    "asset_url": "https://images.pexels.com/photos/5407214/pexels-photo-5407214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "brain scan medical photography",
-    "concept_signature": "brain photography scan"
-  },
-  {
-    "source": "pexels",
     "asset_id": "13176449",
     "asset_url": "https://images.pexels.com/photos/13176449/pexels-photo-13176449.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "mri imaging medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1687811267358-1cdecc3025f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHx0b290aCUyMGNvdW50JTIwcHJlZGljdCUyMHN1cnZpdmFsJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4NzQ0MTcxMHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "tooth count predict survival scientific visualization",
     "concept_signature": "count predict scientific survival tooth visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "xIvciwEBjxo",
+    "asset_url": "https://images.unsplash.com/photo-1645302186310-f9f6f2c1e3ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8dG9vdGglMjBjb3VudCUyMG1heSUyMHByZWRpY3QlMjBzdXJ2aXZhbCUyMGFmdGVyJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODc0OTI4Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "tooth count may predict survival after medical photography",
+    "concept_signature": "after count photography predict survival tooth"
   }
 ]
