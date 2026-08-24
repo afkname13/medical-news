@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "12586916",
-    "asset_url": "https://images.pexels.com/photos/12586916/pexels-photo-12586916.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "protein traffic jams explain scientific visualization",
-    "concept_signature": "explain jams protein scientific traffic visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "8531336",
     "asset_url": "https://images.pexels.com/photos/8531336/pexels-photo-8531336.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography scientist analyzing model turquoise killifish medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8442280/pexels-photo-8442280.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "hidden switch human finally been medical research laboratory",
     "concept_signature": "been finally hidden human laboratory switch"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "5hMTmaMFoEo",
+    "asset_url": "https://images.unsplash.com/photo-1777382182575-a4c3b2dec164?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxtdWNoJTIwbGl0dGxlJTIwc2xlZXAlMjBtYWtlJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4NzU5Mzc3OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "much little sleep make scientific visualization",
+    "concept_signature": "little make much scientific sleep visualization"
   }
 ]
