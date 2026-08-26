@@ -1,35 +1,5 @@
 [
   {
-    "id": "d68b0b59e07674d4e354da8c74de9504",
-    "title": "A man used AI to help make a cancer vaccine for his dog\u2014an oncologist urges caution",
-    "timestamp": "2026-03-23T23:50:31.957971",
-    "posted_as_carousel": true,
-    "cover": "CANINE AI\nCUSTOM VACCINE CREATED",
-    "image_prompt": "Cinematic medical photography of an Australian tech entrepreneur working on a high-tech laptop in a modern home office. On the screen, a glowing 3D visualization of a canine tumor protein structure is being analyzed by an AI interface. Soft evening light filters through a window, highlighting a golden retriever sitting calmly by his side. The atmosphere is professional, sleek, and high-tech.",
-    "slide_titles": [
-      "AI CANCER HACK",
-      "EXPERTS URGE CAUTION"
-    ],
-    "caption_excerpt": "READ THIS! \ud83d\udea8 AI PET BREAKTHROUGH A tech entrepreneur used ChatGPT to help build a custom cancer vaccine for his dog. This is a",
-    "url": "https://medicalxpress.com/news/2026-03-ai-cancer-vaccine-dog-oncologist.html",
-    "journal": "MedicalXpress",
-    "topic_terms": [
-      "used",
-      "help",
-      "make",
-      "cancer",
-      "vaccine",
-      "oncologist",
-      "urges",
-      "caution",
-      "canine",
-      "custom",
-      "created",
-      "cinematic"
-    ],
-    "content_signature": "CANINE AI\nCUSTOM VACCINE CREATED AI CANCER HACK EXPERTS URGE CAUTION An Australian entrepreneur utilized <b>artificial intelligence</b> to help develop a personalized <b>cancer vaccine</b> for his pet dog. By processing complex medical data through While the tech is impressive, <b>oncologists</b> warn that creating <b>homemade medical treatments</b> poses massive risks. Without <b>clinical trials</b> and strict <b>safety prot Cinematic medical photography of an Australian tech entrepreneur working on a high-tech laptop in a modern home office. On the screen, a glowing 3D visualization of a canine tumor protein structure is being analyzed by an AI interface. Soft evening light filters through a window, highlighting a golden retriever sitting calmly by his side. The atmosphere is professional, sleek, and high-tech. READ THIS! \ud83d\udea8 AI PET BREAKTHROUGH A tech entrepreneur used ChatGPT to help build a custom cancer vaccine for his dog. This is a wild look at how AI might democratize medicine."
-  },
-  {
     "id": "2b03bfd18ad14c7c2060b7706d32591d",
     "title": "Metformin\u2019s hidden brain pathway revealed after 60 years",
     "timestamp": "2026-03-25T14:39:41.948061",
@@ -4490,5 +4460,35 @@
       "scientific"
     ],
     "content_signature": "MAJOR DISCOVERY\nTOO MUCH OR TOO WHAT THEY FOUND WHY IT MATTERS Both too little and too much sleep may be linked to faster aging throughout the body. Researchers analyzing 23 biological aging clocks found the lowest aging levels among people sl Short or long sleep was also associated with numerous conditions affecting the brain, heart, lungs, metabolism, and digestive system. too much or too little sleep may make biomedical research laboratory scientific visualization clinical realism READ THIS! \ud83d\udea8 Too much or too little sleep may make your body age faster Both too little and too much sleep may be linked to faster aging throughout the body. Researchers"
+  },
+  {
+    "id": "a29a3a591674917fe6fd91e540713478",
+    "title": "A missing color in indoor light may help prevent myopia",
+    "timestamp": "2026-08-26T19:24:36.237318",
+    "posted_as_carousel": true,
+    "cover": "NEW BREAKTHROUGH\nA MISSING COLOR IN",
+    "image_prompt": "a missing color in indoor light may help biomedical research laboratory scientific visualization clinical realism",
+    "slide_titles": [
+      "WHAT THEY FOUND",
+      "WHY IT MATTERS"
+    ],
+    "caption_excerpt": "READ THIS! \ud83d\udea8 A missing color in indoor light may help prevent myopia A wavelength of light largely missing from indoor LEDs may play",
+    "url": "https://www.sciencedaily.com/releases/2026/08/260824065510.htm",
+    "journal": "ScienceDaily",
+    "topic_terms": [
+      "missing",
+      "color",
+      "indoor",
+      "light",
+      "help",
+      "prevent",
+      "myopia",
+      "breakthrough",
+      "biomedical",
+      "laboratory",
+      "scientific",
+      "visualization"
+    ],
+    "content_signature": "NEW BREAKTHROUGH\nA MISSING COLOR IN WHAT THEY FOUND WHY IT MATTERS A wavelength of light largely missing from indoor LEDs may play an important role in protecting developing eyes from nearsightedness. Researchers found that indigo light completely The discovery raises the possibility that future indoor lighting could be redesigned to more closely mimic sunlight and potentially reduce childhood myopia. a missing color in indoor light may help biomedical research laboratory scientific visualization clinical realism READ THIS! \ud83d\udea8 A missing color in indoor light may help prevent myopia A wavelength of light largely missing from indoor LEDs may play an important role in protecting developing eyes from"
   }
 ]
