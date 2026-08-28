@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8770719",
-    "asset_url": "https://images.pexels.com/photos/8770719/pexels-photo-8770719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "popular weight loss drugs linked medical research laboratory",
-    "concept_signature": "drugs laboratory linked loss popular weight"
-  },
-  {
-    "source": "pexels",
     "asset_id": "29197748",
     "asset_url": "https://images.pexels.com/photos/29197748/pexels-photo-29197748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "popular weight loss drugs scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1581594549713-200463fcd4ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxzdXBlcmNoYXJnZWQlMjBuYXR1cmFsJTIwa2lsbGVyJTIwY2VsbHMlMjBjb3VsZCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc4NzkwMDIxNXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "supercharged natural killer cells could medical research laboratory",
     "concept_signature": "cells could killer laboratory natural supercharged"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "YQkT1zNMSWw",
+    "asset_url": "https://images.unsplash.com/photo-1635321856029-68a8cbae50fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8Zmlyc3QlMjBzdWNjZXNzZnVsJTIwYXNzaXN0ZWQlMjBicmFpbiUyMHR1bW91ciUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc4Nzk1ODI4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "first successful assisted brain tumour medical research laboratory",
+    "concept_signature": "assisted brain first laboratory successful tumour"
   }
 ]
