@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "29197748",
-    "asset_url": "https://images.pexels.com/photos/29197748/pexels-photo-29197748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "popular weight loss drugs scientific visualization",
-    "concept_signature": "drugs loss popular scientific visualization weight"
-  },
-  {
-    "source": "pexels",
     "asset_id": "9574463",
     "asset_url": "https://images.pexels.com/photos/9574463/pexels-photo-9574463.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography researcher analyzing glowing digital model medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1635321856029-68a8cbae50fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8Zmlyc3QlMjBzdWNjZXNzZnVsJTIwYXNzaXN0ZWQlMjBicmFpbiUyMHR1bW91ciUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc4Nzk1ODI4OHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "first successful assisted brain tumour medical research laboratory",
     "concept_signature": "assisted brain first laboratory successful tumour"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "iIo6hxhh4Ls",
+    "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8c3VwZXJjaGFyZ2VkJTIwbmF0dXJhbCUyMGtpbGxlciUyMGNlbGxzJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4Nzk2NTIwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "supercharged natural killer cells scientific visualization",
+    "concept_signature": "cells killer natural scientific supercharged visualization"
   }
 ]
