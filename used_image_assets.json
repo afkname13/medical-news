@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "9574463",
-    "asset_url": "https://images.pexels.com/photos/9574463/pexels-photo-9574463.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "photography researcher analyzing glowing digital model medical photography",
-    "concept_signature": "analyzing digital glowing model photography researcher"
-  },
-  {
-    "source": "pexels",
     "asset_id": "7460053",
     "asset_url": "https://images.pexels.com/photos/7460053/pexels-photo-7460053.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "popular weight loss drugs medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8c3VwZXJjaGFyZ2VkJTIwbmF0dXJhbCUyMGtpbGxlciUyMGNlbGxzJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4Nzk2NTIwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "supercharged natural killer cells scientific visualization",
     "concept_signature": "cells killer natural scientific supercharged visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "M-Qi-agRdFs",
+    "asset_url": "https://images.unsplash.com/photo-1619332625667-f4c6714c3e29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8bWljcm9zY29wZSUyMGNlbGxzJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODc5NzY2NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "microscope cells medical photography",
+    "concept_signature": "cells microscope photography"
   }
 ]
