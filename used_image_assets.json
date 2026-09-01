@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "OGRhN49boSo",
-    "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDYyMzEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "popular weight loss clinical image",
-    "concept_signature": "loss popular weight"
-  },
-  {
     "source": "pexels",
     "asset_id": "8539457",
     "asset_url": "https://images.pexels.com/photos/8539457/pexels-photo-8539457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1574717025179-0b6d03d4d86f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxjYXJkaW9sb2dpc3QlMjBhbmFseXppbmclMjBhZHZhbmNlZCUyMGNhcmRpYWMlMjBtcmklMjBzY2FucyUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzg4MTM5NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "cardiologist analyzing advanced cardiac mri scans medical photography",
     "concept_signature": "advanced analyzing cardiac cardiologist photography scans"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "u0gcXVZxG_s",
+    "asset_url": "https://images.unsplash.com/photo-1631558554770-74e921444006?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cmVhY2hpbmclMjB3aXRob3V0JTIwZGVtZW50aWElMjBkb2VzbiUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODgyODMyNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "reaching without dementia doesn biomedical microscopy",
+    "concept_signature": "biomedical dementia doesn microscopy reaching without"
   }
 ]
