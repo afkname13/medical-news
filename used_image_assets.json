@@ -2,13 +2,6 @@
   {
     "source": "unsplash",
     "asset_id": "OGRhN49boSo",
-    "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDYyMzEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "popular weight loss clinical image",
-    "concept_signature": "loss popular weight"
-  },
-  {
-    "source": "unsplash",
-    "asset_id": "OGRhN49boSo",
     "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDc3MTM1OXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "popular weight loss clinical image",
     "concept_signature": "loss popular weight"
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/3735708/pexels-photo-3735708.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "reaching without dementia doesn mean medical research laboratory",
     "concept_signature": "dementia doesn laboratory mean reaching without"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "5795688",
+    "asset_url": "https://images.pexels.com/photos/5795688/pexels-photo-5795688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "reaching without dementia doesn scientific visualization",
+    "concept_signature": "dementia doesn reaching scientific visualization without"
   }
 ]
