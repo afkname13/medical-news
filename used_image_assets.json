@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "OGRhN49boSo",
-    "asset_url": "https://images.unsplash.com/photo-1729704200287-166cf62c9e36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxwb3B1bGFyJTIwd2VpZ2h0JTIwbG9zcyUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MDc3MTM1OXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "popular weight loss clinical image",
-    "concept_signature": "loss popular weight"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "0HGLd5gcqiA",
     "asset_url": "https://images.unsplash.com/photo-1563932127565-699eeea1e17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxwaG90b2dyYXBoeSUyMHN0YXRlJTIwdGhlJTIwYXJ0JTIwY2FyZGlvbG9neSUyMGFuZCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgwOTQ3NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography state the art cardiology and medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/5795688/pexels-photo-5795688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "reaching without dementia doesn scientific visualization",
     "concept_signature": "dementia doesn reaching scientific visualization without"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "koa4UEGDmXE",
+    "asset_url": "https://images.unsplash.com/photo-1602404342760-47f8128773e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxvYmVzaXR5JTIwbGVhdmVzJTIwbGFzdGluZyUyMG1lbW9yeSUyMGltbXVuZSUyMGNlbGxzJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODgzNjkxMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "obesity leaves lasting memory immune cells medical photography",
+    "concept_signature": "cells immune lasting leaves memory obesity"
   }
 ]
