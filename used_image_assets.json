@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "7723609",
-    "asset_url": "https://images.pexels.com/photos/7723609/pexels-photo-7723609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "cancer patients found simple scientific visualization",
-    "concept_signature": "cancer found patients scientific simple visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "8428395",
     "asset_url": "https://images.pexels.com/photos/8428395/pexels-photo-8428395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cancer cells medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1728675437273-d83d4cfaf938?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxhbHpoZWltZXIlMjBsZWF2ZSUyMG1hcmslMjBicmFpbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODg0NjUyNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "alzheimer leave mark brain scientific visualization",
     "concept_signature": "alzheimer brain leave mark scientific visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "bV_P23FXxhI",
+    "asset_url": "https://images.unsplash.com/photo-1716637644831-e046c73be197?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxicmFpbiUyMHNjYW4lMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4ODQ4MzU3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "brain scan medical photography",
+    "concept_signature": "brain photography scan"
   }
 ]
