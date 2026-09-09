@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "36757560",
-    "asset_url": "https://images.pexels.com/photos/36757560/pexels-photo-36757560.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "stanford regrow lost cartilage scientific visualization",
-    "concept_signature": "cartilage lost regrow scientific stanford visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "24513256",
     "asset_url": "https://images.pexels.com/photos/24513256/pexels-photo-24513256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "stanford regrow lost cartilage medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/30338195/pexels-photo-30338195.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "sleep laboratory medical photography",
     "concept_signature": "laboratory photography sleep"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "8jfIIrkHeII",
+    "asset_url": "https://images.unsplash.com/photo-1631556096543-23fdcb5896da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxtaWNyb3Njb3BlJTIwY2VsbHN8ZW58MHwxfHx8MTc4ODgzMDAxMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "microscope cells",
+    "concept_signature": "cells microscope"
   }
 ]
