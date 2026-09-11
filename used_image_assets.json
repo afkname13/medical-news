@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "4IWYIdwE93o",
-    "asset_url": "https://images.unsplash.com/photo-1575969554136-c8e0013df13a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8cGhvdG9ncmFwaHklMjByZXNlYXJjaGVyJTIwZXhhbWluaW5nJTIwZ2xvd2luZyUyMHNtYXJ0JTIwd2F0Y2glMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MTQ4NzcyMXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "photography researcher examining glowing smart watch medical photography",
-    "concept_signature": "examining glowing photography researcher smart watch"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "BPINS9X3mjo",
     "asset_url": "https://images.unsplash.com/photo-1729704200280-0d0dda0f3c60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8ZGlhYmV0ZXMlMjBwaWxsJTIwZGVsaXZlcnMlMjBtYWpvciUyMHdlaWdodCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc4MTU0NjY1MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "diabetes pill delivers major weight medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8539457/pexels-photo-8539457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "find signs extreme aging youth medical research laboratory",
     "concept_signature": "aging extreme find laboratory signs youth"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "13966056",
+    "asset_url": "https://images.pexels.com/photos/13966056/pexels-photo-13966056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "find signs extreme aging biomedical microscopy",
+    "concept_signature": "aging biomedical extreme find microscopy signs"
   }
 ]
