@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "lyNuVCHmAS8",
-    "asset_url": "https://images.unsplash.com/photo-1687618625218-c80009356fbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxkaWFiZXRlcyUyMHBpbGwlMjBkZWxpdmVycyUyMG1ham9yJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4MTU3NDUyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "diabetes pill delivers major scientific visualization",
-    "concept_signature": "delivers diabetes major pill scientific visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "hjnK78T0jY4",
     "asset_url": "https://images.unsplash.com/photo-1706178924579-86b4e99f5479?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8c3VycHJpc2luZyUyMHdheXMlMjBkaWFiZXRlcyUyMGRlbWVudGlhJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4MTcxNDk0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "surprising ways diabetes dementia scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8442527/pexels-photo-8442527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography biomedical researcher sterile lab attire medical photography",
     "concept_signature": "attire biomedical photography researcher sterile"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "jUF_F0k8pgA",
+    "asset_url": "https://images.unsplash.com/photo-1590548784511-c7c9d66d0b02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxvemVtcGljJTIwd2Vnb3Z5JTIwcmFpc2UlMjBoYWlyJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODkzMTg3NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "ozempic wegovy raise hair medical photography",
+    "concept_signature": "hair ozempic photography raise wegovy"
   }
 ]
