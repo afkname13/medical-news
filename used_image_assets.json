@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "6942026",
-    "asset_url": "https://images.pexels.com/photos/6942026/pexels-photo-6942026.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "surprising ways diabetes and dementia are medical photography",
-    "concept_signature": "dementia diabetes photography surprising ways"
-  },
-  {
     "source": "unsplash",
     "asset_id": "bwMhq_itmMU",
     "asset_url": "https://images.unsplash.com/photo-1579154392429-0e6b4e850ad2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8aGF2ZSUyMGZvdW5kJTIwd2hhdCUyMHJlYWxseSUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODE4ODU3NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1664854953181-b12e6dda8b7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxkaXNjb3ZlciUyMHN0cmFuZ2UlMjBsaW5rJTIwYmV0d2VlbiUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODk0MTk1MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover strange link between scientific visualization",
     "concept_signature": "between discover link scientific strange visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "nYTeLW-RiyU",
+    "asset_url": "https://images.unsplash.com/photo-1616012481039-5de1dcb42934?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxzY2llbnRpc3RzJTIwZGlzY292ZXIlMjBzdHJhbmdlJTIwbGluayUyMGJldHdlZW4lMjBsb3clMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4OTQzNTc0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "scientists discover strange link between low medical photography",
+    "concept_signature": "between discover link photography strange"
   }
 ]
