@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "6n_hk0PdK7c",
-    "asset_url": "https://images.unsplash.com/photo-1758204054683-6e3a7d552bd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxzY2llbnRpc3RzJTIwbWF5JTIwaGF2ZSUyMGZvdW5kJTIwd2hhdCUyMHJlYWxseSUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgxOTgxMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "scientists may have found what really medical photography",
-    "concept_signature": "found have photography really what"
-  },
-  {
     "source": "pexels",
     "asset_id": "8532854",
     "asset_url": "https://images.pexels.com/photos/8532854/pexels-photo-8532854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1748404456485-f5eeb18011d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxuZXVyb3NjaWVuY2UlMjBsYWIlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4OTU4MDM4NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "neuroscience lab medical photography",
     "concept_signature": "neuroscience photography"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "g3PwRvJPcjM",
+    "asset_url": "https://images.unsplash.com/photo-1770836037423-641b7c358bec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxuZXVyb2xvZ3klMjByZXNlYXJjaCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzg5NTg5NTQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "neurology research medical photography",
+    "concept_signature": "neurology photography"
   }
 ]
