@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "zna7XRjnc6k",
-    "asset_url": "https://images.unsplash.com/photo-1707079346045-58fed6cde83a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxtaWNyb3Njb3BlJTIwY2VsbHN8ZW58MHwxfHx8MTc4MTk2ODU4NHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "microscope cells",
-    "concept_signature": "cells microscope"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "6n_hk0PdK7c",
     "asset_url": "https://images.unsplash.com/photo-1758204054683-6e3a7d552bd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxzY2llbnRpc3RzJTIwbWF5JTIwaGF2ZSUyMGZvdW5kJTIwd2hhdCUyMHJlYWxseSUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgxOTgxMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "scientists may have found what really medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1728675438130-4393f2e8fb2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxkaXNjb3ZlciUyMG1ham9yJTIwYnJhaW4lMjBzaGlmdCUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODk1MjE5ODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover major brain shift scientific visualization",
     "concept_signature": "brain discover major scientific shift visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "tLI5KpfTC2s",
+    "asset_url": "https://images.unsplash.com/photo-1748404456485-f5eeb18011d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxuZXVyb3NjaWVuY2UlMjBsYWIlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4OTU4MDM4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "neuroscience lab medical photography",
+    "concept_signature": "neuroscience photography"
   }
 ]
