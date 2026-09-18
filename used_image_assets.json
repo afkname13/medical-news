@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "Ca8CbrEl1Jo",
-    "asset_url": "https://images.unsplash.com/photo-1584789873979-8c1eb75ef8c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8ZWJvbGElMjBoYW50YXZpcnVzJTIwc3RhcnQlMjBsaWtlJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc4MjE1OTQxMXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "ebola hantavirus start like scientific visualization",
-    "concept_signature": "ebola hantavirus like scientific start visualization"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "KVasPlAfs1Y",
     "asset_url": "https://images.unsplash.com/photo-1766299892683-d50398e31823?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8ZWJvbGElMjBhbmQlMjBoYW50YXZpcnVzJTIwY2FuJTIwc3RhcnQlMjBsaWtlJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODIxNzc5MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "ebola and hantavirus can start like medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1631049129023-3b03d6d9b8bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoeSUyMG5ldXJvJTIwb25jb2xvZ3klMjBleGFtaW5pbmclMjBmbHVvcmVzY2VudCUyMGNvbmZvY2FsJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODk3NTExOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography neuro oncology examining fluorescent confocal medical photography",
     "concept_signature": "confocal examining fluorescent neuro oncology photography"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "VxW_nwHKPuA",
+    "asset_url": "https://images.unsplash.com/photo-1725399634168-c6d53638b212?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxoaWRkZW4lMjBpbW11bmUlMjBvcmdhbiUyMHRoZSUyMHNrdWxsJTIwbWF5JTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODk3NjA0NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hidden immune organ the skull may medical photography",
+    "concept_signature": "hidden immune organ photography skull"
   }
 ]
