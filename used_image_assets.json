@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "7203697",
-    "asset_url": "https://images.pexels.com/photos/7203697/pexels-photo-7203697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "tubulin prevents toxic brain scientific visualization",
-    "concept_signature": "brain prevents scientific toxic tubulin visualization"
-  },
-  {
     "source": "unsplash",
     "asset_id": "5HbxyB0_DBg",
     "asset_url": "https://images.unsplash.com/photo-1524684009724-bee13ad8305f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8ZWJvbGElMjBoYW50YXZpcnVzJTIwc3RhcnQlMjBsaWtlJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc4MjE1MDgwOHww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1503500684848-e0b13e4781eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8aGlkZGVuJTIwaW1tdW5lJTIwb3JnYW4lMjBza3VsbCUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODk2NzY1NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "hidden immune organ skull biomedical microscopy",
     "concept_signature": "biomedical hidden immune microscopy organ skull"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "-TYudK6ZbGw",
+    "asset_url": "https://images.unsplash.com/photo-1670405080668-6a7b8e26c313?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8aGlkZGVuJTIwaW1tdW5lJTIwb3JnYW4lMjBza3VsbCUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODk2OTQyNzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hidden immune organ skull scientific visualization",
+    "concept_signature": "hidden immune organ scientific skull visualization"
   }
 ]
