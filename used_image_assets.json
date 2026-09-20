@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "8442563",
-    "asset_url": "https://images.pexels.com/photos/8442563/pexels-photo-8442563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "sleep laboratory medical photography",
-    "concept_signature": "laboratory photography sleep"
-  },
-  {
     "source": "unsplash",
     "asset_id": "Tz3qK-6MMl4",
     "asset_url": "https://images.unsplash.com/photo-1707386821177-1c3dde2e1d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxlYm9sYSUyMGhhbnRhdmlydXMlMjBzdGFydCUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MjMxNTU5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1396,6 +1389,13 @@
     "source": "unsplash",
     "asset_id": "iIo6hxhh4Ls",
     "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxoaWRkZW4lMjBpbW11bmUlMjBvcmdhbiUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4OTg0NTY4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "hidden immune organ clinical image",
+    "concept_signature": "hidden immune organ"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "iIo6hxhh4Ls",
+    "asset_url": "https://images.unsplash.com/photo-1707079918070-7962c5084643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxoaWRkZW4lMjBpbW11bmUlMjBvcmdhbiUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4OTg2NjY4MXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "hidden immune organ clinical image",
     "concept_signature": "hidden immune organ"
   }
