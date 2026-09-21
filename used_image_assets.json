@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8851257",
-    "asset_url": "https://images.pexels.com/photos/8851257/pexels-photo-8851257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "wegovy weight loss pill gets medical research laboratory",
-    "concept_signature": "gets laboratory loss pill wegovy weight"
-  },
-  {
-    "source": "pexels",
     "asset_id": "29197738",
     "asset_url": "https://images.pexels.com/photos/29197738/pexels-photo-29197738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "wegovy weight loss pill biomedical microscopy",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8442498/pexels-photo-8442498.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "chronic stress quietly reshaping your medical research laboratory",
     "concept_signature": "chronic laboratory quietly reshaping stress your"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "6753426",
+    "asset_url": "https://images.pexels.com/photos/6753426/pexels-photo-6753426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "chronic stress may quietly reshaping your medical photography",
+    "concept_signature": "chronic photography quietly reshaping stress your"
   }
 ]
