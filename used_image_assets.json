@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "5x50sikAh0A",
-    "asset_url": "https://images.unsplash.com/photo-1729704200257-f0a9265d4b1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHx3ZWdvdnklMjB3ZWlnaHQlMjBsb3NzJTIwcGlsbCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgyNDAyNDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "wegovy weight loss pill medical photography",
-    "concept_signature": "loss photography pill wegovy weight"
-  },
-  {
     "source": "pexels",
     "asset_id": "8851257",
     "asset_url": "https://images.pexels.com/photos/8851257/pexels-photo-8851257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1659959103888-ea4ab754e6f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxyZXN0b3JlJTIwYnJhaW4lMjBwcm90ZWluJTIwcmV2ZXJzZSUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODk5NTI4MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "restore brain protein reverse scientific visualization",
     "concept_signature": "brain protein restore reverse scientific visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8442498",
+    "asset_url": "https://images.pexels.com/photos/8442498/pexels-photo-8442498.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "chronic stress quietly reshaping your medical research laboratory",
+    "concept_signature": "chronic laboratory quietly reshaping stress your"
   }
 ]
