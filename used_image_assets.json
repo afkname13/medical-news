@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "Tz3qK-6MMl4",
-    "asset_url": "https://images.unsplash.com/photo-1707386821177-1c3dde2e1d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxlYm9sYSUyMGhhbnRhdmlydXMlMjBzdGFydCUyMGNsaW5pY2FsJTIwaW1hZ2V8ZW58MHwxfHx8MTc4MjMxNTU5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "ebola hantavirus start clinical image",
-    "concept_signature": "ebola hantavirus start"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "5x50sikAh0A",
     "asset_url": "https://images.unsplash.com/photo-1729704200257-f0a9265d4b1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHx3ZWdvdnklMjB3ZWlnaHQlMjBsb3NzJTIwcGlsbCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzgyNDAyNDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "wegovy weight loss pill medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079917886-a6994ae0d7f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8cmVzdG9yZSUyMGJyYWluJTIwcHJvdGVpbiUyMHJldmVyc2UlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzg5OTMyNjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "restore brain protein reverse biomedical microscopy",
     "concept_signature": "biomedical brain microscopy protein restore reverse"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "n5GgAs1_RXQ",
+    "asset_url": "https://images.unsplash.com/photo-1659959103888-ea4ab754e6f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxyZXN0b3JlJTIwYnJhaW4lMjBwcm90ZWluJTIwcmV2ZXJzZSUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODk5NTI4MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "restore brain protein reverse scientific visualization",
+    "concept_signature": "brain protein restore reverse scientific visualization"
   }
 ]
