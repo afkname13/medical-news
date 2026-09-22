@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "29197695",
-    "asset_url": "https://images.pexels.com/photos/29197695/pexels-photo-29197695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "wegovy weight loss pill scientific visualization",
-    "concept_signature": "loss pill scientific visualization wegovy weight"
-  },
-  {
-    "source": "pexels",
     "asset_id": "29042025",
     "asset_url": "https://images.pexels.com/photos/29042025/pexels-photo-29042025.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "wegovy weight loss pill gets approval medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8460232/pexels-photo-8460232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cardiology specialists analyzing advanced cardiac mri medical photography",
     "concept_signature": "advanced analyzing cardiac cardiology photography specialists"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "SZUDyEMBaV8",
+    "asset_url": "https://images.unsplash.com/photo-1554600740-951beab4712b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBkb2VzbiUyMGhhdmUlMjBrZWVwJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc5MDA5ODc4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "coffee doesn have keep biomedical microscopy",
+    "concept_signature": "biomedical coffee doesn have keep microscopy"
   }
 ]
