@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "29042025",
-    "asset_url": "https://images.pexels.com/photos/29042025/pexels-photo-29042025.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "wegovy weight loss pill gets approval medical photography",
-    "concept_signature": "approval gets loss pill wegovy weight"
-  },
-  {
     "source": "unsplash",
     "asset_id": "rb8hr3cXD4A",
     "asset_url": "https://images.unsplash.com/photo-1582719202047-76d3432ee323?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxyZXNlYXJjaGVycyUyMGRpc2NvdmVyJTIwZnJ1Y3Rvc2UlMjBkb2VzbiUyMHNhdGlzZnklMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODI1MTk3MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1554600740-951beab4712b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBkb2VzbiUyMGhhdmUlMjBrZWVwJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc5MDA5ODc4OHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "coffee doesn have keep biomedical microscopy",
     "concept_signature": "biomedical coffee doesn have keep microscopy"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "vmlLClilc7k",
+    "asset_url": "https://images.unsplash.com/photo-1617481507495-221a4f47b8b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxjb2ZmZWUlMjBkb2VzbiUyMGhhdmUlMjBrZWVwJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc5MDEwODAwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "coffee doesn have keep scientific visualization",
+    "concept_signature": "coffee doesn have keep scientific visualization"
   }
 ]
