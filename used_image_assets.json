@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "38000556",
-    "asset_url": "https://images.pexels.com/photos/38000556/pexels-photo-38000556.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "photography microscope view glowing purple vitamin medical photography",
-    "concept_signature": "glowing microscope photography purple view vitamin"
-  },
-  {
     "source": "unsplash",
     "asset_id": "8jfIIrkHeII",
     "asset_url": "https://images.unsplash.com/photo-1631556096543-23fdcb5896da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw0fHxtaWNyb3Njb3BlJTIwY2VsbHN8ZW58MHwxfHx8MTc4Mjc3ODg3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1632999875261-79632fab0812?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8c2xlZXAlMjBjbGluaWMlMjBwYXRpZW50JTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3OTAzNTkxMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "sleep clinic patient medical photography",
     "concept_signature": "clinic patient photography sleep"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "dTcNfwah8g0",
+    "asset_url": "https://images.unsplash.com/photo-1667657959692-5994a7442479?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxtb3JlJTIwcmVtJTIwc2xlZXAlMjBsaW5rZWQlMjBsb3dlciUyMHJpc2slMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc5MDM2ODMyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "more rem sleep linked lower risk medical photography",
+    "concept_signature": "linked lower more photography risk sleep"
   }
 ]
