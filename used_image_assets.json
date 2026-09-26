@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8326148",
-    "asset_url": "https://images.pexels.com/photos/8326148/pexels-photo-8326148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "have finally found alzheimer scientific visualization",
-    "concept_signature": "alzheimer finally found have scientific visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "4226119",
     "asset_url": "https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "brain scan medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/9408869/pexels-photo-9408869.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "sleep monitoring eeg medical photography",
     "concept_signature": "monitoring photography sleep"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "qLjpoqjGoA0",
+    "asset_url": "https://images.unsplash.com/photo-1546621083-17f1e50980e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxzbGVlcCUyMG1vbml0b3JpbmclMjBlZWd8ZW58MHwxfHx8MTc5MDQ1MjQ5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "sleep monitoring eeg",
+    "concept_signature": "monitoring sleep"
   }
 ]
