@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "tEVGmMaPFXk",
-    "asset_url": "https://images.unsplash.com/photo-1549925245-f20a1bac6454?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxoYXZlJTIwZmluYWxseSUyMGZvdW5kJTIwYWx6aGVpbWVyJTIwYmlvbWVkaWNhbCUyMG1pY3Jvc2NvcHl8ZW58MHwxfHx8MTc4MjgzNDE4MHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "have finally found alzheimer biomedical microscopy",
-    "concept_signature": "alzheimer biomedical finally found have microscopy"
-  },
-  {
     "source": "pexels",
     "asset_id": "8326148",
     "asset_url": "https://images.pexels.com/photos/8326148/pexels-photo-8326148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/14829613/pexels-photo-14829613.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "sleep laboratory medical photography",
     "concept_signature": "laboratory photography sleep"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "9408869",
+    "asset_url": "https://images.pexels.com/photos/9408869/pexels-photo-9408869.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "sleep monitoring eeg medical photography",
+    "concept_signature": "monitoring photography sleep"
   }
 ]
