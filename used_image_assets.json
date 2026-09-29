@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "7776956",
-    "asset_url": "https://images.pexels.com/photos/7776956/pexels-photo-7776956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "melanoma secret cheating death medical photography",
-    "concept_signature": "cheating death melanoma photography secret"
-  },
-  {
     "source": "unsplash",
     "asset_id": "rVEZesuF65k",
     "asset_url": "https://images.unsplash.com/photo-1602404454048-b0243398564e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cGhvdG9ncmFwaHklMjBjYW5jZXIlMjByZXNlYXJjaGVycyUyMGFuYWx5emluZyUyMGZsdW9yZXNjZW50JTIwbWljcm9zY29waWMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MzE4ODkyMHww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/3850727/pexels-photo-3850727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "glucosamine popular joint supplement clinical research",
     "concept_signature": "glucosamine joint popular supplement"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "29197501",
+    "asset_url": "https://images.pexels.com/photos/29197501/pexels-photo-29197501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "glucosamine popular joint supplement medical photography",
+    "concept_signature": "glucosamine joint photography popular supplement"
   }
 ]
