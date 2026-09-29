@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8110792",
-    "asset_url": "https://images.pexels.com/photos/8110792/pexels-photo-8110792.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "melanoma secret cheating death clinical research",
-    "concept_signature": "cheating death melanoma secret"
-  },
-  {
-    "source": "pexels",
     "asset_id": "7776956",
     "asset_url": "https://images.pexels.com/photos/7776956/pexels-photo-7776956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "melanoma secret cheating death medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/16328960/pexels-photo-16328960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "neuroscientists examining fluorescent microscopy cellular sugar medical photography",
     "concept_signature": "cellular examining fluorescent microscopy neuroscientists sugar"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "3850727",
+    "asset_url": "https://images.pexels.com/photos/3850727/pexels-photo-3850727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "glucosamine popular joint supplement clinical research",
+    "concept_signature": "glucosamine joint popular supplement"
   }
 ]
