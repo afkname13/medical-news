@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "rVEZesuF65k",
-    "asset_url": "https://images.unsplash.com/photo-1602404454048-b0243398564e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cGhvdG9ncmFwaHklMjBjYW5jZXIlMjByZXNlYXJjaGVycyUyMGFuYWx5emluZyUyMGZsdW9yZXNjZW50JTIwbWljcm9zY29waWMlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MzE4ODkyMHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "photography cancer researchers analyzing fluorescent microscopic medical photography",
-    "concept_signature": "analyzing cancer fluorescent microscopic photography researchers"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "tvVVvdVR__I",
     "asset_url": "https://images.unsplash.com/photo-1604331204667-3ce5601c21b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8cGhvdG9ncmFwaHklMjBnbG93aW5nJTIwZmx1b3Jlc2NlbnQlMjBsYWJlbGVkJTIwbWVsYW5vbWElMjBjYW5jZXIlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4MzIxMDQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "photography glowing fluorescent labeled melanoma cancer medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/29197501/pexels-photo-29197501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "glucosamine popular joint supplement medical photography",
     "concept_signature": "glucosamine joint photography popular supplement"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "xcN1taJ2y0M",
+    "asset_url": "https://images.unsplash.com/photo-1581595219315-a187dd40c322?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxicmFpbiUyMHNjYW5zJTIwcmV2ZWFsJTIwd2hpY2glMjBkaXNvcmRlcnMlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3OTA3OTMxNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "brain scans reveal which disorders medical research laboratory",
+    "concept_signature": "brain disorders laboratory reveal scans which"
   }
 ]
