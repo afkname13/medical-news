@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "34221899",
-    "asset_url": "https://images.pexels.com/photos/34221899/pexels-photo-34221899.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "photography sleeping neurology lab wearing eeg medical photography",
-    "concept_signature": "neurology photography sleeping wearing"
-  },
-  {
-    "source": "pexels",
     "asset_id": "6248491",
     "asset_url": "https://images.pexels.com/photos/6248491/pexels-photo-6248491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography asleep sleep study clinic with medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "brain scans reveal which scientific visualization",
     "concept_signature": "brain reveal scans scientific visualization which"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "-DCNY22iDeI",
+    "asset_url": "https://images.unsplash.com/photo-1582719298818-904ce0e5cd87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8Z2VuZXRpY3MlMjBsYWJvcmF0b3J5JTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3OTA4ODA5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "genetics laboratory medical photography",
+    "concept_signature": "genetics laboratory photography"
   }
 ]
