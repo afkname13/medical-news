@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "6248491",
-    "asset_url": "https://images.pexels.com/photos/6248491/pexels-photo-6248491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "photography asleep sleep study clinic with medical photography",
-    "concept_signature": "asleep clinic photography sleep"
-  },
-  {
     "source": "unsplash",
     "asset_id": "8bzZU9iGxkU",
     "asset_url": "https://images.unsplash.com/photo-1729704200283-a41b04e18da8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8d2VpZ2h0JTIwbG9zcyUyMHBpbGwlMjBiZWF0cyUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3ODM1MjUxMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1582719298818-904ce0e5cd87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8Z2VuZXRpY3MlMjBsYWJvcmF0b3J5JTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3OTA4ODA5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "genetics laboratory medical photography",
     "concept_signature": "genetics laboratory photography"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "4031436",
+    "asset_url": "https://images.pexels.com/photos/4031436/pexels-photo-4031436.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "alzheimer risk gene apoe biomedical microscopy",
+    "concept_signature": "alzheimer apoe biomedical gene microscopy risk"
   }
 ]
