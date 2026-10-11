@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "OXZ4HSv7PbA",
-    "asset_url": "https://images.unsplash.com/photo-1697318827718-4ac5c7f5545a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8cG9wdWxhciUyMHN1Z2FyJTIwc3Vic3RpdHV0ZXMlMjBsaW5rZWQlMjBjbGluaWNhbCUyMHJlc2VhcmNofGVufDB8MXx8fDE3ODQ0NzE3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "popular sugar substitutes linked clinical research",
-    "concept_signature": "linked popular substitutes sugar"
-  },
-  {
     "source": "pexels",
     "asset_id": "8670207",
     "asset_url": "https://images.pexels.com/photos/8670207/pexels-photo-8670207.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/9574503/pexels-photo-9574503.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "novo nordisk lilly face lawsuits medical research laboratory",
     "concept_signature": "face laboratory lawsuits lilly nordisk novo"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "XrW_dhI8_BU",
+    "asset_url": "https://images.unsplash.com/photo-1770217757395-f14e9c2f601b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8b3BodGhhbG1vbG9naXN0JTIwZXhhbWluaW5nJTIwYWR1bHQlMjByZXRpbmElMjB1c2luZyUyMG1vZGVybiUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzkxNjgzNzcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "ophthalmologist examining adult retina using modern medical photography",
+    "concept_signature": "adult examining modern ophthalmologist photography retina"
   }
 ]
