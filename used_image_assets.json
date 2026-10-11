@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "_2XBJVy9Z9E",
-    "asset_url": "https://images.unsplash.com/photo-1707862159533-caf8ddfe9cec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8ZGlzY292ZXIlMjBwcm90ZWluJTIwcHJvdGVjdHMlMjBicmFpbiUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3ODQ1NjA5Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "discover protein protects brain biomedical microscopy",
-    "concept_signature": "biomedical brain discover microscopy protects protein"
-  },
-  {
     "source": "pexels",
     "asset_id": "34755829",
     "asset_url": "https://images.pexels.com/photos/34755829/pexels-photo-34755829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/9574458/pexels-photo-9574458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "novo nordisk lilly face clinical research",
     "concept_signature": "face lilly nordisk novo"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "bcqDxjddPGk",
+    "asset_url": "https://images.unsplash.com/photo-1581091007718-0c50d599bfd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxiaW9tZWRpY2FsJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzkxNzUyMzc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "biomedical laboratory",
+    "concept_signature": "biomedical laboratory"
   }
 ]
