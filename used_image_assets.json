@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "4178295",
-    "asset_url": "https://images.pexels.com/photos/4178295/pexels-photo-4178295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "coffee protect your heart biomedical microscopy",
-    "concept_signature": "biomedical coffee heart microscopy protect your"
-  },
-  {
-    "source": "pexels",
     "asset_id": "7108341",
     "asset_url": "https://images.pexels.com/photos/7108341/pexels-photo-7108341.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "heart patient medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/3976431/pexels-photo-3976431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography peacefully sleep study with delicate medical photography",
     "concept_signature": "delicate peacefully photography sleep"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "20860620",
+    "asset_url": "https://images.pexels.com/photos/20860620/pexels-photo-20860620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "just minutes daily exercise medical photography",
+    "concept_signature": "daily exercise just minutes photography"
   }
 ]
