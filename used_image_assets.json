@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "7108341",
-    "asset_url": "https://images.pexels.com/photos/7108341/pexels-photo-7108341.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "heart patient medical photography",
-    "concept_signature": "heart patient photography"
-  },
-  {
-    "source": "pexels",
     "asset_id": "9408871",
     "asset_url": "https://images.pexels.com/photos/9408871/pexels-photo-9408871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cardiac imaging medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/20860620/pexels-photo-20860620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "just minutes daily exercise medical photography",
     "concept_signature": "daily exercise just minutes photography"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "_2XBJVy9Z9E",
+    "asset_url": "https://images.unsplash.com/photo-1707862159533-caf8ddfe9cec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxoYXZlJTIwb3Zlcmxvb2tlZCUyMGhpZGRlbiUyMGFsemhlaW1lciUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3OTIwMDA5Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "have overlooked hidden alzheimer biomedical microscopy",
+    "concept_signature": "alzheimer biomedical have hidden microscopy overlooked"
   }
 ]
