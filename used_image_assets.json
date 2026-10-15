@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "13365432",
-    "asset_url": "https://images.pexels.com/photos/13365432/pexels-photo-13365432.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "ozempic mounjaro linked surprising biomedical microscopy",
-    "concept_signature": "biomedical linked microscopy mounjaro ozempic surprising"
-  },
-  {
-    "source": "pexels",
     "asset_id": "4923044",
     "asset_url": "https://images.pexels.com/photos/4923044/pexels-photo-4923044.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "ozempic and mounjaro linked surprising hair medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1648224395362-45708f929dc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxzdHJva2VzJTIwaGF2ZSUyMG5lYXJseSUyMGRvdWJsZWQlMjBjbGluaWNhbCUyMHJlc2VhcmNofGVufDB8MXx8fDE3OTIwODY0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "strokes have nearly doubled clinical research",
     "concept_signature": "doubled have nearly strokes"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "30484971",
+    "asset_url": "https://images.pexels.com/photos/30484971/pexels-photo-30484971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "strokes have nearly doubled biomedical microscopy",
+    "concept_signature": "biomedical doubled have microscopy nearly strokes"
   }
 ]
