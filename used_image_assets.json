@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "kmAhp91dHu4",
-    "asset_url": "https://images.unsplash.com/photo-1636386689060-37d233b5d345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw4fHxoaWRkZW4lMjBhbHpoZWltZXIlMjB0aXBwaW5nJTIwcG9pbnQlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzg1MDc3MTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "hidden alzheimer tipping point biomedical microscopy",
-    "concept_signature": "alzheimer biomedical hidden microscopy point tipping"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "uxnbYOejXCE",
     "asset_url": "https://images.unsplash.com/photo-1583912267856-1fcdf6e0a1f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMnx8c2FtZSUyMGRhbWFnZSUyMGNhdXNlcyUyMGNhbmNlciUyMHNvbWUlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODUxNjc1Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "same damage causes cancer some medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/30644763/pexels-photo-30644763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "strokes have nearly doubled scientific visualization",
     "concept_signature": "doubled have nearly scientific strokes visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "5723875",
+    "asset_url": "https://images.pexels.com/photos/5723875/pexels-photo-5723875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "yale discover stress changes brain medical research laboratory",
+    "concept_signature": "brain changes discover laboratory stress yale"
   }
 ]
