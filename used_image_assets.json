@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "cWRVSX6lfBg",
-    "asset_url": "https://images.unsplash.com/photo-1587010579793-d870e1f79325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxyYWRpb2xvZ3klMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODUxNzgxOTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "radiology imaging medical photography",
-    "concept_signature": "imaging photography radiology"
-  },
-  {
     "source": "pexels",
     "asset_id": "8428400",
     "asset_url": "https://images.pexels.com/photos/8428400/pexels-photo-8428400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/4226139/pexels-photo-4226139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography neuroscientists analyzing brain scans dark medical photography",
     "concept_signature": "analyzing brain dark neuroscientists photography scans"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "zna7XRjnc6k",
+    "asset_url": "https://images.unsplash.com/photo-1707079346045-58fed6cde83a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxkcnVnJTIwcmV2ZXJzZXMlMjBzZXZlcmUlMjBmYXR0eSUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3OTIyNTQ1MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "drug reverses severe fatty biomedical microscopy",
+    "concept_signature": "biomedical drug fatty microscopy reverses severe"
   }
 ]
