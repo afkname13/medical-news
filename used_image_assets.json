@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8428400",
-    "asset_url": "https://images.pexels.com/photos/8428400/pexels-photo-8428400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "same damage causes cancer scientific visualization",
-    "concept_signature": "cancer causes damage same scientific visualization"
-  },
-  {
-    "source": "pexels",
     "asset_id": "7723622",
     "asset_url": "https://images.pexels.com/photos/7723622/pexels-photo-7723622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "cancer cells medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707079346045-58fed6cde83a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxkcnVnJTIwcmV2ZXJzZXMlMjBzZXZlcmUlMjBmYXR0eSUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3OTIyNTQ1MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "drug reverses severe fatty biomedical microscopy",
     "concept_signature": "biomedical drug fatty microscopy reverses severe"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "2CXIqqpvTFE",
+    "asset_url": "https://images.unsplash.com/photo-1762623728122-b495ee7d3f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8ZHJ1ZyUyMHJldmVyc2VzJTIwc2V2ZXJlJTIwZmF0dHklMjBzY2llbnRpZmljJTIwdmlzdWFsaXphdGlvbnxlbnwwfDF8fHwxNzkyMjY1MzU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "drug reverses severe fatty scientific visualization",
+    "concept_signature": "drug fatty reverses scientific severe visualization"
   }
 ]
