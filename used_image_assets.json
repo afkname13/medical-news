@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "p1zy6izFI0M",
-    "asset_url": "https://images.unsplash.com/photo-1631049123177-37356471f3dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjYW5jZXIlMjBjZWxsc3xlbnwwfDF8fHwxNzg1MjgzNzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "cancer cells",
-    "concept_signature": "cancer cells"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "pzhmgzgL1Sk",
     "asset_url": "https://images.unsplash.com/photo-1583912268179-ccc39663824a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHxndWlkZWxpbmVzJTIwZGVtZW50aWElMjByaXNrJTIwY291bGQlMjBwcmV2ZW50ZWQlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODUzMzg1Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "guidelines dementia risk could prevented medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1788580210927-31e526de5639?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8ZmluZCUyMHlvdXRoJTIwcHJvdGVpbiUyMGhlbHBzJTIwc2NpZW50aWZpYyUyMHZpc3VhbGl6YXRpb258ZW58MHwxfHx8MTc5MjM0MTMyMHww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "find youth protein helps scientific visualization",
     "concept_signature": "find helps protein scientific visualization youth"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "3cutgZyMD4Q",
+    "asset_url": "https://images.unsplash.com/photo-1766713203219-8ca06e1f4db9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxwaG90b2dyYXBoeSUyMG5ldXJvc2NpZW50aXN0cyUyMGV4YW1pbmluZyUyMGZsdW9yZXNjZW50JTIwY29uZm9jYWwlMjBtaWNyb3Njb3B5JTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3OTIzNTE2ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "photography neuroscientists examining fluorescent confocal microscopy medical photography",
+    "concept_signature": "confocal examining fluorescent microscopy neuroscientists photography"
   }
 ]
