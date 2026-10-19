@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "9768453",
-    "asset_url": "https://images.pexels.com/photos/9768453/pexels-photo-9768453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "sleep heat these tricks biomedical microscopy",
-    "concept_signature": "biomedical heat microscopy sleep these tricks"
-  },
-  {
-    "source": "pexels",
     "asset_id": "33734819",
     "asset_url": "https://images.pexels.com/photos/33734819/pexels-photo-33734819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography person sleeping peacefully dark modern medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1583912267856-1fcdf6e0a1f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxqdXN0JTIwc3RlcHMlMjBoZWxwJTIwc2xvdyUyMGFsemhlaW1lciUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc5MjQzNzY5MXww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "just steps help slow alzheimer medical research laboratory",
     "concept_signature": "alzheimer help just laboratory slow steps"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "CYov43AK3i8",
+    "asset_url": "https://images.unsplash.com/photo-1685034800799-73b00e2fb874?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw5fHxqdXN0JTIwc3RlcHMlMjBoZWxwJTIwc2xvdyUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3OTI0NDU3NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "just steps help slow scientific visualization",
+    "concept_signature": "help just scientific slow steps visualization"
   }
 ]
