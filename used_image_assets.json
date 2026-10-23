@@ -2,13 +2,6 @@
   {
     "source": "unsplash",
     "asset_id": "p1zy6izFI0M",
-    "asset_url": "https://images.unsplash.com/photo-1631049123177-37356471f3dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjYW5jZXIlMjBjZWxsc3xlbnwwfDF8fHwxNzg1NzE2MDAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "cancer cells",
-    "concept_signature": "cancer cells"
-  },
-  {
-    "source": "unsplash",
-    "asset_id": "p1zy6izFI0M",
     "asset_url": "https://images.unsplash.com/photo-1631049123177-37356471f3dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxjYW5jZXIlMjBjZWxsc3xlbnwwfDF8fHwxNzg1NzcyNjIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "cancer cells",
     "concept_signature": "cancer cells"
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8442107/pexels-photo-8442107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "people taking unapproved weight clinical research",
     "concept_signature": "people taking unapproved weight"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "6291261",
+    "asset_url": "https://images.pexels.com/photos/6291261/pexels-photo-6291261.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "breakthrough ptsd treatment achieves remission rate medical photography",
+    "concept_signature": "achieves photography ptsd rate remission treatment"
   }
 ]
