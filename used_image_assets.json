@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "8460231",
-    "asset_url": "https://images.pexels.com/photos/8460231/pexels-photo-8460231.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "wearable ultrasound patch boosts scientific visualization",
-    "concept_signature": "boosts patch scientific ultrasound visualization wearable"
-  },
-  {
-    "source": "pexels",
     "asset_id": "33321466",
     "asset_url": "https://images.pexels.com/photos/33321466/pexels-photo-33321466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "photography sleeping sleep wearing thin wearable medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/29859866/pexels-photo-29859866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "dose aspirin linked lower biomedical microscopy",
     "concept_signature": "aspirin biomedical dose linked lower microscopy"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "8532860",
+    "asset_url": "https://images.pexels.com/photos/8532860/pexels-photo-8532860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "photography neurogenetics researcher analyzing glowing dna medical photography",
+    "concept_signature": "analyzing glowing neurogenetics photography researcher"
   }
 ]
