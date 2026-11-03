@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "7460055",
-    "asset_url": "https://images.pexels.com/photos/7460055/pexels-photo-7460055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "new glp pill delivers biomedical scientific medical photography",
-    "concept_signature": "biomedical delivers photography pill scientific"
-  },
-  {
-    "source": "pexels",
     "asset_id": "9769115",
     "asset_url": "https://images.pexels.com/photos/9769115/pexels-photo-9769115.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "pill delivers weight loss medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/7203697/pexels-photo-7203697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "discover surprising brain benefit scientific visualization",
     "concept_signature": "benefit brain discover scientific surprising visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "NIuGLCC7q54",
+    "asset_url": "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwyfHxkaXNjb3ZlciUyMHN1cnByaXNpbmclMjBoZWFydCUyMGJlbmVmaXRzJTIwZWF0aW5nJTIwbWVkaWNhbCUyMHJlc2VhcmNoJTIwbGFib3JhdG9yeXxlbnwwfDF8fHwxNzkzNzM2NTEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "discover surprising heart benefits eating medical research laboratory",
+    "concept_signature": "benefits discover eating heart laboratory surprising"
   }
 ]
