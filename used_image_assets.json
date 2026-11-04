@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "FqRrkRsmDwM",
-    "asset_url": "https://images.unsplash.com/photo-1748404456463-16144dcc6181?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxuZXVyb3NjaWVuY2UlMjBsYWIlMjBtZWRpY2FsJTIwcGhvdG9ncmFwaHl8ZW58MHwxfHx8MTc4NjU1ODE2OHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "neuroscience lab medical photography",
-    "concept_signature": "neuroscience photography"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "AkcCtVGeu1k",
     "asset_url": "https://images.unsplash.com/photo-1693417920099-d985b3e0fa44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwzfHxtcmklMjBpbWFnaW5nJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3ODY1NzkxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "mri imaging medical photography",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1707216171962-9f1514c0bda6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNHx8ZGlzY292ZXIlMjBzdXJwcmlzaW5nJTIwaGVhcnQlMjBiZW5lZml0cyUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3OTM3NDQ0MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "discover surprising heart benefits biomedical microscopy",
     "concept_signature": "benefits biomedical discover heart microscopy surprising"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "2x-Bgdom6BA",
+    "asset_url": "https://images.unsplash.com/photo-1715111641672-e005eeb393ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8ZGlzY292ZXIlMjBzdXJwcmlzaW5nJTIwaGVhcnQlMjBiZW5lZml0cyUyMHNjaWVudGlmaWMlMjB2aXN1YWxpemF0aW9ufGVufDB8MXx8fDE3OTM3NjEyNTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "discover surprising heart benefits scientific visualization",
+    "concept_signature": "benefits discover heart scientific surprising visualization"
   }
 ]
