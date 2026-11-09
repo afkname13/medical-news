@@ -1,12 +1,5 @@
 [
   {
-    "source": "pexels",
-    "asset_id": "28516276",
-    "asset_url": "https://images.pexels.com/photos/28516276/pexels-photo-28516276.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "doctor prescribed ozempic wegovy scientific visualization",
-    "concept_signature": "doctor ozempic prescribed scientific visualization wegovy"
-  },
-  {
     "source": "unsplash",
     "asset_id": "Zmay3snoIaM",
     "asset_url": "https://images.unsplash.com/photo-1676032095373-b6452d235f1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxjZW50JTIwaGVhcnQlMjBkcnVnJTIwY3V0cyUyMGhvc3BpdGFsaXphdGlvbnMlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODcwNzU1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/13365432/pexels-photo-13365432.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "stronger shot linked nearly biomedical microscopy",
     "concept_signature": "biomedical linked microscopy nearly shot stronger"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "10587081",
+    "asset_url": "https://images.pexels.com/photos/10587081/pexels-photo-10587081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "stronger shot linked nearly scientific visualization",
+    "concept_signature": "linked nearly scientific shot stronger visualization"
   }
 ]
