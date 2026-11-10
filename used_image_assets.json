@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "Zmay3snoIaM",
-    "asset_url": "https://images.unsplash.com/photo-1676032095373-b6452d235f1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw2fHxjZW50JTIwaGVhcnQlMjBkcnVnJTIwY3V0cyUyMGhvc3BpdGFsaXphdGlvbnMlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODcwNzU1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "cent heart drug cuts hospitalizations medical research laboratory",
-    "concept_signature": "cent cuts drug heart hospitalizations laboratory"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "a4rgVRreAkE",
     "asset_url": "https://images.unsplash.com/photo-1753045871205-4f8f0aa3fdf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMHx8YWZyaWNhbiUyMHVuaW9uJTIwd29ybGQlMjBoZWFsdGglMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzg3MDk2MjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "african union world health biomedical microscopy",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/10587081/pexels-photo-10587081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "stronger shot linked nearly scientific visualization",
     "concept_signature": "linked nearly scientific shot stronger visualization"
+  },
+  {
+    "source": "unsplash",
+    "asset_id": "0fQ-eNSWfhI",
+    "asset_url": "https://images.unsplash.com/photo-1644100254664-dccb172c72aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxMXx8YWx6aGVpbWVyJTIwaGF2ZSUyMGVhcmx5JTIwd2FybmluZyUyMGJpb21lZGljYWwlMjBtaWNyb3Njb3B5fGVufDB8MXx8fDE3OTQyODU1MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "query": "alzheimer have early warning biomedical microscopy",
+    "concept_signature": "alzheimer biomedical early have microscopy warning"
   }
 ]
