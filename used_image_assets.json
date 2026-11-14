@@ -1,12 +1,5 @@
 [
   {
-    "source": "unsplash",
-    "asset_id": "dAHABqJ8Nlw",
-    "asset_url": "https://images.unsplash.com/photo-1663363913130-c6cab1bf4095?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxrbm93JTIwcmVzcG9uZCUyMHZhY2NpbmUlMjBiZWZvcmUlMjBiaW9tZWRpY2FsJTIwbWljcm9zY29weXxlbnwwfDF8fHwxNzg3MzM0NzIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "know respond vaccine before biomedical microscopy",
-    "concept_signature": "before biomedical know microscopy respond vaccine"
-  },
-  {
     "source": "pexels",
     "asset_id": "5994807",
     "asset_url": "https://images.pexels.com/photos/5994807/pexels-photo-5994807.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/9228397/pexels-photo-9228397.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "stanford discover hidden brain scientific visualization",
     "concept_signature": "brain discover hidden scientific stanford visualization"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "13176449",
+    "asset_url": "https://images.pexels.com/photos/13176449/pexels-photo-13176449.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "mri imaging medical photography",
+    "concept_signature": "imaging photography"
   }
 ]
