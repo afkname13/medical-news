@@ -1,13 +1,6 @@
 [
   {
     "source": "pexels",
-    "asset_id": "5994807",
-    "asset_url": "https://images.pexels.com/photos/5994807/pexels-photo-5994807.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "query": "know respond vaccine before able medical research laboratory",
-    "concept_signature": "able before know laboratory respond vaccine"
-  },
-  {
-    "source": "pexels",
     "asset_id": "5995305",
     "asset_url": "https://images.pexels.com/photos/5995305/pexels-photo-5995305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "know respond vaccine before scientific visualization",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/13176449/pexels-photo-13176449.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "mri imaging medical photography",
     "concept_signature": "imaging photography"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "9162028",
+    "asset_url": "https://images.pexels.com/photos/9162028/pexels-photo-9162028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "alzheimer start shrinking brain scientific visualization",
+    "concept_signature": "alzheimer brain scientific shrinking start visualization"
   }
 ]
