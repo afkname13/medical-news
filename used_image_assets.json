@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "LpG6c7mQfXo",
-    "asset_url": "https://images.unsplash.com/photo-1723513198534-c3cd2e033815?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxM3x8c2xlZXAlMjBwb2x5c29tbm9ncmFwaHklMjBtb25pdG9yaW5nJTIwZXF1aXBtZW50JTIwZGlzcGxheWluZyUyMG5ldXJvbG9naWNhbCUyMG1lZGljYWwlMjBwaG90b2dyYXBoeXxlbnwwfDF8fHwxNzg3NzAxMTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "sleep polysomnography monitoring equipment displaying neurological medical photography",
-    "concept_signature": "displaying equipment monitoring neurological polysomnography sleep"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "AWyuZSxm7Ko",
     "asset_url": "https://images.unsplash.com/photo-1491294862070-d0d42c364cfc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw1fHxtdWNoJTIwbGl0dGxlJTIwc2xlZXAlMjBjbGluaWNhbCUyMGltYWdlfGVufDB8MXx8fDE3ODc3NTM0MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "much little sleep clinical image",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.pexels.com/photos/8442440/pexels-photo-8442440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "query": "this simple habit linked biomedical scientific medical photography",
     "concept_signature": "biomedical habit linked photography scientific simple"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "4687908",
+    "asset_url": "https://images.pexels.com/photos/4687908/pexels-photo-4687908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "simple habit linked lower medical photography",
+    "concept_signature": "habit linked lower photography simple"
   }
 ]
