@@ -1,13 +1,6 @@
 [
   {
     "source": "unsplash",
-    "asset_id": "uVnRa6mOLOM",
-    "asset_url": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxfHxtaXNzaW5nJTIwY29sb3IlMjBpbmRvb3IlMjBsaWdodCUyMGhlbHAlMjBtZWRpY2FsJTIwcmVzZWFyY2glMjBsYWJvcmF0b3J5fGVufDB8MXx8fDE3ODc3NzIxNjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "query": "missing color indoor light help medical research laboratory",
-    "concept_signature": "color help indoor laboratory light missing"
-  },
-  {
-    "source": "unsplash",
     "asset_id": "PP5nO5gcLdA",
     "asset_url": "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHw3fHx3aGF0JTIwYmVmb3JlJTIwYWZmZWN0JTIweW91ciUyMGhlYWx0aCUyMG1lZGljYWwlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHwxfHx8MTc4NzgwNTEzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "what before affect your health medical research laboratory",
@@ -1398,5 +1391,12 @@
     "asset_url": "https://images.unsplash.com/photo-1693417920099-d985b3e0fa44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTI5Mjh8MHwxfHNlYXJjaHwxNXx8bmV1cm9zY2llbnRpc3RzJTIwYW5hbHl6aW5nJTIwZnVuY3Rpb25hbCUyMG1yaSUyMG5ldXJvaW1hZ2luZyUyMHNjYW5zJTIwbWVkaWNhbCUyMHBob3RvZ3JhcGh5fGVufDB8MXx8fDE3OTUyOTE4NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "query": "neuroscientists analyzing functional mri neuroimaging scans medical photography",
     "concept_signature": "analyzing functional neuroimaging neuroscientists photography scans"
+  },
+  {
+    "source": "pexels",
+    "asset_id": "7089402",
+    "asset_url": "https://images.pexels.com/photos/7089402/pexels-photo-7089402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "query": "neurologist examining fmri neuroimaging scans hippocampal medical photography",
+    "concept_signature": "examining fmri hippocampal neuroimaging neurologist scans"
   }
 ]
